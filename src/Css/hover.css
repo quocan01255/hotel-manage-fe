@@ -1,0 +1,9 @@
+.hover {
+    .zoom-img {
+      transition: transform 0.3s; /* Chỉnh thời gian hoàn thành hiệu ứng */
+    }
+  
+    .zoom-img:hover {
+      transform: scale(1.1); /* Tăng kích thước ảnh lên 110% */
+    }
+  }
