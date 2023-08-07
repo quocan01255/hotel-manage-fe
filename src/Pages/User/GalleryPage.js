@@ -1,5 +1,5 @@
 import React from 'react'
-import IteamGallery from '../../Components/User/IteamGallery'
+import IteamGallery from '../../components/user/IteamGallery'
 
 function GalleryPage() {
   return (

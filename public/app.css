@@ -8,7 +8,7 @@
     
   }
 #mainNavigation a::after{
-    border- radius:5px;
+    border-radius:5px;
     transform-origin: center;
     transform: scaleX(0);
     transition: transform.5s;
@@ -52,6 +52,10 @@
   #navbarNavDropdown.show .navbar-nav{
     background:#037582;
     padding:12px;
+  }
+
+  body {
+    font-family: 'Montserrat', sans-serif !important;
   }
 
   

@@ -3,21 +3,21 @@
     margin: 0;
     box-sizing: border-box;
 }
-
+/* 
 html {
     color: #333;
     font-size: 62.5%;
     
-}
+} */
 
-.main {
+.login-container {
     background: #f1f1f1;
     min-height: 100vh;
     display: flex;
     justify-content: center;
 }
 
-.form {
+.login-form {
     width: 500px;
     min-height: 100px;
     padding: 32px 24px;
@@ -29,77 +29,75 @@ html {
     box-shadow: 0 2px 5px 0 rgba(51, 62, 73, 0.1);
 }
 
-.form .heading {
-    font-size: 2.5rem;
+.login-form .heading {
+    font-size: 34px;
+    text-align: left;
 }
 
-.form .desc {
-    text-align: center;
+.login-form .desc {
+    text-align: left;
     color: #636d77;
-    font-size: 1.6rem;
+    font-size: 18px;
     font-weight: lighter;
-    line-height: 2.4rem;
     margin-top: 16px;
     font-weight: 300;
 }
 
-.form-group {
+.login-form .form-group {
     display: flex;
     margin-bottom: 16px;
     flex-direction: column;
 }
 
-.form-group .horizontal {
+.login-form .form-group .horizontal {
     display: flex;
     flex-direction: row;
     align-items: center;
-    font-size: 14px;
+    font-size: 16px;
 }
 
-.form-group .horizontal label {
+.login-form .form-group .horizontal label {
     margin: 0 6px;
 }
 
-.form-label,
+.login-form .form-label,
 .form-message {
     text-align: left;
 }
 
-.form-label {
-    font-weight: 700;
-    padding-bottom: 6px;
-    line-height: 1.8rem;
-    font-size: 1.4rem;
+.login-form .form-label {
+    font-weight: 600;
+    font-size: 16px;
 }
 
-.form-control {
+.login-form .form-control {
     height: 40px;
     padding: 8px 12px;
     border: 1px solid #b3b3b3;
     border-radius: 3px;
     outline: none;
-    font-size: 1.4rem;
+    font-size: 14px;
 }
 
-.form-control:hover {
+.login-form .form-control:hover {
     border-color: #1dbfaf;
 }
 
-.form-group.invalid .form-control {
+.login-form .form-group.invalid .form-control {
     border-color: #f33a58;
 }
 
-.form-group.invalid .form-message {
+.login-form .form-group.invalid .form-message {
     color: #f33a58;
 }
 
-.form-message {
-    font-size: 1.2rem;
-    line-height: 1.6rem;
+.login-form .form-message {
+    font-size: 14px;
+    line-height: 16px;
     padding: 4px 0 0;
 }
 
-.form-submit {
+.login-form .form-submit {
     outline: none;
     background-color: #1dbfaf;
     margin-top: 12px;
@@ -113,7 +111,7 @@ html {
     cursor: pointer;
 }
 
-.form-submit:hover {
+.login-form .form-submit:hover {
     background-color: #1ac7b6;
 }
 
@@ -121,12 +119,12 @@ html {
     margin-top: 36px;
 }
 
-.form-footer {
+.login-form .form-footer {
     text-align: left;
     margin-top: 24px;
 }
 
-.form-link {
-    font-size: 1.4rem;
+.login-form .form-link {
+    font-size: 14px;
     text-decoration: none;
 }

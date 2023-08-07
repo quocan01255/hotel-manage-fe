@@ -1,0 +1,117 @@
+.room {
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    margin: 24px 0;
+    padding-top: 12px;
+}
+
+.room img {
+    max-width: 100%;
+    height: auto;
+}
+
+.room__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.room__img {
+    width: 308px;
+}
+
+.room__container {
+    text-align: left;
+    color: black;
+}
+
+.room__title {
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.room__description {
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.room__icon {
+    color: #999;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    margin-left: -8px;
+}
+
+.room__icon i {
+    margin: 8px;
+}
+
+.room__detail {
+    margin-top: 12px;
+}
+
+.room__detail-navtab {
+    font-size: 14px;
+    font-weight: 400;
+    background-color: #666 !important;
+    color: #fff;
+    margin: 0 2px;
+    border-radius: 0px !important;
+}
+
+.room__detail-navtab:hover {
+    color: #000;
+    background-color: #fff !important;
+    border-color: #dee2e6 #dee2e6 #fff !important; 
+}
+
+.room__detail-navtab.active {
+    color: #495057;
+    background-color: #fff !important;
+    border-color: #dee2e6 #dee2e6 #fff;
+}
+
+.room__tab {
+    margin-top: 12px;
+}
+
+.room__tab-description {
+    color: #000;
+    font-weight: 400;
+    text-align: left;
+    padding-left: 16px;
+    font-size: 14px;
+}
+
+.room__tab-list {
+    padding-left: 16px;
+    list-style: disc;
+    margin: 0;
+}
+
+.room__tab-booking {
+    border-top: 1px solid #dee2e6;
+    padding: 12px 0;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+.room_tab-price {
+    font-size: 24px;
+    margin-right: 12px;
+}
+
+.room_tab-btn {
+    background-color: #666;
+    border: none;
+    border-radius: 0;
+}
+
+.room_tab-btn:hover {
+    background-color: #666;
+    opacity: 0.8;
+}
+
+
