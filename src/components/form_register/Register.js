@@ -13,8 +13,8 @@ function Register() {
     })
 
     return (
-        <div className="main">
-            <form action="" method="POST" className="form" id="login-form" >
+        <div className="main register-container">
+            <form action="" method="POST" className="register-form" id="login-form" >
                 <h3 className="heading">Sign up</h3>
 
                 <div className="spacer"></div>

@@ -41,11 +41,11 @@ function Login() {
     })
 
     return (
-        <div className="main">
+        <div className="main login-container">
             <ToastContainer />
-            <form action="" method="POST" className="form" id="login-form">
+            <form action="" method="POST" className="login-form" id="login-form">
                 <h3 className="heading">Sign in</h3>
-                <h4>For security, please sign in to access your information</h4>
+                <h4 className='desc'>For security, please sign in to access your information</h4>
 
                 <div className="spacer"></div>
 

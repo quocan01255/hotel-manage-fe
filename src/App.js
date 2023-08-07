@@ -1,27 +1,27 @@
 import './App.css';
-import './jquery'
-import './Css/animate.css'
-import './Css/animate.min.css'
-import './Css/style.css'
+import './header-action'
+import './css/animate.css'
+import './css/animate.min.css'
+import './css/style.css'
 import 'reset-css/reset.css';
 import { Link } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.css'
 import './App.css';
-import Login from './components/form_login/Login';
-import Register from './components/form_register/Register';
 
-import VillaPage from './Pages/User/VillaPage';
-import Header from './Components/User/Header';
-import CulinaryPage from './Pages/User/CulinaryPage';
+import VillaPage from './pages/user/VillaPage';
+import Header from './components/user/Header';
+import CulinaryPage from './pages/user/CulinaryPage';
 import {
   Routes, Route,
 } from "react-router-dom";
-import HomePage from './Pages/User/HomePage';
-import ExplorePage from './Pages/User/ExplorePage';
-import Layout1 from './Pages/Admin/Layout';
-import GalleryPage from './Pages/User/GalleryPage';
-import Footers from './Components/User/Footers';
+import HomePage from './pages/user/HomePage';
+import ExplorePage from './pages/user/ExplorePage';
+import Layout1 from './pages/admin/Layout';
+import GalleryPage from './pages/user/GalleryPage';
+import Footers from './components/user/Footers';
+import BookingPage from './pages/user/BookingPage';
+
 function App() {
   return (
     <div className="App">
@@ -33,7 +33,6 @@ function App() {
         <Route path="/explorepage" element={<ExplorePage />} />
         <Route path="/gallerypage" element={<GalleryPage/>} />
       </Routes>
-      
       <Footers/>
     </div>
   );
