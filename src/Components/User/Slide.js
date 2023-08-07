@@ -5,7 +5,7 @@ import 'bootstrap/dist/js/bootstrap.js'
 function Slide() {
     return (
 
-        <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
+        <div style={{marginTop: '-70px'}} id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
         <div className="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to={0} className="active" aria-current="true" aria-label="Slide 1" />
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to={1} aria-label="Slide 2" />
