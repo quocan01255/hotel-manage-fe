@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, {  useState } from 'react'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import './searchbar.css'
@@ -8,9 +8,9 @@ function SeachBar() {
     const [endDate, setEndDate] = useState(new Date());
 
     return (
-        <div className="main searchbar-container">
+        <div className="main searchbar-container" >
             <form id="booking-form" className="search-form" method="POST">
-                <div className="form-group">
+                <div className="form-group ">
                     <div className="form-destination">
                         {/* <label htmlFor="destination">Destination</label>
                             <input type="text" id="destination" name="destination" placeholder="EG. HAWAII" /> */}

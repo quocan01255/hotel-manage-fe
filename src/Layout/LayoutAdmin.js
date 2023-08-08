@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
+import { Link, Outlet } from "react-router-dom";
+
+import HeaderAdmin from "../Components/Admin/HeaderAdmin";
 import {
   DesktopOutlined,
   FileOutlined,
   PieChartOutlined,
   TeamOutlined,
   UserOutlined,
+  ContainerOutlined
 } from '@ant-design/icons';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
 const { Header, Content, Footer, Sider } = Layout;
@@ -16,22 +20,25 @@ function getItem(label, key, icon, children) {
     label,
   };
 }
-const items = [
-  getItem('Quản lý phòng', '1', <PieChartOutlined />),
-  getItem('Option 2', '2', <DesktopOutlined />),
-  getItem('User', 'sub1', <UserOutlined />, [
-    getItem('Tom', '3'),
-    getItem('Bill', '4'),
-    getItem('Alex', '5'),
-  ]),
-  getItem('Team', 'sub2', <TeamOutlined />, [getItem('Team 1', '6'), getItem('Team 2', '8')]),
-  getItem('Files', '9', <FileOutlined />),
-];
-const Layout1 = () => {
+
+const LayoutAdmin = () => {
   const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer },
   } = theme.useToken();
+  const [path, setPath] = useState("listbook");
+  const items = [
+    getItem(<Link to={"listbook"} onClick={() => { setPath("listbook"); }}>Quản lý danh mục</Link>, 'listbook', <ContainerOutlined />),
+    getItem(<Link to={"taikhoan"} onClick={() => { setPath("taikhoan"); }}>Quản lý tài khoản</Link>, 'taikhoan', <PieChartOutlined />),
+    getItem('Option 2', '2', <DesktopOutlined />),
+    getItem('User', 'sub1', <UserOutlined />, [
+      getItem('Tom', '3'),
+      getItem('Bill', '4'),
+      getItem('Alex', '5'),
+    ]),
+    getItem('Team', 'sub2', <TeamOutlined />, [getItem('Team 1', '6'), getItem('Team 2', '8')]),
+    getItem('Files', '9', <FileOutlined />),
+  ];
   return (
     <Layout
       style={{
@@ -45,11 +52,18 @@ const Layout1 = () => {
             height: 32,
             margin: 16,
             color: 'red',
-            fontSize:25
-          //  background: 'rgba(255, 255, 255, 0.2)',
+            fontSize: 25
+            //  background: 'rgba(255, 255, 255, 0.2)',
           }}
         > Clement Hotel</div>
-        <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} />
+        <Menu
+          theme="dark"
+          defaultSelectedKeys={['listbook']}
+          mode="inline"
+          items={items}
+          selectedKeys={path}
+
+        />
       </Sider>
       <Layout>
         <Header
@@ -57,10 +71,14 @@ const Layout1 = () => {
             padding: 0,
             background: colorBgContainer,
           }}
-        />
+        >
+
+          {/* <HeaderAdmin/> */}
+          <HeaderAdmin />
+        </Header>
         <Content
           style={{
-            margin: '0 16px',
+            margin: '24px  16px 0',
           }}
         >
           <Breadcrumb
@@ -68,8 +86,8 @@ const Layout1 = () => {
               margin: '16px 0',
             }}
           >
-            <Breadcrumb.Item>User</Breadcrumb.Item>
-            <Breadcrumb.Item>Bill</Breadcrumb.Item>
+            <Breadcrumb.Item>Admin</Breadcrumb.Item>
+            <Breadcrumb.Item>{path}</Breadcrumb.Item>
           </Breadcrumb>
           <div
             style={{
@@ -78,7 +96,7 @@ const Layout1 = () => {
               background: colorBgContainer,
             }}
           >
-            Bill is a cat.
+            <Outlet />
           </div>
         </Content>
         <Footer
@@ -92,4 +110,4 @@ const Layout1 = () => {
     </Layout>
   );
 };
-export default Layout1;
+export default LayoutAdmin;

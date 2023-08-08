@@ -24,7 +24,7 @@ function Header() {
                     </ul>
                 </div>
                
-                <a href="#" className="btn btn-primary-gradient rounded-pill py-2 px-4 ms-3 d-none d-lg-block" >Book Now</a>
+                <Link to="/bookingpage" className="btn btn-primary-gradient rounded-pill py-2 px-4 ms-3 d-none d-lg-block" >Book Now</Link>
             </div>
         </nav>
   )

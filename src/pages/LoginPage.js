@@ -1,4 +1,4 @@
-import Login from "../components/form_login/Login";
+import Login from "../Components/form_login/Login";
 
 export default function LoginPage(props) {
   return (

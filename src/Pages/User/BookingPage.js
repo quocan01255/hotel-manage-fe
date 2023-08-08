@@ -1,15 +1,16 @@
-import SeachBar from "../../components/user/search_bar/SearchBar"
-import ListRooms from "../../components/user/ListRooms"
-import Header from "../../components/user/Header"
-import Login from "../../components/form_login/Login"
-import Register from "../../components/form_register/Register"
+import SearchBar from "../../Components/User/search_bar/SearchBar"
+import ListRooms from "../../Components/User/ListRooms"
+import HeaderBooking from "../../Components/User/HeaderBooking"
+
+
 
 function BookingPage() {
     return (
         <div style={{ backgroundColor: '#f8f8f8' }}>
             <div style={{ backgroundColor: '#f8f8f8', margin: '0 auto' }} className='container'>
-                <SeachBar />
-                <ListRooms />
+               <HeaderBooking/>
+               <SearchBar/>
+               <ListRooms/>
             </div>
         </div>
     )

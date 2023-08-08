@@ -1,9 +1,18 @@
-.hover {
-    .zoom-img {
-      transition: transform 0.3s; /* Chỉnh thời gian hoàn thành hiệu ứng */
-    }
-  
-    .zoom-img:hover {
-      transform: scale(1.1); /* Tăng kích thước ảnh lên 110% */
-    }
-  }
+.motsp .hinh{
+ 
+  /* border: 1px solid red; */
+  /* zoom len nam trong khung hinh */
+  overflow: hidden;
+}
+.motsp .hinh img{
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.motsp .hinh img:hover{
+  /* zoom hinh len */
+  -webkit-transform: scale(1.3);
+	transform: scale(1.3);
+}
+
