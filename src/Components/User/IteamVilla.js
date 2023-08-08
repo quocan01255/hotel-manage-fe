@@ -36,11 +36,11 @@ function IteamVilla() {
         {/* order-lg-2  */}
         <div className="col-sm-7 order-lg-2">
           <h1 className="display-4 mt-5 pt-5">GARDEN POOL VILLA</h1>
-          <ul class="list-group list-group-flush ">      
+          <ul className="list-group list-group-flush ">      
         
-            <li class="list-group-item"><img src="https://quynhon.maiaresorts.com/wp-content/themes/maiaresort/images/unit.svg" width="25px"/> 14 villas</li>
-            <li class="list-group-item"><img src="https://quynhon.maiaresorts.com/wp-content/themes/maiaresort/images/size.svg"width="25px" /> Average size 61m²</li>
-            <li class="list-group-item"><img src="https://quynhon.maiaresorts.com/wp-content/themes/maiaresort/images/view.svg"width="25px" /> Garden view</li>
+            <li className="list-group-item"><img src="https://quynhon.maiaresorts.com/wp-content/themes/maiaresort/images/unit.svg" width="25px"/> 14 villas</li>
+            <li className="list-group-item"><img src="https://quynhon.maiaresorts.com/wp-content/themes/maiaresort/images/size.svg"width="25px" /> Average size 61m²</li>
+            <li className="list-group-item"><img src="https://quynhon.maiaresorts.com/wp-content/themes/maiaresort/images/view.svg"width="25px" /> Garden view</li>
             
           </ul>
         </div>

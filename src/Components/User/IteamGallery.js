@@ -8,9 +8,9 @@ import Nav from './Nav'
 function IteamGallery() {
   return (
     <div>
-        <Slide/>
-     <Nav/>
-   
+      <Slide />
+      <Nav />
+
     </div>
   )
 }

@@ -2,7 +2,7 @@ import './App.css';
 import './header-action'
 import './css/animate.css'
 import './css/animate.min.css'
-import './css/style.css'
+import './css/headerstyle.css'
 import 'reset-css/reset.css';
 import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -25,15 +25,15 @@ import BookingPage from './pages/user/BookingPage';
 function App() {
   return (
     <div className="App">
-      <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/villapage" element={<VillaPage />} />
         <Route path="/culinarypage" element={<CulinaryPage />} />
         <Route path="/explorepage" element={<ExplorePage />} />
-        <Route path="/gallerypage" element={<GalleryPage/>} />
+        <Route path="/gallerypage" element={<GalleryPage />} />
+        <Route path="/bookingpage" element={<BookingPage />} />
       </Routes>
-      <Footers/>
+
     </div>
   );
 }

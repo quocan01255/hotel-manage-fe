@@ -1,0 +1,27 @@
+.select-container {
+    display: flex;
+    justify-content: right;
+    margin: 16px 0 -16px;
+    
+}
+
+.select-content {
+    background-color: #fff;
+    position: relative;
+}
+
+.price-select {
+    position: relative;
+    font-size: 13px;
+    padding: 4px 30px 4px 4px;
+    border: none;
+    width: 100%;
+    background: transparent;
+    z-index: 1;
+}
+
+.select-icon {
+    position: absolute;
+    right: 0;
+    top: 25%;
+}

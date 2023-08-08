@@ -3,17 +3,35 @@ import { Link } from "react-router-dom";
 import './register_style.css'
 import FormGroup from '../../commons/FormGroup';
 import Validator from '../../commons/validator';
+import { ToastContainer, toast } from 'react-toastify';
 
 function Register() {
     useEffect(() => {
         var form = new Validator('#login-form')
         form.onSubmit = function (data) {
-            console.log(data)
+            // Call api and check account
+            fetch('https://my-json-server.typicode.com/tranhoaiviet/My-Json/accounts')
+                .then((response) => response.json())
+                .then((accounts) => {
+                    // Check if email is exist
+                    let isExist = accounts.find(account => account.email === data.email)
+                    if (isExist) {
+                        toast.error("Email is existed !", {
+                            position: toast.POSITION.TOP_CENTER
+                        });
+                    } else {
+
+                    }
+                })
+                .catch((error) => {
+
+                });
         }
     })
 
     return (
         <div className="main register-container">
+            <ToastContainer />
             <form action="" method="POST" className="register-form" id="login-form" >
                 <h3 className="heading">Sign up</h3>
 

@@ -11,31 +11,31 @@ function Login() {
         var form = new Validator('#login-form')
         form.onSubmit = function (data) {
             // Call api and check account
-            // fetch('https://my-json-server.typicode.com/tranhoaiviet/My-Json/accounts')
-            //     .then((response) => response.json())
-            //     .then((accounts) => {
-            //         // Check if email is exist
-            //         let isExist = accounts.find(account => account.email === data.email)
-            //         if (!isExist) {
-            //             toast.error("Email is not exist !", {
-            //                 position: toast.POSITION.TOP_CENTER
-            //             });
-            //         } else {
-            //             let checkAccount = accounts.find(account => account.email === data.email && account.password === data.password)
-            //             if (checkAccount) {
-            //                 toast.success("Login success !", {
-            //                     position: toast.POSITION.TOP_CENTER
-            //                 });
-            //             } else {
-            //                 toast.warn("Password is not correct !", {
-            //                     position: toast.POSITION.TOP_CENTER
-            //                 });
-            //             }
-            //         }
-            //     })
-            //     .catch((error) => {
+            fetch('https://my-json-server.typicode.com/tranhoaiviet/My-Json/accounts')
+                .then((response) => response.json())
+                .then((accounts) => {
+                    // Check if email is exist
+                    let isExist = accounts.find(account => account.email === data.email)
+                    if (!isExist) {
+                        toast.error("Email is not exist !", {
+                            position: toast.POSITION.TOP_CENTER
+                        });
+                    } else {
+                        let checkAccount = accounts.find(account => account.email === data.email && account.password === data.password)
+                        if (checkAccount) {
+                            toast.success("Login success !", {
+                                position: toast.POSITION.TOP_CENTER
+                            });
+                        } else {
+                            toast.warn("Password is not correct !", {
+                                position: toast.POSITION.TOP_CENTER
+                            });
+                        }
+                    }
+                })
+                .catch((error) => {
 
-            //     });
+                });
             
         }
     })
