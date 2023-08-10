@@ -3,7 +3,7 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.js'
 import { Link } from 'react-router-dom'
-// import logo from "../../assets/img/logo3.png";
+
 function Header() {
   return (
         <nav className="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
@@ -24,7 +24,7 @@ function Header() {
                     </ul>
                 </div>
                
-                <a href="#" className="btn btn-primary-gradient rounded-pill py-2 px-4 ms-3 d-none d-lg-block" >Book Now</a>
+                <Link to="/bookingpage" className="btn btn-primary-gradient rounded-pill py-2 px-4 ms-3 d-none d-lg-block" >Book Now</Link>
             </div>
         </nav>
   )

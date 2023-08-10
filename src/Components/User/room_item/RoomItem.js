@@ -1,6 +1,10 @@
+import React from 'react'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/js/bootstrap.js'
+import { Link } from 'react-router-dom'
 import './roomitem.css'
 
-function RoomItem() {
+function RoomItem() {  
     return (
         <div className="row room">
             <div className='room__content'>
@@ -92,7 +96,7 @@ function RoomItem() {
                                 7,000,000
                                 <span style={{ fontSize: '16px' }}>đ</span>
                             </span>
-                            <button className='btn btn-primary room_tab-btn'>ADD</button>
+                            <Link to="/homecart" className='btn btn-primary room_tab-btn'>ADD</Link>
                         </div>
                     </div>
                     <div
@@ -117,7 +121,7 @@ function RoomItem() {
                                 8,000,000
                                 <span style={{ fontSize: '16px' }}>đ</span>
                             </span>
-                            <button className='btn btn-primary room_tab-btn'>ADD</button>
+                            <Link to="/homecart" className='btn btn-primary room_tab-btn'>ADD</Link>
                         </div>
                     </div>
                     <div
@@ -137,7 +141,7 @@ function RoomItem() {
                                 9,000,000
                                 <span style={{ fontSize: '16px' }}>đ</span>
                             </span>
-                            <button className='btn btn-primary room_tab-btn'>ADD</button>
+                            <Link to="/homecart" className='btn btn-primary room_tab-btn '>ADD</Link>
                         </div>
                     </div>
                 </div>
