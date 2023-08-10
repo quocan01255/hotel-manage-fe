@@ -11,13 +11,8 @@ function IteamVilla() {
 
           <h3 className="display-4 mt-2 pt-2">Private Villas & Residences</h3>
 
-          <ul class="list-group list-group-flush ">      
-        
-            <li class="list-group-item"><img src="https://quynhon.maiaresorts.com/wp-content/themes/maiaresort/images/unit.svg" width="25px"/> 14 villas</li>
-            <li class="list-group-item"><img src="https://quynhon.maiaresorts.com/wp-content/themes/maiaresort/images/size.svg"width="25px" /> Average size 61m²</li>
-            <li class="list-group-item"><img src="https://quynhon.maiaresorts.com/wp-content/themes/maiaresort/images/view.svg"width="25px" /> Garden view</li>
-            
-          </ul>
+          <p >Designed to imbue the familiar while being completely transportive, Maia Resort Quy Nhon offers a collection of villa categories to suit your vacation needs. Each villa is tastefully designed to provide a touch of familiar coupled with international sophistication and cosiness while offering dramatic views of Phuong Mai Bay.</p>
+
 
 
         </div>

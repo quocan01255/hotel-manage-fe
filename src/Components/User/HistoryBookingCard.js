@@ -1,60 +1,42 @@
 import { SearchOutlined } from '@ant-design/icons';
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Highlighter from 'react-highlight-words';
-import { Button, Input, Space, Table } from 'antd';
+import { Button, Input, Space, Table,Modal } from 'antd';
+import { MailOutlined,PhoneOutlined,UserOutlined} from "@ant-design/icons";
+import RoomItem from "./room_item/RoomItem";
 
-const data = [
-  {
-    key: '1',
-    name: 'Thắng',
-    email: 'john.brown@gmail.com',
-    phone: '0865198615',
-    room: "Room 1",
-    quantity: 3,
-    time: '2n/1d',
-  },
-  {
-    key: '2',
-    name: 'Thu',
-    email: 'john.brown@gmail.com',
-    phone: '0865198615',
-    room: "Room 2",
-    quantity: 4,
-    time: '1n/2d',
-  },
-  {
-    key: '3',
-    name: 'Thiện',
-    email: 'john.brown@gmail.com',
-    phone: '0865198615',
-    room: "Room 3",
-    quantity: 5,
-    time: '1n/1d',
-  },
-  {
-    key: '4',
-    name: 'Việt ',
-    email: 'john.brown@gmail.com',
-    phone: '0865198615',
-    room: "Room 4",
-    quantity: 8,
-    time: '3n/2d',
-  },
-  {
-    key: '5',
-    name: 'An',
-    email: 'john.brown@gmail.com',
-    phone: '0865198615',
-    room: "Room 6",
-    quantity: 8,
-    time: '3n/2d',
-  },
-
-];
 const ListBookCard = () => {
   const [searchText, setSearchText] = useState('');
   const [searchedColumn, setSearchedColumn] = useState('');
   const searchInput = useRef(null);
+  const [data,setData] = useState([]);
+
+  const [open, setOpen] = useState(false);
+ 
+  const Detail = () => {
+    setOpen(true);
+  };
+  const handleOk = (e) => {
+    setOpen(false);
+  };
+  const handleCancel = (e) => {
+    setOpen(false);
+  };
+  
+  useEffect(() => {
+    fetch('http://localhost:3000/bookings')
+      .then(res => res.json())
+      .then(booking => {
+       
+        setData(booking)
+      // data.map((item)=>{
+      //     Object.assign(item,{key:item.id})
+      //   })
+        
+      // console.log(booking);
+       console.log(booking);
+      })
+  }, []);
   const handleSearch = (selectedKeys, confirm, dataIndex) => {
     confirm();
     setSearchText(selectedKeys[0]);
@@ -161,7 +143,7 @@ const ListBookCard = () => {
   const columns = [
     {
       title: 'Customer information',
-      dataIndex: 'name',
+      dataIndex: 'name',     
       key: 'name',
       width: '20%',
       ...getColumnSearchProps('name'),
@@ -216,7 +198,22 @@ const ListBookCard = () => {
       render: (_,) => (
         <Space size="middle">
           <Space className="site-button-ghost-wrapper" wrap> 
-          <Button type="primary" ghost>Detail</Button>
+          <Button className='btn-add-mr' type="primary" onClick={Detail}>Detail</Button>
+          <Modal
+            open={open}
+            onOk={handleOk}
+            onCancel={handleCancel}
+            okButtonProps={{
+              hidden: true
+            }}
+            cancelButtonProps={{
+              hidden: true
+            }}
+            width={1200}
+            opacity= {0.5}
+          >
+            <RoomItem />
+          </Modal>
         </Space>
             </Space >
         ),

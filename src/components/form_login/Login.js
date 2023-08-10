@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import './login_style.css'
 import FormGroup from '../../commons/FormGroup';
 import Validator from '../../commons/validator';
@@ -7,35 +7,38 @@ import { ToastContainer, toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 
 function Login() {
+    const navigate = useNavigate();
     useEffect(() => {
         var form = new Validator('#login-form')
         form.onSubmit = function (data) {
             // Call api and check account
-            // fetch('https://my-json-server.typicode.com/tranhoaiviet/My-Json/accounts')
-            //     .then((response) => response.json())
-            //     .then((accounts) => {
-            //         // Check if email is exist
-            //         let isExist = accounts.find(account => account.email === data.email)
-            //         if (!isExist) {
-            //             toast.error("Email is not exist !", {
-            //                 position: toast.POSITION.TOP_CENTER
-            //             });
-            //         } else {
-            //             let checkAccount = accounts.find(account => account.email === data.email && account.password === data.password)
-            //             if (checkAccount) {
-            //                 toast.success("Login success !", {
-            //                     position: toast.POSITION.TOP_CENTER
-            //                 });
-            //             } else {
-            //                 toast.warn("Password is not correct !", {
-            //                     position: toast.POSITION.TOP_CENTER
-            //                 });
-            //             }
-            //         }
-            //     })
-            //     .catch((error) => {
+            fetch('http://localhost:3000/accounts')
+                .then((response) => response.json())
+                .then((accounts) => {
+                    // Check if email is exist
+                    let isExist = accounts.find(account => account.email === data.email)
+                    if (!isExist) {
+                        toast.error("Email is not exist !", {
+                            position: toast.POSITION.TOP_CENTER
+                        });
+                    } else {
+                        let checkAccount = accounts.find(account => account.email === data.email && account.password === data.password)
+                        if (checkAccount) {
+                            toast.success("Login success !", {
+                                position: toast.POSITION.TOP_CENTER
+                            });
+                           navigate("/admin")
+                        } else {
+                            toast.warn("Password is not correct !", {
+                                position: toast.POSITION.TOP_CENTER
+                            });
+                        }
+                    }
+                   
+                })
+                .catch((error) => {
 
-            //     });
+                });
             
         }
     })
