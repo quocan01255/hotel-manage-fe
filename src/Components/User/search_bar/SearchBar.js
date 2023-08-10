@@ -19,14 +19,14 @@ function SeachBar() {
                     <div className="form-date-from form-icon">
                         <label htmlFor="date_from">CHECK-IN</label>
                         <div className='input-container'>
-                            <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
+                            <DatePicker dateFormat="dd/MM/yyyy" selected={startDate} onChange={(date) => setStartDate(date)} />
                             <i className="fa-solid fa-arrow-right-to-bracket input-icon"></i>
                         </div>
                     </div>
                     <div className="form-date-to form-icon">
                         <label htmlFor="date_to">CHECK-OUT</label>
                         <div className='input-container'>
-                            <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} />
+                            <DatePicker dateFormat="dd/MM/yyyy" selected={endDate} onChange={(date) => setEndDate(date)} />
                             <i className="fa-solid fa-arrow-right-from-bracket input-icon"></i>
                         </div>
                     </div>

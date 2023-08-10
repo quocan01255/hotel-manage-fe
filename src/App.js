@@ -21,20 +21,29 @@ import Layout1 from './pages/admin/Layout';
 import GalleryPage from './pages/user/GalleryPage';
 import Footers from './components/user/Footers';
 import BookingPage from './pages/user/BookingPage';
+import Login from './components/form_login/Login';
+import Register from './components/form_register/Register';
+
+import store from './redux/store';
+import { Provider } from 'react-redux'
 
 function App() {
   return (
-    <div className="App">
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/villapage" element={<VillaPage />} />
-        <Route path="/culinarypage" element={<CulinaryPage />} />
-        <Route path="/explorepage" element={<ExplorePage />} />
-        <Route path="/gallerypage" element={<GalleryPage />} />
-        <Route path="/bookingpage" element={<BookingPage />} />
-      </Routes>
+    <Provider store={store}>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/villapage" element={<VillaPage />} />
+          <Route path="/culinarypage" element={<CulinaryPage />} />
+          <Route path="/explorepage" element={<ExplorePage />} />
+          <Route path="/gallerypage" element={<GalleryPage />} />
+          <Route path="/bookingpage" element={<BookingPage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
 
-    </div>
+      </div>
+    </Provider>
   );
 }
 

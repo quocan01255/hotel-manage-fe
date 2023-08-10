@@ -6,37 +6,31 @@ import Validator from '../../commons/validator';
 import { ToastContainer, toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 
+import { login } from '../../redux/actions/authActions'
+import { useDispatch, useSelector } from 'react-redux'
+
 function Login() {
+    const userInfo = useSelector(state => state.user)
+    const dispatch = useDispatch()
     useEffect(() => {
         var form = new Validator('#login-form')
         form.onSubmit = function (data) {
-            // Call api and check account
-            fetch('https://my-json-server.typicode.com/tranhoaiviet/My-Json/accounts')
-                .then((response) => response.json())
-                .then((accounts) => {
-                    // Check if email is exist
-                    let isExist = accounts.find(account => account.email === data.email)
-                    if (!isExist) {
-                        toast.error("Email is not exist !", {
-                            position: toast.POSITION.TOP_CENTER
-                        });
-                    } else {
-                        let checkAccount = accounts.find(account => account.email === data.email && account.password === data.password)
-                        if (checkAccount) {
-                            toast.success("Login success !", {
-                                position: toast.POSITION.TOP_CENTER
-                            });
-                        } else {
-                            toast.warn("Password is not correct !", {
-                                position: toast.POSITION.TOP_CENTER
-                            });
-                        }
-                    }
-                })
-                .catch((error) => {
+            dispatch(login(data.email, data.password))
+        }
+    }, [])
 
-                });
-            
+    useEffect(() => {
+        if (userInfo !== null) {
+            toast(userInfo.message , {
+                position: "top-center",
+                autoClose: 3000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
         }
     })
 

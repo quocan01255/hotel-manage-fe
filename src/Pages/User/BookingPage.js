@@ -12,7 +12,7 @@ function BookingPage() {
                 <SeachBar />
                 <ListRooms />
             </div>
-            <Footers/>
+            <Footers />
         </div>
     )
 }

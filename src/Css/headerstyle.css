@@ -172,7 +172,7 @@ h6,
     left: 50%;
     transform: translateX(-50%);
     border: 10px solid;
-    border-color: var(--light) transparent transparent transparent;
+    border-color: #000 transparent transparent transparent;
     transition: .5s;
 }
 
@@ -251,7 +251,7 @@ h6,
     }
 
     .sticky-top.navbar-light .navbar-nav .nav-link::before {
-        border-top-color: var(--primary);
+        border-top-color: #000;
     }
 
     .sticky-top.navbar-light .navbar-brand h1 {
