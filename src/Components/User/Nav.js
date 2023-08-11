@@ -1,11 +1,11 @@
 import React from 'react'
 import All from './All'
-import "../../css/hover.css"
+import "../../Css/hover.css"
 import Villa from './Villa'
 import Dine from './Dine'
 import Relax from './Relax'
 import Explore from './Explore'
-import '../user/room_item/roomitem.css'
+import './room_item/roomitem.css'
 
 function Nav() {
   return (

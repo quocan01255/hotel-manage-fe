@@ -1,5 +1,5 @@
 import React from "react";
-import { useBooking } from "../../components/user/BookingContext"; // Import useBooking hook
+import { useBooking } from "./BookingContext"; // Import useBooking hook
 
 const BookingSummary = () => {
   const { bookingData } = useBooking(); // Get booking data from context

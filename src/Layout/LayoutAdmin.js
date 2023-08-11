@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, Outlet } from "react-router-dom";
 
-import HeaderAdmin from "../components/admin/HeaderAdmin";
+import HeaderAdmin from "../Components/Admin/HeaderAdmin";
 import {
   DesktopOutlined,
   FileOutlined,

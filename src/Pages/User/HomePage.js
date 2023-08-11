@@ -1,6 +1,6 @@
 import React from 'react'
-import Slide from '../../components/user/Slide'
-import IteamHome from '../../components/user/IteamHome'
+import Slide from '../../Components/User/Slide'
+import IteamHome from '../../Components/User/IteamHome'
 
 function GalleryPage() {
   return (
