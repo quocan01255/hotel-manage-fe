@@ -1,0 +1,26 @@
+/* .container-fluid {
+    background-color: rgb (128,128,128);
+    padding: 10px 20px 10px 20px
+} */
+ .item {
+    display: flex;
+    position:relative; 
+    font-size: 20px;
+    font-weight: 500;
+    text-decoration: none;
+    color: #000000 ;
+    outline: none;
+    transition: .5s;
+    margin-left: 50px;
+}
+
+.brand{
+    text-decoration: none;
+    color: #000000;
+   
+}
+.navbar-light .brand h1 {
+    background: linear-gradient(to bottom right, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
