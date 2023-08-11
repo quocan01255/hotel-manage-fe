@@ -47,6 +47,14 @@
       "password": "12345678",
       "role": "user",
       "id": "DbX6NEq"
+    },
+    {
+      "firstName": "An",
+      "lastName": "Phạm",
+      "email": "quocan012111155@gmail.com",
+      "password": "12345678",
+      "role": "user",
+      "id": "QTHtUPW"
     }
   ],
   "bookings": [
