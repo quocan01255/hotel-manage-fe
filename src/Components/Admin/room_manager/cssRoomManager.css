@@ -1,0 +1,59 @@
+.gutter-row {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.divider-admin-room-manager {
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+.btn-add-form-room-manager {
+    margin-top: 1px;
+    margin-bottom: 1px;
+    width: 10%;
+    /* margin-left: 45%; */
+}
+
+.img-admin-manager-room {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.btn-admin-room-manager {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin-left: 70%;
+}
+
+.btn-detail-admin-room-manager {
+    margin-right: 5px;
+}
+
+.card-main-admin-manager-room {
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid black;
+}
+
+.card-text {
+    text-align: left;
+}
+
+.card-title {
+    text-align: left;
+}
+
+.breadcrumb {
+    margin: 16px 0;
+    background-color: rgb(237, 237, 237);
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.breadcrumbItem {
+    color: black;
+}
