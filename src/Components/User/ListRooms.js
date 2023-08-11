@@ -3,10 +3,10 @@ import RoomItem from "./room_item/RoomItem";
 function ListRooms() {
     return (
         <>
-            <RoomItem />
-            <RoomItem />
-            <RoomItem />
-            
+            <RoomItem idTab={1} priceType="VND"/>
+            <RoomItem idTab={2} priceType="VND"/>
+            <RoomItem idTab={3} priceType="VND"/>
+
         </>
     )
 }

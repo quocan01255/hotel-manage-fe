@@ -1,14 +1,14 @@
 import React from 'react'
-import Slide from '../../Components/User/Slide'
-import IteamHome from '../../Components/User/IteamHome'
+import Slide from '../../components/user/Slide'
+import IteamHome from '../../components/user/IteamHome'
 
-function HomePage() {
+function GalleryPage() {
   return (
     <div>
-      <Slide/>
-      <IteamHome/>
+      <Slide />
+      <IteamHome />
     </div>
   )
 }
 
-export default HomePage
+export default GalleryPage

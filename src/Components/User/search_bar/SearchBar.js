@@ -80,6 +80,10 @@ const getThu = () => {
                             <i className="fa-solid fa-user input-icon"></i>
                         </div>
                     </div>
+                    <div className="form-date-to form-icon">
+                        <label htmlFor="date_to">PROMOTIONAL CODE</label>
+                            <input type="text" className="input-promo"></input>
+                    </div>
                     <div className="form-submit">
                         <input onClick={(event)=>submitForm(event)} type="submit"  className="submit" value="Check" />
                     </div>

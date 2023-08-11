@@ -1,8 +1,9 @@
-
+/* @extend display-flex; */
+display-flex,
 .header,
 .form-group {
     display: flex;
-    /* display: -webkit-flex; */
+    display: -webkit-flex;
 }
 
 /* @extend list-type-ulli; */
@@ -88,7 +89,7 @@ input[type=radio] {
     padding: 35px 70px 51px 70px;
     color: #000;
     border: 1px solid #dee2e6;
-    
+    background-color: #fff;
     /* background-image: url(https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8fA%3D%3D&w=1000&q=80); */
 }
 
@@ -166,7 +167,6 @@ input[type=radio] {
 }
 
 .search-form .form-group {
-    width: 80%;
     margin: 0 auto;
     align-items: center;
     -moz-align-items: center;
@@ -270,6 +270,12 @@ input[type=radio] {
     color: #4d4d4d;
 }
 
+.input-promo {
+    background: transparent !important;
+    border-bottom: 1px solid #000 !important;
+    border-radius: 0 !important; 
+    height: 12px;
+}
 
 
 /*# sourceMappingURL=style.css.map */

@@ -1,6 +1,6 @@
 import React from 'react'
-import Slide from '../../Components/User/Slide'
-import IteamExplore from '../../Components/User/IteamExplore'
+import Slide from '../../components/user/Slide'
+import IteamExplore from '../../components/user/IteamExplore'
 function ExplorePage() {
   return (
     <div>

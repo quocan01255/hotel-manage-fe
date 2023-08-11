@@ -1,10 +1,6 @@
-import React from 'react'
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap/dist/js/bootstrap.js'
-import { Link } from 'react-router-dom'
 import './roomitem.css'
 
-function RoomItem() {  
+function RoomItem({ idTab, priceType }) {
     return (
         <div className="row room">
             <div className='room__content'>
@@ -40,7 +36,7 @@ function RoomItem() {
                             className="nav-link active room__detail-navtab"
                             id="nav-home-tab"
                             data-bs-toggle="tab"
-                            data-bs-target="#nav-home"
+                            data-bs-target={`#nav-home${idTab}`}
                             type="button"
                             role="tab"
                             aria-controls="nav-home"
@@ -52,7 +48,7 @@ function RoomItem() {
                             className="nav-link room__detail-navtab"
                             id="nav-profile-tab"
                             data-bs-toggle="tab"
-                            data-bs-target="#nav-profile"
+                            data-bs-target={`#nav-profile${idTab}`}
                             type="button"
                             role="tab"
                             aria-controls="nav-profile"
@@ -64,7 +60,7 @@ function RoomItem() {
                             className="nav-link room__detail-navtab"
                             id="nav-contact-tab"
                             data-bs-toggle="tab"
-                            data-bs-target="#nav-contact"
+                            data-bs-target={`#nav-contact${idTab}`}
                             type="button"
                             role="tab"
                             aria-controls="nav-contact"
@@ -77,7 +73,7 @@ function RoomItem() {
                 <div className="tab-content room__tab" id="nav-tabContent">
                     <div
                         className="tab-pane fade show active room__tab-description"
-                        id="nav-home"
+                        id={`nav-home${idTab}`}
                         role="tabpanel"
                         aria-labelledby="nav-home-tab"
                     >
@@ -92,16 +88,27 @@ function RoomItem() {
                             <li>Complimentary minibar (replenished daily)</li>
                         </ul>
                         <div className='room__tab-booking'>
-                            <span className='room_tab-price'>
-                                7,000,000
-                                <span style={{ fontSize: '16px' }}>đ</span>
-                            </span>
-                            <Link to="/homecart" className='btn btn-primary room_tab-btn'>ADD</Link>
+                            {priceType === 'VND' ?
+                                (
+                                    <span className='room_tab-price'>
+                                        7,000,000
+                                        <span style={{ fontSize: '16px' }}>đ</span>
+                                    </span>
+                                )
+                                :
+                                (
+                                    <span className='room_tab-price'>
+                                        294
+                                        <span style={{ fontSize: '16px' }}>US$</span>
+                                    </span>
+                                )
+                            }
+                            <button className='btn btn-primary room_tab-btn'>ADD</button>
                         </div>
                     </div>
                     <div
                         className="tab-pane fade room__tab-description"
-                        id="nav-profile"
+                        id={`nav-profile${idTab}`}
                         role="tabpanel"
                         aria-labelledby="nav-profile-tab"
                     >
@@ -117,16 +124,27 @@ function RoomItem() {
                             <li>One-time destination dining dinner or Once Upon a Table</li>
                         </ul>
                         <div className='room__tab-booking'>
-                            <span className='room_tab-price'>
-                                8,000,000
-                                <span style={{ fontSize: '16px' }}>đ</span>
-                            </span>
-                            <Link to="/homecart" className='btn btn-primary room_tab-btn'>ADD</Link>
+                            {priceType === 'VND' ?
+                                (
+                                    <span className='room_tab-price'>
+                                        8,000,000
+                                        <span style={{ fontSize: '16px' }}>đ</span>
+                                    </span>
+                                )
+                                :
+                                (
+                                    <span className='room_tab-price'>
+                                        336
+                                        <span style={{ fontSize: '16px' }}>US$</span>
+                                    </span>
+                                )
+                            }
+                            <button className='btn btn-primary room_tab-btn'>ADD</button>
                         </div>
                     </div>
                     <div
                         className="tab-pane fade room__tab-description"
-                        id="nav-contact"
+                        id={`nav-contact${idTab}`}
                         role="tabpanel"
                         aria-labelledby="nav-contact-tab"
                     >
@@ -137,11 +155,22 @@ function RoomItem() {
                             <li>Complimentary non-alcoholic minibar</li>
                         </ul>
                         <div className='room__tab-booking'>
-                            <span className='room_tab-price'>
-                                9,000,000
-                                <span style={{ fontSize: '16px' }}>đ</span>
-                            </span>
-                            <Link to="/homecart" className='btn btn-primary room_tab-btn '>ADD</Link>
+                            {priceType === 'VND' ?
+                                (
+                                    <span className='room_tab-price'>
+                                        9,000,000
+                                        <span style={{ fontSize: '16px' }}>đ</span>
+                                    </span>
+                                )
+                                :
+                                (
+                                    <span className='room_tab-price'>
+                                        378
+                                        <span style={{ fontSize: '16px' }}>US$</span>
+                                    </span>
+                                )
+                            }
+                            <button className='btn btn-primary room_tab-btn'>ADD</button>
                         </div>
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 import React from 'react'
-import Slide from '../../Components/User/Slide'
-import IteamVilla from '../../Components/User/IteamVilla'
+import Slide from '../../components/user/Slide'
+import IteamVilla from '../../components/user/IteamVilla'
 
 
 function VillaPage() {
