@@ -104,124 +104,36 @@
       "time": "2n/3d"
     }
   ],
-  "room": [
+  "rooms": [
     {
       "id": 1,
-      "title": "room 1",
-      "quantity": "1",
-      "checkin": "08/10/2023",
-      "checkout": "08/12/2023"
+      "name": "Deluxe Executive Twin",
+      "detail": "An unforgettable experience, well-designed, and high-end amenities & facilities. The most spacious room with sea view, free wifi, king bed … to make your stay the most enjoyable either on vacation or business trip",
+      "description": ["City view", "Non-smoking", "Cable/Satellite TV", "Desk", "Tea/Coffee Maker", "Internet Access", "Air conditioned", "Hairdryer"],
+      "quantity": "4",
+      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/781700/781700/SUPERIOR_TWIN_03.jpg?auto=format,compress&fit=crop&crop=entropy&w=300&h=200&q=55",
+      "price": "1940000",
+      "priceSale": "1299800"
     },
     {
       "id": 2,
-      "title": "room 2",
-      "quantity": "2",
-      "checkin": "08/10/2023",
-      "checkout": "08/12/2023"
+      "name": "Executive Suite",
+      "detail": "Embrace freedom and calm. Our Deluxe Room with free wifi offers comfort and convenience for a memorable holiday.",
+      "description": ["Sea view", "Non-smoking", "Air conditioned", "Tea/Coffee Maker", "Internet Access", "Balcony", "Cable/Satellite TV"],
+      "quantity": "4",
+      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/780899/780899/SUITE-ROOM-1.jpg?auto=format,compress&fit=crop&crop=entropy&w=300&h=200&q=55",
+      "price": "4480000",
+      "priceSale": "3001600"
     },
     {
       "id": 3,
-      "title": "room 3",
-      "quantity": "3",
-      "checkin": "08/10/2023",
-      "checkout": "08/12/2023"
-    },
-    {
-      "id": 4,
-      "title": "room 4",
+      "name": "Deluxe King",
+      "detail": "An unforgettable experience, well-designed, and high-end amenities & facilities. The most spacious room with sea view, free wifi, king bed … to make your stay the most enjoyable either on vacation or business trip",
+      "description": ["City view", "Non-smoking", "Cable/Satellite TV", "Desk", "Tea/Coffee Maker", "Internet Access", "Air conditioned", "Hairdryer"],
       "quantity": "4",
-      "checkin": "08/10/2023",
-      "checkout": "08/12/2023"
-    },
-    {
-      "id": 5,
-      "title": "room 5",
-      "quantity": "5",
-      "checkin": "08/10/2023",
-      "checkout": "08/12/2023"
-    },
-    {
-      "id": 6,
-      "title": "room 6",
-      "quantity": "6",
-      "checkin": "08/10/2023",
-      "checkout": "08/12/2023"
-    },
-    {
-      "id": 7,
-      "title": "room 7",
-      "quantity": "7",
-      "checkin": "08/10/2023",
-      "checkout": "08/12/2023"
-    },
-    {
-      "id": 8,
-      "title": "room 8",
-      "quantity": "8",
-      "checkin": "08/10/2023",
-      "checkout": "08/12/2023"
-    },
-    {
-      "id": 9,
-      "title": "room 1",
-      "quantity": "2",
-      "checkin": "08/12/2023",
-      "checkout": "08/14/2023"
-    },
-    {
-      "id": 10,
-      "title": "room 2",
-      "quantity": "2",
-      "checkin": "08/12/2023",
-      "checkout": "08/14/2023"
-    },
-    {
-      "checkin": "2023-08-11T07:34:12.000Z",
-      "checkout": "2023-08-12T07:34:12.000Z",
-      "quantity": "2",
-      "id": 11
-    },
-    {
-      "checkin": "11/08/2023",
-      "checkout": "2023-08-12T07:56:52.000Z",
-      "quantity": "4",
-      "id": 12
-    },
-    {
-      "checkin": "11/08/2023",
-      "checkout": "2023-08-13T07:56:52.000Z",
-      "quantity": "4",
-      "id": 13
-    },
-    {
-      "checkin": "10/08/2023",
-      "checkout": "2023-08-12T07:57:52.000Z",
-      "quantity": "3",
-      "id": 14
-    },
-    {
-      "checkin": "11/08/2023",
-      "checkout": "12/08/2023",
-      "quantity": "3",
-      "id": 15
-    },
-    {
-      "checkin": "11/08/2023",
-      "checkout": "12/08/2023",
-      "quantity": "4",
-      "id": 16
-    },
-    {
-      "checkin": "11/08/2023",
-      "checkout": "12/08/2023",
-      "quantity": "4",
-      "id": 17
-    },
-    {
-      "checkin": "11/08/2023",
-      "checkout": "12/08/2023",
-      "quantity": "4",
-      "id": 18
+      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/781661/781661/SUPERIOR_KING__12_.jpg?auto=format,compress&fit=crop&crop=entropy&w=300&h=200&q=55",
+      "price": "2940000",
+      "priceSale": "2299800"
     }
   ]
 }

@@ -1,10 +1,10 @@
 import React from "react";
-import RoomCard from "../../components/user/RoomCard";
+import RoomCard from "../../Components/User/RoomCard";
 
-import PaymentForm from "../../components/user/PaymentForm";
-import BookingSummary from "../../components/user/BookingSummary";
-import Footer from "../../components/user/Footer";
-import '../../css/styleroom.css'
+import PaymentForm from "../../Components/User/PaymentForm";
+import BookingSummary from "../../Components/User/BookingSummary";
+import Footer from "../../Components/User/Footer";
+import '../../Css/styleroom.css'
 
 function HomeCard() {
   return (

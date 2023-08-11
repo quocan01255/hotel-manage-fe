@@ -1,5 +1,5 @@
 import React from 'react'
-import HistoryBookingCard from '../../components/user/HistoryBookingCard'
+import HistoryBookingCard from '../../Components/User/HistoryBookingCard'
 function HistoryBookingPage() {
   return (
     <div>

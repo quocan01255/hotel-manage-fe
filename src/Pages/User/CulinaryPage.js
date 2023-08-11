@@ -1,6 +1,6 @@
 import React from 'react'
-import Slide from '../../components/user/Slide'
-import IteamCulinary from '../../components/user/IteamCulinary'
+import Slide from '../../Components/User/Slide'
+import IteamCulinary from '../../Components/User/IteamCulinary'
 
 function CulinaryPage() {
   return (
