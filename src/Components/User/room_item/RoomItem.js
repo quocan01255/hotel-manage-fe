@@ -68,7 +68,7 @@ function RoomItem({ idTab, priceType, name, detail, description, price, priceSal
                     >
                         Room with available rate and includes:
                         <ul className='room__tab-list'>
-                            {description.map(item => <li>{item}</li>)}
+                            {description.map((item, index) => <li key={index}>{item}</li>)}
                         </ul>
                         <div className='room__tab-booking'>
                             {priceType === 'VND' ?
@@ -97,7 +97,7 @@ function RoomItem({ idTab, priceType, name, detail, description, price, priceSal
                     >
                         Room with best sale and includes:
                         <ul className='room__tab-list'>
-                            {description.map(item => <li>{item}</li>)}
+                            {description.map((item, index) => <li key={index}>{item}</li>)}
                         </ul>
                         <div className='room__tab-booking'>
                             {priceType === 'VND' ?
