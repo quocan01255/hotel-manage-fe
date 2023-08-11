@@ -19,7 +19,7 @@ function ListRooms() {
             .catch((error) => {
 
             });
-    })
+    }, [])
 
     return (
         <>
