@@ -21,7 +21,7 @@ function Login() {
 
     useEffect(() => {
         if (userInfo !== null) {
-            toast(userInfo.message , {
+            toast(userInfo.message, {
                 position: "top-center",
                 autoClose: 3000,
                 hideProgressBar: true,

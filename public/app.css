@@ -1,3 +1,10 @@
+html{
+ 
+  overflow-x: hidden;
+  /* lăng chuột */
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
 #mainNavigation a {
     font-family: 'Cabin', sans-serif;
     font-size:15px;

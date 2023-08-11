@@ -1,0 +1,219 @@
+{
+  "accounts": [
+    {
+      "id": "1",
+      "firstname": "admin",
+      "lastname": "ad",
+      "email": "admin@gmail.com",
+      "password": "admin1234",
+      "confirm-password": "admin1234"
+    },
+    {
+      "firstname": "thang",
+      "lastname": "truong",
+      "email": "truongdinhthangxyz@gmail.com",
+      "password": "Aathang1234",
+      "confirm-password": "Aathang1234",
+      "id": "PKgcIZM"
+    },
+    {
+      "firstname": "viet",
+      "lastname": "hoai",
+      "email": "hoaiviet@gmail.com",
+      "password": "viet123456",
+      "confirm-password": "viet123456",
+      "id": "qxYCEre"
+    },
+    {
+      "firstname": "thien",
+      "lastname": "huynh",
+      "email": "huynhthien@gmail.com",
+      "password": "thien123",
+      "confirm-password": "thien123",
+      "id": "EDXTvDI"
+    },
+    {
+      "firstname": "thu",
+      "lastname": "hoai",
+      "email": "thuhoai1@gmail.com",
+      "password": "thuhoai1234",
+      "confirm-password": "thuhoai1234",
+      "id": "wmsvVil"
+    },
+    {
+      "firstName": "An",
+      "lastName": "Phạm",
+      "email": "quocan01255@gmail.com",
+      "password": "12345678",
+      "role": "user",
+      "id": "DbX6NEq"
+    }
+  ],
+  "bookings": [
+    {
+      "key": "1",
+      "name": "Thắng0000",
+      "email": "john.brown@gmail.com",
+      "phone": "0865198615",
+      "room": "Room 1",
+      "quantity": "3",
+      "time": "2n/3d"
+    },
+    {
+      "key": "2",
+      "name": "Thu",
+      "email": "john.brown@gmail.com",
+      "phone": "0865198615",
+      "room": "Room 1",
+      "quantity": "3",
+      "time": "2n/3d"
+    },
+    {
+      "key": "3",
+      "name": "An",
+      "email": "john.brown@gmail.com",
+      "phone": "0865198615",
+      "room": "Room 1",
+      "quantity": "3",
+      "time": "2n/3d"
+    },
+    {
+      "key": "4",
+      "name": "Việt",
+      "email": "john.brown@gmail.com",
+      "phone": "0865198615",
+      "room": "Room 1",
+      "quantity": "3",
+      "time": "2n/3d"
+    },
+    {
+      "key": "5",
+      "name": "Thiện1111",
+      "email": "john.brown@gmail.com",
+      "phone": "0865198615",
+      "room": "Room 1",
+      "quantity": "3",
+      "time": "2n/3d"
+    }
+  ],
+  "room": [
+    {
+      "id": 1,
+      "title": "room 1",
+      "quantity": "1",
+      "checkin": "08/10/2023",
+      "checkout": "08/12/2023"
+    },
+    {
+      "id": 2,
+      "title": "room 2",
+      "quantity": "2",
+      "checkin": "08/10/2023",
+      "checkout": "08/12/2023"
+    },
+    {
+      "id": 3,
+      "title": "room 3",
+      "quantity": "3",
+      "checkin": "08/10/2023",
+      "checkout": "08/12/2023"
+    },
+    {
+      "id": 4,
+      "title": "room 4",
+      "quantity": "4",
+      "checkin": "08/10/2023",
+      "checkout": "08/12/2023"
+    },
+    {
+      "id": 5,
+      "title": "room 5",
+      "quantity": "5",
+      "checkin": "08/10/2023",
+      "checkout": "08/12/2023"
+    },
+    {
+      "id": 6,
+      "title": "room 6",
+      "quantity": "6",
+      "checkin": "08/10/2023",
+      "checkout": "08/12/2023"
+    },
+    {
+      "id": 7,
+      "title": "room 7",
+      "quantity": "7",
+      "checkin": "08/10/2023",
+      "checkout": "08/12/2023"
+    },
+    {
+      "id": 8,
+      "title": "room 8",
+      "quantity": "8",
+      "checkin": "08/10/2023",
+      "checkout": "08/12/2023"
+    },
+    {
+      "id": 9,
+      "title": "room 1",
+      "quantity": "2",
+      "checkin": "08/12/2023",
+      "checkout": "08/14/2023"
+    },
+    {
+      "id": 10,
+      "title": "room 2",
+      "quantity": "2",
+      "checkin": "08/12/2023",
+      "checkout": "08/14/2023"
+    },
+    {
+      "checkin": "2023-08-11T07:34:12.000Z",
+      "checkout": "2023-08-12T07:34:12.000Z",
+      "quantity": "2",
+      "id": 11
+    },
+    {
+      "checkin": "11/08/2023",
+      "checkout": "2023-08-12T07:56:52.000Z",
+      "quantity": "4",
+      "id": 12
+    },
+    {
+      "checkin": "11/08/2023",
+      "checkout": "2023-08-13T07:56:52.000Z",
+      "quantity": "4",
+      "id": 13
+    },
+    {
+      "checkin": "10/08/2023",
+      "checkout": "2023-08-12T07:57:52.000Z",
+      "quantity": "3",
+      "id": 14
+    },
+    {
+      "checkin": "11/08/2023",
+      "checkout": "12/08/2023",
+      "quantity": "3",
+      "id": 15
+    },
+    {
+      "checkin": "11/08/2023",
+      "checkout": "12/08/2023",
+      "quantity": "4",
+      "id": 16
+    },
+    {
+      "checkin": "11/08/2023",
+      "checkout": "12/08/2023",
+      "quantity": "4",
+      "id": 17
+    },
+    {
+      "checkin": "11/08/2023",
+      "checkout": "12/08/2023",
+      "quantity": "4",
+      "id": 18
+    }
+  ]
+}

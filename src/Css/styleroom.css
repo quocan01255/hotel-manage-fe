@@ -1,0 +1,190 @@
+.room-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .room-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  .room-details {
+    padding: 16px;
+  }
+  .room-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 8px 0;
+  }
+  .room-subtitle {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 8px;
+  }
+  .room-features {
+    font-size: 0.9rem;
+    color: #333;
+    margin-bottom: 8px;
+  }
+  .room-cancel {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 8px;
+  }
+  .room-rating {
+    font-size: 1rem;
+    color: #f39c12;
+    margin: 8px 0;
+  }
+  .room-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #d63031;
+  }
+  .room-tax {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 8px;
+  }
+  /* ... (Rest of Room Card styles) ... */
+
+  /* CSS styles for Payment Form */
+  .payment-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 20px;
+  }
+  .form-group {
+    margin-bottom: 20px;
+  }
+  .form-label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    font-size: 17px;
+    margin-top: 5px;
+  }
+  .form-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  .form-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 17px;
+  }
+  /* ... (Rest of Payment Form styles) ... */
+
+  /* CSS styles for Booking Summary */
+  .booking-summary {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .booking-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  .booking-item {
+    margin-bottom: 8px;
+  }
+  .booking-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .booking-price {
+    font-weight: bold;
+    color: #d63031;
+  }
+  /* ... (Rest of Booking Summary styles) ... */
+
+  /* Flexbox for layout */
+  .flex-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  .flex-item {
+    width: 50%;
+  }
+/* Flexbox for layout */
+.flex-container {
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+}
+.flex-item {
+width: 48%;
+margin-bottom: 20px;
+}
+
+.gradient-custom {
+  background-color: white;
+}
+
+
+/* Add your existing styles */
+
+.visa-icon {
+  font-size: 2rem;
+  margin-right: 10px;
+}
+
+.mastercard-icon {
+  font-size: 2rem;
+}
+
+/* Add your existing styles */
+
+
+/* CSS cho phần invalid của trường thông tin */
+.invalid-input {
+  border: 2px solid #d33131; /* Màu khung viền đỏ */
+  background-color: #ffeeee; /* Màu nền đỏ nhạt */
+}
+.error-message {
+  color: #d33131; /* Màu chữ đỏ */
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.form-input{
+  border-width: 3px;
+}
+
+/* css button book */
+.btn-primary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* width: 50px; */
+}
+
+.form-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.form-button:hover{
+  background: #0b5ed7;
+}
+/*  */
