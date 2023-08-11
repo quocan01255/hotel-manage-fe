@@ -4,12 +4,11 @@ const BookingContext = createContext();
 
 export const BookingProvider = ({ children }) => {
   const [bookingData, setBookingData] = useState({
-    roomType: "Deluxe Plus Twin",
-    checkIn: "August 15, 2023",
-    checkOut: "August 20, 2023",
-    totalPrice: "1,690,000 VND",
-  },
-  ); // Initial booking data
+    roomType: "",
+    checkIn: "",
+    checkOut: "",
+    totalPrice: 0, // Sử dụng giá trị số, không có dấu phẩy và VND
+  });
 
   return (
     <BookingContext.Provider value={{ bookingData, setBookingData }}>
@@ -17,6 +16,7 @@ export const BookingProvider = ({ children }) => {
     </BookingContext.Provider>
   );
 };
+
 
 export const useBooking = () => {
   return useContext(BookingContext);
