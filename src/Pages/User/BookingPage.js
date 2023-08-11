@@ -4,6 +4,7 @@ import Header from "../../Components/User/Header"
 import Login from "../../Components/form_login/Login"
 import Register from "../../Components/form_register/Register"
 import Footers from "../../Components/User/Footers"
+import Headerbooking from '../../Components/User/header_booking/Headerbooking'
 import { useEffect, useState } from "react";
 
 function BookingPage() {
@@ -14,7 +15,6 @@ function BookingPage() {
             .then((response) => response.json())
             .then((rooms) => {
                 setRooms(rooms)
-                console.log(rooms)
             })
             .catch((error) => {
 
@@ -22,13 +22,16 @@ function BookingPage() {
     }, [])
 
     return (
-        <div style={{ backgroundColor: '#f8f8f8' }}>
-            <div style={{ backgroundColor: '#f8f8f8', margin: '0 auto' }} className='container'>
-                <SeachBar />
-                <ListRooms rooms={rooms}/>
+        <>
+            <Headerbooking />
+            <div style={{ backgroundColor: '#f8f8f8', paddingTop: '30px'}}>
+                <div style={{ backgroundColor: '#f8f8f8', margin: '0 auto' }} className='container'>
+                    <SeachBar />
+                    <ListRooms rooms={rooms} />
+                </div>
+                <Footers />
             </div>
-            <Footers />
-        </div>
+        </>
     )
 }
 

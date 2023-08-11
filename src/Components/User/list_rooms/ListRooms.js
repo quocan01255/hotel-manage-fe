@@ -33,6 +33,7 @@ function ListRooms() {
                 </div>
             </div>
             {rooms.map(room => <RoomItem
+                key={room.id}
                 idTab={room.id}
                 priceType={priceType}
                 name={room.name}
