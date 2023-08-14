@@ -1,0 +1,31 @@
+.add-main-form-child-room {
+    margin-left: 5%;
+    margin-top: 10px;
+}
+
+.btn-admin-form-add-room {
+    display: block;
+    text-align: center;
+    margin-left: 20%;
+    margin-bottom: 10px;
+}
+
+.add-main-form-admin-room {
+    width: 100%;
+    display: block;
+    justify-content: center;
+    margin-top: 10px;
+    margin-left: 5%;
+}
+
+.img-admin-form-add-room {
+    margin-Top: 8px;
+}
+
+.btn-admin-inform-add-room {
+    margin-right: 3px;
+}
+
+.input-form-admin-add-room {
+    margin-bottom: 5px;
+}
