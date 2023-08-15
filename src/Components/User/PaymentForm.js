@@ -61,18 +61,18 @@ const PaymentForm = () => {
   };
 
   return (
-    <div className="payment-form">
+    <div className="c-payment-form">
       <div style={{ fontWeight: "bold", fontSize: "28px" }}>Your Details</div>
       <form>
         {/* ----------- */}
-        <div className="form-group">
-          <label htmlFor="first-name" className="form-label">
+        <div className="c-form-group">
+          <label htmlFor="first-name" className="c-form-label">
             First name
           </label>
           <input
             type="text"
             id="first-name"
-            className={`form-input ${formErrors.firstName ? "invalid-input" : ""}`}
+            className={`c-form-input ${formErrors.firstName ? "invalid-input" : ""}`}
             name="firstName"
             value={formData.firstName}
             onChange={handleInputChange}
@@ -83,14 +83,14 @@ const PaymentForm = () => {
           )}
         </div>
         {/* --------- */}
-        <div className="form-group">
-          <label htmlFor="last-name" className="form-label">
+        <div className="c-form-group">
+          <label htmlFor="last-name" className="c-form-label">
             Last name
           </label>
           <input
             type="text"
             id="last-name"
-            className={`form-input ${formErrors.lastName ? "invalid-input" : ""}`}
+            className={`c-form-input ${formErrors.lastName ? "invalid-input" : ""}`}
             name="lastName"
             value={formData.lastName}
             onChange={handleInputChange}
@@ -101,14 +101,14 @@ const PaymentForm = () => {
           )}
         </div>
         {/* --------- */}
-        <div className="form-group">
-          <label htmlFor="email" className="form-label">
+        <div className="c-form-group">
+          <label htmlFor="email" className="c-form-label">
             E-mail
           </label>
           <input
             type="email"
             id="email"
-            className={`form-input ${formErrors.email ? "invalid-input" : ""}`}
+            className={`c-form-input ${formErrors.email ? "invalid-input" : ""}`}
             name="email"
             value={formData.email}
             onChange={handleInputChange}
@@ -119,14 +119,14 @@ const PaymentForm = () => {
           )}
         </div>
         {/* --------- */}
-        <div className="form-group">
-          <label htmlFor="phone" className="form-label">
+        <div className="c-form-group">
+          <label htmlFor="phone" className="c-form-label">
             Phone
           </label>
           <input
             type="tel"
             id="phone"
-            className={`form-input ${formErrors.phone ? "invalid-input" : ""}`}
+            className={`c-form-input ${formErrors.phone ? "invalid-input" : ""}`}
             name="phone"
             value={formData.phone}
             onChange={handleInputChange}
@@ -137,14 +137,14 @@ const PaymentForm = () => {
           )}
         </div>
         {/* -------- */}
-        <div className="form-group">
-          <label htmlFor="address" className="form-label">
+        <div className="c-form-group">
+          <label htmlFor="address" className="c-form-label">
             Address
           </label>
           <input
             type="text"
             id="address"
-            className={`form-input ${formErrors.address ? "invalid-input" : ""}`}
+            className={`c-form-input ${formErrors.address ? "invalid-input" : ""}`}
             name="address"
             value={formData.address}
             onChange={handleInputChange}
@@ -155,14 +155,14 @@ const PaymentForm = () => {
           )}
         </div>
         {/* -------- */}
-        <div className="form-group">
-          <label htmlFor="city" className="form-label">
+        <div className="c-form-group">
+          <label htmlFor="city" className="c-form-label">
             City
           </label>
           <input
             type="text"
             id="city"
-            className={`form-input ${formErrors.city ? "invalid-input" : ""}`}
+            className={`c-form-input ${formErrors.city ? "invalid-input" : ""}`}
             name="city"
             value={formData.city}
             onChange={handleInputChange}
@@ -173,14 +173,14 @@ const PaymentForm = () => {
           )}
         </div>
         {/* ---------- */}
-        <div className="form-group">
-          <label htmlFor="country" className="form-label">
+        <div className="c-form-group">
+          <label htmlFor="country" className="c-form-label">
             Country
           </label>
           <input
             type="text"
             id="country"
-            className={`form-input ${formErrors.country ? "invalid-input" : ""}`}
+            className={`c-form-input ${formErrors.country ? "invalid-input" : ""}`}
             name="country"
             value={formData.country}
             onChange={handleInputChange}
@@ -194,7 +194,7 @@ const PaymentForm = () => {
         {/*button-form-fkl*/}
         <button
           type="button"
-          className="btn btn-primary"
+          className="c-form-button"
           onClick={handleBookClick}
         >
           Book
