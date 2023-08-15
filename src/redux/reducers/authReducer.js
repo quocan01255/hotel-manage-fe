@@ -9,16 +9,20 @@ const authReducer = (state = initialState, action) => {
             // Xử lý đăng nhập thành công, cập nhật trạng thái loggedIn và user
             return {
                 ...state,
-                loggedIn: true,
+                loggedIn: action.payload.loggedIn,
                 user: action.payload,
             };
         case 'REGISTER':
             // Xử lý đăng ký thành công, cập nhật trạng thái loggedIn và user
             return {
                 ...state,
-                loggedIn: true,
                 user: action.payload,
             };
+        case 'LOGOUT':
+            return {
+                ...state,
+                loggedIn: action.payload.loggedIn,
+            }
         default:
             return state;
     }
