@@ -20,6 +20,8 @@ export const login = (email, password) => {
                         dispatch({
                             type: 'LOGIN',
                             payload: {
+                                loggedIn: true,
+                                id: checkAccount.id,
                                 email,
                                 password,
                                 role: checkAccount.role,
@@ -52,7 +54,7 @@ export const register = (firstname, lastname, email, password, role) => {
                 // Check if email is existed
                 let findAccount = accounts.findIndex(account => account.email === email)
                 if (findAccount >= 0) {
-                    dispatch ({
+                    dispatch({
                         type: 'REGISTER',
                         payload: {
                             message: "Email is existed"
@@ -75,7 +77,7 @@ export const register = (firstname, lastname, email, password, role) => {
                     })
                         .then((response) => response.json())
                         .then((data) => {
-                            dispatch ({
+                            dispatch({
                                 type: 'REGISTER',
                                 payload: {
                                     firstname,
@@ -95,3 +97,14 @@ export const register = (firstname, lastname, email, password, role) => {
             });
     }
 };
+
+export const logout = () => {
+    return (dispatch) => {
+        dispatch({
+            type: 'LOGOUT',
+            payload: {
+                loggedIn: false
+            }
+        })
+    }
+}

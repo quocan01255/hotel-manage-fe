@@ -1,9 +1,23 @@
+import { useCallback } from 'react'
 import './roomitem.css'
+import { useDispatch, useSelector } from 'react-redux'
+import { add } from '../../../redux/actions/cartActions'
 
-function RoomItem({ idTab, priceType, name, detail, description, price, priceSale, img }) {
-    const currencyFormat = (num) => {
+function RoomItem({ idTab, priceType, name, detail, description, price, img, addRoom}) {
+    const cartState = useSelector(state => state.cartReducer)
+    const dispatch = useDispatch()
+
+    const currencyFormat = useCallback((num) => {
         return num.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+    }, [])
+
+
+    const handleClick = () => {
+        addRoom(idTab)
     }
+
+    
+
 
     return (
         <div className="row room">
@@ -45,7 +59,7 @@ function RoomItem({ idTab, priceType, name, detail, description, price, priceSal
                         >
                             BEST AVAILABLE RATE
                         </button>
-                        <button
+                        {/* <button
                             className="nav-link room__detail-navtab"
                             id="nav-contact-tab"
                             data-bs-toggle="tab"
@@ -56,7 +70,7 @@ function RoomItem({ idTab, priceType, name, detail, description, price, priceSal
                             aria-selected="false"
                         >
                             STAY 3 PAY 2
-                        </button>
+                        </button> */}
                     </div>
                 </nav>
                 <div className="tab-content room__tab" id="nav-tabContent">
@@ -86,10 +100,10 @@ function RoomItem({ idTab, priceType, name, detail, description, price, priceSal
                                     </span>
                                 )
                             }
-                            <button className='btn btn-primary room_tab-btn'>ADD</button>
+                            <button className='btn btn-primary room_tab-btn' onClick={handleClick}>ADD</button>
                         </div>
                     </div>
-                    <div
+                    {/* <div
                         className="tab-pane fade room__tab-description"
                         id={`nav-contact${idTab}`}
                         role="tabpanel"
@@ -117,7 +131,7 @@ function RoomItem({ idTab, priceType, name, detail, description, price, priceSal
                             }
                             <button className='btn btn-primary room_tab-btn'>ADD</button>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>
