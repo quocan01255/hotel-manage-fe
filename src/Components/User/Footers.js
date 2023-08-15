@@ -8,9 +8,7 @@ class Footers extends Component {
         style={{ backgroundColor: "#f1f1f1" }}
       >
         <div className="container pt-4">
-
           <section className="mb-4">
-
             <a
               className="btn btn-link btn-floating btn-lg text-dark m-1"
               href="#!"
@@ -73,16 +71,13 @@ class Footers extends Component {
                 </div>
                 {/*Grid column*/}
                 <div className="col-lg-6 col-md-12 mb-4 mb-md-0">
-                  <h5 className="text-uppercase">
-                    CTY TNHH CLEMENT GROUP VIT NAM
-                  </h5>
                   <p>
                     <p>
-                      Trụ sở: Lodgis House, 14 Ngô Văn Năm, Phường Bến Nghé,
-                      Quận 1, TPHCM, Việt Nam
+                      Địa chỉ: 77 An Dương Vương, Tp. Quy Nhơn, Tỉnh. Bình Định,
+                      Việt Nam
                     </p>
-                    <p> Hotline: (028) 39101000 </p>
-                    <p> Email: info@fusionhotelgroup.com </p>
+                    <p> Hotline: (+84) 256 2222 268 </p>
+                    <p> Email: info@clementgroup.com </p>
                   </p>
                 </div>
                 {/*Grid column*/}
@@ -96,29 +91,25 @@ class Footers extends Component {
             {/* Copyright */}
             <div
               className="text-center p-3"
-              style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
+              style={{ backgroundColor: "white" }}
             >
-              © 2020 Copyright
-              <a className="text-dark" href="https://mdbootstrap.com/"></a>
+              &copy; {new Date().getFullYear()} Copyright |
+              {
+                " This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply."
+              }
+              <a className="text-dark" href="https://ClementHotel.com/">
+                ClementHotel.com
+              </a>
             </div>
             {/* Copyright */}
           </footer>
         </div>
         {/* Grid container */}
-        {/* Copyright */}
-        {/* <div className="text-center text-dark p-3" >
-  <p>CTY TNHH SERENITY HOLDING VIỆT NAM</p>
-  <p>Trụ sở: Lodgis House, 14 Ngô Văn Năm, Phường Bến Nghé, Quận 1, TPHCM, Việt Nam</p> 
-  <p> Hotline: (028) 39101000 </p>
-  <p> Email: info@fusionhotelgroup.com </p>
-
-
-   
-  </div> */}
-        {/* Copyright */}
       </footer>
     );
   }
 }
 
 export default Footers;
+
+

@@ -33,3 +33,10 @@
 .header-booking a {
     font-size: 16px;
 }
+
+
+.header-container {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }

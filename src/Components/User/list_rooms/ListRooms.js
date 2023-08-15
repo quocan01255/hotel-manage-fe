@@ -11,7 +11,7 @@ function ListRooms() {
     })
 
     useEffect(() => {
-        fetch('http://localhost:3001/rooms')
+        fetch('http://localhost:3000/rooms')
             .then((response) => response.json())
             .then((data) => {
                 setRooms(data)

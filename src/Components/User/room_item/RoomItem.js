@@ -1,4 +1,5 @@
 import './roomitem.css'
+import {Link} from "react-router-dom"
 
 function RoomItem({ idTab, priceType, name, detail, description, price, priceSale, img }) {
     const currencyFormat = (num) => {
@@ -86,7 +87,7 @@ function RoomItem({ idTab, priceType, name, detail, description, price, priceSal
                                     </span>
                                 )
                             }
-                            <button className='btn btn-primary room_tab-btn'>ADD</button>
+                            <Link to="/homecart"  className='btn btn-primary room_tab-btn'>ADD</Link>
                         </div>
                     </div>
                     <div
@@ -115,7 +116,7 @@ function RoomItem({ idTab, priceType, name, detail, description, price, priceSal
                                     </span>
                                 )
                             }
-                            <button className='btn btn-primary room_tab-btn'>ADD</button>
+                            <Link to="/homecart"  className='btn btn-primary room_tab-btn'>ADD</Link>
                         </div>
                     </div>
                 </div>

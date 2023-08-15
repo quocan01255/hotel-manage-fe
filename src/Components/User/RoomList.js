@@ -1,11 +1,23 @@
-import React from "react";
-import RoomCard from "./RoomCard";
-import roomListData from "../Components/RoomListData";
+import React, { useState, useEffect } from "react";
+import RoomCard from "../User/RoomCard"; 
 
 const RoomList = () => {
+  const [rooms, setRooms] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/rooms")
+      .then((response) => response.json())
+      .then((data) => {
+        setRooms(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data from API:", error);
+      });
+  }, []);
+
   return (
     <div>
-      {roomListData.map((room, index) => (
+      {rooms.map((room, index) => (
         <RoomCard key={index} roomInfo={room} />
       ))}
     </div>
