@@ -1,6 +1,7 @@
 const guestCart = []
 
 export const add = (idRoom, loggedIn, idUser) => {
+    const userId = JSON.parse(localStorage.getItem("user")).id
     // Thực hiện xử lý đăng nhập, gọi API, kiểm tra thông tin, v.v.
     // Trả về một action có type và payload tương ứng
     return (dispatch) => {
@@ -10,7 +11,7 @@ export const add = (idRoom, loggedIn, idUser) => {
                 .then((response) => response.json())
                 .then((products) => {
                     // Check if product is existed
-                    const isExist = products.findIndex(product => product.idRoom === idRoom)
+                    const isExist = products.findIndex(product => product.idRoom === idRoom && product.idUser === userId)
                     if (isExist < 0) {
                         fetch('http://localhost:3001/userCart', {
                             method: 'POST',
@@ -38,7 +39,7 @@ export const add = (idRoom, loggedIn, idUser) => {
                         fetch(`http://localhost:3001/userCart`)
                             .then((response) => response.json())
                             .then((data) => {
-                                const findRoom = data.find(room => room.idRoom == idRoom)
+                                const findRoom = data.find(room => room.idRoom == idRoom && room.idUser === userId)
                                 fetch(`http://localhost:3001/userCart/${findRoom.id}`, {
                                     method: 'PUT',
                                     headers: { 'Content-Type': 'application/json' },
