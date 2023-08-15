@@ -2,8 +2,9 @@ import { useCallback } from 'react'
 import './roomitem.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { add } from '../../../redux/actions/cartActions'
+import { Link } from "react-router-dom"
 
-function RoomItem({ idTab, priceType, name, detail, description, price, img, addRoom}) {
+function RoomItem({ idTab, priceType, name, detail, description, price, img, addRoom }) {
     const cartState = useSelector(state => state.cartReducer)
     const dispatch = useDispatch()
 
@@ -15,9 +16,6 @@ function RoomItem({ idTab, priceType, name, detail, description, price, img, add
     const handleClick = () => {
         addRoom(idTab)
     }
-
-    
-
 
     return (
         <div className="row room">
@@ -129,7 +127,7 @@ function RoomItem({ idTab, priceType, name, detail, description, price, img, add
                                     </span>
                                 )
                             }
-                            <button className='btn btn-primary room_tab-btn'>ADD</button>
+                            <Link to="/homecart"  className='btn btn-primary room_tab-btn'>ADD</Link>
                         </div>
                     </div> */}
                 </div>

@@ -10,7 +10,7 @@ export const add = (idRoom, loggedIn, idUser) => {
                 .then((response) => response.json())
                 .then((products) => {
                     // Check if product is existed
-                    const isExist = products.findIndex(product => product.id === idRoom)
+                    const isExist = products.findIndex(product => product.idRoom === idRoom)
                     if (isExist < 0) {
                         fetch('http://localhost:3001/userCart', {
                             method: 'POST',
@@ -35,16 +35,17 @@ export const add = (idRoom, loggedIn, idUser) => {
                             .catch((err) => {
                             });
                     } else {
-                        fetch(`http://localhost:3001/userCart/${idRoom}`)
+                        fetch(`http://localhost:3001/userCart`)
                             .then((response) => response.json())
                             .then((data) => {
-                                fetch(`http://localhost:3001/userCart/${idRoom}`, {
+                                const findRoom = data.find(room => room.idRoom == idRoom)
+                                fetch(`http://localhost:3001/userCart/${findRoom.id}`, {
                                     method: 'PUT',
                                     headers: { 'Content-Type': 'application/json' },
                                     body: JSON.stringify({
                                         "idUser": idUser,
                                         "idRoom": idRoom,
-                                        "quantity": data.quantity + 1
+                                        "quantity": findRoom.quantity + 1
                                     })
                                 })
                                     .then(res => res.json())
@@ -57,6 +58,7 @@ export const add = (idRoom, loggedIn, idUser) => {
                                         });
                                     })
                                     .catch((err) => {
+                                        console.log(err)
                                     });
                             })
                     }

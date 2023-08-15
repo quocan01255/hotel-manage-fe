@@ -269,27 +269,16 @@
   ],
   "userCart": [
     {
+      "idUser": "6",
       "idRoom": 1,
-      "quantity": 6,
+      "quantity": 4,
       "id": 1
     },
     {
       "idUser": "6",
       "idRoom": 2,
-      "quantity": 3,
+      "quantity": 1,
       "id": 2
-    },
-    {
-      "idUser": "6",
-      "idRoom": 3,
-      "quantity": 1,
-      "id": 3
-    },
-    {
-      "idRoom": 9,
-      "quantity": 1,
-      "id": 4
     }
-  ],
-  "guestCart": []
+  ]
 }

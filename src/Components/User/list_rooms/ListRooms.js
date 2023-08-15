@@ -35,7 +35,7 @@ function ListRooms() {
             dispatch(add(id, false, null))
             setShowNotify(true)
         } else {
-            const user = localStorage.getItem("user")
+            const user = JSON.parse(localStorage.getItem("user"))
             dispatch(add(id, true, user.id))
             setShowNotify(true)
         }

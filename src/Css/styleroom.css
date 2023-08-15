@@ -1,49 +1,55 @@
-.room-card {
+.c-room-card {
     border: 1px solid #ddd;
     border-radius: 8px;
     overflow: hidden;
     margin: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
-  .room-image {
+  .c-room-image {
     width: 100%;
     height: 200px;
     object-fit: cover;
   }
-  .room-details {
+  .c-room-details {
     padding: 16px;
-  }
-  .room-title {
-    font-size: 1.2rem;
     font-weight: bold;
-    margin: 8px 0;
+    font-size: larger;
+    justify-content: center;
   }
-  .room-subtitle {
+  .c-room-title {
+    font-size: 2rem ;
+    font-weight: bold ;
+    margin: 8px 0;
+    justify-content: center;
+  }
+  .c-room-subtitle {
     font-size: 1rem;
     color: #666;
     margin-bottom: 8px;
+    justify-content: center;
   }
-  .room-features {
+  .c-room-features {
     font-size: 0.9rem;
     color: #333;
     margin-bottom: 8px;
   }
-  .room-cancel {
+  .c-room-cancel {
     font-size: 0.9rem;
     color: #666;
     margin-bottom: 8px;
   }
-  .room-rating {
+  .c-room-rating {
     font-size: 1rem;
-    color: #f39c12;
-    margin: 8px 0;
+    color: #0b5ed7;
+    margin: 2px 0;
   }
-  .room-price {
+  .c-room-price {
     font-size: 1.2rem;
     font-weight: bold;
     color: #d63031;
+    margin-bottom: 10px;
   }
-  .room-tax {
+  .c-room-tax {
     font-size: 0.9rem;
     color: #666;
     margin-top: 8px;
@@ -51,7 +57,7 @@
   /* ... (Rest of Room Card styles) ... */
 
   /* CSS styles for Payment Form */
-  .payment-form {
+  .c-payment-form {
     max-width: 400px;
     margin: 0 auto;
     padding: 20px;
@@ -59,25 +65,25 @@
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: sticky;
-    top: 20px;
+    top: 90px;
   }
-  .form-group {
+  .c-form-group {
     margin-bottom: 20px;
   }
-  .form-label {
+  .c-form-label {
     font-weight: bold;
     display: block;
     margin-bottom: 5px;
     font-size: 17px;
     margin-top: 5px;
   }
-  .form-input {
+  .c-form-input {
     width: 100%;
     padding: 8px;
     border: 1px solid #ddd;
     border-radius: 4px;
   }
-  .form-button {
+  .c-form-button {
     background-color: #007bff;
     color: #fff;
     border: none;
@@ -85,31 +91,35 @@
     border-radius: 4px;
     cursor: pointer;
     font-size: 17px;
+    width: 100%;
+  }
+  .c-form-button:hover{
+    background-color: #0b5ed7;
   }
   /* ... (Rest of Payment Form styles) ... */
 
   /* CSS styles for Booking Summary */
-  .booking-summary {
+  .c-booking-summary {
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 20px;
     margin: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
-  .booking-title {
+  .c-booking-title {
     font-size: 1.2rem;
     font-weight: bold;
     margin-bottom: 10px;
   }
-  .booking-item {
+  .c-booking-item {
     margin-bottom: 8px;
   }
-  .booking-info {
+  .c-booking-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-  .booking-price {
+  .c-booking-price {
     font-weight: bold;
     color: #d63031;
   }
