@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import './register_style.css'
 import FormGroup from '../../commons/FormGroup';
@@ -9,30 +9,35 @@ import { register } from '../../redux/actions/authActions'
 import { useDispatch, useSelector } from 'react-redux'
 
 function Register() {
-    const userInfo = useSelector(state => state.user)
+    const userInfo = useSelector(state => state.authReducer.user)
     const dispatch = useDispatch()
+    const [showNotify, setShowNotify] = useState(false)
+
     useEffect(() => {
         var form = new Validator('#login-form')
 
         form.onSubmit = function (data) {
             dispatch(register(data.firstname, data.lastname, data.email, data.password, "user"))
+            setShowNotify(true)
         }
     }, [])
 
     useEffect(() => {
-        if (userInfo !== null) {
-            toast(userInfo.message , {
-                position: "top-center",
-                autoClose: 3000,
-                hideProgressBar: true,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-            });
+        if (showNotify) {
+            if (userInfo !== null) {
+                toast(userInfo.message , {
+                    position: "top-center",
+                    autoClose: 3000,
+                    hideProgressBar: true,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
+            }
         }
-    })
+    }, [userInfo])
 
     return (
         <div className="main register-container">

@@ -1,38 +1,55 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import './login_style.css'
 import FormGroup from '../../commons/FormGroup';
 import Validator from '../../commons/validator';
 import { ToastContainer, toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
-
 import { login } from '../../redux/actions/authActions'
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 function Login() {
-    const userInfo = useSelector(state => state.user)
+    const authState = useSelector(state => state.authReducer)
+    const userInfo = useSelector(state => state.authReducer.user)
     const dispatch = useDispatch()
+    const navigate = useNavigate();
+    const [showNotify, setShowNotify] = useState(false)
+
     useEffect(() => {
         var form = new Validator('#login-form')
         form.onSubmit = function (data) {
             dispatch(login(data.email, data.password))
+            setShowNotify(true)
         }
     }, [])
 
     useEffect(() => {
-        if (userInfo !== null) {
-            toast(userInfo.message, {
-                position: "top-center",
-                autoClose: 3000,
-                hideProgressBar: true,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-            });
+        if (authState.loggedIn) {
+            localStorage.setItem("loggedIn", true);
+            localStorage.setItem("user", JSON.stringify(userInfo))
+            setTimeout(() => {
+                navigate('/bookingpage')
+            }, 2000)
         }
     })
+
+    useEffect(() => {
+        if (showNotify) {
+            if (userInfo !== null) {
+                toast(userInfo.message, {
+                    position: "top-center",
+                    autoClose: 3000,
+                    hideProgressBar: true,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
+            }
+        }
+    }, [userInfo])
 
     return (
         <div className="main login-container">
