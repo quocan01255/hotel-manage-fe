@@ -44,10 +44,11 @@ function ListRooms() {
 
     useEffect(() => {
         if (showNotify) {
+            toast.clearWaitingQueue()
             if (cartState.message !== '') {
                 toast(cartState.message, {
                     position: "top-center",
-                    autoClose: 2000,
+                    autoClose: 1500,
                     hideProgressBar: true,
                     closeOnClick: true,
                     pauseOnHover: true,
@@ -61,7 +62,7 @@ function ListRooms() {
 
     return (
         <>
-            <ToastContainer />
+            <ToastContainer limit={1}/>
             <div className="select-container">
                 <div className="select-content">
                     <select className="price-select" onChange={handleSelect}>
