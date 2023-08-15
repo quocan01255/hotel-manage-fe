@@ -4,6 +4,7 @@
     overflow: hidden;
     margin: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: left;
   }
   .c-room-image {
     width: 100%;
@@ -60,12 +61,14 @@
   .c-payment-form {
     max-width: 400px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 10px;
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 9px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 90px;
+    text-align: left;
+    
   }
   .c-form-group {
     margin-bottom: 20px;
@@ -110,14 +113,17 @@
     font-size: 1.2rem;
     font-weight: bold;
     margin-bottom: 10px;
+    text-align: left;
   }
   .c-booking-item {
     margin-bottom: 8px;
+    text-align: left;
   }
   .c-booking-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    text-align: left;
   }
   .c-booking-price {
     font-weight: bold;

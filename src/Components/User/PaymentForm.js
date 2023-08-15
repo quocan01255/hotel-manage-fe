@@ -1,9 +1,14 @@
 // Validate -------------------------------------------
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+import { setUserInfo } from '../../redux/actions/UserActions'; 
+
 
 const PaymentForm = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -54,8 +59,13 @@ const PaymentForm = () => {
   };
 
   const handleBookClick = () => {
+    // if (validate()) {
+    //   // If validation passes, redirect to PayCard component
+    //   navigate("/paycard");
+    // }
     if (validate()) {
-      // If validation passes, redirect to PayCard component
+      // Dispatch action to set user info in Redux Store
+      dispatch(setUserInfo(formData));
       navigate("/paycard");
     }
   };
@@ -205,3 +215,11 @@ const PaymentForm = () => {
 };
 
 export default PaymentForm;
+
+
+
+
+
+
+
+
