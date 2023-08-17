@@ -66,56 +66,118 @@
     }
   ],
   "bookings": [
+      {
+        "id": "1",
+        "name": "Thắng",
+        "email": "john.brown@gmail.com",
+        "phone": "0865198615",
+        "idroom": "Room 1",
+        "quantity": "3",
+        "checkin": "17/08/2023",
+        "checkout": "18/08/2023"
+      },
     {
-      "key": "1",
-      "name": "Thắng0000",
-      "email": "john.brown@gmail.com",
-      "phone": "0865198615",
-      "room": "Room 1",
-      "quantity": "3",
-      "time": "2n/3d"
-    },
-    {
-      "key": "2",
+      "id": "2",
       "name": "Thu",
       "email": "john.brown@gmail.com",
       "phone": "0865198615",
-      "room": "Room 1",
+      "idroom": "Room 1",
       "quantity": "3",
-      "time": "2n/3d"
+      "checkin": "17/08/2023",
+      "checkout": "18/08/2023"
     },
     {
-      "key": "3",
+      "id": "3",
       "name": "An",
       "email": "john.brown@gmail.com",
       "phone": "0865198615",
-      "room": "Room 1",
+      "idroom": "Room 1",
       "quantity": "3",
-      "time": "2n/3d"
+      "checkin": "17/08/2023",
+      "checkout": "18/08/2023"
     },
     {
-      "key": "4",
+      "id": "4",
       "name": "Việt",
       "email": "john.brown@gmail.com",
-      "phone": "0865198615",
-      "room": "Room 1",
+      "phone": "0934777106",
+      "idroom": "Room 4",
       "quantity": "3",
-      "time": "2n/3d"
+      "checkin": "17/08/2023",
+      "checkout": "18/08/2023"
     },
     {
-      "key": "5",
-      "name": "Thiện1111",
+      "id": "5",
+      "name": "Thiện",
       "email": "john.brown@gmail.com",
       "phone": "0865198615",
-      "room": "Room 1",
+      "idroom": "Room 1",
       "quantity": "3",
-      "time": "2n/3d"
+      "checkin": "17/08/2023",
+      "checkout": "18/08/2023"
+    },
+    {
+      "id": "6",
+      "name": "Việt1",
+      "email": "john.brown@gmail.com",
+      "phone": "0865198615",
+      "idroom": "Room 1",
+      "quantity": "3",
+      "checkin": "17/08/2023",
+      "checkout": "18/08/2023"
+    },{
+      "id": "7",
+      "name": "Việt2",
+      "email": "john.brown@gmail.com",
+      "phone": "0865198615",
+      "idroom": "Room 1",
+      "quantity": "3",
+      "checkin": "17/08/2023",
+      "checkout": "18/08/2023"
+    },{
+      "id": "8",
+      "name": "Việt3",
+      "email": "john.brown@gmail.com",
+      "phone": "0865198615",
+      "idroom": "Room 1",
+      "quantity": "3",
+      "checkin": "17/08/2023",
+      "checkout": "18/08/2023"
+    },{
+      "id": "9",
+      "name": "Việt4",
+      "email": "john.brown@gmail.com",
+      "phone": "0865198615",
+      "idroom": "Room 1",
+      "quantity": "3",
+      "checkin": "17/08/2023",
+      "checkout": "18/08/2023"
+    },{
+      "id": "10",
+      "name": "Việt5",
+      "email": "john.brown@gmail.com",
+      "phone": "0865198615",
+      "idroom": "Room 1",
+      "quantity": "3",
+      "checkin": "17/08/2023",
+      "checkout": "18/08/2023"
+    },{
+      "id": "11",
+      "name": "Việt6",
+      "email": "john.brown@gmail.com",
+      "phone": "0865198615",
+      "idroom": "Room 1",
+      "quantity": "3",
+      "checkin": "17/08/2023",
+      "checkout": "18/08/2023"
     }
   ],
   "rooms": [
     {
       "id": 1,
+      "type": "Deluxe",
       "name": "Deluxe Twin",
+      "quantity": "3",
       "detail": "3 Sleeps - 1 Twin - 1 Bathroom",
       "description": [
         "City view",
@@ -132,7 +194,9 @@
     },
     {
       "id": 2,
+      "type": "Deluxe Plus",
       "name": "Deluxe Plus Twin",
+      "quantity": "3",
       "detail": "3 Sleeps - 1 Bathroom",
       "description": [
         "City view",
@@ -149,7 +213,9 @@
     },
     {
       "id": 3,
+      "type": "Deluxe Executive",
       "name": "Deluxe Executive Twin",
+      "quantity": "4",
       "detail": "4 Sleeps - 1 Bathroom",
       "description": [
         "City view",
@@ -166,7 +232,9 @@
     },
     {
       "id": 4,
+      "type": "Deluxe Executive",
       "name": "Deluxe Executive King",
+      "quantity": "4",
       "detail": "4 Sleeps - 1 Bathroom",
       "description": [
         "City view",
@@ -183,7 +251,9 @@
     },
     {
       "id": 5,
+      "type": "Deluxe Executive",
       "name": "Executive Suite",
+      "quantity": "4",
       "detail": "4 Sleeps - 1 KingBed - 1 Bathroom",
       "description": [
         "City view",
@@ -200,7 +270,9 @@
     },
     {
       "id": 6,
+      "type": "Deluxe",
       "name": "Deluxe King",
+      "quantity": "3",
       "detail": "3 Sleeps - 1 KingBed - 1 Bathroom",
       "description": [
         "City view",
@@ -217,7 +289,9 @@
     },
     {
       "id": 7,
+      "type": "Deluxe Plus",
       "name": "Deluxe Plus King",
+      "quantity": "3",
       "detail": "3 Sleeps - 1 Bathroom",
       "description": [
         "City view",
@@ -234,7 +308,9 @@
     },
     {
       "id": 8,
+      "type": "Deluxe Pool",
       "name": "Deluxe Pool Terrace Twin",
+      "quantity": "4",
       "detail": "4 Sleeps - 1 Twin - 1 Bathroom",
       "description": [
         "City view",
@@ -251,7 +327,9 @@
     },
     {
       "id": 9,
+      "type": "Deluxe Pool",
       "name": "Deluxe Pool Terrace King",
+      "quantity": "4",
       "detail": "4 Sleeps - 1 KingBed - 1 Bathroom",
       "description": [
         "City view",

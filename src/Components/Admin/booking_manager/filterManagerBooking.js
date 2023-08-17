@@ -1,13 +1,32 @@
 import './formBookingManager.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Space, Table, Button, Modal } from 'antd';
 import FormDetailBooking from './formDetailBooking';
 
 function FilterManagerBooking() {
+    const [bookings, setBookings] = useState([]);
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
+    const [idroom, setIdroom] = useState('');
+    const [checkin, setCheckin] = useState('');
+    const [checkout, setCheckout] = useState('');
+
+    useEffect(() => {
+        fetch('http://localhost:3001/bookings')
+            .then((response) => response.json())
+            .then((data) => {
+                const newBookings = data
+                setBookings(newBookings)
+            })
+            .catch((error) => {
+            });
+    }, [])
+
     const [open, setOpen] = useState(false);
-    const Detail = () => {
-        setOpen(true);
-    };
+    // const Detail = (e) => {
+    //     setOpen(true);
+    // };
     const handleOk = (e) => {
         setOpen(false);
     };
@@ -48,12 +67,23 @@ function FilterManagerBooking() {
         {
             title: 'Action',
             key: 'action',
-            render: (_,) => (
+            render: (booking) => (
                 <Space size="middle">
                     <Space wrap>
                         <div>
-                            <Button type="primary" onClick={Detail}>Detail</Button>
+                            <Button type="primary"
+                                onClick={(e) => {
+                                    setOpen(true);
+                                    setName(booking.name)
+                                    setEmail(booking.email)
+                                    setPhone(booking.phone)
+                                    setIdroom(booking.idroom)
+                                    setCheckin(booking.checkin)
+                                    setCheckout(booking.checkout)
+                                }}
+                            >Detail</Button>
                             <Modal
+                                destroyOnClose
                                 title="Detail"
                                 open={open}
                                 onOk={handleOk}
@@ -66,7 +96,14 @@ function FilterManagerBooking() {
                                 }}
                                 width={800}
                             >
-                                <FormDetailBooking />
+                                <FormDetailBooking
+                                    name={name}
+                                    email={email}
+                                    phone={phone}
+                                    idroom={idroom}
+                                    checkin={checkin}
+                                    checkout={checkout}
+                                />
                             </Modal>
                         </div>
                         <Button type="primary" danger>Cancel</Button>
@@ -75,199 +112,6 @@ function FilterManagerBooking() {
             ),
         },
     ];
-    return <Table columns={columns} dataSource={datas} />;
+    return (<Table columns={columns} dataSource={bookings} />);
 }
-const datas = [
-    // key: '1', bỏ key nếu cần thiết
-    {
-        name: 'John Brown',
-        email: 'aaaaaa@gmail.com',
-        phone: 1234567890,
-        idroom: 'UR1',
-        checkin: '2024/04/30',
-        checkout: '2024/05/01',
-        status: ['Accepted'],
-    },
-    {
-        name: 'John Brown',
-        email: 'bbbbbb@gmail.com',
-        phone: 1234567890,
-        idroom: 'UR2',
-        checkin: '2024/05/01',
-        checkout: '2024/05/02',
-        status: ['Accepted'],
-    },
-    {
-        name: 'John Brown',
-        email: 'bbbbbb@gmail.com',
-        phone: 1234567890,
-        idroom: 'UR3',
-        checkin: '2024/05/01',
-        checkout: '2024/05/03',
-        status: ['Accepted'],
-    },
-    {
-        name: 'John Brown',
-        email: 'bbbbbb@gmail.com',
-        phone: 1234567890,
-        idroom: 'SSVip4',
-        checkin: '2024/05/01',
-        checkout: '2024/05/04',
-        status: ['Accepted'],
-    },
-    {
-        name: 'John Brown',
-        email: 'bbbbbb@gmail.com',
-        phone: 1234567890,
-        idroom: 'SSVip1',
-        checkin: '2024/05/01',
-        checkout: '2024/05/05',
-        status: ['Pending'],
-    },
-    {
-        name: 'John Brown',
-        email: 'bbbbbb@gmail.com',
-        phone: 1234567890,
-        idroom: 'SSVip1',
-        checkin: '2024/05/01',
-        checkout: '2024/05/06',
-        status: ['Pending'],
-    },
-    {
-        name: 'John Brown',
-        email: 'bbbbbb@gmail.com',
-        phone: 1234567890,
-        idroom: 'SSVip2',
-        checkin: '2024/05/01',
-        checkout: '2024/05/01',
-        status: ['Pending'],
-    },
-    {
-        name: 'John Brown',
-        email: 'bbbbbb@gmail.com',
-        phone: 1234567890,
-        idroom: 'SSVip3',
-        checkin: '2024/05/01',
-        checkout: '2024/05/01',
-        status: ['Pending'],
-    },
-    {
-        name: 'John Brown',
-        email: 'bbbbbb@gmail.com',
-        phone: 1234567890,
-        idroom: 'UR1',
-        checkin: '2024/05/01',
-        checkout: '2024/05/01',
-        status: ['Pending'],
-    },
-    {
-        name: 'John Brown',
-        email: 'bbbbbb@gmail.com',
-        phone: 1234567890,
-        idroom: 'UR1',
-        checkin: '2024/05/01',
-        checkout: '2024/05/01',
-        status: ['Pending'],
-    },
-    {
-        name: 'John Brown',
-        email: 'bbbbbb@gmail.com',
-        phone: 1234567890,
-        idroom: 'UR1',
-        checkin: '2024/05/01',
-        checkout: '2024/05/01',
-        status: ['Pending'],
-    },
-    {
-        name: 'John Brown',
-        email: 'bbbbbb@gmail.com',
-        phone: 1234567890,
-        idroom: 'UR1',
-        checkin: '2024/05/01',
-        checkout: '2024/05/01',
-        status: ['Accepted'],
-    },
-    {
-        name: 'John Brown',
-        email: 'bbbbbb@gmail.com',
-        phone: 1234567890,
-        idroom: 'UR1',
-        checkin: '2024/05/01',
-        checkout: '2024/05/01',
-        status: ['Accepted'],
-    },
-    {
-        name: 'John Brown',
-        email: 'bbbbbb@gmail.com',
-        phone: 1234567890,
-        idroom: 'UR1',
-        checkin: '2024/05/01',
-        checkout: '2024/05/01',
-        status: ['Accepted'],
-    },
-    {
-        name: 'John Brown',
-        email: 'bbbbbb@gmail.com',
-        phone: 1234567890,
-        idroom: 'UR1',
-        checkin: '2024/05/01',
-        checkout: '2024/05/01',
-        status: ['Accepted'],
-    },
-    {
-        name: 'John Brown',
-        email: 'bbbbbb@gmail.com',
-        phone: 1234567890,
-        idroom: 'UR1',
-        checkin: '2024/05/01',
-        checkout: '2024/05/01',
-        status: ['Pending'],
-    },
-    {
-        name: 'John Brown',
-        email: 'bbbbbb@gmail.com',
-        phone: 1234567890,
-        idroom: 'UR1',
-        checkin: '2024/05/01',
-        checkout: '2024/05/01',
-        status: ['Pending'],
-    },
-    {
-        name: 'John Brown',
-        email: 'bbbbbb@gmail.com',
-        phone: 1234567890,
-        idroom: 'UR1',
-        checkin: '2024/05/01',
-        checkout: '2024/05/01',
-        status: ['Pending'],
-    },
-    {
-        name: 'John Brown',
-        email: 'bbbbbb@gmail.com',
-        phone: 1234567890,
-        idroom: 'UR1',
-        checkin: '2024/05/01',
-        checkout: '2024/05/01',
-        status: ['Pending'],
-    },
-    {
-        name: 'John Brown',
-        email: 'bbbbbb@gmail.com',
-        phone: 1234567890,
-        idroom: 'UR1',
-        checkin: '2024/05/01',
-        checkout: '2024/05/01',
-        status: ['Pending'],
-    },
-    {
-        name: 'John Brown',
-        email: 'bbbbbb@gmail.com',
-        phone: 1234567890,
-        idroom: 'UR1',
-        checkin: '2024/05/01',
-        checkout: '2024/05/01',
-        status: ['Pending'],
-    },
-
-];
 export default FilterManagerBooking;

@@ -20,10 +20,10 @@ const FormAddRoom = () => {
                     </Form.Item>
                     <Form.Item label="Type room" className='input-form-admin-add-room'>
                         <Select>
-                            <Select.Option value="UR">UR</Select.Option>
-                            <Select.Option value="SSVip">SSVip</Select.Option>
-                            <Select.Option value="SVip">SVip</Select.Option>
-                            <Select.Option value="Vip">Vip</Select.Option>
+                            <Select.Option value="UR">Deluxe Pool</Select.Option>
+                            <Select.Option value="SSVip">Deluxe Executive</Select.Option>
+                            <Select.Option value="SVip">Deluxe Plus</Select.Option>
+                            <Select.Option value="Vip">Deluxe</Select.Option>
                         </Select>
                     </Form.Item>
                     <Form.Item label="Quantity" className='input-form-admin-add-room'>
@@ -35,6 +35,9 @@ const FormAddRoom = () => {
                         </Select>
                     </Form.Item>
                     <Form.Item label="Detail" className='input-form-admin-add-room'>
+                        <TextArea rows={2} />
+                    </Form.Item>
+                    <Form.Item label="Description" className='input-form-admin-add-room'>
                         <TextArea rows={5} />
                     </Form.Item>
                     <Form.Item label="Upload" valuePropName="fileList" getValueFromEvent={normFile} className='input-form-admin-add-room'>
