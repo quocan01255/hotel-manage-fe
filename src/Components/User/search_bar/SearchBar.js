@@ -29,7 +29,7 @@ function SeachBar() {
             checkout: formatDatetime(endDate, "DD/MM/YYYY"),
             quantity: quantity,
         }
-        fetch("http://localhost:3000/room", {
+        fetch("http://localhost:3001/room", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data),

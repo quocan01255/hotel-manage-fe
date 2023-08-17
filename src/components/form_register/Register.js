@@ -14,7 +14,7 @@ function Register() {
     const [showNotify, setShowNotify] = useState(false)
 
     useEffect(() => {
-        var form = new Validator('#login-form')
+        var form = new Validator('#register-form')
 
         form.onSubmit = function (data) {
             dispatch(register(data.firstname, data.lastname, data.email, data.password, "user"))
@@ -42,7 +42,7 @@ function Register() {
     return (
         <div className="main register-container">
             <ToastContainer />
-            <form action="" method="POST" className="register-form" id="login-form">
+            <form action="" method="POST" className="register-form" id="register-form">
                 <h3 className="heading">Sign up</h3>
 
                 <div className="spacer"></div>

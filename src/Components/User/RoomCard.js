@@ -58,7 +58,7 @@ const RoomCard = () => {
   const [data1, setData1] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/rooms")
+    fetch("http://localhost:3001/rooms")
       .then((res) => res.json())
       .then((booking) => {
         setData(booking);
