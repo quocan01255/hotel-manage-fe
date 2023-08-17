@@ -5,7 +5,7 @@ import { add } from '../../../redux/actions/cartActions'
 import RoomItem from "../room_item/RoomItem";
 import './listrooms.css'
 
-function ListRooms(props) {
+function ListRooms({rooms, handleNotify}) {
     const cartState = useSelector(state => state.cartReducer)
     const authState = useSelector(state => state.authReducer)
     const dispatch = useDispatch()
@@ -23,36 +23,35 @@ function ListRooms(props) {
         const loggedIn = localStorage.getItem("loggedIn")
         if (!loggedIn) {
             dispatch(add(id, false, null))
-            setShowNotify(true)
+            handleNotify(true)
         } else {
             const user = JSON.parse(localStorage.getItem("user"))
             dispatch(add(id, true, user.id))
-            setShowNotify(true)
+            handleNotify(true)
         }
 
     }, [authState, dispatch])
 
-    useEffect(() => {
-        if (showNotify) {
-            toast.clearWaitingQueue()
-            if (cartState.message !== '') {
-                toast(cartState.message, {
-                    position: "top-center",
-                    autoClose: 1500,
-                    hideProgressBar: true,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "light",
-                });
-            }
-        }
-    })
+    // useEffect(() => {
+    //     if (showNotify && message === "") {
+    //         toast.clearWaitingQueue()
+    //         if (cartState.message !== '') {
+    //             toast(cartState.message, {
+    //                 position: "top-center",
+    //                 autoClose: 1500,
+    //                 hideProgressBar: true,
+    //                 closeOnClick: true,
+    //                 pauseOnHover: true,
+    //                 draggable: true,
+    //                 progress: undefined,
+    //                 theme: "light",
+    //             });
+    //         }
+    //     }
+    // })
 
     return (
         <>
-            <ToastContainer limit={1}/>
             <div className="select-container">
                 <div className="select-content">
                     <select className="price-select" onChange={handleSelect}>
@@ -62,7 +61,7 @@ function ListRooms(props) {
                     <i className="fa-solid fa-angle-down select-icon"></i>
                 </div>
             </div>
-            {props.rooms.map(room => <RoomItem
+            {rooms.map(room => <RoomItem
                 key={room.id}
                 idTab={room.id}
                 priceType={priceType}

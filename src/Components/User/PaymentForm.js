@@ -78,7 +78,7 @@ const PaymentForm = () => {
 
   return (
     <div className="c-payment-form">
-      <div style={{ fontWeight: "bold", fontSize: "28px" }}>Your Details</div>
+      <div style={{ fontWeight:'600', fontSize: "20px" }}>Your Details</div>
       <form>
         {/* ----------- */}
         <div className="c-form-group">

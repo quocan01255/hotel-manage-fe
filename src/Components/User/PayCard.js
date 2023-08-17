@@ -9,6 +9,8 @@ import {
 } from "mdb-react-ui-kit";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Headerbooking from "./header_booking/Headerbooking";
+import Footer from "./Footers";
 
 const BookingInfo = () => {
   // ... Your existing BookingInfo component
@@ -160,9 +162,8 @@ const PaymentForm = () => {
         <input
           type="text"
           id="nameOnCard"
-          className={`c-form-input ${
-            formErrors.nameOnCard ? "invalid-input" : ""
-          }`}
+          className={`c-form-input ${formErrors.nameOnCard ? "invalid-input" : ""
+            }`}
           name="nameOnCard"
           value={formData.nameOnCard}
           placeholder="Enter your credit card number"
@@ -179,9 +180,8 @@ const PaymentForm = () => {
         <input
           type="text"
           id="card-number"
-          className={`c-form-input ${
-            formErrors.cardNumber ? "invalid-input" : ""
-          }`}
+          className={`c-form-input ${formErrors.cardNumber ? "invalid-input" : ""
+            }`}
           name="cardNumber"
           value={formData.cardNumber}
           placeholder="Enter your credit card number"
@@ -198,9 +198,8 @@ const PaymentForm = () => {
         <input
           type="text"
           id="expiry-date"
-          className={`c-form-input ${
-            formErrors.expiryDate ? "invalid-input" : ""
-          }`}
+          className={`c-form-input ${formErrors.expiryDate ? "invalid-input" : ""
+            }`}
           name="expiryDate"
           value={formData.expiryDate}
           placeholder="MM/YY"
@@ -254,30 +253,10 @@ const PaymentForm = () => {
 const PayCard = () => {
   return (
     <div>
-      <div>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light header-booking">
-          <div className="container">
-            <Link to="/" className="brand ">
-              <h1 className="logo">clément</h1>
-            </Link>
-            <ul className="nav justify-content-end">
-              <li className="item">
-                <Link to="/login" className="brand">
-                  Login
-                </Link>
-                <li className="item">
-                  <Link to="/history" className="brand">
-                    My booking
-                  </Link>
-                </li>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </div>
+      <Headerbooking />
 
       {/* PayCard content */}
-      <MDBContainer fluid className="py-5 gradient-custom">
+      <MDBContainer fluid className="py-5 gradient-custom" style={{ backgroundColor: '#f8f8f8', padding: '30px 0' }}>
         <MDBRow className="d-flex justify-content-center ">
           <MDBCol md="4" lg="4" xl="4">
             <MDBCard style={{ borderRadius: "15px" }}>
@@ -291,7 +270,7 @@ const PayCard = () => {
       </MDBContainer>
 
       {/* Bootstrap Footer */}
-      <footer className="bg-light py-4">
+      {/* <footer className="bg-light py-4">
         <div className="text-center p-3" style={{ backgroundColor: "white" }}>
           &copy; {new Date().getFullYear()} Copyright |
           {
@@ -301,7 +280,8 @@ const PayCard = () => {
             ClementHotel.com
           </a>
         </div>
-      </footer>
+      </footer> */}
+      <Footer/>
     </div>
   );
 };

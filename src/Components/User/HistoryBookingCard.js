@@ -24,7 +24,7 @@ const ListBookCard = () => {
   };
   
   useEffect(() => {
-    fetch('http://localhost:3000/bookings')
+    fetch('http://localhost:3001/bookings')
       .then(res => res.json())
       .then(booking => {
        

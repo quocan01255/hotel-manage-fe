@@ -171,7 +171,7 @@ h6,
     top: -10px;
     left: 50%;
     transform: translateX(-50%);
-    border: 10px solid;
+    border: 7px solid;
     border-color: #000 transparent transparent transparent;
     transition: .5s;
 }
