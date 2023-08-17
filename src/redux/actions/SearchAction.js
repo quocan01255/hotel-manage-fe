@@ -13,7 +13,7 @@ export const Search =(data)=>{
                                type: 'SEARCH',
                                payload:{
                                    data,
-                                   message: "Khách sạn của Thu còn phòng nhé "
+                                   message: "Còn phòng "
                                } 
                                    
                            });
