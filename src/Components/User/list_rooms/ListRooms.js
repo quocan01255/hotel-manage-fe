@@ -5,19 +5,19 @@ import { add } from '../../../redux/actions/cartActions'
 import RoomItem from "../room_item/RoomItem";
 import './listrooms.css'
 
-function ListRooms({rooms}) {
+function ListRooms(props) {
     const cartState = useSelector(state => state.cartReducer)
     const authState = useSelector(state => state.authReducer)
     const dispatch = useDispatch()
-    const [priceType, setPriceType] = useState('VND')
+    const [priceType, setPriceType] = useState('VND')    
     const [showNotify, setShowNotify] = useState(false)
 
     const handleSelect = useCallback((e) => {
-        setShowNotify(false)
         setPriceType(e.target.value)
     }, [])
 
-    console.log(cartState.guestCart)
+    
+    
 
     const handleAdd = useCallback((id) => {
         const loggedIn = localStorage.getItem("loggedIn")
@@ -29,13 +29,13 @@ function ListRooms({rooms}) {
             dispatch(add(id, true, user.id))
             setShowNotify(true)
         }
-    }, [dispatch])
 
-    useEffect(() => {   
+    }, [authState, dispatch])
+
+    useEffect(() => {
         if (showNotify) {
+            toast.clearWaitingQueue()
             if (cartState.message !== '') {
-                toast.dismiss()
-                toast.clearWaitingQueue()
                 toast(cartState.message, {
                     position: "top-center",
                     autoClose: 1500,
@@ -52,7 +52,7 @@ function ListRooms({rooms}) {
 
     return (
         <>
-            <ToastContainer />
+            <ToastContainer limit={1}/>
             <div className="select-container">
                 <div className="select-content">
                     <select className="price-select" onChange={handleSelect}>
@@ -62,7 +62,7 @@ function ListRooms({rooms}) {
                     <i className="fa-solid fa-angle-down select-icon"></i>
                 </div>
             </div>
-            {rooms.map(room => <RoomItem
+            {props.rooms.map(room => <RoomItem
                 key={room.id}
                 idTab={room.id}
                 priceType={priceType}

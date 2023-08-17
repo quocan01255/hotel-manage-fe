@@ -5,7 +5,7 @@ import { add } from '../../../redux/actions/cartActions'
 import { Link } from "react-router-dom"
 
 function RoomItem({ idTab, priceType, name, detail, description, price, img, addRoom }) {
-    const cartState = useSelector(state => state.cartReducer)
+    // const cartState = useSelector(state => state.cartReducer)
     const dispatch = useDispatch()
 
     const currencyFormat = useCallback((num) => {
