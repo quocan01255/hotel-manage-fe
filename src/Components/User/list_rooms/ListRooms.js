@@ -5,29 +5,19 @@ import { add } from '../../../redux/actions/cartActions'
 import RoomItem from "../room_item/RoomItem";
 import './listrooms.css'
 
-function ListRooms() {
+function ListRooms({rooms}) {
     const cartState = useSelector(state => state.cartReducer)
     const authState = useSelector(state => state.authReducer)
     const dispatch = useDispatch()
     const [priceType, setPriceType] = useState('VND')
-    const [rooms, setRooms] = useState([])
     const [showNotify, setShowNotify] = useState(false)
 
     const handleSelect = useCallback((e) => {
+        setShowNotify(false)
         setPriceType(e.target.value)
     }, [])
 
     console.log(cartState.guestCart)
-    useEffect(() => {
-        fetch('http://localhost:3001/rooms')
-            .then((response) => response.json())
-            .then((data) => {
-                setRooms(data)
-            })
-            .catch((error) => {
-
-            });
-    }, [])
 
     const handleAdd = useCallback((id) => {
         const loggedIn = localStorage.getItem("loggedIn")
@@ -39,13 +29,13 @@ function ListRooms() {
             dispatch(add(id, true, user.id))
             setShowNotify(true)
         }
+    }, [dispatch])
 
-    }, [authState, dispatch])
-
-    useEffect(() => {
+    useEffect(() => {   
         if (showNotify) {
-            toast.clearWaitingQueue()
             if (cartState.message !== '') {
+                toast.dismiss()
+                toast.clearWaitingQueue()
                 toast(cartState.message, {
                     position: "top-center",
                     autoClose: 1500,
@@ -62,7 +52,7 @@ function ListRooms() {
 
     return (
         <>
-            <ToastContainer limit={1}/>
+            <ToastContainer />
             <div className="select-container">
                 <div className="select-content">
                     <select className="price-select" onChange={handleSelect}>

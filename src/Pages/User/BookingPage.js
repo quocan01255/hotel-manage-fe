@@ -1,8 +1,5 @@
 import SeachBar from "../../Components/User/search_bar/SearchBar"
 import ListRooms from "../../Components/User/list_rooms/ListRooms"
-import Header from "../../Components/User/Header"
-import Login from "../../Components/form_login/Login"
-import Register from "../../Components/form_register/Register"
 import Footers from "../../Components/User/Footers"
 import Headerbooking from '../../Components/User/header_booking/Headerbooking'
 import { useEffect, useState } from "react";

@@ -1,7 +1,10 @@
 const guestCart = []
+var userId
 
 export const add = (idRoom, loggedIn, idUser) => {
-    const userId = JSON.parse(localStorage.getItem("user")).id
+    if (localStorage.getItem("user")) {
+        userId = JSON.parse(localStorage.getItem("user")).id
+    }
     // Thực hiện xử lý đăng nhập, gọi API, kiểm tra thông tin, v.v.
     // Trả về một action có type và payload tương ứng
     return (dispatch) => {

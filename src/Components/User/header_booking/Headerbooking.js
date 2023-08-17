@@ -13,11 +13,6 @@ function Headerbooking() {
     localStorage.clear()
   }, [])
 
-  if (localStorage.getItem("user")) {
-    console.log(JSON.parse(localStorage.getItem("user")))
-
-  }
-
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light header-booking">

@@ -6,7 +6,8 @@
       "lastname": "ad",
       "email": "admin@gmail.com",
       "password": "admin1234",
-      "confirm-password": "admin1234"
+      "confirm-password": "admin1234",
+      "role": "admin"
     },
     {
       "firstname": "thang",
@@ -14,6 +15,7 @@
       "email": "truongdinhthangxyz@gmail.com",
       "password": "Aathang1234",
       "confirm-password": "Aathang1234",
+      "role": "user",
       "id": "2"
     },
     {
@@ -22,6 +24,7 @@
       "email": "hoaiviet@gmail.com",
       "password": "viet123456",
       "confirm-password": "viet123456",
+      "role": "user",
       "id": "3"
     },
     {
@@ -30,6 +33,7 @@
       "email": "huynhthien@gmail.com",
       "password": "thien123",
       "confirm-password": "thien123",
+      "role": "user",
       "id": "4"
     },
     {
@@ -38,6 +42,7 @@
       "email": "thuhoai1@gmail.com",
       "password": "thuhoai1234",
       "confirm-password": "thuhoai1234",
+      "role": "user",
       "id": "5"
     },
     {
@@ -62,7 +67,7 @@
       "email": "quocan0255@gmail.com",
       "password": "12345678",
       "role": "user",
-      "id": "6r-bNXV"
+      "id": "8"
     }
   ],
   "bookings": [
@@ -269,130 +274,22 @@
   ],
   "userCart": [
     {
-      "idUser": "7",
+      "idUser": "6",
       "idRoom": 1,
-      "quantity": 9,
+      "quantity": 2,
       "id": 1
     },
     {
       "idUser": "6",
       "idRoom": 2,
-      "quantity": 10,
+      "quantity": 1,
       "id": 2
     },
     {
-      "idUser": "7",
-      "idRoom": 3,
+      "idUser": "1",
+      "idRoom": 1,
       "quantity": 1,
       "id": 3
-    },
-    {
-      "idUser": "7",
-      "idRoom": 2,
-      "quantity": 3,
-      "id": 4
-    },
-    {
-      "idUser": "6",
-      "idRoom": 1,
-      "quantity": 15,
-      "id": 5
-    },
-    {
-      "idUser": "6",
-      "idRoom": 3,
-      "quantity": 6,
-      "id": 6
-    },
-    {
-      "idUser": "1",
-      "idRoom": 1,
-      "quantity": 16,
-      "id": 7
-    },
-    {
-      "idUser": "1",
-      "idRoom": 2,
-      "quantity": 10,
-      "id": 8
-    },
-    {
-      "idUser": "6",
-      "idRoom": 8,
-      "quantity": 2,
-      "id": 9
-    },
-    {
-      "idUser": "1",
-      "idRoom": 3,
-      "quantity": 5,
-      "id": 10
-    },
-    {
-      "idUser": "1",
-      "idRoom": 4,
-      "quantity": 3,
-      "id": 11
-    },
-    {
-      "idUser": "1",
-      "idRoom": 5,
-      "quantity": 4,
-      "id": 12
-    },
-    {
-      "idUser": "1",
-      "idRoom": 6,
-      "quantity": 3,
-      "id": 13
-    },
-    {
-      "idUser": "1",
-      "idRoom": 7,
-      "quantity": 3,
-      "id": 14
-    },
-    {
-      "idUser": "1",
-      "idRoom": 8,
-      "quantity": 3,
-      "id": 15
-    },
-    {
-      "idUser": "1",
-      "idRoom": 9,
-      "quantity": 2,
-      "id": 16
-    },
-    {
-      "idUser": "6",
-      "idRoom": 4,
-      "quantity": 3,
-      "id": 17
-    },
-    {
-      "idUser": "6",
-      "idRoom": 5,
-      "quantity": 2,
-      "id": 18
-    },
-    {
-      "idUser": "6",
-      "idRoom": 6,
-      "quantity": 2,
-      "id": 19
-    },
-    {
-      "idUser": "6",
-      "idRoom": 7,
-      "quantity": 1,
-      "id": 20
-    },
-    {
-      "idUser": "6",
-      "idRoom": 9,
-      "quantity": 1,
-      "id": 21
     }
   ]
 }
