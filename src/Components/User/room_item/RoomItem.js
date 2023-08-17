@@ -4,18 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { add } from "../../../redux/actions/cartActions";
 import { Link } from "react-router-dom";
 
-function RoomItem({
-  idTab,
-  priceType,
-  name,
-  detail,
-  description,
-  price,
-  img,
-  addRoom,
-}) {
-  const cartState = useSelector((state) => state.cartReducer);
-  const dispatch = useDispatch();
+function RoomItem({ idTab, priceType, name, detail, description, price, img, addRoom }) {
+    // const cartState = useSelector(state => state.cartReducer)
+    const dispatch = useDispatch()
 
   const currencyFormat = useCallback((num) => {
     return num.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");

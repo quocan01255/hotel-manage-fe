@@ -5,29 +5,19 @@ import { add } from '../../../redux/actions/cartActions'
 import RoomItem from "../room_item/RoomItem";
 import './listrooms.css'
 
-function ListRooms() {
+function ListRooms(props) {
     const cartState = useSelector(state => state.cartReducer)
     const authState = useSelector(state => state.authReducer)
     const dispatch = useDispatch()
-    const [priceType, setPriceType] = useState('VND')
-    const [rooms, setRooms] = useState([])
+    const [priceType, setPriceType] = useState('VND')    
     const [showNotify, setShowNotify] = useState(false)
 
     const handleSelect = useCallback((e) => {
         setPriceType(e.target.value)
     }, [])
 
-    console.log(cartState.guestCart)
-    useEffect(() => {
-        fetch('http://localhost:3001/rooms')
-            .then((response) => response.json())
-            .then((data) => {
-                setRooms(data)
-            })
-            .catch((error) => {
-
-            });
-    }, [])
+    
+    
 
     const handleAdd = useCallback((id) => {
         const loggedIn = localStorage.getItem("loggedIn")
@@ -72,7 +62,7 @@ function ListRooms() {
                     <i className="fa-solid fa-angle-down select-icon"></i>
                 </div>
             </div>
-            {rooms.map(room => <RoomItem
+            {props.rooms.map(room => <RoomItem
                 key={room.id}
                 idTab={room.id}
                 priceType={priceType}

@@ -16,6 +16,10 @@ import { createStore, applyMiddleware  } from 'redux';
 import rootred from "./reducers/main"
 import thunk from 'redux-thunk'
 
-const store = createStore(rootred, applyMiddleware(thunk));
+import authReducer from './reducers/authReducer'
+import cartReducer from './reducers/cartReducer';
+import SearchReducer from './reducers/SearchReducer';
+const rootReducer = combineReducers({authReducer, cartReducer,SearchReducer})
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 export default store;
