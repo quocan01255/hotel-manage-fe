@@ -30,13 +30,19 @@ const PaymentForm = () => {
     country: "",
   });
 
-  const handleInputChange  = (e) => {
+  const handleInputChange = (e) => {
     const { name, value } = e.target;
+
+    // Clear the validation error for the current field
+    setFormErrors((prevErrors) => ({
+      ...prevErrors,
+      [name]: "",
+    }));
+
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
     }));
-    validate();
   };
 
   const validate = () => {
