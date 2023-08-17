@@ -8,7 +8,7 @@ import {
   MDBRow,
 } from "mdb-react-ui-kit";
 import { useState } from "react";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 
 const BookingInfo = () => {
   // ... Your existing BookingInfo component
@@ -60,8 +60,22 @@ const PaymentForm = () => {
   });
 
   // Handle input change
+  // const handleInputChange = (event) => {
+  //   const { name, value } = event.target;
+  //   setFormData({
+  //     ...formData,
+  //     [name]: value,
+  //   });
+  // };
   const handleInputChange = (event) => {
     const { name, value } = event.target;
+
+    // Clear the validation error for the current field
+    setFormErrors({
+      ...formErrors,
+      [name]: "",
+    });
+
     setFormData({
       ...formData,
       [name]: value,
@@ -69,7 +83,6 @@ const PaymentForm = () => {
   };
 
   const handleBookClick = () => {
-    
     const errors = {};
     if (formData.nameOnCard === "") {
       errors.nameOnCard = "Name on card is required";
@@ -93,20 +106,19 @@ const PaymentForm = () => {
     // Continue with the booking process
     setLoading(true);
     // ... Rest of the booking logic
-    
-    
+
     setLoading(true); // Bắt đầu loading
-    
+
     // Giả lập thời gian loading
     setTimeout(() => {
       setLoading(false); // Kết thúc loading
       setBookingSuccess(true); //thành công
-      
+
       // Reset trạng thái thành công sau khoảng thời gian (ví dụ: 5 giây)
-      setTimeout(() => { 
+      setTimeout(() => {
         setBookingSuccess(false);
       }, 5000);
-      
+
       // TODO: Chuyển sang trang thành công hoặc hiển thị thông báo thành công
     }, 2000); // Giả lập 2 giây loading
   };
@@ -143,73 +155,98 @@ const PaymentForm = () => {
         {/* <FontAwesomeIcon icon={faCcVisa} className="visa-icon" />
         <FontAwesomeIcon icon={faCcMastercard} className="mastercard-icon" /> */}
       </div>
-      <label className="c-form-label">Name on card</label>
-      <input
-        className="c-form-input"
-        type="text"
-        placeholder="Enter the name on the credit card"
-        name="nameOnCard"
-        value={formData.nameOnCard}
-        onChange={handleInputChange}
-      />
-      {/* Display validation errors */}
-      {formErrors.nameOnCard && (
-        <p className="text-danger">{formErrors.nameOnCard}</p>
-      )}
-      <br />
-      <label className="c-form-label">Card Number</label>
+      <label className="b-form-label">Name on card</label>
+      <div className="c-form-group">
+        <input
+          type="text"
+          id="nameOnCard"
+          className={`c-form-input ${
+            formErrors.nameOnCard ? "invalid-input" : ""
+          }`}
+          name="nameOnCard"
+          value={formData.nameOnCard}
+          placeholder="Enter your credit card number"
+          onChange={handleInputChange}
+          required
+        />
+        {formErrors.nameOnCard && (
+          <div className="error-message">{formErrors.nameOnCard}</div>
+        )}
+      </div>
+      {/* ---------------------------------------------------- */}
+      <label className="b-form-label">Card Number</label>
+      <div className="c-form-group">
+        <input
+          type="text"
+          id="card-number"
+          className={`c-form-input ${
+            formErrors.cardNumber ? "invalid-input" : ""
+          }`}
+          name="cardNumber"
+          value={formData.cardNumber}
+          placeholder="Enter your credit card number"
+          onChange={handleInputChange}
+          required
+        />
+        {formErrors.cardNumber && (
+          <div className="error-message">{formErrors.cardNumber}</div>
+        )}
+      </div>
+      {/* ---------------------------------------------------- */}
+      <label className="b-form-label">Expiry date</label>
+      <div className="c-form-group">
+        <input
+          type="text"
+          id="expiry-date"
+          className={`c-form-input ${
+            formErrors.expiryDate ? "invalid-input" : ""
+          }`}
+          name="expiryDate"
+          value={formData.expiryDate}
+          placeholder="MM/YY"
+          onChange={handleInputChange}
+          required
+        />
+        {formErrors.expiryDate && (
+          <div className="error-message">{formErrors.expiryDate}</div>
+        )}
+      </div>
+      {/* ---------------------------------------------------- */}
+      <label className="b-form-label">CVV</label>
+      <div className="c-form-group">
+        <input
+          type="text"
+          id="cvv"
+          className={`c-form-input ${formErrors.cvv ? "invalid-input" : ""}`}
+          name="cvv"
+          placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;"
+          value={formData.cvv}
+          onChange={handleInputChange}
+          required
+        />
+        {formErrors.cvv && (
+          <div className="error-message">{formErrors.cvv}</div>
+        )}
+      </div>
 
-      <input
-        className="c-form-input"
-        type="text"
-        placeholder="Enter your credit number"
-        name="cardNumber"
-        value={formData.cardNumber}
-        onChange={handleInputChange}
-      />
-      {/* Display validation errors */}
-      {formErrors.cardNumber && (
-        <p className="text-danger">{formErrors.cardNumber}</p>
-      )}
-      <br />
-      <label className="c-form-label">Expiry date</label>
+      {/* ---------------------------------------------------- */}
 
-
-      <input
-        className="c-form-input"
-        type="text"
-        placeholder="MM/YYYY"
-        name="expiryDate"
-        value={formData.expiryDate}
-        onChange={handleInputChange}
-      />
-      {/* Display validation errors */}
-      {formErrors.expiryDate && (
-        <p className="text-danger">{formErrors.expiryDate}</p>
-      )} 
-
-      <br />
-      <label className="c-form-label">CVV</label>
-    
-      
-      <input
-        className="c-form-input"
-        type="text"
-        placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;"
-        name="cvv"
-        value={formData.cvv}
-        onChange={handleInputChange}
-      />
-      {/* Display validation errors */}
-      {formErrors.cvv && (
-        <p className="text-danger">{formErrors.cvv}</p>
-      )} 
-
-      <br />
-      <button className="c-form-button" type="button" onClick={handleBookClick} disabled={loading || bookingSuccess}>
-        {loading ? "Booking..." : bookingSuccess ? "Book" : "Book"}
+      <button
+        className="c-form-button"
+        type="button"
+        onClick={handleBookClick}
+        disabled={loading || bookingSuccess}
+      >
+        {loading ? "Booking...." : bookingSuccess ? "Booked" : "Book"}
       </button>
-      {bookingSuccess && <p className="text-success mt-2" style={{textAlign:"center",fontSize:"19px"}}>Booking successful!</p>}
+      {bookingSuccess && (
+        <p
+          className="text-success mt-3"
+          style={{ textAlign: "center", fontWeight: "bold" }}
+        >
+          Booking successful!
+        </p>
+      )}
     </div>
   );
 };
@@ -218,26 +255,26 @@ const PayCard = () => {
   return (
     <div>
       <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light header-booking">
-        <div className="container">
-          <Link to="/" className="brand ">
-            <h1 className="logo" >clément</h1>
-          </Link>
-          <ul className="nav justify-content-end">
-            <li className="item">
-            <Link to="/login" className="brand">
-          Login
-          </Link>
+        <nav className="navbar navbar-expand-lg navbar-light bg-light header-booking">
+          <div className="container">
+            <Link to="/" className="brand ">
+              <h1 className="logo">clément</h1>
+            </Link>
+            <ul className="nav justify-content-end">
               <li className="item">
-                <Link to="/history" className="brand">
-                  My booking
+                <Link to="/login" className="brand">
+                  Login
                 </Link>
+                <li className="item">
+                  <Link to="/history" className="brand">
+                    My booking
+                  </Link>
+                </li>
               </li>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </div>
+            </ul>
+          </div>
+        </nav>
+      </div>
 
       {/* PayCard content */}
       <MDBContainer fluid className="py-5 gradient-custom">
@@ -255,27 +292,18 @@ const PayCard = () => {
 
       {/* Bootstrap Footer */}
       <footer className="bg-light py-4">
-      <div className="text-center p-3" style={{ backgroundColor: "white" }}>
-        &copy; {new Date().getFullYear()} Copyright |
-        {
-          " This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply."
-        }
-        <a className="text-dark" href="https://ClementHotel.com/">
-          ClementHotel.com
-        </a>
-      </div>
+        <div className="text-center p-3" style={{ backgroundColor: "white" }}>
+          &copy; {new Date().getFullYear()} Copyright |
+          {
+            " This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply."
+          }
+          <a className="text-dark" href="https://ClementHotel.com/">
+            ClementHotel.com
+          </a>
+        </div>
       </footer>
     </div>
   );
 };
 
 export default PayCard;
-
-
-
-
-
-
-
-
-

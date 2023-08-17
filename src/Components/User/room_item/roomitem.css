@@ -1,6 +1,6 @@
 .room {
-    background-color: #fff;
-    border: 1px solid #dee2e6;
+    background-color: #F8F8FF;
+    border: 2px solid #777777;
     margin: 24px 0;
     padding-top: 12px;
 }
@@ -8,6 +8,7 @@
 .room img {
     max-width: 100%;
     height: auto;
+    border-radius: 5px;
 }
 
 .room__content {
@@ -92,7 +93,7 @@
 }
 
 .room__tab-booking {
-    border-top: 1px solid #dee2e6;
+    border-top: 1px solid #777777;
     padding: 12px 0;
     display: flex;
     align-items: center;
@@ -105,14 +106,20 @@
 }
 
 .room_tab-btn {
-    background-color: #666;
+    background-color: #259b97;
     border: none;
-    border-radius: 0;
+    border-radius: 4px;
+    width: 80px;
 }
 
 .room_tab-btn:hover {
-    background-color: #666;
+    background-color: #008580;
     opacity: 0.8;
 }
 
-
+.nav-tabs {
+    --bs-nav-tabs-border-width: var(--bs-border-width);
+    --bs-nav-tabs-border-color: #777777 ;
+    --bs-nav-tabs-border-radius: var(--bs-border-radius);
+    --bs-nav-tabs-link-hover-border-color: 
+}

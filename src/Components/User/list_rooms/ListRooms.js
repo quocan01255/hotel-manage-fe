@@ -79,3 +79,45 @@ function ListRooms(props) {
 }
 
 export default ListRooms
+
+
+
+// import { useState, useCallback, useEffect } from "react";
+// import RoomItem from "../room_item/RoomItem";
+// import './listrooms.css'
+// import { useSelector } from "react-redux";
+// function ListRooms(props) {
+//     const [priceType, setPriceType] = useState('VND')  
+//     const handleSelect = useCallback((e) => {
+//         setPriceType(e.target.value)
+//     })
+//     const getdata = useSelector((state) => state.SearchReducer.rooms);
+//     console.log(getdata);
+//     return (
+//         <>
+//             <div className="select-container">
+//                 <div className="select-content">
+//                     <select className="price-select" onChange={handleSelect}>
+//                         <option value="VND" defaultValue>Vietnamese Dong(đ)</option>
+//                         <option value="USD">US Dollar($)</option>
+//                     </select>
+//                     <i className="fa-solid fa-angle-down select-icon"></i>
+//                 </div>
+//             </div>
+//             {props.rooms.map(room => <RoomItem
+//                 key={room.id}
+//                 idTab={room.id}
+//                 priceType={priceType}
+//                 name={room.name}
+//                 detail={room.detail}
+//                 description={room.description}
+//                 price={room.price}
+//                 priceSale={room.priceSale}
+//                 img={room.img}
+//                 room ={room}
+//             />)}
+//         </>
+//     )
+// }
+
+// export default ListRooms

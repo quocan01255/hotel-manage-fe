@@ -301,9 +301,22 @@
       "id": 1
     },
     {
-      "idUser": "6",
+      "idUser": "1",
       "idRoom": 2,
+      "quantity": 3,
+      "id": 2
+    },
+    {
+      "idUser": "7",
+      "idRoom": 4,
       "quantity": 1,
+      "id": 3
+    },
+    {
+      "idUser": "7",
+      "idRoom": 5,
+      "quantity": 1,
+      "id": 4
       "id": 2
     },
     {
