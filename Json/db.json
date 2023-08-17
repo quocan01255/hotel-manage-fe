@@ -132,25 +132,32 @@
         "Air conditioned",
         "Hairdryer"
       ],
+      "quantity": "5",
       "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/781688/781688/SUPERIOR_TWIN_02.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
-      "price": "1780000"
+      "price": "1780000",
+      "priceSale": "1299800",
+      "checkin": "16/08/2023",
+      "checkout": "19/08/2023"
     },
     {
       "id": 2,
       "name": "Deluxe Plus Twin",
       "detail": "3 Sleeps - 1 Bathroom",
       "description": [
-        "City view",
+        "Sea view",
         "Non-smoking",
-        "Cable/Satellite TV",
-        "Desk",
+        "Air conditioned",
         "Tea/Coffee Maker",
         "Internet Access",
-        "Air conditioned",
-        "Hairdryer"
+        "Balcony",
+        "Cable/Satellite TV"
       ],
+      "quantity": "3",
       "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/781696/781696/SUPERIOR_TWIN_05.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
-      "price": "1850000"
+      "price": "1850000",
+      "priceSale": "3001600",
+      "checkin": "17/08/2023",
+      "checkout": "21/08/2023"
     },
     {
       "id": 3,
@@ -166,8 +173,10 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/781700/781700/SUPERIOR_TWIN_03.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
-      "price": "2100000"
+      "quantity": "4",
+      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/781741/781741/PREMIER_OCEAN_TWIN_1.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
+      "price": "2100000",
+      "priceSale": "2299800"
     },
     {
       "id": 4,
@@ -183,8 +192,10 @@
         "Air conditioned",
         "Hairdryer"
       ],
+      "quantity": "4",
       "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/781683/781683/DELUXE_09.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
-      "price": "2300000"
+      "price": "2300000",
+      "priceSale": "2299800"
     },
     {
       "id": 5,
@@ -200,8 +211,10 @@
         "Air conditioned",
         "Hairdryer"
       ],
+      "quantity": "4",
       "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/780899/780899/SUITE-ROOM-1.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
-      "price": "2940000"
+      "price": "2940000",
+      "priceSale": "2299800"
     },
     {
       "id": 6,
@@ -217,8 +230,10 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/781661/781661/SUPERIOR_KING__12_.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
-      "price": "2560000"
+      "quantity": "3",
+      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/782198/782198/PREMIER_DELUXE_OCEAN_VIEW_TWIN_6.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
+      "price": "2560000",
+      "priceSale": "2299800"
     },
     {
       "id": 7,
@@ -234,8 +249,10 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/781674/781674/DELUXE_07.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
-      "price": "2760000"
+      "quantity": "3",
+      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/782193/782193/PREMIER_DELUXE_OCEAN_VIEW_DOUBLE.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
+      "price": "2760000",
+      "priceSale": "2299800"
     },
     {
       "id": 8,
@@ -251,8 +268,10 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/909714/909714/DELUXE_POOL_TERRACE_5.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
-      "price": "3250000"
+      "quantity": "4",
+      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/909797/909797/PREMIER_OCEAN_VIEW_DOUBLE_5.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
+      "price": "3250000",
+      "priceSale": "2299800"
     },
     {
       "id": 9,
@@ -268,46 +287,60 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/909752/909752/DELUXE_POOL_TERRACE_8.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
-      "price": "4350000"
+      "quantity": "4",
+      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/909805/909805/PREMIER_OCEAN_TWIN_1.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
+      "price": "4350000",
+      "priceSale": "2299800"
     }
   ],
   "userCart": [
     {
       "idUser": "6",
       "idRoom": 1,
-      "quantity": 2,
+      "quantity": 78,
       "id": 1
     },
     {
-      "idUser": "6",
+      "idUser": "1",
       "idRoom": 2,
-      "quantity": 1,
+      "quantity": 3,
       "id": 2
     },
     {
-      "idUser": "1",
-      "idRoom": 1,
-      "quantity": 4,
+      "idUser": "7",
+      "idRoom": 4,
+      "quantity": 1,
       "id": 3
     },
     {
-      "idUser": "1",
-      "idRoom": 3,
-      "quantity": 2,
+      "idUser": "7",
+      "idRoom": 5,
+      "quantity": 1,
       "id": 4
     },
     {
       "idUser": "1",
-      "idRoom": 4,
+      "idRoom": 1,
       "quantity": 1,
+      "id": 3
+    },
+    {
+      "idUser": "6",
+      "idRoom": 2,
+      "quantity": 50,
       "id": 5
     },
     {
-      "idUser": "1",
-      "idRoom": 5,
-      "quantity": 1,
+      "idUser": "6",
+      "idRoom": 3,
+      "quantity": 5,
       "id": 6
+    },
+    {
+      "idUser": "6",
+      "idRoom": 4,
+      "quantity": 3,
+      "id": 7
     }
   ]
 }

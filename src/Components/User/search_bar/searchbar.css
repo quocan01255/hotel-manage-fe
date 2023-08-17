@@ -143,7 +143,7 @@ input[type=radio] {
 }
 
 .search-form .submit {
-    background: #f8ba0f;
+    background: #259b97;
     color: #fff;
     font-size: 14px;
     margin-top: 23px;
@@ -152,7 +152,7 @@ input[type=radio] {
 }
 
 .search-form .submit:hover {
-    background-color: #ce9906;
+    background-color: #027e7a;
 }
 
 .search-form label {

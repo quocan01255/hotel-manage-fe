@@ -99,7 +99,7 @@ html {
 
 .login-form .form-submit {
     outline: none;
-    background-color: #1dbfaf;
+    background-color: #259b97;
     margin-top: 12px;
     padding: 12px 16px;
     font-weight: 600;
@@ -112,7 +112,7 @@ html {
 }
 
 .login-form .form-submit:hover {
-    background-color: #1ac7b6;
+    background-color: #067e7a;
 }
 
 .spacer {

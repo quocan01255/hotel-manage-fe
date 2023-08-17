@@ -50,36 +50,100 @@
 
 // export default RoomCard;
 
+
+
+
+
+
+// import React, { useEffect, useState } from "react";
+// import { useParams } from "react-router-dom";
+// const RoomCard = () => {
+//   const { id } = useParams();
+//   const [data, setData] = useState([]);
+//   const [data1, setData1] = useState([]);
+
+//   useEffect(() => {
+//     fetch("http://localhost:3000/rooms")
+//       .then((res) => res.json())
+//       .then((booking) => {
+//         setData(booking);
+//       });
+//   }, []);
+
+//   const compare = () => {
+//     let comparedata = data.filter((e) => {
+//       return e.id === id;
+//     });
+//     setData(comparedata);
+//   };
+
+//   useEffect(() => {
+//     compare();
+//   }, [id]);
+//   const currencyFormat = (num) => {
+//     return num.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+//   };
+//   return (
+//       <div className="c-room-card ">
+//         {data.map((element) => {
+//           return (
+//             <>
+//               <img
+//                 className="c-room-image"
+//                 src={element.img}
+//                 alt="Room Image"
+//               />
+//               <div className="c-form-details">
+//                 <div className="c-form-title">{element.name}</div>
+//                 <div className="c-room-subtitle">{element.detail}</div>
+//                 <div className="c-room-features">{element.description}</div>
+//                 <div className="c-room-rating">Rating: 4.5</div>
+//                 <div className="c-room-price">
+//                   {" "}
+//                   {currencyFormat(element.price)} VND
+//                 </div>
+//               </div>
+//             </>
+//           );
+//         })}
+//       </div>
+//   );
+// };
+
+// export default RoomCard;
+
+
+
+
+
+
+
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useParams } from 'react-router-dom';
 const RoomCard = () => {
   const { id } = useParams();
   const [data, setData] = useState([]);
-  const [data1, setData1] = useState([]);
 
-  useEffect(() => {
-    fetch("http://localhost:3001/rooms")
-      .then((res) => res.json())
-      .then((booking) => {
-        setData(booking);
-      });
-  }, []);
+  const getdata = useSelector((state) => state.PayReducer.carts);
+
 
   const compare = () => {
-    let comparedata = data.filter((e) => {
-      return e.id === id;
+    let comparedata = getdata.filter((e) => {
+      return e.id == id
     });
     setData(comparedata);
-  };
+  }
 
   useEffect(() => {
     compare();
-  }, [id]);
+  }, [id])
   const currencyFormat = (num) => {
-    return num.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
-  };
+    return num.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+  }
   return (
-      <div className="c-room-card ">
+    <div className="mt-5 mp-5">
+      <div className="c-room-card mt-5 mb-5 pt-5 pb-5 ">
         {data.map((element) => {
           return (
             <>
@@ -93,8 +157,7 @@ const RoomCard = () => {
                 <div className="c-room-subtitle">{element.detail}</div>
                 <div className="c-room-features">{element.description}</div>
                 <div className="c-room-rating">Rating: 4.5</div>
-                <div className="c-room-price">
-                  {" "}
+                <div className="c-room-price">                
                   {currencyFormat(element.price)} VND
                 </div>
               </div>
@@ -102,7 +165,10 @@ const RoomCard = () => {
           );
         })}
       </div>
+    </div>
+
   );
 };
 
 export default RoomCard;
+
