@@ -18,9 +18,6 @@ import LayoutUser from './Layout/LayoutUser'
 import HistoryBookingPage from './Pages/User/HistoryBookingPage'
 import Login from './Components/form_login/Login'
 import Register from './Components/form_register/Register'
-import LayoutAdmin from './Layout/LayoutAdmin'
-import ListBookPage from './Pages/Admin/ListBookPage'
-import TaiKhoanPage from './Pages/Admin/TaiKhoanPage';
 import HomeCart from './Pages/User/HomeCard';
 import PayCard from './Components/User/PayCard'
 import { BookingProvider } from "./Components/User/BookingContext";
@@ -56,11 +53,6 @@ function App() {
               <Route path="/gallerypage" element={<GalleryPage />} />
             </Route>
             {/* admin */}
-            <Route path="/admin/" element={<LayoutAdmin />} >
-              <Route index element={<ListBookPage />} />
-              <Route path="listbook" element={<ListBookPage />} />
-              <Route path="taikhoan" element={<TaiKhoanPage />} />
-            </Route>
             <Route path="/adminpage" element={<AdminPage />} >
               <Route path="ManagerBooking" element={<SearchFormBooking />} />
               <Route path="ManagerRoomDeluxePool" element={<DeluxePool />} />

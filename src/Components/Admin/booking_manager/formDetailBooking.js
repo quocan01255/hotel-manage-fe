@@ -3,22 +3,22 @@ import { Button, Form, Input, DatePicker } from 'antd';
 import './formBookingManager.css';
 
 const { RangePicker } = DatePicker;
-const FormDetailBooking = () => {
+const FormDetailBooking = ({ name, email, phone, idroom, checkin, checkout }) => {
     return (
         <div>
             <div className='ad-form-detail-booking'>
                 <Form labelCol={{ span: 4, }} wrapperCol={{ span: 14, }} layout="horizontal" >
                     <Form.Item label="Name">
-                        <Input />
+                        <Input defaultValue={name} />
                     </Form.Item>
                     <Form.Item label="E-mail">
-                        <Input />
+                        <Input defaultValue={email} />
                     </Form.Item>
                     <Form.Item label="Phone">
-                        <Input />
+                        <Input defaultValue={phone} />
                     </Form.Item>
                     <Form.Item label="ID-Room">
-                        <Input disabled />
+                        <Input defaultValue={idroom} disabled />
                     </Form.Item>
                     <Form.Item label="RangePicker">
                         <RangePicker />
