@@ -15,7 +15,7 @@ function BookingPage() {
     const getdata = useSelector((state) => state.SearchReducer.rooms);
     const message = useSelector((state) => state.SearchReducer.message);
     const cartState = useSelector(state => state.cartReducer)
-    //gọi dữ liệu lên 
+    //gọi dữ liệu lên
     useEffect(() => {
         fetch('http://localhost:3001/rooms')
             .then((response) => response.json())

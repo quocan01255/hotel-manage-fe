@@ -71,16 +71,16 @@
     }
   ],
   "bookings": [
-      {
-        "id": "1",
-        "name": "Thắng",
-        "email": "john.brown@gmail.com",
-        "phone": "0865198615",
-        "idroom": "Room 1",
-        "quantity": "3",
-        "checkin": "17/08/2023",
-        "checkout": "18/08/2023"
-      },
+    {
+      "id": "1",
+      "name": "Thắng",
+      "email": "john.brown@gmail.com",
+      "phone": "0865198615",
+      "idroom": "Room 1",
+      "quantity": "3",
+      "checkin": "17/08/2023",
+      "checkout": "18/08/2023"
+    },
     {
       "id": "2",
       "name": "Thu",
@@ -130,7 +130,8 @@
       "quantity": "3",
       "checkin": "17/08/2023",
       "checkout": "18/08/2023"
-    },{
+    },
+    {
       "id": "7",
       "name": "Việt2",
       "email": "john.brown@gmail.com",
@@ -139,7 +140,8 @@
       "quantity": "3",
       "checkin": "17/08/2023",
       "checkout": "18/08/2023"
-    },{
+    },
+    {
       "id": "8",
       "name": "Việt3",
       "email": "john.brown@gmail.com",
@@ -148,7 +150,8 @@
       "quantity": "3",
       "checkin": "17/08/2023",
       "checkout": "18/08/2023"
-    },{
+    },
+    {
       "id": "9",
       "name": "Việt4",
       "email": "john.brown@gmail.com",
@@ -157,7 +160,8 @@
       "quantity": "3",
       "checkin": "17/08/2023",
       "checkout": "18/08/2023"
-    },{
+    },
+    {
       "id": "10",
       "name": "Việt5",
       "email": "john.brown@gmail.com",
@@ -166,7 +170,8 @@
       "quantity": "3",
       "checkin": "17/08/2023",
       "checkout": "18/08/2023"
-    },{
+    },
+    {
       "id": "11",
       "name": "Việt6",
       "email": "john.brown@gmail.com",
@@ -182,7 +187,7 @@
       "id": 1,
       "type": "Deluxe",
       "name": "Deluxe Twin",
-      "quantity": "3",
+      "quantity": "5",
       "detail": "3 Sleeps - 1 Twin - 1 Bathroom",
       "description": [
         "City view",
@@ -194,7 +199,6 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "quantity": "5",
       "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/780899/780899/SUITE-ROOM-1.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
       "price": "1780000",
       "priceSale": "1299800",
@@ -238,7 +242,6 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "quantity": "4",
       "img": "https://www.navadahotel.com/FileStorage/Room/Thumbnail/_DSC5506-HDR-Edit-Edit.png",
       "price": "2100000",
       "priceSale": "2299800",
@@ -261,7 +264,6 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "quantity": "4",
       "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/415423881.jpg?k=76d019dc7cf43dbe28157bd60d339b0c8843dd4f9fd21b4c6fa9484d67ab0cdf&o=&hp=1",
       "price": "2300000",
       "priceSale": "2299800",
@@ -284,7 +286,6 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "quantity": "4",
       "img": "https://thecaphotel.com/public/uploads/news/20210520/cb02278262605e8f1024954fc3e38221.jpg",
       "price": "2940000",
       "priceSale": "2299800",
@@ -307,7 +308,6 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "quantity": "3",
       "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/782198/782198/PREMIER_DELUXE_OCEAN_VIEW_TWIN_6.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
       "price": "2560000",
       "priceSale": "2299800",
@@ -352,7 +352,6 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "quantity": "4",
       "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/909797/909797/PREMIER_OCEAN_VIEW_DOUBLE_5.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
       "price": "3250000",
       "priceSale": "2299800",
@@ -375,7 +374,6 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "quantity": "4",
       "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/909805/909805/PREMIER_OCEAN_TWIN_1.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
       "price": "4350000",
       "priceSale": "2299800",
@@ -437,6 +435,12 @@
       "idRoom": 2,
       "quantity": 2,
       "id": 10
+    },
+    {
+      "idUser": "1",
+      "idRoom": 1,
+      "quantity": 1,
+      "id": 11
     }
   ]
 }
