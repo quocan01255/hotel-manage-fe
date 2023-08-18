@@ -176,7 +176,9 @@
       "quantity": "4",
       "img": "https://www.navadahotel.com/FileStorage/Room/Thumbnail/_DSC5506-HDR-Edit-Edit.png",
       "price": "2100000",
-      "priceSale": "2299800"
+      "priceSale": "2299800",
+      "checkin": "19/08/2023",
+      "checkout": "22/08/2023"
     },
     {
       "id": 4,
@@ -195,7 +197,9 @@
       "quantity": "4",
       "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/415423881.jpg?k=76d019dc7cf43dbe28157bd60d339b0c8843dd4f9fd21b4c6fa9484d67ab0cdf&o=&hp=1",
       "price": "2300000",
-      "priceSale": "2299800"
+      "priceSale": "2299800",
+      "checkin": "21/08/2023",
+      "checkout": "23/08/2023"
     },
     {
       "id": 5,
@@ -214,7 +218,9 @@
       "quantity": "4",
       "img": "https://thecaphotel.com/public/uploads/news/20210520/cb02278262605e8f1024954fc3e38221.jpg",
       "price": "2940000",
-      "priceSale": "2299800"
+      "priceSale": "2299800",
+      "checkin": "22/08/2023",
+      "checkout": "25/08/2023"
     },
     {
       "id": 6,
@@ -233,7 +239,9 @@
       "quantity": "3",
       "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/782198/782198/PREMIER_DELUXE_OCEAN_VIEW_TWIN_6.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
       "price": "2560000",
-      "priceSale": "2299800"
+      "priceSale": "2299800",
+      "checkin": "23/08/2023",
+      "checkout": "26/08/2023"
     },
     {
       "id": 7,
@@ -252,7 +260,9 @@
       "quantity": "3",
       "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/782193/782193/PREMIER_DELUXE_OCEAN_VIEW_DOUBLE.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
       "price": "2760000",
-      "priceSale": "2299800"
+      "priceSale": "2299800",
+      "checkin": "23/08/2023",
+      "checkout": "26/08/2023"
     },
     {
       "id": 8,
@@ -271,7 +281,9 @@
       "quantity": "4",
       "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/909797/909797/PREMIER_OCEAN_VIEW_DOUBLE_5.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
       "price": "3250000",
-      "priceSale": "2299800"
+      "priceSale": "2299800",
+      "checkin": "26/08/2023",
+      "checkout": "30/08/2023"
     },
     {
       "id": 9,
@@ -290,39 +302,65 @@
       "quantity": "4",
       "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/909805/909805/PREMIER_OCEAN_TWIN_1.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
       "price": "4350000",
-      "priceSale": "2299800"
+      "priceSale": "2299800",
+      "checkin": "25/08/2023",
+      "checkout": "26/08/2023"
     }
   ],
   "userCart": [
     {
       "idUser": "6",
       "idRoom": 1,
-      "quantity": 2,
+      "quantity": 78,
       "id": 1
+    },
+    {
+      "idUser": "7",
+      "idRoom": 5,
+      "quantity": 1,
+      "id": 4
+    },
+    {
+      "idUser": "7",
+      "idRoom": 5,
+      "quantity": 1,
+      "id": 4
     },
     {
       "idUser": "6",
       "idRoom": 2,
-      "quantity": 1,
-      "id": 2
+      "quantity": 50,
+      "id": 5
+    },
+    {
+      "idUser": "6",
+      "idRoom": 3,
+      "quantity": 5,
+      "id": 6
+    },
+    {
+      "idUser": "6",
+      "idRoom": 4,
+      "quantity": 3,
+      "id": 7
     },
     {
       "idUser": "1",
-      "idRoom": 1,
-      "quantity": 22,
-      "id": 3
+      "idRoom": 3,
+      "quantity": 1,
+      "id": 8
+    },
+    {
+      "idUser": "1",
+      "idRoom": 5,
+      "quantity": 1,
+      "id": 9
     },
     {
       "idUser": "1",
       "idRoom": 2,
       "quantity": 2,
-      "id": 4
-    },
-    {
-      "idUser": "1",
-      "idRoom": 9,
-      "quantity": 1,
-      "id": 5
+      "id": 10
     }
   ]
 }

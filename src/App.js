@@ -68,6 +68,8 @@ function App() {
               <Route path="ManagerRoomDeluxePlus" element={<DeluxePlus />} />
               <Route path="ManagerRoomDeluxe" element={<Deluxe />} />
             </Route>
+            <Route path="/bookingpage" element={<BookingPage/>}/>
+
           </Routes>
         </BookingProvider>
 

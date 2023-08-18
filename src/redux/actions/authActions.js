@@ -48,7 +48,7 @@ export const register = (firstname, lastname, email, password, role) => {
     // Thực hiện xử lý đăng ký, gọi API, kiểm tra thông tin, v.v.
     // Trả về một action có type và payload tương ứng
     return (dispatch) => {
-        fetch('http://localhost:3000/accounts')
+        fetch('http://localhost:3001/accounts')
             .then((response) => response.json())
             .then((accounts) => {
                 // Check if email is existed
@@ -62,7 +62,7 @@ export const register = (firstname, lastname, email, password, role) => {
                     });
                 } else {
                     // Add account to data
-                    fetch('http://localhost:3000/accounts', {
+                    fetch('http://localhost:3001/accounts', {
                         method: 'POST',
                         body: JSON.stringify({
                             "firstName": firstname,

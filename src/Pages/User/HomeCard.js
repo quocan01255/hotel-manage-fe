@@ -9,25 +9,27 @@ import Headerbooking from "../../Components/User/header_booking/Headerbooking";
 
 function HomeCard() {
   return (
-    <div>
-      <div className="container">
-        <div className="row">
-          <Headerbooking />
-          <div className="col-md-6">
-            <RoomCard />
+    <>
+      <Headerbooking />
+      <div style={{ backgroundColor: '#f8f8f8', padding: '30px 0' }}>
+        <div className="container" >
+          <div className="row">
+            <div className="col-md-6">
+              <RoomCard />
+            </div>
+            <div className="col-md-6">
+              <PaymentForm />
+            </div>
           </div>
-          <div className="col-md-6">
-            <PaymentForm />
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-md-12">
-            <BookingSummary />
+          <div className="row">
+            <div className="col-md-12">
+              <BookingSummary />
+            </div>
           </div>
         </div>
       </div>
       <Footers />
-    </div>
+    </>
   );
 }
 

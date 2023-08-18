@@ -19,12 +19,12 @@ function IteamHome() {
             <div className="row">
 
                 <div className="col-sm-5   order-lg-2">
-                    <img className=" mt-5 mb-4 pt-4 pb-4  " src="https://quynhon.maiaresorts.com/wp-content/uploads/2020/06/Maia-Resort-Quy-Nhon-_Sunrise-1.jpg" alt="" width="90%" height="60%" />
-                    <p>Nestled on an idyllic beachside haven, Maia Resort Quy Nhon is a tropical paradise of landscaped gardens and golden sands. Fashioned with the foodie in mind, the resort takes Fusion’s down-to-earth hospitality and signature wellness vibe with a liberal sprinkling of delicious delights, taking you on culinary adventures that capture the essences of Quy Nhon’s rich cultural heritage. Stylish private pool villas offer the best of inside and outside living space with all the comforts and conveniences of home.</p>
+                    <img className=" mt-5 mb-4 pt-4 pb-4  " src="https://cdn.webhotelier.net/photos/w=1920/rinela-suisp/L884498.jpg" alt="" width="90%" height="60%" />
+                    <p>Nestled on an idyllic beachside haven, Clément Hotel is a tropical paradise of landscaped gardens and golden sands. Fashioned with the foodie in mind, the resort takes Fusion’s down-to-earth hospitality and signature wellness vibe with a liberal sprinkling of delicious delights, taking you on culinary adventures that capture the essences of Quy Nhon’s rich cultural heritage. Stylish private pool villas offer the best of inside and outside living space with all the comforts and conveniences of home.</p>
                 </div>
                 <div className="col-sm-7">
-                    <h1 className=" mt-3 mb-3 pt-5 pb-5  ">Maia Resort Quy Nhon</h1>
-                    <img src="https://quynhon.maiaresorts.com/wp-content/uploads/2020/08/Garden-Pool-Villa-facade-02_resize.jpg" alt="" width="100%" />
+                    <h1 className=" mt-3 mb-3 pt-5 pb-5  "></h1>
+                    <img src="https://media.mitsishotels.com/uploads/2021/10/mitsis-crete-rinela-room-maisonette-balcony-2285-wxga.jpg" alt="" width="100%" />
                 </div>
             </div>
             <div className="row mt-5 mb-5 pt-5 pb-5">

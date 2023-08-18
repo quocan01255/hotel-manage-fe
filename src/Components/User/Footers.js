@@ -6,26 +6,37 @@ class Footer extends Component {
       <footer className=" text-white" style={{ backgroundColor: "#259b97" }}>
         <div className="container py-3">
           <div className="row">
-            <div className="col-lg-4 mb-4 text-center" >
-            <h5 className="mb-3 text-center" style={{fontSize:"30px", justifyContent:"flex-start"}}>Clément Hotel</h5>
+            <div className="col-lg-4 mb-4 text-center">
+              <h5
+                className="mb-3 text-center"
+                style={{ fontSize: "30px", justifyContent: "flex-start" }}
+              >
+                Clément Hotel
+              </h5>
               {/* <img
                 src="https://quynhon.maiaresorts.com/wp-content/themes/maiaresort/images/maia_resorts_favicon.svg"
                 alt="Logo"
                 style={{ maxWidth: "100px" }}
               /> */}
+              <div
+                className=""
+                style={{ margin: "40px" }}
+              >
+                <p className="mt-3">
+                  Address: 77 An Dương Vương, Tp. Quy Nhơn, Tỉnh. Bình Định,
+                  Việt Nam
+                </p>
+                <p>Address: 249 Hà Huy Tập, Tp. Đà Nẵng, Việt Nam</p>
 
-              <p className="mt-3">
-                Address: 77 An Dương Vương, Tp. Quy Nhơn, Tỉnh. Bình Định, Việt
-                Nam
-              </p>
-              <p>Address: 249 Hà Huy Tập, Tp. Đà Nẵng, Việt Nam</p>
-
-              <p>Hotline: (+84) 256 2222 268</p>
-              <p>Email: mailto:info@clementgroup.com</p>
+                <p>Hotline: (+84) 256 2222 268</p>
+                <p>Email: mailto:info@clementgroup.com</p>
+              </div>
             </div>
             <div className="col-lg-4 mb-2 ">
-              <h5 className="mb-3 text-center" style={{fontSize:"30px"}}>Connect with us</h5>
-              <div 
+              <h5 className="mb-3 text-center" style={{ fontSize: "30px" }}>
+                Connect with us
+              </h5>
+              <div
                 className="d-flex justify-content-center"
                 style={{ margin: "40px" }}
               >
@@ -55,9 +66,14 @@ class Footer extends Component {
                 </a>
               </div>
             </div>
-            <div className="col-lg-4 mb-2 " >
-              <h5 className="mb-3 text-center" style={{fontSize:"30px"}}>Pay With</h5>
-              <div className="d-flex justify-content-center"  style={{ margin: "40px" }}>
+            <div className="col-lg-4 mb-2 ">
+              <h5 className="mb-3 text-center" style={{ fontSize: "30px" }}>
+                Pay With
+              </h5>
+              <div
+                className="d-flex justify-content-center"
+                style={{ margin: "40px" }}
+              >
                 <img
                   src="https://thecaphotel.com/public/uploads/settings/20210509/855d2451a6c93f98bd947bf3c95b3c56.png"
                   style={{ height: "30px" }}
@@ -79,7 +95,7 @@ class Footer extends Component {
         </div>
         <div
           className="text-center py-4"
-          style={{ backgroundColor: "#259b97",  }}
+          style={{ backgroundColor: "#259b97" }}
         >
           &copy; {new Date().getFullYear()} Bản quyền thuộc về{" "}
           <a className="text-light" href="https://clementhotel.com/">

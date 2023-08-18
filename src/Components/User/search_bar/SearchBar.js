@@ -23,6 +23,7 @@ function SeachBar(props) {
                 endDate: formatDatetime(endDate, "DD/MM/YYYY"),
                 quantity: quantity,
             }
+            props.handleNotify()
             props.onSubmit(data)
         }
     })
