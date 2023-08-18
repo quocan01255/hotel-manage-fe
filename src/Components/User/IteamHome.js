@@ -1,5 +1,5 @@
 import React from 'react'
-
+import img_1 from "../../assets/img/img_1.jpg"
 function IteamHome() {
     return (
         <>
@@ -35,7 +35,7 @@ function IteamHome() {
 
                 </div>
                 <div className="col-sm-7">
-                    <img src="https://quynhon.maiaresorts.com/wp-content/uploads/2023/03/89db7a1cb3086e563719-1-scaled.jpg" alt="" width="100%" />
+                    <img src={img_1} alt="" width="100%" />
                 </div>
             </div>
         </>

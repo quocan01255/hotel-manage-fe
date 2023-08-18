@@ -48,11 +48,11 @@ function ListRooms(props) {
                 });
             }
         }
-    })
+    },[cartState.message])
 
     return (
         <>
-            <ToastContainer limit={1}/>
+           
             <div className="select-container">
                 <div className="select-content">
                     <select className="price-select" onChange={handleSelect}>
