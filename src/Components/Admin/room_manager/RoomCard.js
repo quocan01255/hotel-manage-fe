@@ -2,9 +2,13 @@ import { Button, Modal } from 'antd';
 import React, { useState } from 'react';
 import './cssRoomManager.css';
 import FormDetail from './FormEditRoom';
+import { remove } from '../../../redux/actions/roomManagerAction';
+import { useDispatch } from 'react-redux'
 
-function RoomCard({ name, image, detail, description, price, type, quantity }) {
+function RoomCard({ room }) {
+    const { id, name, detail, img, description, price } = room
     const [openDetail, setOpenDetail] = useState(false);
+    const dispatch = useDispatch()
     const Detail = () => {
         setOpenDetail(true);
     };
@@ -12,11 +16,13 @@ function RoomCard({ name, image, detail, description, price, type, quantity }) {
     const handleCancel = (e) => {
         setOpenDetail(false);
     };
-
+    const handleRemove = () => {
+        dispatch(remove(id))
+    }
     return (
         <div className="row g-0 card-main-admin-manager-room">
             <div className="col-md-3 img-admin-manager-room">
-                <img src={image} className="img-fluid rounded-start" alt="..." />
+                <img src={img} className="img-fluid rounded-start" alt="..." />
             </div>
             <div className="col-md-6 ">
                 <div className="card-body">
@@ -43,16 +49,10 @@ function RoomCard({ name, image, detail, description, price, type, quantity }) {
                         }}
                         width={800}
                     >
-                        <FormDetail name={name}
-                            image={image}
-                            detail={detail}
-                            description={description}
-                            price={price}
-                            type={type}
-                            quantity={quantity}
+                        <FormDetail room={room}
                         />
                     </Modal>
-                    <Button type="primary" danger>Delete</Button>
+                    <Button type="primary" danger onClick={handleRemove}>Delete</Button>
                 </div>
             </div>
         </div>

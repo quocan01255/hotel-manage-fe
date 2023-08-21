@@ -56,13 +56,7 @@ function Deluxe() {
         </div>
         {rooms.map(
           (room) => <RoomCard
-            name={room.name}
-            image={room.img}
-            detail={room.detail}
-            description={room.description}
-            price={room.price}
-            type={room.type}
-            quantity={room.quantity}
+            room={room}
           />)}
       </div>
     </div>
