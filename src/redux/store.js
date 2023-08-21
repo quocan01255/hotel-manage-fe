@@ -3,7 +3,6 @@ import thunk from 'redux-thunk'
 import authReducer from './reducers/authReducer'
 import cartReducer from './reducers/cartReducer';
 import SearchReducer from './reducers/SearchReducer';
-
 import PayReducer from "./reducers/PayReducer";
 
 

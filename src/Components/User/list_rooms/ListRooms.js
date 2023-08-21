@@ -31,6 +31,7 @@ function ListRooms({ rooms, handleNotify }) {
     [authState, dispatch]
   );
 
+
   return (
     <>
       <div className="select-container">
@@ -60,6 +61,7 @@ function ListRooms({ rooms, handleNotify }) {
       ))}
     </>
   );
+
 }
 
 export default ListRooms;

@@ -17,8 +17,8 @@ function Header() {
             <div className="collapse navbar-collapse" id="navbarCollapse">
                 <div className="navbar-nav mx-auto py-0">
                     <ul className="navbar-nav">
-                        <Link to="/villapage" className="nav-item nav-link" >Villas</Link>
-                        <Link to="/culinarypage" className="nav-item nav-link" >Culinary</Link>
+                        <Link to="/villapage" className="nav-item nav-link" >Rooms</Link>
+                        <Link to="/culinarypage" className="nav-item nav-link" >Restaurant</Link>
                         <Link to="/" className="nav-item nav-link" >Home</Link>
                         <Link to="/explorepage" className="nav-item nav-link" >Explore</Link>
                         <Link to="/gallerypage" className="nav-item nav-link" >Gallery</Link>
