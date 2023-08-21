@@ -36,11 +36,11 @@ function BookingPage() {
 
     useEffect(() => {
         toast.clearWaitingQueue()
-        if (message && showAddNotify == false) {
+        if (message && showAddNotify === false) {
             toast.success(message);
             dispatch(resetmessage())
         } else {
-            if (cartState.message !== '' && showAddNotify == true) {
+            if (cartState.message !== '' && showAddNotify === true) {
                 toast(cartState.message, {
                     position: "top-center",
                     autoClose: 1500,

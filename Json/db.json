@@ -433,14 +433,20 @@
     {
       "idUser": "1",
       "idRoom": 2,
-      "quantity": 2,
+      "quantity": 3,
       "id": 10
     },
     {
       "idUser": "1",
       "idRoom": 1,
-      "quantity": 1,
+      "quantity": 2,
       "id": 11
+    },
+    {
+      "idUser": "1",
+      "idRoom": 9,
+      "quantity": 1,
+      "id": 12
     }
   ]
 }
