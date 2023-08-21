@@ -32,7 +32,7 @@ const BookingInfo = () => {
         Complete your booking
       </h2>
       <div className="c-booking-price" style={{color:"red",fontWeight:"bold",fontSize:"17px",textAlign:"center"}}>
-        <label>Total Price: {currencyFormat(total)} VND</label>
+        <label>Total Price: {currencyFormat(total)}đ</label>
         {/* <span>{bookingData.totalPrice}</span> */}
         {/* <span>{currencyFormat(totalPrice)} VND</span> */}
       </div>
