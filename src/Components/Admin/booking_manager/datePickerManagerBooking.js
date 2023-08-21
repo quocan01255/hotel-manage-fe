@@ -3,23 +3,15 @@ import React from 'react';
 import { DatePicker, Space } from 'antd';
 
 const { RangePicker } = DatePicker;
-const onChange = (value, dateString) => {
-    console.log('Selected Time: ', value);
-    console.log('Formatted Selected Time: ', dateString);
-};
-
+const onChange = () => { };
 const onOk = (value) => {
     console.log('onOk: ', value);
 };
-
 const DatePickerManagerBooking = () => (
     <div>
         <Space direction="vertical" size={12}>
             <RangePicker
-                showTime={{
-                    format: 'HH:mm',
-                }}
-                format="YYYY-MM-DD HH:mm"
+                format="YYYY-MM-DD"
                 onChange={onChange}
                 onOk={onOk}
             />

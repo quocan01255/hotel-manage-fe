@@ -1,8 +1,8 @@
+import './formBookingManager.css';
 import React from 'react';
 import dayjs from 'dayjs';
 import { Button, Form, Input, DatePicker } from 'antd';
 import './formBookingManager.css';
-import dayjs from 'dayjs';
 
 const { RangePicker } = DatePicker;
 const FormDetailBooking = ({ name, email, phone, idroom, checkin, checkout }) => {
@@ -24,7 +24,7 @@ const FormDetailBooking = ({ name, email, phone, idroom, checkin, checkout }) =>
                         <Input defaultValue={idroom} disabled />
                     </Form.Item>
                     <Form.Item label="RangePicker">
-                        <RangePicker defaultValue={[dayjs(checkin, 'DD/MM/YYYY'), dayjs(checkout, 'DD/MM/YYYY')]}/>
+                        <RangePicker defaultValue={[dayjs(checkin, "DD/MM/YYYY"), dayjs(checkout, "DD/MM/YYYY")]} />
                     </Form.Item>
                     <Form.Item className='btn-edit-form-detai-booking'>
                         <Button type="primary">Edit</Button>
