@@ -1,7 +1,8 @@
 import React from 'react'
-
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap/dist/js/bootstrap.js'
+import '../../Css/animate.css'
+import '../../Css/animate.min.css'
+import '../../Css/headerstyle.css'
+import '../../commons/header-action'
 import { Link } from 'react-router-dom'
 // import logo from "../../assets/img/logo3.png";
 function Header() {
@@ -16,8 +17,8 @@ function Header() {
             <div className="collapse navbar-collapse" id="navbarCollapse">
                 <div className="navbar-nav mx-auto py-0">
                     <ul className="navbar-nav">
-                        <Link to="/villapage" className="nav-item nav-link" >Villas</Link>
-                        <Link to="/culinarypage" className="nav-item nav-link" >Culinary</Link>
+                        <Link to="/villapage" className="nav-item nav-link" >Rooms</Link>
+                        <Link to="/culinarypage" className="nav-item nav-link" >Restaurant</Link>
                         <Link to="/" className="nav-item nav-link" >Home</Link>
                         <Link to="/explorepage" className="nav-item nav-link" >Explore</Link>
                         <Link to="/gallerypage" className="nav-item nav-link" >Gallery</Link>

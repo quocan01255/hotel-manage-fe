@@ -5,39 +5,26 @@ import { add } from '../../../redux/actions/cartActions'
 import RoomItem from "../room_item/RoomItem";
 import './listrooms.css'
 
-function ListRooms() {
+function ListRooms({ rooms, handleNotify }) {
     const cartState = useSelector(state => state.cartReducer)
     const authState = useSelector(state => state.authReducer)
     const dispatch = useDispatch()
     const [priceType, setPriceType] = useState('VND')
-    const [rooms, setRooms] = useState([])
     const [showNotify, setShowNotify] = useState(false)
 
     const handleSelect = useCallback((e) => {
         setPriceType(e.target.value)
     }, [])
 
-    console.log(cartState.guestCart)
-    useEffect(() => {
-        fetch('http://localhost:3001/rooms')
-            .then((response) => response.json())
-            .then((data) => {
-                setRooms(data)
-            })
-            .catch((error) => {
-
-            });
-    }, [])
-
     const handleAdd = useCallback((id) => {
         const loggedIn = localStorage.getItem("loggedIn")
         if (!loggedIn) {
             dispatch(add(id, false, null))
-            setShowNotify(true)
+            handleNotify(true)
         } else {
             const user = JSON.parse(localStorage.getItem("user"))
             dispatch(add(id, true, user.id))
-            setShowNotify(true)
+            handleNotify(true)
         }
 
     }, [authState, dispatch])
@@ -58,11 +45,10 @@ function ListRooms() {
                 });
             }
         }
-    })
-
+    },[cartState.message])
+   
     return (
         <>
-            <ToastContainer limit={1}/>
             <div className="select-container">
                 <div className="select-content">
                     <select className="price-select" onChange={handleSelect}>

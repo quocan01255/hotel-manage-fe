@@ -1,9 +1,14 @@
 // Validate -------------------------------------------
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+import { setUserInfo } from '../../redux/actions/UserActions'; 
+
 
 const PaymentForm = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -25,13 +30,19 @@ const PaymentForm = () => {
     country: "",
   });
 
-  const handleInputChange  = (e) => {
+  const handleInputChange = (e) => {
     const { name, value } = e.target;
+
+    // Clear the validation error for the current field
+    setFormErrors((prevErrors) => ({
+      ...prevErrors,
+      [name]: "",
+    }));
+
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
     }));
-    validate();
   };
 
   const validate = () => {
@@ -54,15 +65,20 @@ const PaymentForm = () => {
   };
 
   const handleBookClick = () => {
+    // if (validate()) {
+    //   // If validation passes, redirect to PayCard component
+    //   navigate("/paycard");
+    // }
     if (validate()) {
-      // If validation passes, redirect to PayCard component
+      // Dispatch action to set user info in Redux Store
+      dispatch(setUserInfo(formData));
       navigate("/paycard");
     }
   };
 
   return (
     <div className="c-payment-form">
-      <div style={{ fontWeight: "bold", fontSize: "28px" }}>Your Details</div>
+      <div style={{ fontWeight:'600', fontSize: "20px" }}>Your Details</div>
       <form>
         {/* ----------- */}
         <div className="c-form-group">
@@ -205,3 +221,11 @@ const PaymentForm = () => {
 };
 
 export default PaymentForm;
+
+
+
+
+
+
+
+

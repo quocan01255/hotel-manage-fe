@@ -1,15 +1,15 @@
+import { Routes, Route, } from "react-router-dom";
+import { Provider } from 'react-redux'
+import { BookingProvider } from "./Components/User/BookingContext";
 import './App.css';
-import './header-action'
-import './Css/animate.css'
-import './Css/animate.min.css'
-import './Css/headerstyle.css'
 import 'reset-css/reset.css'
-import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/js/bootstrap.js'
 import 'font-awesome/css/font-awesome.css'
-import './App.css';
+import store from './redux/store'
+
 import VillaPage from './Pages/User/VillaPage';
 import CulinaryPage from './Pages/User/CulinaryPage';
-import { Routes, Route, } from "react-router-dom";
 import HomePage from './Pages/User/HomePage';
 import ExplorePage from './Pages/User/ExplorePage';
 import GalleryPage from './Pages/User/GalleryPage';
@@ -18,12 +18,8 @@ import LayoutUser from './Layout/LayoutUser'
 import HistoryBookingPage from './Pages/User/HistoryBookingPage'
 import Login from './Components/form_login/Login'
 import Register from './Components/form_register/Register'
-import HomeCart from './Pages/User/HomeCard';
+import HomeCart from './Pages/User/HomeCart';
 import PayCard from './Components/User/PayCard'
-import { BookingProvider } from "./Components/User/BookingContext";
-
-import store from './redux/store'
-import { Provider } from 'react-redux'
 import AdminPage from './Pages/Admin/AdminPage';
 import SearchFormBooking from './Components/Admin/booking_manager/searchFormBooking';
 import DeluxePool from './Components/Admin/room_manager/DeluxePoolRoom';
@@ -60,10 +56,10 @@ function App() {
               <Route path="ManagerRoomDeluxePlus" element={<DeluxePlus />} />
               <Route path="ManagerRoomDeluxe" element={<Deluxe />} />
             </Route>
+            <Route path="/bookingpage" element={<BookingPage/>}/>
+
           </Routes>
         </BookingProvider>
-
-
       </div>
     </Provider>
   );

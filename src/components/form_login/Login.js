@@ -28,9 +28,15 @@ function Login() {
         if (authState.loggedIn) {
             localStorage.setItem("loggedIn", true);
             localStorage.setItem("user", JSON.stringify(userInfo))
-            setTimeout(() => {
-                navigate('/bookingpage')
-            }, 2000)
+            if (userInfo.role === 'admin') {
+                setTimeout(() => {
+                    navigate('/AdminPage')
+                }, 2000)
+            } else {
+                setTimeout(() => {
+                    navigate('/bookingpage')
+                }, 2000)
+            }
         }
     })
 
