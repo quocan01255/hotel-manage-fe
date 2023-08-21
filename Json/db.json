@@ -70,118 +70,7 @@
       "id": "8"
     }
   ],
-  "bookings": [
-    {
-      "id": "1",
-      "name": "Thắng",
-      "email": "john.brown@gmail.com",
-      "phone": "0865198615",
-      "idroom": "Room 1",
-      "quantity": "3",
-      "checkin": "17/08/2023",
-      "checkout": "18/08/2023"
-    },
-    {
-      "id": "2",
-      "name": "Thu",
-      "email": "john.brown@gmail.com",
-      "phone": "0865198615",
-      "idroom": "Room 1",
-      "quantity": "3",
-      "checkin": "17/08/2023",
-      "checkout": "18/08/2023"
-    },
-    {
-      "id": "3",
-      "name": "An",
-      "email": "john.brown@gmail.com",
-      "phone": "0865198615",
-      "idroom": "Room 1",
-      "quantity": "3",
-      "checkin": "17/08/2023",
-      "checkout": "20/08/2023"
-    },
-    {
-      "id": "4",
-      "name": "Việt",
-      "email": "john.brown@gmail.com",
-      "phone": "0934777106",
-      "idroom": "Room 4",
-      "quantity": "3",
-      "checkin": "17/08/2023",
-      "checkout": "18/08/2023"
-    },
-    {
-      "id": "5",
-      "name": "Thiện",
-      "email": "john.brown@gmail.com",
-      "phone": "0865198615",
-      "idroom": "Room 1",
-      "quantity": "3",
-      "checkin": "17/08/2023",
-      "checkout": "18/08/2023"
-    },
-    {
-      "id": "6",
-      "name": "Việt1",
-      "email": "john.brown@gmail.com",
-      "phone": "0865198615",
-      "idroom": "Room 1",
-      "quantity": "3",
-      "checkin": "17/08/2023",
-      "checkout": "18/08/2023"
-    },
-    {
-      "id": "7",
-      "name": "Việt2",
-      "email": "john.brown@gmail.com",
-      "phone": "0865198615",
-      "idroom": "Room 1",
-      "quantity": "3",
-      "checkin": "17/08/2023",
-      "checkout": "18/08/2023"
-    },
-    {
-      "id": "8",
-      "name": "Việt3",
-      "email": "john.brown@gmail.com",
-      "phone": "0865198615",
-      "idroom": "Room 1",
-      "quantity": "3",
-      "checkin": "17/08/2023",
-      "checkout": "18/08/2023"
-    },
-    {
-      "id": "9",
-      "name": "Việt4",
-      "email": "john.brown@gmail.com",
-      "phone": "0865198615",
-      "idroom": "Room 1",
-      "quantity": "3",
-      "checkin": "17/08/2023",
-      "checkout": "18/08/2023"
-    },
-    {
-      "id": "10",
-      "name": "Việt5",
-      "email": "john.brown@gmail.com",
-      "phone": "0865198615",
-      "idroom": "Room 1",
-      "quantity": "3",
-      "checkin": "17/08/2023",
-      "checkout": "18/08/2023"
-    },
-    {
-      "id": "11",
-      "name": "Việt6",
-      "email": "john.brown@gmail.com",
-      "phone": "0865198615",
-      "idroom": "Room 1",
-      "quantity": "3",
-      "checkin": "17/08/2023",
-      "checkout": "18/08/2023"
-    }
-  ],
+  "bookings": [],
   "rooms": [
     {
       "id": 1,
@@ -386,6 +275,12 @@
       "idRoom": 1,
       "quantity": 2,
       "id": 3
+    },
+    {
+      "idUser": "5",
+      "idRoom": 1,
+      "quantity": 1,
+      "id": 2
     }
   ]
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import { ToastContainer, toast } from 'react-toastify';
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { remove } from "../../redux/actions/cartActions";
 import { Link } from "react-router-dom";
@@ -12,6 +12,7 @@ import BookingSummary from "../../Components/User/BookingSummary";
 import Footers from "../../Components/User/Footers";
 import "../../Css/styleroom.css";
 import Headerbooking from "../../Components/User/header_booking/Headerbooking";
+
 
 function HomeCart() {
   const dispatch = useDispatch()
@@ -82,6 +83,13 @@ function HomeCart() {
     }
   })
 
+
+  const totalRoomPrice = useMemo(() => {
+    return cart.reduce((total, room) => total + room.price * room.quantity, 0);
+  }, [cart]);
+
+  
+
   return (
     <>
       <ToastContainer />
@@ -96,15 +104,10 @@ function HomeCart() {
           </div>
           <div className="row">
             <div className="col-md-6">
-              <RoomCart removeRoom={handleRemove} cart={cart} handleNotify={handleNotify}/>
+              <RoomCart removeRoom={handleRemove} cart={cart} handleNotify={handleNotify} totalRoomPrice={totalRoomPrice}/>
             </div>
             <div className="col-md-6">
-              <PaymentForm />
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-md-12">
-              <BookingSummary />
+              <PaymentForm totalRoomPrice={totalRoomPrice} />
             </div>
           </div>
         </div>

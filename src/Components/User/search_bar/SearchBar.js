@@ -89,9 +89,10 @@ function SeachBar(props) {
             <input type="submit" className="submit" value="Check" />
           </div>
         </div>
-      </form>
+        </form>
     </div>
   );
+    
 }
 
 export default SeachBar;

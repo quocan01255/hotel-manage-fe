@@ -1,5 +1,4 @@
 import React from "react";
-import { useBooking } from "./BookingContext";
 import {
   MDBCard,
   MDBCardBody,
@@ -11,31 +10,31 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Headerbooking from "./header_booking/Headerbooking";
 import Footer from "./Footers";
+import { useLocation } from "react-router-dom";
 
 const BookingInfo = () => {
   // ... Your existing BookingInfo component
-  const { bookingData } = useBooking();
+  // const { bookingData } = useBooking();
+
+  const currencyFormat = (num) => {
+    if (typeof num === "number") {
+      num = String(num); // Chuyển số thành chuỗi trước khi định dạng
+    }
+    return num.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+  };
+
+  const { state } = useLocation();
+  const { total } = state;
 
   return (
     <div className="booking-info-container">
-      <h2 className="c-booking-title" style={{ fontSize: "20px" }}>
+      <h2 className="c-booking-title" style={{ fontSize: "22px" }}>
         Complete your booking
       </h2>
-      <div className="c-booking-info">
-        <label>Room Type:</label>
-        <span>{bookingData.roomType}</span>
-      </div>
-      <div className="c-booking-info">
-        <label>Check In:</label>
-        <span>{bookingData.checkIn}</span>
-      </div>
-      <div className="c-booking-info">
-        <label>Check Out:</label>
-        <span>{bookingData.checkOut}</span>
-      </div>
-      <div className="c-booking-info">
-        <label>Total Price:</label>
-        <span>{bookingData.totalPrice}</span>
+      <div className="c-booking-price" style={{color:"red",fontWeight:"bold",fontSize:"17px",textAlign:"center"}}>
+        <label>Total Price: {currencyFormat(total)}đ</label>
+        {/* <span>{bookingData.totalPrice}</span> */}
+        {/* <span>{currencyFormat(totalPrice)} VND</span> */}
       </div>
       {/* Render other booking information */}
     </div>
@@ -99,6 +98,18 @@ const PaymentForm = () => {
       errors.cvv = "CVV is required";
     }
     // Add more validation checks for card number, expiry date, and cvv
+    // Email validation
+
+    // Phone number validation
+    if (formData.cardNumber && !/^\d{16,19}$/.test(formData.cardNumber)) {
+      errors.cardNumber = "Card not accepted, please use an accepted card";
+    }
+    if (formData.expiryDate && !/^\d{5}$/.test(formData.expiryDate)) {
+      errors.expiryDate = "Expiry date is invalid";
+    }
+    if (formData.cvv && !/^\d{5}$/.test(formData.cvv)) {
+      errors.cvv = "CVV is invalid";
+    }
 
     if (Object.keys(errors).length > 0) {
       setFormErrors(errors);
@@ -162,8 +173,9 @@ const PaymentForm = () => {
         <input
           type="text"
           id="nameOnCard"
-          className={`c-form-input ${formErrors.nameOnCard ? "invalid-input" : ""
-            }`}
+          className={`c-form-input ${
+            formErrors.nameOnCard ? "invalid-input" : ""
+          }`}
           name="nameOnCard"
           value={formData.nameOnCard}
           placeholder="Enter your credit card number"
@@ -180,8 +192,9 @@ const PaymentForm = () => {
         <input
           type="text"
           id="card-number"
-          className={`c-form-input ${formErrors.cardNumber ? "invalid-input" : ""
-            }`}
+          className={`c-form-input ${
+            formErrors.cardNumber ? "invalid-input" : ""
+          }`}
           name="cardNumber"
           value={formData.cardNumber}
           placeholder="Enter your credit card number"
@@ -198,8 +211,9 @@ const PaymentForm = () => {
         <input
           type="text"
           id="expiry-date"
-          className={`c-form-input ${formErrors.expiryDate ? "invalid-input" : ""
-            }`}
+          className={`c-form-input ${
+            formErrors.expiryDate ? "invalid-input" : ""
+          }`}
           name="expiryDate"
           value={formData.expiryDate}
           placeholder="MM/YY"
@@ -256,8 +270,15 @@ const PayCard = () => {
       <Headerbooking />
 
       {/* PayCard content */}
-      <MDBContainer fluid className="py-5 gradient-custom" style={{ backgroundColor: '#f8f8f8', padding: '30px 0' }}>
-        <MDBRow className="d-flex justify-content-center " style={{marginTop: '60px'}}>
+      <MDBContainer
+        fluid
+        className="py-5 gradient-custom"
+        style={{ backgroundColor: "#f8f8f8", padding: "30px 0" }}
+      >
+        <MDBRow
+          className="d-flex justify-content-center "
+          style={{ marginTop: "60px" }}
+        >
           <MDBCol md="4" lg="4" xl="4">
             <MDBCard style={{ borderRadius: "15px" }}>
               <MDBCardBody className="p-4">
@@ -281,7 +302,7 @@ const PayCard = () => {
           </a>
         </div>
       </footer> */}
-      <Footer/>
+      <Footer />
     </div>
   );
 };
