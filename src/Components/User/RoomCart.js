@@ -2,9 +2,9 @@ import React, { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 const RoomCart = ({removeRoom, cart}) => {
-  const currencyFormat = (num) => {
-    return num.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
-  };
+  const currencyFormat = useCallback((num) => {
+    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+  }, []);
 
   
 
@@ -29,7 +29,7 @@ const RoomCart = ({removeRoom, cart}) => {
               </div>
               <div className="c-room-rating">Quantity: {room.quantity}</div>
               <div className="c-room-price">
-                {currencyFormat(room.price)}đ
+                {currencyFormat(room.price*room.quantity)}đ
                 <button
                   className="btn btn-primary room_tab-btn"
                   onClick={() => removeRoom(room.id)}
