@@ -19,6 +19,7 @@ function HomeCart() {
 
   const [rooms, setRooms] = useState([]);
   const [cart, setCart] = useState([]);
+  const [showNotify, setShowNotify] = useState(false)
 
   useEffect(() => {
     fetch("http://localhost:3001/userCart")
@@ -60,9 +61,13 @@ function HomeCart() {
     }
   }, [dispatch])
 
+  const handleNotify = () => {
+    setShowNotify(true)
+  }
+
   useEffect(() => {
     toast.clearWaitingQueue()
-    if (cartState.type === 'REMOVE') {
+    if (cartState.type === 'REMOVE' && showNotify == true) {
       toast(cartState.message, {
         position: "top-center",
         autoClose: 1500,
@@ -91,7 +96,7 @@ function HomeCart() {
           </div>
           <div className="row">
             <div className="col-md-6">
-              <RoomCart removeRoom={handleRemove} cart={cart} />
+              <RoomCart removeRoom={handleRemove} cart={cart} handleNotify={handleNotify}/>
             </div>
             <div className="col-md-6">
               <PaymentForm />
