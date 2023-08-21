@@ -83,7 +83,7 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/781688/781688/SUPERIOR_TWIN_02.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
+      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/780899/780899/SUITE-ROOM-1.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
       "price": "1780000"
     },
     {
@@ -102,7 +102,7 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/781696/781696/SUPERIOR_TWIN_05.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
+      "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/414225241.jpg?k=ea8d403439071c01b74ba0299557b5ac28f028927a0fb118e87c697db874c229&o=&hp=1",
       "price": "1850000"
     },
     {
@@ -121,7 +121,7 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/781700/781700/SUPERIOR_TWIN_03.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
+      "img": "https://www.navadahotel.com/FileStorage/Room/Thumbnail/_DSC5506-HDR-Edit-Edit.png",
       "price": "2100000"
     },
     {
@@ -140,7 +140,7 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/781683/781683/DELUXE_09.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
+      "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/415423881.jpg?k=76d019dc7cf43dbe28157bd60d339b0c8843dd4f9fd21b4c6fa9484d67ab0cdf&o=&hp=1",
       "price": "2300000"
     },
     {
@@ -159,7 +159,7 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/780899/780899/SUITE-ROOM-1.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
+      "img": "https://thecaphotel.com/public/uploads/news/20210520/cb02278262605e8f1024954fc3e38221.jpg",
       "price": "2940000"
     },
     {
@@ -178,7 +178,7 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/781661/781661/SUPERIOR_KING__12_.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
+      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/782198/782198/PREMIER_DELUXE_OCEAN_VIEW_TWIN_6.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
       "price": "2560000"
     },
     {
@@ -197,7 +197,7 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/781674/781674/DELUXE_07.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
+      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/782193/782193/PREMIER_DELUXE_OCEAN_VIEW_DOUBLE.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
       "price": "2760000"
     },
     {
@@ -216,7 +216,7 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/909714/909714/DELUXE_POOL_TERRACE_5.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
+      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/909797/909797/PREMIER_OCEAN_VIEW_DOUBLE_5.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
       "price": "3250000"
     },
     {
@@ -235,7 +235,7 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/909752/909752/DELUXE_POOL_TERRACE_8.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
+      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/909805/909805/PREMIER_OCEAN_TWIN_1.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
       "price": "4350000"
     }
   ],
@@ -245,6 +245,12 @@
       "idRoom": 1,
       "quantity": 1,
       "id": 1
+    },
+    {
+      "idUser": "5",
+      "idRoom": 1,
+      "quantity": 1,
+      "id": 2
     }
   ]
 }
