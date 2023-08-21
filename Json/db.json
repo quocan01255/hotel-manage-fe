@@ -71,16 +71,16 @@
     }
   ],
   "bookings": [
-      {
-        "id": "1",
-        "name": "Thắng",
-        "email": "john.brown@gmail.com",
-        "phone": "0865198615",
-        "idroom": "Room 1",
-        "quantity": "3",
-        "checkin": "17/08/2023",
-        "checkout": "18/08/2023"
-      },
+    {
+      "id": "1",
+      "name": "Thắng",
+      "email": "john.brown@gmail.com",
+      "phone": "0865198615",
+      "idroom": "Room 1",
+      "quantity": "3",
+      "checkin": "17/08/2023",
+      "checkout": "18/08/2023"
+    },
     {
       "id": "2",
       "name": "Thu",
@@ -99,7 +99,7 @@
       "idroom": "Room 1",
       "quantity": "3",
       "checkin": "17/08/2023",
-      "checkout": "18/08/2023"
+      "checkout": "20/08/2023"
     },
     {
       "id": "4",
@@ -130,7 +130,8 @@
       "quantity": "3",
       "checkin": "17/08/2023",
       "checkout": "18/08/2023"
-    },{
+    },
+    {
       "id": "7",
       "name": "Việt2",
       "email": "john.brown@gmail.com",
@@ -139,7 +140,8 @@
       "quantity": "3",
       "checkin": "17/08/2023",
       "checkout": "18/08/2023"
-    },{
+    },
+    {
       "id": "8",
       "name": "Việt3",
       "email": "john.brown@gmail.com",
@@ -148,7 +150,8 @@
       "quantity": "3",
       "checkin": "17/08/2023",
       "checkout": "18/08/2023"
-    },{
+    },
+    {
       "id": "9",
       "name": "Việt4",
       "email": "john.brown@gmail.com",
@@ -157,7 +160,8 @@
       "quantity": "3",
       "checkin": "17/08/2023",
       "checkout": "18/08/2023"
-    },{
+    },
+    {
       "id": "10",
       "name": "Việt5",
       "email": "john.brown@gmail.com",
@@ -166,7 +170,8 @@
       "quantity": "3",
       "checkin": "17/08/2023",
       "checkout": "18/08/2023"
-    },{
+    },
+    {
       "id": "11",
       "name": "Việt6",
       "email": "john.brown@gmail.com",
@@ -182,7 +187,7 @@
       "id": 1,
       "type": "Deluxe",
       "name": "Deluxe Twin",
-      "quantity": "3",
+      "quantity": "5",
       "detail": "3 Sleeps - 1 Twin - 1 Bathroom",
       "description": [
         "City view",
@@ -194,7 +199,6 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "quantity": "5",
       "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/781688/781688/SUPERIOR_TWIN_02.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
       "price": "1780000",
       "priceSale": "1299800",
@@ -216,7 +220,6 @@
         "Balcony",
         "Cable/Satellite TV"
       ],
-      "quantity": "3",
       "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/781696/781696/SUPERIOR_TWIN_05.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
       "price": "1850000",
       "priceSale": "3001600",
@@ -239,7 +242,6 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "quantity": "4",
       "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/781741/781741/PREMIER_OCEAN_TWIN_1.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
       "price": "2100000",
       "priceSale": "2299800"
@@ -260,7 +262,6 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "quantity": "4",
       "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/781683/781683/DELUXE_09.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
       "price": "2300000",
       "priceSale": "2299800"
@@ -281,7 +282,6 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "quantity": "4",
       "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/780899/780899/SUITE-ROOM-1.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
       "price": "2940000",
       "priceSale": "2299800"
@@ -302,7 +302,6 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "quantity": "3",
       "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/782198/782198/PREMIER_DELUXE_OCEAN_VIEW_TWIN_6.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
       "price": "2560000",
       "priceSale": "2299800"
@@ -323,7 +322,6 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "quantity": "3",
       "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/782193/782193/PREMIER_DELUXE_OCEAN_VIEW_DOUBLE.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
       "price": "2760000",
       "priceSale": "2299800"
@@ -344,7 +342,6 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "quantity": "4",
       "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/909797/909797/PREMIER_OCEAN_VIEW_DOUBLE_5.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
       "price": "3250000",
       "priceSale": "2299800"
@@ -365,7 +362,6 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "quantity": "4",
       "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/909805/909805/PREMIER_OCEAN_TWIN_1.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
       "price": "4350000",
       "priceSale": "2299800"
@@ -374,57 +370,9 @@
   "userCart": [
     {
       "idUser": "6",
-      "idRoom": 1,
-      "quantity": 78,
-      "id": 1
-    },
-    {
-      "idUser": "1",
-      "idRoom": 2,
-      "quantity": 3,
-      "id": 2
-    },
-    {
-      "idUser": "7",
-      "idRoom": 4,
-      "quantity": 1,
-      "id": 3
-    },
-    {
-      "idUser": "7",
-      "idRoom": 5,
-      "quantity": 1,
-      "id": 4
-    },
-    {
-      "idUser": "1",
-      "idRoom": 1,
-      "quantity": 1,
-      "id": 3
-    },
-    {
-      "idUser": "6",
-      "idRoom": 2,
-      "quantity": 50,
-      "id": 5
-    },
-    {
-      "idUser": "6",
       "idRoom": 3,
-      "quantity": 5,
-      "id": 6
-    },
-    {
-      "idUser": "6",
-      "idRoom": 4,
-      "quantity": 3,
-      "id": 7
-    },
-    {
-      "idUser": "6",
-      "idRoom": 5,
       "quantity": 1,
-      "id": 8
+      "id": 1
     }
   ]
 }

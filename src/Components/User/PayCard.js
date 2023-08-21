@@ -1,5 +1,5 @@
 import React from "react";
-import { useBooking } from "../User/BookingContext";
+import { useBooking } from "./BookingContext";
 import {
   MDBCard,
   MDBCardBody,
@@ -257,7 +257,7 @@ const PayCard = () => {
 
       {/* PayCard content */}
       <MDBContainer fluid className="py-5 gradient-custom" style={{ backgroundColor: '#f8f8f8', padding: '30px 0' }}>
-        <MDBRow className="d-flex justify-content-center ">
+        <MDBRow className="d-flex justify-content-center " style={{marginTop: '60px'}}>
           <MDBCol md="4" lg="4" xl="4">
             <MDBCard style={{ borderRadius: "15px" }}>
               <MDBCardBody className="p-4">

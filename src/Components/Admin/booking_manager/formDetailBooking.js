@@ -5,6 +5,7 @@ import './formBookingManager.css';
 
 const { RangePicker } = DatePicker;
 const FormDetailBooking = ({ name, email, phone, idroom, checkin, checkout }) => {
+    console.log(checkin)
     return (
         <div>
             <div className='ad-form-detail-booking'>
@@ -22,7 +23,7 @@ const FormDetailBooking = ({ name, email, phone, idroom, checkin, checkout }) =>
                         <Input defaultValue={idroom} disabled />
                     </Form.Item>
                     <Form.Item label="RangePicker">
-                        <RangePicker />
+                        <RangePicker defaultValue={[dayjs(checkin, 'DD/MM/YYYY'), dayjs(checkout, 'DD/MM/YYYY')]}/>
                     </Form.Item>
                     <Form.Item className='btn-edit-form-detai-booking'>
                         <Button type="primary">Edit</Button>
