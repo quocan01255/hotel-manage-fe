@@ -1,12 +1,13 @@
 .c-room-card {
   background-color: #fff;
   border: 1px solid #ddd;
-  border-radius: 8px;
+  border-radius: 7px;
   overflow: hidden;
-  margin: 20px;
+  margin: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: left;
   margin-left: 10px;
+
 }
 
 .c-room-image {
@@ -15,19 +16,6 @@
   object-fit: cover;
 }
 
-.c-room-details {
-  padding: 16px;
-  font-weight: bold;
-  font-size: larger;
-  justify-content: center;
-}
-
-.c-room-title {
-  font-size: 2rem;
-  font-weight: bold;
-  margin: 8px 0;
-  justify-content: center;
-}
 
 .c-room-subtitle {
   font-size: 1rem;

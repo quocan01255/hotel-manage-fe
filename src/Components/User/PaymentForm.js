@@ -1,14 +1,16 @@
 // Validate -------------------------------------------
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from 'react-redux';
-import { setUserInfo } from '../../redux/actions/UserActions'; 
-
+import { useDispatch } from "react-redux";
+import { setUserInfo } from "../../redux/actions/UserActions";
+// import { useSelector } from "react-redux";
 
 const PaymentForm = () => {
+  // const overallTotalPrice = useSelector((state) => state.priceReducer.overallTotalPrice);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  
+
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -56,6 +58,15 @@ const PaymentForm = () => {
       city: formData.city.trim() ? "" : "Please enter your city.",
       country: formData.country.trim() ? "" : "Please enter your country.",
     };
+    // Email validation
+    if (formData.email && !/\S+@\S+\.\S+/.test(formData.email)) {
+      newFormErrors.email = "Please enter a valid email address.";
+    }
+
+    // Phone number validation
+    if (formData.phone && !/^\d{10}$/.test(formData.phone)) {
+      newFormErrors.phone = "Please enter a valid 10-digit phone number.";
+    }
 
     if (Object.values(newFormErrors).some((error) => error)) {
       setFormErrors(newFormErrors);
@@ -78,7 +89,7 @@ const PaymentForm = () => {
 
   return (
     <div className="c-payment-form">
-      <div style={{ fontWeight:'600', fontSize: "20px" }}>Your Details</div>
+      <div style={{ fontWeight: "600", fontSize: "20px" }}>Your Details</div>
       <form>
         {/* ----------- */}
         <div className="c-form-group">
@@ -88,7 +99,9 @@ const PaymentForm = () => {
           <input
             type="text"
             id="first-name"
-            className={`c-form-input ${formErrors.firstName ? "invalid-input" : ""}`}
+            className={`c-form-input ${
+              formErrors.firstName ? "invalid-input" : ""
+            }`}
             name="firstName"
             value={formData.firstName}
             onChange={handleInputChange}
@@ -106,7 +119,9 @@ const PaymentForm = () => {
           <input
             type="text"
             id="last-name"
-            className={`c-form-input ${formErrors.lastName ? "invalid-input" : ""}`}
+            className={`c-form-input ${
+              formErrors.lastName ? "invalid-input" : ""
+            }`}
             name="lastName"
             value={formData.lastName}
             onChange={handleInputChange}
@@ -124,7 +139,9 @@ const PaymentForm = () => {
           <input
             type="email"
             id="email"
-            className={`c-form-input ${formErrors.email ? "invalid-input" : ""}`}
+            className={`c-form-input ${
+              formErrors.email ? "invalid-input" : ""
+            }`}
             name="email"
             value={formData.email}
             onChange={handleInputChange}
@@ -142,7 +159,9 @@ const PaymentForm = () => {
           <input
             type="tel"
             id="phone"
-            className={`c-form-input ${formErrors.phone ? "invalid-input" : ""}`}
+            className={`c-form-input ${
+              formErrors.phone ? "invalid-input" : ""
+            }`}
             name="phone"
             value={formData.phone}
             onChange={handleInputChange}
@@ -160,7 +179,9 @@ const PaymentForm = () => {
           <input
             type="text"
             id="address"
-            className={`c-form-input ${formErrors.address ? "invalid-input" : ""}`}
+            className={`c-form-input ${
+              formErrors.address ? "invalid-input" : ""
+            }`}
             name="address"
             value={formData.address}
             onChange={handleInputChange}
@@ -196,7 +217,9 @@ const PaymentForm = () => {
           <input
             type="text"
             id="country"
-            className={`c-form-input ${formErrors.country ? "invalid-input" : ""}`}
+            className={`c-form-input ${
+              formErrors.country ? "invalid-input" : ""
+            }`}
             name="country"
             value={formData.country}
             onChange={handleInputChange}
@@ -221,11 +244,3 @@ const PaymentForm = () => {
 };
 
 export default PaymentForm;
-
-
-
-
-
-
-
-

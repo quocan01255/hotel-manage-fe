@@ -1,8 +1,7 @@
 import React from "react";
 import RoomCard from "../../Components/User/RoomCard";
-import HeaderBooking from "../../Components/User/header_booking/Headerbooking";
 import PaymentForm from "../../Components/User/PaymentForm";
-import BookingSummary from "../../Components/User/BookingSummary";
+// import BookingSummary from "../../Components/User/BookingSummary";
 import Footers from "../../Components/User/Footers";
 import "../../Css/styleroom.css";
 import Headerbooking from "../../Components/User/header_booking/Headerbooking";
@@ -23,7 +22,7 @@ function HomeCard() {
           </div>
           <div className="row">
             <div className="col-md-12">
-              <BookingSummary />
+              {/* <BookingSummary/> */}
             </div>
           </div>
         </div>
@@ -34,3 +33,6 @@ function HomeCard() {
 }
 
 export default HomeCard;
+
+
+

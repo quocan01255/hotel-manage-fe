@@ -295,52 +295,16 @@
   ],
   "userCart": [
     {
-      "idUser": "6",
+      "idUser": "2",
       "idRoom": 1,
-      "quantity": 78,
+      "quantity": 1,
       "id": 1
     },
     {
-      "idUser": "1",
-      "idRoom": 2,
-      "quantity": 3,
-      "id": 2
-    },
-    {
-      "idUser": "7",
-      "idRoom": 4,
-      "quantity": 1,
-      "id": 3
-    },
-    {
-      "idUser": "7",
-      "idRoom": 5,
-      "quantity": 1,
-      "id": 4
-    },
-    {
-      "idUser": "1",
-      "idRoom": 1,
-      "quantity": 1,
-      "id": 3
-    },
-    {
-      "idUser": "6",
-      "idRoom": 2,
-      "quantity": 50,
-      "id": 5
-    },
-    {
-      "idUser": "6",
+      "idUser": "2",
       "idRoom": 3,
-      "quantity": 5,
-      "id": 6
-    },
-    {
-      "idUser": "6",
-      "idRoom": 4,
-      "quantity": 3,
-      "id": 7
+      "quantity": 1,
+      "id": 2
     }
   ]
 }
