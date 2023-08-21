@@ -29,24 +29,24 @@ function ListRooms({ rooms, handleNotify }) {
 
     }, [authState, dispatch])
 
-    // useEffect(() => {
-    //     if (showNotify && message === "") {
-    //         toast.clearWaitingQueue()
-    //         if (cartState.message !== '') {
-    //             toast(cartState.message, {
-    //                 position: "top-center",
-    //                 autoClose: 1500,
-    //                 hideProgressBar: true,
-    //                 closeOnClick: true,
-    //                 pauseOnHover: true,
-    //                 draggable: true,
-    //                 progress: undefined,
-    //                 theme: "light",
-    //             });
-    //         }
-    //     }
-    // })
-
+    useEffect(() => {
+        if (showNotify) {
+            toast.clearWaitingQueue()
+            if (cartState.message !== '') {
+                toast(cartState.message, {
+                    position: "top-center",
+                    autoClose: 1500,
+                    hideProgressBar: true,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
+            }
+        }
+    },[cartState.message])
+   
     return (
         <>
             <div className="select-container">
