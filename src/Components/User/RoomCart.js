@@ -1,12 +1,15 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-const RoomCart = ({removeRoom, cart}) => {
+const RoomCart = ({removeRoom, cart, handleNotify}) => {
   const currencyFormat = useCallback((num) => {
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
   }, []);
 
-  
+  const handleClick = (id) => {
+    removeRoom(id)
+    handleNotify()
+  }
 
   return (
     <div className="mp-5">
@@ -32,7 +35,7 @@ const RoomCart = ({removeRoom, cart}) => {
                 {currencyFormat(room.price*room.quantity)}đ
                 <button
                   className="btn btn-primary room_tab-btn"
-                  onClick={() => removeRoom(room.id)}
+                  onClick={() => handleClick(room.id)}
                 >
                   <i className="fa-solid fa-trash"></i>
                 </button>
