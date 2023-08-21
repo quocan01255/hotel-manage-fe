@@ -99,7 +99,7 @@
       "idroom": "Room 1",
       "quantity": "3",
       "checkin": "17/08/2023",
-      "checkout": "18/08/2023"
+      "checkout": "20/08/2023"
     },
     {
       "id": "4",
@@ -329,7 +329,6 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "quantity": "3",
       "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/782193/782193/PREMIER_DELUXE_OCEAN_VIEW_DOUBLE.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
       "price": "2760000",
       "priceSale": "2299800",
@@ -385,68 +384,8 @@
     {
       "idUser": "6",
       "idRoom": 1,
-      "quantity": 78,
-      "id": 1
-    },
-    {
-      "idUser": "7",
-      "idRoom": 5,
-      "quantity": 1,
-      "id": 4
-    },
-    {
-      "idUser": "7",
-      "idRoom": 5,
-      "quantity": 1,
-      "id": 4
-    },
-    {
-      "idUser": "6",
-      "idRoom": 2,
-      "quantity": 50,
-      "id": 5
-    },
-    {
-      "idUser": "6",
-      "idRoom": 3,
-      "quantity": 5,
-      "id": 6
-    },
-    {
-      "idUser": "6",
-      "idRoom": 4,
-      "quantity": 3,
-      "id": 7
-    },
-    {
-      "idUser": "1",
-      "idRoom": 3,
-      "quantity": 1,
-      "id": 8
-    },
-    {
-      "idUser": "1",
-      "idRoom": 5,
-      "quantity": 1,
-      "id": 9
-    },
-    {
-      "idUser": "1",
-      "idRoom": 2,
-      "quantity": 3,
-      "id": 10
-    },
-    {
-      "idUser": "1",
-      "idRoom": 1,
       "quantity": 2,
-      "id": 11
-    },
-    {
-      "idUser": "1",
-      "idRoom": 9,
-      "quantity": 1,
-      "id": 12
+      "id": 3
     }
   ]
 }
