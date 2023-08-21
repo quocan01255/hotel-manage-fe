@@ -3,10 +3,10 @@
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
-  margin: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: left;
-  margin-left: 10px;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
 .c-room-image {
@@ -42,6 +42,24 @@
   margin-bottom: 8px;
 }
 
+.c-room-features ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+}
+
+.c-room-features i {
+  font-size: 4px;
+  margin-right: 4px;
+}
+
+.c-room-features li {
+  margin-right: 6px;
+  display: flex;
+  align-items: center;
+}
+
 .c-room-cancel {
   font-size: 0.9rem;
   color: #666;
@@ -59,6 +77,8 @@
   font-weight: bold;
   color: #d63031;
   margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .c-room-tax {
@@ -88,7 +108,6 @@
 }
 
 .c-form-label {
-  font-weight: bold;
   display: block;
   margin-bottom: 5px;
   font-size: 15px;
@@ -279,4 +298,26 @@
   padding: 8px;
   border: 3px solid #ddd;
   border-radius: 4px;
+}
+
+.c-form-details {
+  padding: 12px;
+}
+
+.c-form-title {
+  font-weight: 600;
+}
+
+.backpage {
+  display: flex;
+  justify-content: left;
+}
+
+.backpage a {
+  text-decoration: none;
+}
+
+.backpage i {
+  font-size: 14px;
+  margin-right: 4px;
 }

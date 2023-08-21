@@ -1,7 +1,8 @@
 import React from 'react'
-
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap/dist/js/bootstrap.js'
+import '../../Css/animate.css'
+import '../../Css/animate.min.css'
+import '../../Css/headerstyle.css'
+import '../../commons/header-action'
 import { Link } from 'react-router-dom'
 // import logo from "../../assets/img/logo3.png";
 function Header() {
