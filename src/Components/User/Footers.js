@@ -8,7 +8,7 @@ class Footer extends Component {
           <div className="row">
             <div className="col-lg-4 mb-4 text-center">
               <h5
-                className="mb-3 text-center"
+                className="mb-3 text-center "
                 style={{ fontSize: "30px", justifyContent: "flex-start" }}
               >
                 Clément Hotel
