@@ -4,7 +4,6 @@ import { useCallback, useEffect, useState, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { remove } from "../../redux/actions/cartActions";
 import { Link } from "react-router-dom";
-
 import RoomCart from "../../Components/User/RoomCart";
 import HeaderBooking from "../../Components/User/header_booking/Headerbooking";
 import PaymentForm from "../../Components/User/PaymentForm";
@@ -12,16 +11,52 @@ import BookingSummary from "../../Components/User/BookingSummary";
 import Footers from "../../Components/User/Footers";
 import "../../Css/styleroom.css";
 import Headerbooking from "../../Components/User/header_booking/Headerbooking";
+import { useParams } from "react-router-dom";
 
 
 function HomeCart() {
   const dispatch = useDispatch()
+  const { idRoom } = useParams();
   const cartState = useSelector((state) => state.cartReducer);
-
+  const [data, setData] = useState([]);
   const [rooms, setRooms] = useState([]);
   const [cart, setCart] = useState([]);
   const [showNotify, setShowNotify] = useState(false)
+  const checkLogin = localStorage.getItem("loggedIn");
 
+   // không login
+   const guestCart = useSelector((state) => state.cartReducer.guestCart);
+   console.log("guestCart", guestCart);
+   const compare = () => {
+     let comparedata = guestCart.filter((e) => {
+       return e.idRoom == idRoom;
+     });
+     setData(comparedata);
+   };
+   useEffect(() => {
+     compare();
+   }, [idRoom]);
+ 
+   useEffect(() => {
+     fetch("http://localhost:3001/rooms")
+       .then((response) => response.json())
+       .then((rooms) => {
+         const result = [];
+         guestCart.forEach((item) => {
+           rooms.forEach((room) => {
+             if (room.id === item.idRoom) {
+               let quantity = item.quantity;
+               result.push({ ...room, quantity });
+             }
+           });
+         });
+ 
+         setData(result);
+       })
+       .catch((error) => {});
+   }, []);
+
+  
   useEffect(() => {
     fetch("http://localhost:3001/userCart")
       .then((response) => response.json())
@@ -85,10 +120,13 @@ function HomeCart() {
 
 
   const totalRoomPrice = useMemo(() => {
-    return cart.reduce((total, room) => total + room.price * room.quantity, 0);
-  }, [cart]);
+    if(checkLogin) {
+      return cart.reduce((total, room) => total + room.price * room.quantity, 0);
 
-  
+    } else {
+      return data.reduce((total, room) => total + room.price * room.quantity, 0);
+    }
+  }, [cart]);
 
   return (
     <>
@@ -104,7 +142,7 @@ function HomeCart() {
           </div>
           <div className="row">
             <div className="col-md-6">
-              <RoomCart removeRoom={handleRemove} cart={cart} handleNotify={handleNotify} totalRoomPrice={totalRoomPrice}/>
+              <RoomCart removeRoom={handleRemove} cart={cart} handleNotify={handleNotify} totalRoomPrice={totalRoomPrice} guestCart={data}/>
             </div>
             <div className="col-md-6">
               <PaymentForm totalRoomPrice={totalRoomPrice} />
