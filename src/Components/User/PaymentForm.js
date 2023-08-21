@@ -2,14 +2,16 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setUserInfo } from "../../redux/actions/UserActions";
-// import { useSelector } from "react-redux";
+import { payment } from "../../redux/actions/PayAction";
 
-const PaymentForm = () => {
+
+const PaymentForm = (props) => {
+  const { totalRoomPrice } = props;
   // const overallTotalPrice = useSelector((state) => state.priceReducer.overallTotalPrice);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
 
 
   const [formData, setFormData] = useState({
@@ -47,6 +49,7 @@ const PaymentForm = () => {
     }));
   };
 
+  console.log(formData)
   const validate = () => {
     let isValid = true;
     const newFormErrors = {
@@ -76,14 +79,22 @@ const PaymentForm = () => {
   };
 
   const handleBookClick = () => {
-    // if (validate()) {
-    //   // If validation passes, redirect to PayCard component
-    //   navigate("/paycard");
-    // }
+
     if (validate()) {
       // Dispatch action to set user info in Redux Store
-      dispatch(setUserInfo(formData));
-      navigate("/paycard");
+      dispatch(payment(formData));
+      navigate("/paycard", {
+        state: {
+          total: totalRoomPrice,
+          firstName:formData.firstName,
+          lastName:formData.lastName,
+          email:formData.email,
+          phone:formData.phone,
+          address:formData.address,
+          city:formData.city,
+          country:formData.country,
+        },
+      });
     }
   };
 

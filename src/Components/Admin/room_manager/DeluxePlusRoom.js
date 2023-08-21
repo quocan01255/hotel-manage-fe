@@ -1,23 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, Breadcrumb, Divider, Modal } from 'antd';
 import './cssRoomManager.css';
 import FormAddRoom from './FormAddRoom';
-import FormDetail from './FormEditRoom';
+import RoomCard from '../room_manager/RoomCard';
 
 function DeluxePlus() {
   const [openAdd, setOpenAdd] = useState(false);
-  const [openDetail, setOpenDetail] = useState(false);
+  const [rooms, setRooms] = useState([]);
 
   const ADD = () => {
     setOpenAdd(true);
   };
-  const Detail = () => {
-    setOpenDetail(true);
-  };
+
   const handleCancel = (e) => {
-    setOpenDetail(false);
     setOpenAdd(false);
   };
+
+  useEffect(() => {
+    fetch('http://localhost:3001/rooms')
+      .then((response) => response.json())
+      .then((data) => {
+
+        const newRooms = data.filter(room => room.type === "Deluxe Plus")
+        setRooms(newRooms)
+      })
+      .catch((error) => {
+
+      });
+  }, [])
   return (
     <div>
       <Breadcrumb className='breadcrumb'>
@@ -44,74 +54,16 @@ function DeluxePlus() {
             <FormAddRoom />
           </Modal>
         </div>
-        <div className="row g-0 card-main-admin-manager-room">
-          <div className="col-md-3 img-admin-manager-room">
-            <img src="https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/781688/781688/SUPERIOR_TWIN_02.jpg" className="img-fluid rounded-start" alt="..." />
-          </div>
-          <div className="col-md-6 ">
-            <div className="card-body">
-              <h5 className="card-title">Card title</h5>
-              <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div>
-                Status
-              </div>
-            </div>
-          </div>
-          <div className="col-md-2 ">
-            <div className='btn-admin-room-manager'>
-              <Button className='btn-detail-admin-room-manager' type="primary" onClick={Detail}>Detail</Button>
-              <Modal
-                title="Detail"
-                open={openDetail}
-                onCancel={handleCancel}
-                okButtonProps={{
-                  hidden: true
-                }}
-                cancelButtonProps={{
-                  hidden: true
-                }}
-                width={800}
-              >
-                <FormDetail />
-              </Modal>
-              <Button type="primary" danger>Delete</Button>
-            </div>
-          </div>
-        </div>
-        <div className="row g-0 card-main-admin-manager-room">
-          <div className="col-md-3 img-admin-manager-room">
-            <img src="https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/781688/781688/SUPERIOR_TWIN_02.jpg" className="img-fluid rounded-start" alt="..." />
-          </div>
-          <div className="col-md-6 ">
-            <div className="card-body">
-              <h5 className="card-title">Card title</h5>
-              <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div>
-                Status
-              </div>
-            </div>
-          </div>
-          <div className="col-md-2 ">
-            <div className='btn-admin-room-manager'>
-              <Button className='btn-detail-admin-room-manager' type="primary" onClick={Detail}>Detail</Button>
-              <Modal
-                title="Detail"
-                open={openDetail}
-                onCancel={handleCancel}
-                okButtonProps={{
-                  hidden: true
-                }}
-                cancelButtonProps={{
-                  hidden: true
-                }}
-                width={800}
-              >
-                <FormDetail />
-              </Modal>
-              <Button type="primary" danger>Delete</Button>
-            </div>
-          </div>
-        </div>
+        {rooms.map(
+          (room) => <RoomCard
+            name={room.name}
+            image={room.img}
+            detail={room.detail}
+            description={room.description}
+            price={room.price}
+            type={room.type}
+            quantity={room.quantity}
+          />)}
       </div>
     </div>
   );

@@ -39,7 +39,7 @@ function BookingPage() {
             toast.success(message);
             dispatch(resetmessage())
         } else {
-            if (cartState.message !== '' && showAddNotify == true) {
+            if ((cartState.type === 'ADD' || cartState.type === 'UPDATE') && showAddNotify == true) {
                 toast(cartState.message, {
                     position: "top-center",
                     autoClose: 1500,
@@ -67,7 +67,7 @@ function BookingPage() {
         <>
             <ToastContainer />
             <Headerbooking />
-            <div style={{ backgroundColor: '#f8f8f8', paddingTop: '30px' }}>
+            <div style={{ backgroundColor: '#f8f8f8', paddingTop: '100px' }}>
                 <div style={{ backgroundColor: '#f8f8f8', margin: '0 auto' }} className='container'>
                     <SeachBar onSubmit={onSubmit} handleNotify={() => setShowAddNotify(false)}/>
                     <ListRooms rooms={rooms} handleNotify={() => setShowAddNotify(true)}/>

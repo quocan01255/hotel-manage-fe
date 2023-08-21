@@ -71,56 +71,14 @@
     }
   ],
   "bookings": [
-    {
-      "key": "1",
-      "name": "Thắng0000",
-      "email": "john.brown@gmail.com",
-      "phone": "0865198615",
-      "room": "Room 1",
-      "quantity": "3",
-      "time": "2n/3d"
-    },
-    {
-      "key": "2",
-      "name": "Thu",
-      "email": "john.brown@gmail.com",
-      "phone": "0865198615",
-      "room": "Room 1",
-      "quantity": "3",
-      "time": "2n/3d"
-    },
-    {
-      "key": "3",
-      "name": "An",
-      "email": "john.brown@gmail.com",
-      "phone": "0865198615",
-      "room": "Room 1",
-      "quantity": "3",
-      "time": "2n/3d"
-    },
-    {
-      "key": "4",
-      "name": "Việt",
-      "email": "john.brown@gmail.com",
-      "phone": "0865198615",
-      "room": "Room 1",
-      "quantity": "3",
-      "time": "2n/3d"
-    },
-    {
-      "key": "5",
-      "name": "Thiện1111",
-      "email": "john.brown@gmail.com",
-      "phone": "0865198615",
-      "room": "Room 1",
-      "quantity": "3",
-      "time": "2n/3d"
-    }
+   
   ],
   "rooms": [
     {
       "id": 1,
+      "type": "Deluxe",
       "name": "Deluxe Twin",
+      "quantity": "5",
       "detail": "3 Sleeps - 1 Twin - 1 Bathroom",
       "description": [
         "City view",
@@ -132,7 +90,6 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "quantity": "5",
       "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/781688/781688/SUPERIOR_TWIN_02.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
       "price": "1780000",
       "priceSale": "1299800",
@@ -141,7 +98,9 @@
     },
     {
       "id": 2,
+      "type": "Deluxe Plus",
       "name": "Deluxe Plus Twin",
+      "quantity": "3",
       "detail": "3 Sleeps - 1 Bathroom",
       "description": [
         "Sea view",
@@ -152,7 +111,6 @@
         "Balcony",
         "Cable/Satellite TV"
       ],
-      "quantity": "3",
       "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/781696/781696/SUPERIOR_TWIN_05.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
       "price": "1850000",
       "priceSale": "3001600",
@@ -161,7 +119,9 @@
     },
     {
       "id": 3,
+      "type": "Deluxe Executive",
       "name": "Deluxe Executive Twin",
+      "quantity": "4",
       "detail": "4 Sleeps - 1 Bathroom",
       "description": [
         "City view",
@@ -173,14 +133,15 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "quantity": "4",
       "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/781741/781741/PREMIER_OCEAN_TWIN_1.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
       "price": "2100000",
       "priceSale": "2299800"
     },
     {
       "id": 4,
+      "type": "Deluxe Executive",
       "name": "Deluxe Executive King",
+      "quantity": "4",
       "detail": "4 Sleeps - 1 Bathroom",
       "description": [
         "City view",
@@ -192,14 +153,15 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "quantity": "4",
       "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/781683/781683/DELUXE_09.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
       "price": "2300000",
       "priceSale": "2299800"
     },
     {
       "id": 5,
+      "type": "Deluxe Executive",
       "name": "Executive Suite",
+      "quantity": "4",
       "detail": "4 Sleeps - 1 KingBed - 1 Bathroom",
       "description": [
         "City view",
@@ -211,14 +173,15 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "quantity": "4",
       "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/780899/780899/SUITE-ROOM-1.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
       "price": "2940000",
       "priceSale": "2299800"
     },
     {
       "id": 6,
+      "type": "Deluxe",
       "name": "Deluxe King",
+      "quantity": "3",
       "detail": "3 Sleeps - 1 KingBed - 1 Bathroom",
       "description": [
         "City view",
@@ -230,14 +193,15 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "quantity": "3",
       "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/782198/782198/PREMIER_DELUXE_OCEAN_VIEW_TWIN_6.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
       "price": "2560000",
       "priceSale": "2299800"
     },
     {
       "id": 7,
+      "type": "Deluxe Plus",
       "name": "Deluxe Plus King",
+      "quantity": "3",
       "detail": "3 Sleeps - 1 Bathroom",
       "description": [
         "City view",
@@ -249,14 +213,15 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "quantity": "3",
       "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/782193/782193/PREMIER_DELUXE_OCEAN_VIEW_DOUBLE.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
       "price": "2760000",
       "priceSale": "2299800"
     },
     {
       "id": 8,
+      "type": "Deluxe Pool",
       "name": "Deluxe Pool Terrace Twin",
+      "quantity": "4",
       "detail": "4 Sleeps - 1 Twin - 1 Bathroom",
       "description": [
         "City view",
@@ -268,14 +233,15 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "quantity": "4",
       "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/909797/909797/PREMIER_OCEAN_VIEW_DOUBLE_5.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
       "price": "3250000",
       "priceSale": "2299800"
     },
     {
       "id": 9,
+      "type": "Deluxe Pool",
       "name": "Deluxe Pool Terrace King",
+      "quantity": "4",
       "detail": "4 Sleeps - 1 KingBed - 1 Bathroom",
       "description": [
         "City view",
@@ -287,7 +253,6 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "quantity": "4",
       "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/909805/909805/PREMIER_OCEAN_TWIN_1.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
       "price": "4350000",
       "priceSale": "2299800"
@@ -302,7 +267,7 @@
     },
     {
       "idUser": "2",
-      "idRoom": 3,
+      "idRoom": 2,
       "quantity": 1,
       "id": 2
     }

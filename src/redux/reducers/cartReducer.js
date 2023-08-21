@@ -1,5 +1,6 @@
 const initialState = {
     message: '',
+    type: '',
     guestCart: []
 };
 
@@ -8,12 +9,14 @@ const cartReducer = (state = initialState, action) => {
         case 'ADD':
             return {
                 ...state,
+                type: action.type,
                 message: action.payload.message,
 
             };
         case 'ADD_LOCAL':
             return {
                 ...state,
+                type: action.type,
                 message: action.payload.message,
                 guestCart: action.payload.guestCart
             };
@@ -36,6 +39,12 @@ const cartReducer = (state = initialState, action) => {
             return {
                 ...state,
                 message: ""
+            }
+        case 'REMOVE': 
+            return {
+                ...state,
+                type: action.type,
+                message: action.payload.message
             }
         default:
             return state;

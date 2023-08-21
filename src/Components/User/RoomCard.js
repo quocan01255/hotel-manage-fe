@@ -13,9 +13,6 @@ const RoomCard = () => {
   const loggedIn = localStorage.getItem("user");
   const checkLogin = localStorage.getItem("loggedIn");
 
- 
-
-
   // không login
   const guestCart = useSelector((state) => state.cartReducer.guestCart);
   console.log("guestCart", guestCart);
@@ -79,7 +76,6 @@ const RoomCard = () => {
       .catch((err) => {});
   }, []);
 
-
   const totalRoomPrice = useMemo(() => {
     return data.reduce((total, room) => total + room.price * room.quantity, 0);
   }, [data]);
@@ -92,13 +88,12 @@ const RoomCard = () => {
   // };
 
   const currencyFormat = (num) => {
-    if (typeof num === 'number' || typeof num === 'string') {
+    if (typeof num === "number" || typeof num === "string") {
       num = String(num); // Convert to string if it's a number
       return num.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
     }
     return "";
   };
-  
 
   if (!checkLogin) {
     return (
@@ -125,7 +120,7 @@ const RoomCard = () => {
           ))}
           <br />
           <div className="c-booking-price">
-          Total price: {currencyFormat(String(totalRoomPrice))} VND
+            Total price: {currencyFormat(String(totalRoomPrice))} VND
           </div>
         </div>
       </div>
@@ -149,10 +144,7 @@ const RoomCard = () => {
             </div>
           </div>
         ))}
-      <br/>
-        <div className="c-booking-price" style={{fontSize:"19px", color:""}}>
-        Total price: {currencyFormat(String(totalRoomPrice))} VND
-        </div>
+        
       </div>
     </div>
   );

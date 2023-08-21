@@ -1,5 +1,4 @@
 import React from "react";
-// import { useBooking } from "../User/BookingContext";
 import {
   MDBCard,
   MDBCardBody,
@@ -11,28 +10,30 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Headerbooking from "./header_booking/Headerbooking";
 import Footer from "./Footers";
+import { useLocation } from "react-router-dom";
 
 const BookingInfo = () => {
   // ... Your existing BookingInfo component
   // const { bookingData } = useBooking();
-  
-
 
   const currencyFormat = (num) => {
-    if (typeof num === 'number') {
+    if (typeof num === "number") {
       num = String(num); // Chuyển số thành chuỗi trước khi định dạng
     }
     return num.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
   };
 
+  const { state } = useLocation();
+  const { total } = state;
+
   return (
     <div className="booking-info-container">
-      <h2 className="c-booking-title" style={{ fontSize: "20px" }}>
+      <h2 className="c-booking-title" style={{ fontSize: "22px" }}>
         Complete your booking
       </h2>
-     
-      <div className="c-booking-info">
-        <label>Total Price:</label>
+      <div className="c-booking-price" style={{color:"red",fontWeight:"bold",fontSize:"17px",textAlign:"center"}}>
+        <label>Total Price: {currencyFormat(total)} VND</label>
+        {/* <span>{bookingData.totalPrice}</span> */}
         {/* <span>{currencyFormat(totalPrice)} VND</span> */}
       </div>
       {/* Render other booking information */}
@@ -98,7 +99,6 @@ const PaymentForm = () => {
     }
     // Add more validation checks for card number, expiry date, and cvv
     // Email validation
-  
 
     // Phone number validation
     if (formData.cardNumber && !/^\d{16,19}$/.test(formData.cardNumber)) {
@@ -275,7 +275,10 @@ const PayCard = () => {
         className="py-5 gradient-custom"
         style={{ backgroundColor: "#f8f8f8", padding: "30px 0" }}
       >
-        <MDBRow className="d-flex justify-content-center ">
+        <MDBRow
+          className="d-flex justify-content-center "
+          style={{ marginTop: "60px" }}
+        >
           <MDBCol md="4" lg="4" xl="4">
             <MDBCard style={{ borderRadius: "15px" }}>
               <MDBCardBody className="p-4">
