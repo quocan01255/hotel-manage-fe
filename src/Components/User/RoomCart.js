@@ -54,7 +54,7 @@ const RoomCart = ({ removeRoom, cart, handleNotify, totalRoomPrice }) => {
           className="c-booking-price"
           style={{ fontSize: "19px", color: "red", paddingLeft: "12px" ,textAlign:"center"}}
         >
-          Total price: {currencyFormat(String(totalRoomPrice))} VND
+          Total price: {currencyFormat(String(totalRoomPrice))}đ
         </div>
       </div>
     </div>

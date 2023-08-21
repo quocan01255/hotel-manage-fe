@@ -82,7 +82,7 @@ const PaymentForm = (props) => {
 
     if (validate()) {
       // Dispatch action to set user info in Redux Store
-      dispatch(payment(formData));
+      // dispatch(payment(formData));
       navigate("/paycard", {
         state: {
           total: totalRoomPrice,

@@ -65,9 +65,7 @@
       "id": "6r-bNXV"
     }
   ],
-  "bookings": [
-
-  ],
+  "bookings": [],
   "rooms": [
     {
       "id": 1,
@@ -243,7 +241,10 @@
   ],
   "userCart": [
     {
-
+      "idUser": "6",
+      "idRoom": 1,
+      "quantity": 1,
+      "id": 1
     }
   ]
 }
