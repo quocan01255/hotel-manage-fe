@@ -31,7 +31,7 @@ function App() {
   return (
     <Provider store={store}>
       <div className="App">
-        <BookingProvider>
+        {/* <BookingProvider> */}
           <Routes>
 
             <Route path="/bookingpage" element={<BookingPage />} />
@@ -59,7 +59,7 @@ function App() {
             <Route path="/bookingpage" element={<BookingPage/>}/>
 
           </Routes>
-        </BookingProvider>
+        {/* </BookingProvider> */}
       </div>
     </Provider>
   );

@@ -1,8 +1,26 @@
 // import React from "react";
-// import { useBooking } from "../../Components/User/BookingContext";
+// import { useBooking } from "../User/BookingContext";
+// import { useSelector } from "react-redux";
 
 // const BookingSummary = () => {
 //   const { bookingData } = useBooking();
+//   // const overallTotalPrice = useSelector((state) => state.priceReducer.overallTotalPrice);
+
+//   // const currencyFormat = (num) => {
+//   //   if (typeof num === 'number') {
+//   //     num = String(num); // Chuyển số thành chuỗi trước khi định dạng
+//   //   }
+//   //   return num.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+//   // };
+
+//   const currencyFormat = (num) => {
+//     if (typeof num === 'number' || typeof num === 'string') {
+//       num = String(num); // Convert to string if it's a number
+//       return num.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+//     }
+//     return "";
+//   };
+  
 
 //   return (
 //     <div className="c-booking-summary">
@@ -10,7 +28,7 @@
 //       <div className="c-booking-item">
 //         <div className="c-booking-info">
 //           <span>Room Type: {bookingData.roomType}</span>
-//           <span className="c-booking-price">{bookingData.totalPrice} VND</span>
+//           <span>Total Price: {currencyFormat()} VND</span>
 //         </div>
 //       </div>
 //       <div className="c-booking-item">
@@ -27,155 +45,81 @@
 //     </div>
 //   );
 // };
-
 // export default BookingSummary;
 
-// BookingSummary.js
-// import React, { useMemo } from "react";
-// import { useBooking } from "../Components/BookingContext";
 
-// const BookingSummary = () => {
-//   const { bookingData } = useBooking();
 
-//   // Tính tổng giá tiền từ các phòng đã chọn
-//   const selectedRoomPrices = useMemo(() => {
-//     const selectedRooms = bookingData.selectedRooms || [];
-//     return selectedRooms.reduce((total, room) => total + room.price, 0);
-//   }, [bookingData.selectedRooms]);
 
-//   // Tổng giá tiền chứa cả giá tiền từ các phòng đã chọn và các dịch vụ khác
-//   const totalPriceWithServices = selectedRoomPrices + bookingData.otherServicePrice;
 
-//   return (
-//     <div className="booking-summary">
-//       <div className="booking-title">Booking Summary</div>
-//       <div className="booking-item">
-//         <div className="booking-info">
-//           <span>Room Type: {bookingData.roomType}</span>
-//           <span className="booking-price">{totalPriceWithServices} VND</span>
-//         </div>
-//       </div>
-//       <div className="booking-item">
-//         <div className="booking-info">
-//           <span>Check-in: {bookingData.checkIn}</span>
-//         </div>
-//       </div>
-//       <div className="booking-item">
-//         <div className="booking-info">
-//           <span>Check-out: {bookingData.checkOut}</span>
-//         </div>
-//       </div>
-//       {/* Render other booking information */}
-//     </div>
-//   );
-// };
 
-// export default BookingSummary;
 
-// import React, { useCallback, useEffect, useState } from "react";
-// import { useSelector } from "react-redux";
 
-// const BookingSummary = () => {
-//   const [price, setPrice] = useState(0);
-//   const getdata = useSelector((state) => state.PayReducer.carts);
 
-//   const total = useCallback(() => {
-//     let price = 0;
-//     getdata.map((ele) =>(price = ele.price * ele.quantity + price)
-//     );
-//     setPrice(price);
-//   }, [getdata]);
 
-//   useEffect(() => {
-//     total();
-//   }, [total])
-//   const currencyFormat = (num) => {
-//     return num.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-//   }
-//   return (
-//     <>
-//       {
-//         getdata.map((value) => {
-//           return (
-//             <div className="c-booking-summary">
-//               <div className="c-booking-title">Booking Summary</div>
-//               <div className="c-booking-item">
-//                 <div className="c-booking-info">
-//                   <span>Room Type: {value.name}</span>
 
-//                   <span className="c-booking-price">{price}VND</span>
-//                 </div>
-//               </div>
-//               <div className="c-booking-item">
-//                 <div className="c-booking-info">
-//                   <span>Check-in: {value.checkIn}</span>
-//                 </div>
-//               </div>
-//               <div className="c-booking-item">
-//                 <div className="c-booking-info">
-//                   <span>Check-out: {value.checkOut}</span>
-//                 </div>
-//               </div>
 
-//             </div>
-//           )
-//         })
-//       }
 
-//     </>
+// // import React, { useCallback, useEffect, useState } from "react";
+// // import { useBooking } from "../User/BookingContext";
+// // import { useSelector } from "react-redux";
 
-//   );
-// };
+// // const BookingSummary = () => {
+// //   // const {bookingData}= useBooking();
+// //   const [price, setPrice] = useState(0);
+// //   const getdata = useSelector((state) => state.PayReducer.carts);
 
-// export default BookingSummary;
+  
+// //   const total = useCallback(() => {
+// //     let price = 0;
+// //     getdata.map((ele) =>(price = ele.price * ele.quantity + price)
+// //     );
+// //     setPrice(price);
+// //   }, [getdata]);
 
-import React, { useCallback, useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+// //   useEffect(() => {
+// //     total();
+// //   }, [total])
+// //   const currencyFormat = (num) => {
+// //     return num.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+// //   }
+// //   return (
+// //     <>
+// //       {
+// //         getdata.map((value) => {
+// //           return (
+// //             <div className="c-booking-summary">
+// //               <div className="c-booking-title">Booking Summary</div>
+// //               <div className="c-booking-item">
+// //                 <div className="c-booking-info">
+// //                   <span>Room Type: {value.name}</span>
 
-const BookingSummary = () => {
-  const [price, setPrice] = useState(0);
-  const getdata = useSelector((state) => state.PayReducer.carts);
+// //                   <span className="c-booking-price">{price}VND</span>
+// //                 </div>
+// //               </div>
+// //               <div className="c-booking-item">
+// //                 <div className="c-booking-info">
+// //                   <span>Check-in: {value.checkIn}</span>
+// //                 </div>
+// //               </div>
+// //               <div className="c-booking-item">
+// //                 <div className="c-booking-info">
+// //                   <span>Check-out: {value.checkOut}</span>
+// //                 </div>
+// //               </div>
 
-  const total = useCallback(() => {
-    let price = 0;
-    getdata.map((ele) => (price = ele.price * ele.quantity + price));
-    setPrice(price);
-  }, [getdata]);
+// //             </div>
+// //           )
+// //         })
+// //       }
 
-  useEffect(() => {
-    total();
-  }, [total]);
-  const currencyFormat = (num) => {
-    return num.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
-  };
-  return (
-    <>
-      {getdata.map((value) => {
-        return (
-          <div className="c-booking-summary">
-            <div className="c-booking-title">Booking Summary</div>
-            <div className="c-booking-item">
-              <div className="c-booking-info">
-                <span>Room Type: {value.name}</span>
+// //     </>
 
-                <span className="c-booking-price">{price}VND</span>
-              </div>
-            </div>
-            <div className="c-booking-item">
-              <div className="c-booking-info">
-                <span>Check-in: {value.checkIn}</span>
-              </div>
-            </div>
-            <div className="c-booking-item">
-              <div className="c-booking-info">
-                <span>Check-out: {value.checkOut}</span>
-              </div>
-            </div>
-          </div>
-        );
-      })}
-    </>
-  );
-};
+// //   );
+// // };
 
-export default BookingSummary;
+// // export default BookingSummary;
+
+
+
+
+
