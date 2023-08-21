@@ -370,9 +370,9 @@
   "userCart": [
     {
       "idUser": "6",
-      "idRoom": 3,
-      "quantity": 1,
-      "id": 1
+      "idRoom": 1,
+      "quantity": 3,
+      "id": 2
     }
   ]
 }
