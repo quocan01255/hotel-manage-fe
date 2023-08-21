@@ -2,6 +2,7 @@ import React from 'react';
 import dayjs from 'dayjs';
 import { Button, Form, Input, DatePicker } from 'antd';
 import './formBookingManager.css';
+import dayjs from 'dayjs';
 
 const { RangePicker } = DatePicker;
 const FormDetailBooking = ({ name, email, phone, idroom, checkin, checkout }) => {

@@ -1,7 +1,7 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.js'
-
+import slide1 from '../../assets/img/slide1.png'
 function Slide() {
     return (
 
@@ -14,7 +14,7 @@ function Slide() {
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to={4} aria-label="Slide 5" />
          
         </div>
-        <div className="carousel-inner">
+        <div className="carousel-inner" style={{height:"40em"}}>
           <div className="carousel-item active">
             <img src="https://quynhon.maiaresorts.com/wp-content/uploads/2020/08/Semi-Detached-Villa-bedroom-02_resize.jpg" className="d-block w-100" alt="..." />
           </div>
@@ -25,7 +25,7 @@ function Slide() {
             <img src="https://quynhon.maiaresorts.com/wp-content/uploads/2020/08/DJI_0193_resize.jpg" className="d-block w-100" alt="..." />
           </div>
           <div className="carousel-item">
-            <img src="https://quynhon.maiaresorts.com/wp-content/uploads/2021/04/MAQ0472.jpg" className="d-block w-100" alt="..." />
+            <img src={slide1} className="d-block w-100" alt="..." />
           </div>
           <div className="carousel-item">
             <img src="https://quynhon.maiaresorts.com/wp-content/uploads/2021/04/MAQ0491.jpg" className="d-block w-100" alt="..." />
