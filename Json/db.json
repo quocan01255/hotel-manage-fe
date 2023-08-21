@@ -99,7 +99,7 @@
       "idroom": "Room 1",
       "quantity": "3",
       "checkin": "17/08/2023",
-      "checkout": "18/08/2023"
+      "checkout": "20/08/2023"
     },
     {
       "id": "4",
@@ -199,7 +199,8 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/780899/780899/SUITE-ROOM-1.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
+      "quantity": "5",
+      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/781688/781688/SUPERIOR_TWIN_02.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
       "price": "1780000",
       "priceSale": "1299800",
       "checkin": "16/08/2023",
@@ -219,8 +220,8 @@
         "Balcony",
         "Cable/Satellite TV"
       ],
-      "quantity": "4",
-      "img": "https://gcs.tripi.vn/hms_prod/photo/img/455407PbPQYh/quaruple-city-view-2.jpg",
+      "quantity": "3",
+      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/781696/781696/SUPERIOR_TWIN_05.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
       "price": "1850000",
       "priceSale": "3001600",
       "checkin": "17/08/2023",
@@ -242,7 +243,8 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "img": "https://www.navadahotel.com/FileStorage/Room/Thumbnail/_DSC5506-HDR-Edit-Edit.png",
+      "quantity": "4",
+      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/781741/781741/PREMIER_OCEAN_TWIN_1.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
       "price": "2100000",
       "priceSale": "2299800",
       "checkin": "19/08/2023",
@@ -264,7 +266,8 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/415423881.jpg?k=76d019dc7cf43dbe28157bd60d339b0c8843dd4f9fd21b4c6fa9484d67ab0cdf&o=&hp=1",
+      "quantity": "4",
+      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/781683/781683/DELUXE_09.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
       "price": "2300000",
       "priceSale": "2299800",
       "checkin": "21/08/2023",
@@ -286,7 +289,8 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "img": "https://thecaphotel.com/public/uploads/news/20210520/cb02278262605e8f1024954fc3e38221.jpg",
+      "quantity": "4",
+      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/780899/780899/SUITE-ROOM-1.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
       "price": "2940000",
       "priceSale": "2299800",
       "checkin": "22/08/2023",
@@ -329,7 +333,6 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "quantity": "3",
       "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/782193/782193/PREMIER_DELUXE_OCEAN_VIEW_DOUBLE.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
       "price": "2760000",
       "priceSale": "2299800",
@@ -389,16 +392,28 @@
       "id": 1
     },
     {
+      "idUser": "1",
+      "idRoom": 2,
+      "quantity": 3,
+      "id": 2
+    },
+    {
       "idUser": "7",
-      "idRoom": 5,
+      "idRoom": 4,
       "quantity": 1,
-      "id": 4
+      "id": 3
     },
     {
       "idUser": "7",
       "idRoom": 5,
       "quantity": 1,
       "id": 4
+    },
+    {
+      "idUser": "1",
+      "idRoom": 1,
+      "quantity": 1,
+      "id": 3
     },
     {
       "idUser": "6",
@@ -417,36 +432,6 @@
       "idRoom": 4,
       "quantity": 3,
       "id": 7
-    },
-    {
-      "idUser": "1",
-      "idRoom": 3,
-      "quantity": 1,
-      "id": 8
-    },
-    {
-      "idUser": "1",
-      "idRoom": 5,
-      "quantity": 1,
-      "id": 9
-    },
-    {
-      "idUser": "1",
-      "idRoom": 2,
-      "quantity": 3,
-      "id": 10
-    },
-    {
-      "idUser": "1",
-      "idRoom": 1,
-      "quantity": 2,
-      "id": 11
-    },
-    {
-      "idUser": "1",
-      "idRoom": 9,
-      "quantity": 1,
-      "id": 12
     }
   ]
 }
