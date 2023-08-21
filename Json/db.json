@@ -6,8 +6,7 @@
       "lastname": "ad",
       "email": "admin@gmail.com",
       "password": "admin1234",
-      "confirm-password": "admin1234",
-      "role": "admin"
+      "confirm-password": "admin1234"
     },
     {
       "firstname": "thang",
@@ -15,7 +14,6 @@
       "email": "truongdinhthangxyz@gmail.com",
       "password": "Aathang1234",
       "confirm-password": "Aathang1234",
-      "role": "user",
       "id": "2"
     },
     {
@@ -24,7 +22,6 @@
       "email": "hoaiviet@gmail.com",
       "password": "viet123456",
       "confirm-password": "viet123456",
-      "role": "user",
       "id": "3"
     },
     {
@@ -33,7 +30,6 @@
       "email": "huynhthien@gmail.com",
       "password": "thien123",
       "confirm-password": "thien123",
-      "role": "user",
       "id": "4"
     },
     {
@@ -42,7 +38,6 @@
       "email": "thuhoai1@gmail.com",
       "password": "thuhoai1234",
       "confirm-password": "thuhoai1234",
-      "role": "user",
       "id": "5"
     },
     {
@@ -67,7 +62,7 @@
       "email": "quocan0255@gmail.com",
       "password": "12345678",
       "role": "user",
-      "id": "8"
+      "id": "6r-bNXV"
     }
   ],
   "bookings": [
@@ -99,7 +94,7 @@
       "idroom": "Room 1",
       "quantity": "3",
       "checkin": "17/08/2023",
-      "checkout": "20/08/2023"
+      "checkout": "18/08/2023"
     },
     {
       "id": "4",
@@ -187,7 +182,7 @@
       "id": 1,
       "type": "Deluxe",
       "name": "Deluxe Twin",
-      "quantity": "5",
+      "quantity": "3",
       "detail": "3 Sleeps - 1 Twin - 1 Bathroom",
       "description": [
         "City view",
@@ -199,32 +194,27 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/780899/780899/SUITE-ROOM-1.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
-      "price": "1780000",
-      "priceSale": "1299800",
-      "checkin": "16/08/2023",
-      "checkout": "19/08/2023"
+      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/781688/781688/SUPERIOR_TWIN_02.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
+      "price": "1780000"
     },
     {
       "id": 2,
       "type": "Deluxe Plus",
       "name": "Deluxe Plus Twin",
-      "detail": "4 Sleeps - 1 Bathroom",
+      "quantity": "3",
+      "detail": "3 Sleeps - 1 Bathroom",
       "description": [
-        "Sea view",
+        "City view",
         "Non-smoking",
-        "Air conditioned",
+        "Cable/Satellite TV",
+        "Desk",
         "Tea/Coffee Maker",
         "Internet Access",
-        "Balcony",
-        "Cable/Satellite TV"
+        "Air conditioned",
+        "Hairdryer"
       ],
-      "quantity": "4",
-      "img": "https://gcs.tripi.vn/hms_prod/photo/img/455407PbPQYh/quaruple-city-view-2.jpg",
-      "price": "1850000",
-      "priceSale": "3001600",
-      "checkin": "17/08/2023",
-      "checkout": "21/08/2023"
+      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/781696/781696/SUPERIOR_TWIN_05.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
+      "price": "1850000"
     },
     {
       "id": 3,
@@ -242,11 +232,8 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "img": "https://www.navadahotel.com/FileStorage/Room/Thumbnail/_DSC5506-HDR-Edit-Edit.png",
-      "price": "2100000",
-      "priceSale": "2299800",
-      "checkin": "19/08/2023",
-      "checkout": "22/08/2023"
+      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/781700/781700/SUPERIOR_TWIN_03.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
+      "price": "2100000"
     },
     {
       "id": 4,
@@ -264,11 +251,8 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/415423881.jpg?k=76d019dc7cf43dbe28157bd60d339b0c8843dd4f9fd21b4c6fa9484d67ab0cdf&o=&hp=1",
-      "price": "2300000",
-      "priceSale": "2299800",
-      "checkin": "21/08/2023",
-      "checkout": "23/08/2023"
+      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/781683/781683/DELUXE_09.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
+      "price": "2300000"
     },
     {
       "id": 5,
@@ -286,11 +270,8 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "img": "https://thecaphotel.com/public/uploads/news/20210520/cb02278262605e8f1024954fc3e38221.jpg",
-      "price": "2940000",
-      "priceSale": "2299800",
-      "checkin": "22/08/2023",
-      "checkout": "25/08/2023"
+      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/780899/780899/SUITE-ROOM-1.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
+      "price": "2940000"
     },
     {
       "id": 6,
@@ -308,17 +289,15 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/782198/782198/PREMIER_DELUXE_OCEAN_VIEW_TWIN_6.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
-      "price": "2560000",
-      "priceSale": "2299800",
-      "checkin": "23/08/2023",
-      "checkout": "26/08/2023"
+      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/781661/781661/SUPERIOR_KING__12_.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
+      "price": "2560000"
     },
     {
       "id": 7,
       "type": "Deluxe Plus",
       "name": "Deluxe Plus King",
-      "detail": "3 Sleeps - 1 Bathroom - 1 win  ",
+      "quantity": "3",
+      "detail": "3 Sleeps - 1 Bathroom",
       "description": [
         "City view",
         "Non-smoking",
@@ -329,11 +308,8 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/782193/782193/PREMIER_DELUXE_OCEAN_VIEW_DOUBLE.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
-      "price": "2760000",
-      "priceSale": "2299800",
-      "checkin": "23/08/2023",
-      "checkout": "26/08/2023"
+      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/781674/781674/DELUXE_07.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
+      "price": "2760000"
     },
     {
       "id": 8,
@@ -351,11 +327,8 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/909797/909797/PREMIER_OCEAN_VIEW_DOUBLE_5.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
-      "price": "3250000",
-      "priceSale": "2299800",
-      "checkin": "26/08/2023",
-      "checkout": "30/08/2023"
+      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/909714/909714/DELUXE_POOL_TERRACE_5.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
+      "price": "3250000"
     },
     {
       "id": 9,
@@ -373,19 +346,136 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/909805/909805/PREMIER_OCEAN_TWIN_1.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
-      "price": "4350000",
-      "priceSale": "2299800",
-      "checkin": "25/08/2023",
-      "checkout": "26/08/2023"
+      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/909752/909752/DELUXE_POOL_TERRACE_8.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
+      "price": "4350000"
     }
   ],
   "userCart": [
     {
+      "idUser": "7",
+      "idRoom": 1,
+      "quantity": 9,
+      "id": 1
+    },
+    {
+      "idUser": "6",
+      "idRoom": 2,
+      "quantity": 10,
+      "id": 2
+    },
+    {
+      "idUser": "7",
+      "idRoom": 3,
+      "quantity": 1,
+      "id": 3
+    },
+    {
+      "idUser": "7",
+      "idRoom": 2,
+      "quantity": 3,
+      "id": 4
+    },
+    {
       "idUser": "6",
       "idRoom": 1,
+      "quantity": 15,
+      "id": 5
+    },
+    {
+      "idUser": "6",
+      "idRoom": 3,
+      "quantity": 6,
+      "id": 6
+    },
+    {
+      "idUser": "1",
+      "idRoom": 1,
+      "quantity": 16,
+      "id": 7
+    },
+    {
+      "idUser": "1",
+      "idRoom": 2,
+      "quantity": 10,
+      "id": 8
+    },
+    {
+      "idUser": "6",
+      "idRoom": 8,
       "quantity": 2,
-      "id": 3
+      "id": 9
+    },
+    {
+      "idUser": "1",
+      "idRoom": 3,
+      "quantity": 5,
+      "id": 10
+    },
+    {
+      "idUser": "1",
+      "idRoom": 4,
+      "quantity": 3,
+      "id": 11
+    },
+    {
+      "idUser": "1",
+      "idRoom": 5,
+      "quantity": 4,
+      "id": 12
+    },
+    {
+      "idUser": "1",
+      "idRoom": 6,
+      "quantity": 3,
+      "id": 13
+    },
+    {
+      "idUser": "1",
+      "idRoom": 7,
+      "quantity": 3,
+      "id": 14
+    },
+    {
+      "idUser": "1",
+      "idRoom": 8,
+      "quantity": 3,
+      "id": 15
+    },
+    {
+      "idUser": "1",
+      "idRoom": 9,
+      "quantity": 2,
+      "id": 16
+    },
+    {
+      "idUser": "6",
+      "idRoom": 4,
+      "quantity": 3,
+      "id": 17
+    },
+    {
+      "idUser": "6",
+      "idRoom": 5,
+      "quantity": 2,
+      "id": 18
+    },
+    {
+      "idUser": "6",
+      "idRoom": 6,
+      "quantity": 2,
+      "id": 19
+    },
+    {
+      "idUser": "6",
+      "idRoom": 7,
+      "quantity": 1,
+      "id": 20
+    },
+    {
+      "idUser": "6",
+      "idRoom": 9,
+      "quantity": 1,
+      "id": 21
     }
   ]
 }
