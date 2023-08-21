@@ -66,16 +66,16 @@
     }
   ],
   "bookings": [
-      {
-        "id": "1",
-        "name": "Thắng",
-        "email": "john.brown@gmail.com",
-        "phone": "0865198615",
-        "idroom": "Room 1",
-        "quantity": "3",
-        "checkin": "17/08/2023",
-        "checkout": "18/08/2023"
-      },
+    {
+      "id": "1",
+      "name": "Thắng",
+      "email": "john.brown@gmail.com",
+      "phone": "0865198615",
+      "idroom": "Room 1",
+      "quantity": "3",
+      "checkin": "17/08/2023",
+      "checkout": "18/08/2023"
+    },
     {
       "id": "2",
       "name": "Thu",
@@ -125,7 +125,8 @@
       "quantity": "3",
       "checkin": "17/08/2023",
       "checkout": "18/08/2023"
-    },{
+    },
+    {
       "id": "7",
       "name": "Việt2",
       "email": "john.brown@gmail.com",
@@ -134,7 +135,8 @@
       "quantity": "3",
       "checkin": "17/08/2023",
       "checkout": "18/08/2023"
-    },{
+    },
+    {
       "id": "8",
       "name": "Việt3",
       "email": "john.brown@gmail.com",
@@ -143,7 +145,8 @@
       "quantity": "3",
       "checkin": "17/08/2023",
       "checkout": "18/08/2023"
-    },{
+    },
+    {
       "id": "9",
       "name": "Việt4",
       "email": "john.brown@gmail.com",
@@ -152,7 +155,8 @@
       "quantity": "3",
       "checkin": "17/08/2023",
       "checkout": "18/08/2023"
-    },{
+    },
+    {
       "id": "10",
       "name": "Việt5",
       "email": "john.brown@gmail.com",
@@ -161,7 +165,8 @@
       "quantity": "3",
       "checkin": "17/08/2023",
       "checkout": "18/08/2023"
-    },{
+    },
+    {
       "id": "11",
       "name": "Việt6",
       "email": "john.brown@gmail.com",
