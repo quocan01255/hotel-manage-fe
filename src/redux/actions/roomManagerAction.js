@@ -4,11 +4,11 @@ export const add = (data) => {
             method: 'POST',
             body: JSON.stringify({
                 "type": data.type,
-                "name": data.roomName,
+                "name": data.name,
                 "quantity": data.quantity,
                 "detail": data.detail,
                 "description": [data.description],
-                "img": data.image,
+                "img": data.img,
                 "price": data.price,
             }),
             headers: {
@@ -25,6 +25,7 @@ export const add = (data) => {
                 });
             })
             .catch((err) => {
+                console.error(err);
             });
     }
 }
@@ -43,6 +44,9 @@ export const remove = (id) => {
                     },
                 });
             })
+            .catch((err) => {
+                console.error(err);
+            });
     }
 }
 
@@ -51,17 +55,17 @@ export const upd = (data, id) => {
         fetch(`http://localhost:3001/rooms`)
             .then((response) => response.json())
             .then((rooms) => {
-                const findRoom = rooms.find(room => room.idRoom === id)
+                const findRoom = rooms.find(room => room.id === id)
                 fetch(`http://localhost:3001/rooms/${findRoom.id}`, {
                     method: 'PUT',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         "type": data.type,
-                        "name": data.roomName,
+                        "name": data.name,
                         "quantity": data.quantity,
                         "detail": data.detail,
                         "description": [data.description],
-                        "img": data.image,
+                        "img": data.img,
                         "price": data.price,
                     })
                 })
@@ -70,13 +74,16 @@ export const upd = (data, id) => {
                         dispatch({
                             type: 'UPDATE',
                             payload: {
-                                message: "Update cart success!"
+                                message: "Update room success!"
                             },
                         });
                     })
                     .catch((err) => {
-                        console.log(err)
+                        console.error(err);
                     });
             })
+            .catch((err) => {
+                console.error(err);
+            });
     }
 }

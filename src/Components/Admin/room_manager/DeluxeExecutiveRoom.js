@@ -27,7 +27,7 @@ function DeluxeExecutive() {
       .catch((error) => {
 
       });
-  }, [])
+  }, )
   return (
     <div>
       <Breadcrumb className='breadcrumb'>
@@ -55,8 +55,7 @@ function DeluxeExecutive() {
           </Modal>
         </div>
         {rooms.map(
-          (room) => <RoomCard
-            room={room}
+          (room) => <RoomCard room={room}
           />)}
       </div>
     </div>
