@@ -28,10 +28,12 @@ function HomeCart() {
    const guestCart = useSelector((state) => state.cartReducer.guestCart);
    console.log("guestCart", guestCart);
    const compare = () => {
-     let comparedata = guestCart.filter((e) => {
+    if (guestCart) {
+    let comparedata = guestCart.filter((e) => {
        return e.idRoom == idRoom;
      });
      setData(comparedata);
+    }
    };
    useEffect(() => {
      compare();

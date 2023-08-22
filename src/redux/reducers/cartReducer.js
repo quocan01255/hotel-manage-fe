@@ -1,65 +1,60 @@
 const initialState = {
-    message: '',
-    type: '',
-    guestCart: []
+  message: "",
+  type: "",
+  guestCart: [],
 };
 
 const cartReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case 'ADD':
-            return {
-                ...state,
-                type: action.type,
-                message: action.payload.message,
+  switch (action.type) {
+    case "ADD":
+      return {
+        ...state,
+        type: action.type,
+        message: action.payload.message,
+        guestCart: action.payload.guestCart,
+      };
+    case "ADD_LOCAL":
+      return {
+        ...state,
+        type: action.type,
+        message: action.payload.message,
+        guestCart: action.payload.guestCart,
+      };
+    case "UPDATE":
+      return {
+        ...state,
+        message: action.payload.message,
+      };
+    case "UPDATE_LOCAL":
+      return {
+        ...state,
+        message: action.payload.message,
+        guestCart: action.payload.guestCart,
+      };
 
-            };
-        case 'ADD_LOCAL':
-            return {
-                ...state,
-                type: action.type,
-                message: action.payload.message,
-                guestCart: action.payload.guestCart
-            };
-        case 'UPDATE':
-            return {
-                ...state,
-                message: action.payload.message,
-              
-            };
-        case 'UPDATE_LOCAL':
-            return {
-                ...state,
-                message: action.payload.message,
-                guestCart: action.payload.guestCart
-            }
-
-
-
-        case 'RESET':
-            return {
-                ...state,
-                message: ""
-            }
-        case 'REMOVE': 
-            return {
-                ...state,
-                type: action.type,
-                message: action.payload.message
-            }
-        default:
-            return state;
-    }
+    case "RESET":
+      return {
+        ...state,
+        message: "",
+      };
+    case "REMOVE":
+      return {
+        ...state,
+        type: action.type,
+        message: action.payload.message,
+      };
+    default:
+      return state;
+  }
 };
 
 export default cartReducer;
-
-
 
 // const initialState = {
 //     message: '',
 //     cart: [], // Replace with your actual cart state
 //   };
-  
+
 //   const cartReducer = (state = initialState, action) => {
 //     switch (action.type) {
 //       case 'ADD_TO_GUEST_CART':
@@ -80,7 +75,7 @@ export default cartReducer;
 //             cart: updatedGuestCart,
 //           };
 //         }
-  
+
 //       // Other cases...
 //       case 'ADD':
 //         return {
@@ -88,7 +83,7 @@ export default cartReducer;
 //             message: action.payload.message,
 //             guestCart: action.payload.guestCart
 //         };
-//     case 'UPDATE': 
+//     case 'UPDATE':
 //         return {
 //             ...state,
 //             message: action.payload.message,
@@ -99,6 +94,5 @@ export default cartReducer;
 //         return state;
 //     }
 //   };
-  
+
 //   export default cartReducer;
-  
