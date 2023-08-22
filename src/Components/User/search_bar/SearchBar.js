@@ -42,6 +42,7 @@ function SeachBar(props) {
             <div className="input-container">
               <DatePicker
                  minDate={new Date()}
+                 maxDate={endDate}
                 dateFormat="dd/MM/yyyy"
                 selected={startDate}
                 onChange={(date) => setStartDate(date)}
