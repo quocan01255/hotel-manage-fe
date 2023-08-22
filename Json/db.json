@@ -70,7 +70,28 @@
       "id": "8"
     }
   ],
-  "bookings": [],
+  "bookings": [
+    {
+      "id": 1,
+      "name": "Thắng",
+      "email": "john.brown@gmail.com",
+      "phone": "0865198615",
+      "idroom": "Room 1",
+      "quantity": "3",
+      "checkin": "16/08/2023",
+      "checkout": "19/08/2023"
+    },
+    {
+      "id": 2,
+      "name": "Thắng",
+      "email": "john.brown@gmail.com",
+      "phone": "0865198615",
+      "idroom": "Room 1",
+      "quantity": "3",
+      "checkin": "16/08/2023",
+      "checkout": "19/08/2023"
+    }
+  ],
   "rooms": [
     {
       "id": 1,
@@ -281,6 +302,12 @@
       "idRoom": 1,
       "quantity": 1,
       "id": 2
+    },
+    {
+      "idUser": "1",
+      "idRoom": 3,
+      "quantity": 1,
+      "id": 4
     }
   ]
 }

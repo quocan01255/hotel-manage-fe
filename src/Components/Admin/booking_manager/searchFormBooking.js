@@ -1,4 +1,3 @@
-import DatePickerManagerBooking from './datePickerManagerBooking';
 import FilterManagerBooking from './filterManagerBooking';
 import SearchBar from './searchBarManagerBooking';
 import { Breadcrumb } from 'antd';
@@ -12,7 +11,6 @@ function SearchFormBooking() {
             </Breadcrumb>
             <div className="search-form-booking-main">
                 <div className="search-form-booking-child">
-                    <DatePickerManagerBooking />
                     <SearchBar />
                     <FilterManagerBooking />
                 </div>

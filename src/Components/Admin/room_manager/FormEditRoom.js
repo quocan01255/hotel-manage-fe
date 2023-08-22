@@ -5,23 +5,17 @@ import { upd } from '../../../redux/actions/roomManagerAction';
 import { useDispatch } from 'react-redux'
 
 const { TextArea } = Input;
-const normFile = (e) => {
-    if (Array.isArray(e)) {
-        return e;
-    }
-    return e?.fileList;
-};
 const FormDetail = ({ room }) => {
     const dispatch = useDispatch()
     const { id, name, img, detail, description, price, type, quantity } = room
     const [data, setData] = useState({
-        roomName: '',
-        type: '',
-        quantity: '',
-        detail: '',
-        description: '',
-        price: '',
-        image: ''
+        name,
+        type,
+        quantity,
+        detail,
+        description,
+        price,
+        img
     })
     const onchangeType = (e) => {
         var value = e;
@@ -37,7 +31,6 @@ const FormDetail = ({ room }) => {
             quantity: value,
         }));
     };
-
     const onChangeValue = (e) => {
         const { name, value } = e.target
         setData((prevData) => ({
@@ -47,15 +40,15 @@ const FormDetail = ({ room }) => {
         console.log(data)
     }
     const handleUpdate = () => {
-        dispatch(upd(room,id))
+        dispatch(upd(data, id))
     }
-   
+
     return (
         <div className='add-main-form-admin-room'>
             <div className='add-main-form-child-room'>
                 <Form labelCol={{ span: 4, }} wrapperCol={{ span: 14, }} layout="horizontal" >
                     <Form.Item label="Name room" className='input-form-admin-add-room'>
-                        <Input name='roomName' onChange={onChangeValue} defaultValue={name} />
+                        <Input name='name' onChange={onChangeValue} defaultValue={name} />
                     </Form.Item>
                     <Form.Item label="Type room" className='input-form-admin-add-room'>
                         <Select onChange={onchangeType} defaultValue={type}>
@@ -74,13 +67,13 @@ const FormDetail = ({ room }) => {
                         </Select>
                     </Form.Item>
                     <Form.Item label="Detail" className='input-form-admin-add-room'>
-                        <TextArea name='detail' onChange={onChangeValue} rows={2} defaultValue={detail} />
+                        <TextArea name='detail' onChange={onChangeValue} defaultValue={detail} rows={2} />
                     </Form.Item>
                     <Form.Item label="Description" className='input-form-admin-add-room'>
-                        <TextArea name='description' onChange={onChangeValue} rows={5} defaultValue={description} />
+                        <TextArea name='description' onChange={onChangeValue} defaultValue={description} rows={5} />
                     </Form.Item>
                     <Form.Item label="Image Room" className='input-form-admin-add-room'>
-                        <Input name='image' onChange={onChangeValue} defaultValue={img} />
+                        <Input name='img' onChange={onChangeValue} defaultValue={img} />
                     </Form.Item>
                     <Form.Item label="Price" className='input-form-admin-add-room'>
                         <Input name='price' onChange={onChangeValue} defaultValue={price} />
