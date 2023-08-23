@@ -11,7 +11,7 @@ const cartReducer = (state = initialState, action) => {
                 ...state,
                 type: action.type,
                 message: action.payload.message,
-
+                guestCart: action.payload.guestCart
             };
         case 'ADD_LOCAL':
             return {

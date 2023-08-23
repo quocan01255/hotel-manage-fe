@@ -15,6 +15,8 @@ function BookingPage() {
     const getdata = useSelector((state) => state.SearchReducer.rooms);
     const message = useSelector((state) => state.SearchReducer.message);
     const cartState = useSelector(state => state.cartReducer)
+
+    console.log(cartState.guestCart)
     //gọi dữ liệu lên
     useEffect(() => {
         fetch('http://localhost:3001/rooms')
@@ -31,7 +33,6 @@ function BookingPage() {
 
     useEffect(() => {
         setRooms(getdata)
-
     }, [getdata])
 
     useEffect(() => {
