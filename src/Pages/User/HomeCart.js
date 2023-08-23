@@ -88,7 +88,7 @@ function HomeCart() {
 
   useEffect(() => {
     toast.clearWaitingQueue()
-    if (cartState.message !== '') {
+    if (cartState.message) {
       toast(cartState.message, {
         position: "top-center",
         autoClose: 1500,
