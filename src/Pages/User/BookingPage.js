@@ -40,7 +40,7 @@ function BookingPage() {
             toast.success(message);
             dispatch(resetmessage())
         } else {
-            if ((cartState.type === 'ADD' || cartState.type === 'UPDATE') && showAddNotify == true) {
+            if ((cartState.type === 'ADD' || cartState.type === 'UPDATE') && showAddNotify === true) {
                 toast(cartState.message, {
                     position: "top-center",
                     autoClose: 1500,

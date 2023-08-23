@@ -5,13 +5,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { remove } from "../../redux/actions/cartActions";
 import { Link } from "react-router-dom";
 import RoomCart from "../../Components/User/RoomCart";
-import HeaderBooking from "../../Components/User/header_booking/Headerbooking";
 import PaymentForm from "../../Components/User/PaymentForm";
-import BookingSummary from "../../Components/User/BookingSummary";
 import Footers from "../../Components/User/Footers";
 import "../../Css/styleroom.css";
 import Headerbooking from "../../Components/User/header_booking/Headerbooking";
 import { useParams } from "react-router-dom";
+import { payment } from "../../redux/actions/PayAction";
+import BookingSummary from "../../Components/User/BookingSummary";
 
 
 function HomeCart() {
@@ -21,48 +21,54 @@ function HomeCart() {
   const [data, setData] = useState([]);
   const [rooms, setRooms] = useState([]);
   const [cart, setCart] = useState([]);
+  // const [user, setUser] = useState([]); 
+  const checkUser = JSON.parse(localStorage.getItem("user"));
+
+ 
   const [showNotify, setShowNotify] = useState(false)
   const checkLogin = localStorage.getItem("loggedIn");
 
-   // không login
-   const guestCart = useSelector((state) => state.cartReducer.guestCart);
-   console.log("guestCart", guestCart);
-   const compare = () => {
-    if (guestCart) {
-    let comparedata = guestCart.filter((e) => {
-       return e.idRoom == idRoom;
-     });
-     setData(comparedata);
-    }
-   };
-   useEffect(() => {
-     compare();
-   }, [idRoom]);
- 
-   useEffect(() => {
-     fetch("http://localhost:3001/rooms")
-       .then((response) => response.json())
-       .then((rooms) => {
-         const result = [];
-         guestCart.forEach((item) => {
-           rooms.forEach((room) => {
-             if (room.id === item.idRoom) {
-               let quantity = item.quantity;
-               result.push({ ...room, quantity });
-             }
-           });
-         });
- 
-         setData(result);
-       })
-       .catch((error) => {});
-   }, []);
+  // không login
+  const guestCart = useSelector((state) => state.cartReducer.guestCart);
 
-  
+  const compare = () => {
+    if (guestCart) {
+      let comparedata = guestCart.filter((e) => {
+        return e.idRoom == idRoom;
+      });
+      setData(comparedata);
+    }
+  };
+  useEffect(() => {
+    compare();
+  }, [idRoom]);
+
+  useEffect(() => {
+    fetch("http://localhost:3001/rooms")
+      .then((response) => response.json())
+      .then((rooms) => {
+        const result = [];
+        guestCart.forEach((item) => {
+          rooms.forEach((room) => {
+            if (room.id === item.idRoom) {
+              let quantity = item.quantity;
+              result.push({ ...room, quantity });
+            }
+          });
+        });
+
+        setData(result);
+      })
+      .catch((error) => { });
+  }, []);
+
+
   useEffect(() => {
     fetch("http://localhost:3001/userCart")
       .then((response) => response.json())
       .then((cart) => {
+        // const phong =cart.filter((item)=>item.idUser === checkUser.id )
+        // setUser(phong);
         fetch("http://localhost:3001/rooms")
           .then((response) => response.json())
           .then((rooms) => {
@@ -122,7 +128,7 @@ function HomeCart() {
 
 
   const totalRoomPrice = useMemo(() => {
-    if(checkLogin) {
+    if (checkLogin) {
       return cart.reduce((total, room) => total + room.price * room.quantity, 0);
 
     } else {
@@ -130,10 +136,16 @@ function HomeCart() {
     }
   }, [cart]);
 
+
+  const thanhtoan = (formData) => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    dispatch(payment(formData, cart, totalRoomPrice, user.id));
+  }
+
   return (
     <>
       <ToastContainer />
-      <Headerbooking />
+      <Headerbooking  />
       <div style={{ backgroundColor: '#f8f8f8', padding: '100px 0' }}>
         <div className="container" >
           <div className="backpage">
@@ -144,12 +156,20 @@ function HomeCart() {
           </div>
           <div className="row">
             <div className="col-md-6">
-              <RoomCart removeRoom={handleRemove} cart={cart} handleNotify={handleNotify} totalRoomPrice={totalRoomPrice} guestCart={data}/>
+              <RoomCart removeRoom={handleRemove} cart={cart} handleNotify={handleNotify} totalRoomPrice={totalRoomPrice} guestCart={data} />
+
+              <BookingSummary totalRoomPrice={totalRoomPrice} />
             </div>
             <div className="col-md-6">
-              <PaymentForm totalRoomPrice={totalRoomPrice} />
+              <PaymentForm totalRoomPrice={totalRoomPrice} thanhtoan={thanhtoan}   />
             </div>
           </div>
+          {/* <div className="row">
+      <div className="col-md-6">
+        <BookingSummary totalRoomPrice={totalRoomPrice} />
+        
+      </div>
+    </div> */}
         </div>
       </div>
       <Footers />

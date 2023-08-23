@@ -141,22 +141,27 @@
 
 /* CSS styles for Booking Summary */
 .c-booking-summary {
+  background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
-  padding: 20px;
-  margin: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  
+  margin: 20px 0;
+  padding: 10px 0;
 }
 
 .c-booking-title {
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 10px;
+  padding:0 15px;
   text-align: left;
+  
 }
 
 .c-booking-item {
   margin-bottom: 8px;
+  padding:0 15px;
   text-align: left;
 }
 
@@ -165,7 +170,7 @@
   justify-content: space-between;
   align-items: center;
   text-align: left;
-  font-size: 15px;
+  
 }
 
 .c-booking-info label {
@@ -175,7 +180,8 @@
 
 .c-booking-price {
   font-weight: bold;
-  color: #d63031;
+
+  color:#279EFF;
 }
 
 /* ... (Rest of Booking Summary styles) ... */
