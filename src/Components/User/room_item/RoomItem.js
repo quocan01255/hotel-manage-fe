@@ -1,8 +1,6 @@
 import { useCallback } from "react";
 import "./roomitem.css";
 import { useDispatch, useSelector } from "react-redux";
-import { add } from "../../../redux/actions/cartActions";
-import { Link } from "react-router-dom";
 
 function RoomItem({
   idTab,

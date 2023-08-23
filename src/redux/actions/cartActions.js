@@ -153,6 +153,124 @@ export const remove = (idRoom, loggedIn, idUser) => {
   };
 };
 
+export const increase = (idRoom, loggedIn, idUser) => {
+  if (!localStorage.getItem("guestCart")) {
+    localStorage.setItem('guestCart', JSON.stringify([]))
+  }
+
+  let guestCart = JSON.parse(localStorage.getItem("guestCart"))
+
+  return (dispatch) => {
+    // Check if logged in
+    if (loggedIn) {
+      fetch("http://localhost:3001/userCart")
+        .then((response) => response.json())
+        .then((products) => {
+          // Check if product is existed
+          fetch(`http://localhost:3001/userCart`)
+            .then((response) => response.json())
+            .then((data) => {
+              const findRoom = data.find(
+                (room) => room.idRoom === idRoom && room.idUser === idUser
+              );
+              fetch(`http://localhost:3001/userCart/${findRoom.id}`, {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                  idUser: idUser,
+                  idRoom: idRoom,
+                  quantity: findRoom.quantity + 1,
+                }),
+              })
+                .then((res) => res.json())
+                .then(() => {
+                  dispatch({
+                    type: "INCREASE",
+                    payload: {
+                      message: "",
+                    },
+                  });
+                })
+                .catch((err) => {
+                  console.log(err);
+                });
+            });
+        });
+    } else {
+      const findProduct = guestCart.findIndex((item) => item.idRoom === idRoom);
+      guestCart[findProduct].quantity += 1;
+      localStorage.setItem('guestCart', JSON.stringify(guestCart))
+      dispatch({
+        type: "INCREASE",
+        payload: {
+          message: "",
+        },
+      });
+    }
+  };
+}
+
+export const decrease = (idRoom, loggedIn, idUser) => {
+  if (!localStorage.getItem("guestCart")) {
+    localStorage.setItem('guestCart', JSON.stringify([]))
+  }
+
+  let guestCart = JSON.parse(localStorage.getItem("guestCart"))
+
+  return (dispatch) => {
+    // Check if logged in
+    if (loggedIn) {
+      fetch("http://localhost:3001/userCart")
+        .then((response) => response.json())
+        .then((products) => {
+          // Check if product is existed
+          fetch(`http://localhost:3001/userCart`)
+            .then((response) => response.json())
+            .then((data) => {
+              const findRoom = data.find(
+                (room) => room.idRoom === idRoom && room.idUser === idUser
+              );
+              if (findRoom.quantity > 1) {
+                fetch(`http://localhost:3001/userCart/${findRoom.id}`, {
+                  method: "PUT",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify({
+                    idUser: idUser,
+                    idRoom: idRoom,
+                    quantity: findRoom.quantity - 1,
+                  }),
+                })
+                  .then((res) => res.json())
+                  .then(() => {
+
+                  })
+                  .catch((err) => {
+                  });
+              }
+              dispatch({
+                type: "DECREASE",
+                payload: {
+                  message: "",
+                },
+              });
+            });
+        });
+    } else {
+      const findProduct = guestCart.findIndex((item) => item.idRoom === idRoom);
+      if (guestCart[findProduct].quantity > 1) {
+        guestCart[findProduct].quantity -= 1;
+      }
+      localStorage.setItem('guestCart', JSON.stringify(guestCart))
+      dispatch({
+        type: "DECREASE",
+        payload: {
+          message: "",
+        },
+      });
+    }
+  };
+}
+
 export const resetCartMessage = () => {
   return (dispatch) => {
     dispatch({

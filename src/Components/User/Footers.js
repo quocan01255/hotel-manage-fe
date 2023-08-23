@@ -23,10 +23,10 @@ class Footer extends Component {
                 style={{ margin: "40px" }}
               >
                 <p className="mt-3">
-                  Address: 77 An Dương Vương, Tp. Quy Nhơn, Tỉnh. Bình Định,
-                  Việt Nam
+                  Address: 77 An Duong Vuong, Quy Nhon, Binh Dinh,
+                  Vietnam
                 </p>
-                <p>Address: 249 Hà Huy Tập, Tp. Đà Nẵng, Việt Nam</p>
+                <p>Address: 249 Ha Huy Tap, Da Nang, Vietnam</p>
 
                 <p>Hotline: (+84) 256 2222 268</p>
                 <p>Email: mailto:info@clementgroup.com</p>
@@ -97,9 +97,9 @@ class Footer extends Component {
           className="text-center py-4"
           style={{ backgroundColor: "#259b97" }}
         >
-          &copy; {new Date().getFullYear()} Bản quyền thuộc về{" "}
+          &copy; {new Date().getFullYear()} Copyright by{" "}
           <a className="text-light" href="https://clementhotel.com/">
-            ClementHotel.com
+            SF Intern Team
           </a>
         </div>
       </footer>

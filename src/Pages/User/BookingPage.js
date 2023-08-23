@@ -11,13 +11,12 @@ import { resetCartMessage } from "../../redux/actions/cartActions"
 
 function BookingPage() {
     const [rooms, setRooms] = useState([])
-    const [showAddNotify, setShowAddNotify] = useState(false)
     const dispatch = useDispatch()
     const getdata = useSelector((state) => state.SearchReducer.rooms);
     const message = useSelector((state) => state.SearchReducer.message);
     const cartState = useSelector(state => state.cartReducer)
 
-    //gọi dữ liệu lên
+    //Call api and get data
     useEffect(() => {
         fetch('http://localhost:3001/rooms')
             .then((response) => response.json())
@@ -65,8 +64,8 @@ function BookingPage() {
             <Headerbooking />
             <div style={{ backgroundColor: '#f8f8f8', paddingTop: '100px' }}>
                 <div style={{ backgroundColor: '#f8f8f8', margin: '0 auto' }} className='container'>
-                    <SeachBar onSubmit={onSubmit} handleNotify={() => setShowAddNotify(false)} />
-                    <ListRooms rooms={rooms} handleNotify={() => setShowAddNotify(true)} />
+                    <SeachBar onSubmit={onSubmit}/>
+                    <ListRooms rooms={rooms}/>
                 </div>
                 <Footers />
             </div>
