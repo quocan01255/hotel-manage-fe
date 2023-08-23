@@ -14,7 +14,7 @@ const roomManagerReducer = (state = initialState, action) => {
         case "REMOVE":
             return {
                 ...state,
-                // message: action.payload.message
+                message: action.payload.message
 
             };
         case "UPDATE":
@@ -22,6 +22,11 @@ const roomManagerReducer = (state = initialState, action) => {
                 ...state,
                 message: action.payload.message
 
+            };
+        case "RESET":
+            return {
+                ...state,
+                message: ""
             };
         default:
             return state;

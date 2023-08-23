@@ -5,24 +5,17 @@ import './cssFormAddEditRoom.css';
 import { add } from '../../../redux/actions/roomManagerAction';
 
 const { TextArea } = Input;
-const FormAddRoom = () => {
+const FormAddRoom = ({ type, close }) => {
     const dispatch = useDispatch()
     const [data, setData] = useState({
-        roomName: '',
-        type: '',
+        name: '',
+        type,
         quantity: '',
         detail: '',
         description: '',
         price: '',
         image: ''
     })
-    const onchangeType = (e) => {
-        var value = e;
-        setData((prevData) => ({
-            ...prevData,
-            type: value,
-        }));
-    };
     const onchangeQuantity = (e) => {
         var value = e;
         setData((prevData) => ({
@@ -42,7 +35,10 @@ const FormAddRoom = () => {
 
     const handleSubmit = () => {
         dispatch(add(data))
+        close()
     }
+
+    console.log(data)
 
     return (
         <div className='add-main-form-admin-room'>
@@ -52,16 +48,13 @@ const FormAddRoom = () => {
                         <Input name='name' onChange={onChangeValue} />
                     </Form.Item>
                     <Form.Item label="Type room" className='input-form-admin-add-room'>
-                        <Select onChange={onchangeType}>
-                            <Select.Option value="Deluxe Pool">Deluxe Pool</Select.Option>
-                            <Select.Option value="Deluxe Executive">Deluxe Executive</Select.Option>
-                            <Select.Option value="Deluxe Plus">Deluxe Plus</Select.Option>
-                            <Select.Option value="Deluxe">Deluxe</Select.Option>
+                        <Select defaultValue={type} disabled>
                         </Select>
                     </Form.Item>
                     <Form.Item label="Quantity" className='input-form-admin-add-room'>
                         <Select onChange={onchangeQuantity}>
-                            <Select.Option value="1-2">1-2</Select.Option>
+                            <Select.Option value="1">1</Select.Option>
+                            <Select.Option value="2">2</Select.Option>
                             <Select.Option value="3">3</Select.Option>
                             <Select.Option value="4">4</Select.Option>
                             <Select.Option value="5">5</Select.Option>

@@ -79,11 +79,16 @@ export const upd = (data, id) => {
                         });
                     })
                     .catch((err) => {
-                        console.error(err);
                     });
             })
             .catch((err) => {
-                console.error(err);
             });
+    }
+}
+export const rsMessage = () => {
+    return (dispatch) => {
+        dispatch({
+            type: 'RESET'
+        });
     }
 }

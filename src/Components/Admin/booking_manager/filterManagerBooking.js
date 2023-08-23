@@ -2,8 +2,9 @@ import './formBookingManager.css';
 import React, { useState, useEffect } from 'react';
 import { Space, Table, Button, Modal } from 'antd';
 import FormDetailBooking from './formDetailBooking';
-import { useDispatch } from 'react-redux';
-import { remove } from '../../../redux/actions/bookingManagerAction';
+import { useDispatch, useSelector } from 'react-redux';
+import { remove, rsMessage } from '../../../redux/actions/bookingManagerAction';
+import { ToastContainer, toast } from 'react-toastify';
 
 function FilterManagerBooking() {
     const [bookings, setBookings] = useState([]);
@@ -14,7 +15,25 @@ function FilterManagerBooking() {
     const [checkin, setCheckin] = useState('');
     const [checkout, setCheckout] = useState('');
     const dispatch = useDispatch();
+    const bookingManagerState = useSelector(state => state.bookingManagerReducer);
 
+    const message = useSelector(state => state.roomManagerReducer.message);
+
+    useEffect(() => {
+        if (message) {
+            toast.success(message, {
+                position: toast.POSITION.TOP_CENTER,
+                autoClose: 3000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+            dispatch(rsMessage())
+        }
+    }, [message]);
     useEffect(() => {
         fetch('http://localhost:3001/bookings')
             .then((response) => response.json())
@@ -24,12 +43,9 @@ function FilterManagerBooking() {
             })
             .catch((error) => {
             });
-    }, [])
+    }, [bookingManagerState])
 
     const [open, setOpen] = useState(false);
-    // const Detail = (e) => {
-    //     setOpen(true);
-    // };
     const handleOk = (e) => {
         setOpen(false);
     };
@@ -87,7 +103,7 @@ function FilterManagerBooking() {
                                     setCheckin(booking.checkin)
                                     setCheckout(booking.checkout)
                                 }}
-                            >Detail</Button>
+                            >Edit</Button>
                             <Modal
                                 destroyOnClose
                                 title="Detail"
@@ -102,7 +118,7 @@ function FilterManagerBooking() {
                                 }}
                                 width={800}
                             >
-                                <FormDetailBooking booking={booking} />
+                                <FormDetailBooking close={handleCancel} booking={booking} />
                             </Modal>
                         </div>
                         <Button type="primary" danger onClick={() => handleRemove(booking.id)}>Cancel</Button>
@@ -111,6 +127,11 @@ function FilterManagerBooking() {
             ),
         },
     ];
-    return (<Table columns={columns} dataSource={bookings} />);
+    return (
+        <>
+            <ToastContainer />
+            <Table columns={columns} dataSource={bookings} />
+        </>
+    );
 }
 export default FilterManagerBooking;

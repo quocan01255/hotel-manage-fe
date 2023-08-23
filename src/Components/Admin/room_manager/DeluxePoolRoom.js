@@ -3,10 +3,15 @@ import { Button, Breadcrumb, Divider, Modal } from 'antd';
 import './cssRoomManager.css';
 import FormAddRoom from './FormAddRoom';
 import RoomCard from '../room_manager/RoomCard';
+import { ToastContainer, toast } from 'react-toastify';
+import { rsMessage } from '../../../redux/actions/roomManagerAction';
+import { useSelector, useDispatch } from 'react-redux';
 
 function DeluxePool() {
   const [openAdd, setOpenAdd] = useState(false);
   const [rooms, setRooms] = useState([]);
+  const roomManagerState = useSelector(state => state.roomManagerReducer);
+  const dispatch = useDispatch()
 
   const ADD = () => {
     setOpenAdd(true);
@@ -15,6 +20,23 @@ function DeluxePool() {
   const handleCancel = (e) => {
     setOpenAdd(false);
   };
+  const message = useSelector(state => state.roomManagerReducer.message);
+
+  useEffect(() => {
+    if (message) {
+      toast.success(message, {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      dispatch(rsMessage())
+    }
+  }, [message]);
 
   useEffect(() => {
     fetch('http://localhost:3001/rooms')
@@ -27,9 +49,10 @@ function DeluxePool() {
       .catch((error) => {
 
       });
-  },)
+  },[roomManagerState])
   return (
     <div>
+      <ToastContainer />
       <Breadcrumb className='breadcrumb'>
         <Breadcrumb.Item className='breadcrumbItem'>Admin</Breadcrumb.Item>
         <Breadcrumb.Item className='breadcrumbItem'>Manager Room</Breadcrumb.Item>
@@ -51,11 +74,11 @@ function DeluxePool() {
             }}
             width={800}
           >
-            <FormAddRoom />
+            <FormAddRoom close={handleCancel} type="Deluxe Pool"/>
           </Modal>
         </div>
         {rooms.map(
-          (room) => <RoomCard room={room}
+          (room) => <RoomCard key={room.id} room={room}
           />)}
       </div>
     </div>
