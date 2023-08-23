@@ -296,25 +296,25 @@
     {
       "idUser": "6",
       "idRoom": 1,
-      "quantity": 5,
+      "quantity": 1,
       "id": 5
     },
     {
       "idUser": "6",
-      "idRoom": 5,
-      "quantity": 5,
+      "idRoom": 3,
+      "quantity": 1,
       "id": 6
     },
     {
       "idUser": "6",
-      "idRoom": 4,
+      "idRoom": 8,
       "quantity": 1,
       "id": 7
     },
     {
       "idUser": "6",
-      "idRoom": 6,
-      "quantity": 4,
+      "idRoom": 9,
+      "quantity": 1,
       "id": 8
     }
   ]

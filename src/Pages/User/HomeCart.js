@@ -132,7 +132,7 @@ function HomeCart() {
         <div className="container" >
           <div className="backpage">
             <Link to="/bookingpage" >
-              <i class="fa-solid fa-arrow-left"></i>
+              <i className="fa-solid fa-arrow-left"></i>
               Return
             </Link>
           </div>
