@@ -1,6 +1,5 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { ToastContainer, toast } from "react-toastify";
 import { add } from "../../../redux/actions/cartActions";
 import RoomItem from "../room_item/RoomItem";
 import "./listrooms.css";
@@ -10,7 +9,7 @@ function ListRooms({ rooms }) {
   const authState = useSelector((state) => state.authReducer);
   const dispatch = useDispatch();
   const [priceType, setPriceType] = useState("VND");
-  const [showNotify, setShowNotify] = useState(false);
+
 
   const handleSelect = useCallback((e) => {
     setPriceType(e.target.value);

@@ -3,7 +3,7 @@ import DeluxePool from '../../Components/Admin/room_manager/DeluxePoolRoom';
 import DeluxeExecutive from '../../Components/Admin/room_manager/DeluxeExecutiveRoom';
 import DeluxePlus from '../../Components/Admin/room_manager/DeluxePlusRoom';
 import Deluxe from '../../Components/Admin/room_manager/DeluxeRoom';
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import { Routes, Route } from "react-router-dom";
 import SearchFormBooking from '../../Components/Admin/booking_manager/searchFormBooking';
 import { BarsOutlined, SolutionOutlined } from '@ant-design/icons';
@@ -26,17 +26,7 @@ const items = [
 ];
 function AdminPage() {
   const [collapsed, setCollapsed] = useState(false);
-  // const [roomTypes, setRoomTypes] = useState([])
-  // useEffect(() => {
-  //   fetch('https://my-json-server.typicode.com/tranhoaiviet/My-Json/roomtypes')
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       console.log(data)
-  //     })
-  //     .catch((error) => {
-
-  //     });
-  // })
+  
   return (
     <div className='App'>
       <Layout className='layout-form-main-admin'>

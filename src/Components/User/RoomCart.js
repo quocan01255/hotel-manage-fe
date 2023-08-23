@@ -9,9 +9,6 @@ const RoomCart = ({
   decreaseQuantity
 }) => {
   const checkLogin = localStorage.getItem("loggedIn");
-  const currencyFormat = useCallback((num) => {
-    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
-  }, []);
 
   const handleClick = (id) => {
     removeRoom(id);
@@ -61,7 +58,10 @@ const RoomCart = ({
 
                 </div>
                 <div className="c-room-price">
-                  {currencyFormat(String(room.price * room.quantity))}đ
+                  {new Intl.NumberFormat("vi-VN", {
+                    style: "currency",
+                    currency: "VND",
+                  }).format(room.price * room.quantity)}
                   <button
                     className="btn btn-primary room_tab-btn"
                     onClick={() => handleClick(room.id)}
@@ -73,9 +73,9 @@ const RoomCart = ({
             </div>
           ))}
           <br />
-          <div className="c-booking-price">
+          {/* <div className="c-booking-price">
             Total price: {currencyFormat(String(totalRoomPrice))}đ
-          </div>
+          </div> */}
         </div>
       </div>
     );
@@ -111,7 +111,10 @@ const RoomCart = ({
 
               </div>
               <div className="c-room-price">
-                {currencyFormat(room.price * room.quantity)}đ
+                {new Intl.NumberFormat("vi-VN", {
+                  style: "currency",
+                  currency: "VND",
+                }).format(room.price * room.quantity)}
                 <button
                   className="btn btn-primary room_tab-btn"
                   onClick={() => handleClick(room.id)}
@@ -123,9 +126,9 @@ const RoomCart = ({
           </div>
         ))}
         <br />
-        <div className="c-booking-price">
+        {/* <div className="c-booking-price">
           Total price: {currencyFormat(String(totalRoomPrice))}đ
-        </div>
+        </div> */}
       </div>
     </div>
   );
