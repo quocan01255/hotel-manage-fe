@@ -72,14 +72,254 @@
   ],
   "bookings": [
     {
-      "id": 2,
-      "name": "Thắng",
-      "email": "john.brown@gmail.com",
+      "fistname": "Thắng",
+      "lastname": "Đình",
+      "email": "truongdinhthangxyz@gmail.com",
       "phone": "0865198615",
-      "idroom": "Room 1",
-      "quantity": "3",
-      "checkin": "16/08/2023",
-      "checkout": "19/08/2023"
+      "address": "Đà Nẵng",
+      "city": "Đà Nẵng",
+      "country": "Việt Nam",
+      "rooms": [
+        {
+          "id": 1,
+          "type": "Deluxe",
+          "name": "Deluxe Twin",
+          "quantity": 1,
+          "detail": "3 Sleeps - 1 Twin - 1 Bathroom",
+          "description": [
+            "City view",
+            "Non-smoking",
+            "Cable/Satellite TV",
+            "Desk",
+            "Tea/Coffee Maker",
+            "Internet Access",
+            "Air conditioned",
+            "Hairdryer"
+          ],
+          "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/780899/780899/SUITE-ROOM-1.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
+          "price": "1780000",
+          "priceSale": "1299800",
+          "checkin": "16/08/2023",
+          "checkout": "19/08/2023"
+        },
+        {
+          "id": 2,
+          "type": "Deluxe Plus",
+          "name": "Deluxe Plus Twin",
+          "detail": "4 Sleeps - 1 Bathroom",
+          "description": [
+            "Sea view",
+            "Non-smoking",
+            "Air conditioned",
+            "Tea/Coffee Maker",
+            "Internet Access",
+            "Balcony",
+            "Cable/Satellite TV"
+          ],
+          "quantity": 1,
+          "img": "https://gcs.tripi.vn/hms_prod/photo/img/455407PbPQYh/quaruple-city-view-2.jpg",
+          "price": "1850000",
+          "priceSale": "3001600",
+          "checkin": "17/08/2023",
+          "checkout": "21/08/2023"
+        }
+      ],
+      "nameroom": "Deluxe Twin(1), Deluxe Plus Twin(1)",
+      "totalRoomPrice": 3630000,
+      "idUser": "2",
+      "id": 1
+    },
+    {
+      "fistname": "Thu",
+      "lastname": "Hoài",
+      "email": "thuhoai1@gmail.com",
+      "phone": "0975074298",
+      "address": "Đà Nẵng",
+      "city": "Đà Nẵng",
+      "country": "Việt Nam",
+      "rooms": [
+        {
+          "id": 9,
+          "type": "Deluxe Pool",
+          "name": "Deluxe Pool Terrace King",
+          "quantity": 1,
+          "detail": "4 Sleeps - 1 KingBed - 1 Bathroom",
+          "description": [
+            "City view",
+            "Non-smoking",
+            "Cable/Satellite TV",
+            "Desk",
+            "Tea/Coffee Maker",
+            "Internet Access",
+            "Air conditioned",
+            "Hairdryer"
+          ],
+          "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/909805/909805/PREMIER_OCEAN_TWIN_1.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
+          "price": "4350000",
+          "priceSale": "2299800",
+          "checkin": "25/08/2023",
+          "checkout": "26/08/2023"
+        },
+        {
+          "id": 8,
+          "type": "Deluxe Pool",
+          "name": "Deluxe Pool Terrace Twin",
+          "quantity": 1,
+          "detail": "4 Sleeps - 1 Twin - 1 Bathroom",
+          "description": [
+            "City view",
+            "Non-smoking",
+            "Cable/Satellite TV",
+            "Desk",
+            "Tea/Coffee Maker",
+            "Internet Access",
+            "Air conditioned",
+            "Hairdryer"
+          ],
+          "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/909797/909797/PREMIER_OCEAN_VIEW_DOUBLE_5.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
+          "price": "3250000",
+          "priceSale": "2299800",
+          "checkin": "26/08/2023",
+          "checkout": "30/08/2023"
+        }
+      ],
+      "nameroom": "Deluxe Pool Terrace King(1), Deluxe Pool Terrace Twin(1)",
+      "totalRoomPrice": 7600000,
+      "idUser": "5",
+      "id": 2
+    },
+    {
+      "fistname": "Thắng",
+      "lastname": "Đình",
+      "email": "truongdinhthangxyz@gmail.com",
+      "phone": "0865198615",
+      "address": "Đà Nẵng",
+      "city": "Đà Nẵng",
+      "country": "Việt Nam",
+      "rooms": [
+        {
+          "id": 1,
+          "type": "Deluxe",
+          "name": "Deluxe Twin",
+          "quantity": 4,
+          "detail": "3 Sleeps - 1 Twin - 1 Bathroom",
+          "description": [
+            "City view",
+            "Non-smoking",
+            "Cable/Satellite TV",
+            "Desk",
+            "Tea/Coffee Maker",
+            "Internet Access",
+            "Air conditioned",
+            "Hairdryer"
+          ],
+          "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/780899/780899/SUITE-ROOM-1.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
+          "price": "1780000",
+          "priceSale": "1299800",
+          "checkin": "16/08/2023",
+          "checkout": "19/08/2023"
+        }
+      ],
+      "nameroom": "Deluxe Twin(4)",
+      "totalRoomPrice": 7120000,
+      "idUser": "2",
+      "id": 3
+    },
+    {
+      "fistname": "Thu",
+      "lastname": "Hoài",
+      "email": "thuhoai1@gmail.com",
+      "phone": "0865198615",
+      "address": "Đà Nẵng",
+      "city": "Đà Nẵng",
+      "country": "Việt Nam",
+      "rooms": [
+        {
+          "id": 8,
+          "type": "Deluxe Pool",
+          "name": "Deluxe Pool Terrace Twin",
+          "quantity": 2,
+          "detail": "4 Sleeps - 1 Twin - 1 Bathroom",
+          "description": [
+            "City view",
+            "Non-smoking",
+            "Cable/Satellite TV",
+            "Desk",
+            "Tea/Coffee Maker",
+            "Internet Access",
+            "Air conditioned",
+            "Hairdryer"
+          ],
+          "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/909797/909797/PREMIER_OCEAN_VIEW_DOUBLE_5.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
+          "price": "3250000",
+          "priceSale": "2299800",
+          "checkin": "26/08/2023",
+          "checkout": "30/08/2023"
+        }
+      ],
+      "nameroom": "Deluxe Pool Terrace Twin(2)",
+      "totalRoomPrice": 6500000,
+      "idUser": "5",
+      "id": 4
+    },
+    {
+      "fistname": "Thu",
+      "lastname": "Hoài",
+      "email": "thuhoai1@gmail.com",
+      "phone": "0865198615",
+      "address": "Đà Nẵng",
+      "city": "Đà Nẵng",
+      "country": "Việt Nam",
+      "rooms": [
+        {
+          "id": 8,
+          "type": "Deluxe Pool",
+          "name": "Deluxe Pool Terrace Twin",
+          "quantity": 2,
+          "detail": "4 Sleeps - 1 Twin - 1 Bathroom",
+          "description": [
+            "City view",
+            "Non-smoking",
+            "Cable/Satellite TV",
+            "Desk",
+            "Tea/Coffee Maker",
+            "Internet Access",
+            "Air conditioned",
+            "Hairdryer"
+          ],
+          "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/909797/909797/PREMIER_OCEAN_VIEW_DOUBLE_5.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
+          "price": "3250000",
+          "priceSale": "2299800",
+          "checkin": "26/08/2023",
+          "checkout": "30/08/2023"
+        },
+        {
+          "id": 4,
+          "type": "Deluxe Executive",
+          "name": "Deluxe Executive King",
+          "quantity": 1,
+          "detail": "4 Sleeps - 1 Bathroom",
+          "description": [
+            "City view",
+            "Non-smoking",
+            "Cable/Satellite TV",
+            "Desk",
+            "Tea/Coffee Maker",
+            "Internet Access",
+            "Air conditioned",
+            "Hairdryer"
+          ],
+          "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/415423881.jpg?k=76d019dc7cf43dbe28157bd60d339b0c8843dd4f9fd21b4c6fa9484d67ab0cdf&o=&hp=1",
+          "price": "2300000",
+          "priceSale": "2299800",
+          "checkin": "21/08/2023",
+          "checkout": "23/08/2023"
+        }
+      ],
+      "nameroom": "Deluxe Pool Terrace Twin(2), Deluxe Executive King(1)",
+      "totalRoomPrice": 8800000,
+      "idUser": "5",
+      "id": 5
     }
   ],
   "rooms": [
@@ -283,39 +523,33 @@
   "userCart": [
     {
       "idUser": "5",
-      "idRoom": 1,
-      "quantity": 1,
-      "id": 2
+      "idRoom": 8,
+      "quantity": 2,
+      "id": 9
     },
     {
-      "idUser": "1",
-      "idRoom": 3,
-      "quantity": 1,
-      "id": 4
-    },
-    {
-      "idUser": "6",
-      "idRoom": 1,
-      "quantity": 5,
-      "id": 5
-    },
-    {
-      "idUser": "6",
-      "idRoom": 5,
-      "quantity": 5,
-      "id": 6
-    },
-    {
-      "idUser": "6",
+      "idUser": "5",
       "idRoom": 4,
       "quantity": 1,
-      "id": 7
+      "id": 15
     },
     {
-      "idUser": "6",
-      "idRoom": 6,
+      "idUser": "2",
+      "idRoom": 1,
+      "quantity": 5,
+      "id": 16
+    },
+    {
+      "idUser": "2",
+      "idRoom": 2,
       "quantity": 4,
-      "id": 8
+      "id": 17
+    },
+    {
+      "idUser": "2",
+      "idRoom": 7,
+      "quantity": 1,
+      "id": 18
     }
   ]
 }

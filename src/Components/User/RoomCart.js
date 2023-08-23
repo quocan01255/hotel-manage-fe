@@ -64,9 +64,9 @@ const RoomCart = ({
             </div>
           ))}
           <br />
-          <div className="c-booking-price">
+          {/* <div className="c-booking-price">
             Total price: {currencyFormat(String(totalRoomPrice))}đ
-          </div>
+          </div> */}
         </div>
       </div>
     );
@@ -105,9 +105,9 @@ const RoomCart = ({
           </div>
         ))}
         <br />
-        <div className="c-booking-price">
+        {/* <div className="c-booking-price">
           Total price: {currencyFormat(String(totalRoomPrice))}đ
-        </div>
+        </div> */}
       </div>
     </div>
   );

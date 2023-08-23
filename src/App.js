@@ -26,6 +26,7 @@ import DeluxePool from './Components/Admin/room_manager/DeluxePoolRoom';
 import DeluxeExecutive from './Components/Admin/room_manager/DeluxeExecutiveRoom';
 import Deluxe from './Components/Admin/room_manager/DeluxeRoom';
 import DeluxePlus from './Components/Admin/room_manager/DeluxePlusRoom';
+import RoomCard from "./Components/Admin/room_manager/RoomCard";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/homecart" element={<HomeCart />} />
             <Route path="/paycard" element={<PayCard />} />
+            {/* <Route path="/history/:id" element={<RoomCard />} /> */}
             {/*home  */}
             <Route path="/" element={<LayoutUser />}>
               <Route index element={<HomePage />} />

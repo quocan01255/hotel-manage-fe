@@ -9,7 +9,8 @@ import PaymentForm from "../../Components/User/PaymentForm";
 import Footers from "../../Components/User/Footers";
 import "../../Css/styleroom.css";
 import Headerbooking from "../../Components/User/header_booking/Headerbooking";
-
+import { payment } from "../../redux/actions/PayAction";
+import BookingSummary from "../../Components/User/BookingSummary";
 
 function HomeCart() {
   const dispatch = useDispatch()
@@ -124,10 +125,16 @@ function HomeCart() {
     return cart.reduce((total, room) => total + room.price * room.quantity, 0);
   }, [cart]);
 
+
+  const thanhtoan = (formData) => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    dispatch(payment(formData, cart, totalRoomPrice, user.id));
+  }
+
   return (
     <>
       <ToastContainer />
-      <Headerbooking />
+      <Headerbooking  />
       <div style={{ backgroundColor: '#f8f8f8', padding: '100px 0' }}>
         <div className="container" >
           <div className="backpage">
@@ -146,11 +153,13 @@ function HomeCart() {
                 increaseQuantity={handleIncrease}
                 decreaseQuantity={handleDecrease}
               />
+              <BookingSummary totalRoomPrice={totalRoomPrice}/>
             </div>
             <div className="col-md-6">
-              <PaymentForm totalRoomPrice={totalRoomPrice} />
+              <PaymentForm totalRoomPrice={totalRoomPrice} thanhtoan={thanhtoan}   />
             </div>
           </div>
+          
         </div>
       </div>
       <Footers />
