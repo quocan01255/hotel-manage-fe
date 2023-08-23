@@ -1,51 +1,53 @@
 const initialState = {
-  message: "",
-  type: "",
-  guestCart: [],
+    message: "",
+    type: "",
+    guestCart: [],
 };
 
 const cartReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case "ADD":
-      return {
-        ...state,
-        type: action.type,
-        message: action.payload.message,
-        guestCart: action.payload.guestCart,
-      };
-    case "ADD_LOCAL":
-      return {
-        ...state,
-        type: action.type,
-        message: action.payload.message,
-        guestCart: action.payload.guestCart,
-      };
-    case "UPDATE":
-      return {
-        ...state,
-        message: action.payload.message,
-      };
-    case "UPDATE_LOCAL":
-      return {
-        ...state,
-        message: action.payload.message,
-        guestCart: action.payload.guestCart,
-      };
-
-    case "RESET":
-      return {
-        ...state,
-        message: "",
-      };
-    case "REMOVE":
-      return {
-        ...state,
-        type: action.type,
-        message: action.payload.message,
-      };
-    default:
-      return state;
-  }
+    switch (action.type) {
+        case 'ADD':
+            return {
+                ...state,
+                type: action.type,
+                message: action.payload.message,
+            };
+        case 'UPDATE':
+            return {
+                ...state,
+                message: action.payload.message,
+            };
+        case 'RESET':
+            return {
+                ...state,
+                message: ""
+            }
+        case 'REMOVE':
+            return {
+                ...state,
+                type: action.type,
+                message: action.payload.message,
+            }
+        case 'INCREASE':
+            return {
+                ...state,
+                type: action.type,
+                message: action.payload.message
+            }
+        case 'DECREASE':
+            return {
+                ...state,
+                type: action.type,
+                message: action.payload.message
+            }
+        case 'RESET':
+            return {
+                ...state,
+                message: ""
+            }
+        default:
+            return state;
+    }
 };
 
 export default cartReducer;

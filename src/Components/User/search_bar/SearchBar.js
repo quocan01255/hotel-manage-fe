@@ -25,7 +25,6 @@ function SeachBar(props) {
         endDate: formatDatetime(endDate, "DD/MM/YYYY"),
         quantity: quantity,
       };
-      props.handleNotify();
       props.onSubmit(data);
     };
   });
@@ -82,10 +81,10 @@ function SeachBar(props) {
               <i className="fa-solid fa-user input-icon"></i>
             </div>
           </div>
-          <div className="form-date-to form-icon">
+          {/* <div className="form-date-to form-icon">
             <label htmlFor="date_to">PROMOTIONAL CODE</label>
             <input type="text" className="input-promo"></input>
-          </div>
+          </div> */}
           <div className="form-submit">
             <input type="submit" className="submit" value="Check" />
           </div>

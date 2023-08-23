@@ -1,5 +1,6 @@
 const initialState = {
     roomManager: [],
+    message: ''
 };
 
 const roomManagerReducer = (state = initialState, action) => {
@@ -7,16 +8,19 @@ const roomManagerReducer = (state = initialState, action) => {
         case "ADD":
             return {
                 ...state,
+                message: action.payload.message
 
             };
         case "REMOVE":
             return {
                 ...state,
+                // message: action.payload.message
 
             };
         case "UPDATE":
             return {
                 ...state,
+                message: action.payload.message
 
             };
         default:

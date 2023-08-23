@@ -33,14 +33,10 @@ useEffect(() => {
   
       const phong = rooms.filter((item)=>item.idUser === checkUser.id )
       setRooms(phong) 
-   
-    
-    //  console.log(rooms.idUser);
-    //  console.log(rooms);
     })
     .catch((error) => {
     });
-})
+},[rooms])
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light header-booking">

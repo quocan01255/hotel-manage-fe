@@ -6,8 +6,8 @@ import './formBookingManager.css';
 
 
 const { RangePicker } = DatePicker;
-const FormDetailBooking = ({ name, email, phone, idroom, checkin, checkout }) => {
-    console.log(checkin)
+const FormDetailBooking = ({ booking }) => {
+    const { name, email, phone, idroom, checkin, checkout } = booking
     return (
         <div>
             <div className='ad-form-detail-booking'>

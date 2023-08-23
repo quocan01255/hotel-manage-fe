@@ -2,6 +2,8 @@ import './formBookingManager.css';
 import React, { useState, useEffect } from 'react';
 import { Space, Table, Button, Modal } from 'antd';
 import FormDetailBooking from './formDetailBooking';
+import { useDispatch } from 'react-redux';
+import { remove } from '../../../redux/actions/bookingManagerAction';
 
 function FilterManagerBooking() {
     const [bookings, setBookings] = useState([]);
@@ -11,6 +13,7 @@ function FilterManagerBooking() {
     const [idroom, setIdroom] = useState('');
     const [checkin, setCheckin] = useState('');
     const [checkout, setCheckout] = useState('');
+    const dispatch = useDispatch();
 
     useEffect(() => {
         fetch('http://localhost:3001/bookings')
@@ -33,6 +36,9 @@ function FilterManagerBooking() {
     const handleCancel = (e) => {
         setOpen(false);
     };
+    const handleRemove = (id) => {
+        dispatch(remove(id))
+    }
     const columns = [
         {
             title: 'Name',
@@ -96,17 +102,10 @@ function FilterManagerBooking() {
                                 }}
                                 width={800}
                             >
-                                <FormDetailBooking
-                                    name={name}
-                                    email={email}
-                                    phone={phone}
-                                    idroom={idroom}
-                                    checkin={checkin}
-                                    checkout={checkout}
-                                />
+                                <FormDetailBooking booking={booking} />
                             </Modal>
                         </div>
-                        <Button type="primary" danger>Cancel</Button>
+                        <Button type="primary" danger onClick={() => handleRemove(booking.id)}>Cancel</Button>
                     </Space>
                 </Space>
             ),

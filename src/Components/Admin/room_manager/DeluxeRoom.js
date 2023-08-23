@@ -3,6 +3,7 @@ import { Button, Breadcrumb, Divider, Modal } from 'antd';
 import './cssRoomManager.css';
 import FormAddRoom from './FormAddRoom';
 import RoomCard from '../room_manager/RoomCard';
+import { remove } from '../../../redux/actions/roomManagerAction';
 
 function Deluxe() {
   const [openAdd, setOpenAdd] = useState(false);
@@ -27,7 +28,7 @@ function Deluxe() {
       .catch((error) => {
 
       });
-  }, [])
+  },)
   return (
     <div>
       <Breadcrumb className='breadcrumb'>
@@ -55,8 +56,7 @@ function Deluxe() {
           </Modal>
         </div>
         {rooms.map(
-          (room) => <RoomCard
-            room={room}
+          (room) => <RoomCard room={room}
           />)}
       </div>
     </div>

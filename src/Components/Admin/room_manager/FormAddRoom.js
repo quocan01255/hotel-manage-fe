@@ -1,17 +1,10 @@
 import React, { useState } from 'react';
-import { Button, Form, Input, Select, Upload } from 'antd';
+import { Button, Form, Input, Select } from 'antd';
 import { useDispatch } from 'react-redux'
 import './cssFormAddEditRoom.css';
 import { add } from '../../../redux/actions/roomManagerAction';
 
-
 const { TextArea } = Input;
-const normFile = (e) => {
-    if (Array.isArray(e)) {
-        return e;
-    }
-    return e?.fileList;
-};
 const FormAddRoom = () => {
     const dispatch = useDispatch()
     const [data, setData] = useState({
@@ -56,7 +49,7 @@ const FormAddRoom = () => {
             <div className='add-main-form-child-room'>
                 <Form labelCol={{ span: 4, }} wrapperCol={{ span: 14, }} layout="horizontal" >
                     <Form.Item label="Name room" className='input-form-admin-add-room'>
-                        <Input name='roomName' onChange={onChangeValue} />
+                        <Input name='name' onChange={onChangeValue} />
                     </Form.Item>
                     <Form.Item label="Type room" className='input-form-admin-add-room'>
                         <Select onChange={onchangeType}>
@@ -81,7 +74,7 @@ const FormAddRoom = () => {
                         <TextArea name='description' onChange={onChangeValue} rows={5} />
                     </Form.Item>
                     <Form.Item label="Image Room" className='input-form-admin-add-room'>
-                        <Input name='image' onChange={onChangeValue} />
+                        <Input name='img' onChange={onChangeValue} />
                     </Form.Item>
                     <Form.Item label="Price" className='input-form-admin-add-room'>
                         <Input name='price' onChange={onChangeValue} />
