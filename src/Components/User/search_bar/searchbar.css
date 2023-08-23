@@ -146,7 +146,7 @@ input[type=radio] {
     background: #259b97;
     color: #fff;
     font-size: 14px;
-    margin-top: 23px;
+    margin-top: 21px;
     padding: 15px 20px;
     cursor: pointer;
 }
@@ -173,11 +173,11 @@ input[type=radio] {
     -webkit-align-items: center;
     -o-align-items: center;
     -ms-align-items: center;
-    justify-content: space-between;
-    -moz-justify-content: space-between;
-    -webkit-justify-content: space-between;
-    -o-justify-content: space-between;
-    -ms-justify-content: space-between;
+    justify-content: center;
+    -moz-justify-content: center;
+    -webkit-justify-content: center;
+    -o-justify-content: center;
+    -ms-justify-content: center;
 }
 
 .form-destination {
@@ -200,6 +200,7 @@ input[type=radio] {
 
 .search-form .form-submit {
     width: 140px;
+    margin-left: 6px;
 }
 
 .modify-qty {
@@ -221,6 +222,7 @@ input[type=radio] {
 
 .form-icon {
     position: relative;
+    margin: 0 6px;
 }
 
 .ui-datepicker-trigger {
