@@ -49,7 +49,7 @@ const PaymentForm = (props) => {
     }));
   };
 
-  console.log(formData)
+  // console.log(formData)
   const validate = () => {
     let isValid = true;
     const newFormErrors = {

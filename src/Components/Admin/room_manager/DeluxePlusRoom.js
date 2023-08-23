@@ -27,7 +27,7 @@ function DeluxePlus() {
       .catch((error) => {
 
       });
-  }, [])
+  },)
   return (
     <div>
       <Breadcrumb className='breadcrumb'>
@@ -55,14 +55,7 @@ function DeluxePlus() {
           </Modal>
         </div>
         {rooms.map(
-          (room) => <RoomCard
-            name={room.name}
-            image={room.img}
-            detail={room.detail}
-            description={room.description}
-            price={room.price}
-            type={room.type}
-            quantity={room.quantity}
+          (room) => <RoomCard room={room}
           />)}
       </div>
     </div>
