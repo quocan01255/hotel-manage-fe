@@ -292,12 +292,6 @@
   ],
   "userCart": [
     {
-      "idUser": "6",
-      "idRoom": 1,
-      "quantity": 2,
-      "id": 3
-    },
-    {
       "idUser": "5",
       "idRoom": 1,
       "quantity": 1,

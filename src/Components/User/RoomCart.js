@@ -8,7 +8,6 @@ const RoomCart = ({
   totalRoomPrice,
   guestCart,
 }) => {
-  const [data, setData] = useState([]);
   const checkLogin = localStorage.getItem("loggedIn");
   const currencyFormat = useCallback((num) => {
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
@@ -19,13 +18,10 @@ const RoomCart = ({
     handleNotify();
   };
 
-  // const totalRoomPrice = useMemo(() => {
-  //   return cart.reduce((total, room) => total + room.price * room.quantity, 0);
-  // }, [cart]);
-
+  // Not logged in
   if (!checkLogin) {
     return (
-      <div className="mt-5 mp-5">
+      <div className="mt-5 mp-5" style={{marginTop: '0'}}>
         <div className="c-room-card ">
           {guestCart.map((room) => (
             <div key={room.id}>
@@ -40,22 +36,27 @@ const RoomCart = ({
                 <div className="c-room-features">{room.description}</div>
                 <div className="c-room-rating">Quantity: {room.quantity}</div>
                 <div className="c-room-price">
-                  {currencyFormat(String(room.price))} VND
-                  <br />
+                  {currencyFormat(String(room.price*room.quantity))}đ
+                  <button
+                    className="btn btn-primary room_tab-btn"
+                    onClick={() => handleClick(room.id)}
+                  >
+                    <i className="fa-solid fa-trash"></i>
+                  </button>
                 </div>
               </div>
             </div>
           ))}
           <br />
           <div className="c-booking-price">
-            Total price: {currencyFormat(String(totalRoomPrice))} VND
+            Total price: {currencyFormat(String(totalRoomPrice))}đ
           </div>
         </div>
       </div>
     );
   }
   return (
-    //có login
+    //Logged in
     <div className="mt-5 mp-5">
       <div className="c-room-card ">
         {cart.map((room) => (
@@ -67,14 +68,20 @@ const RoomCart = ({
               <div className="c-room-features">{room.description}</div>
               <div className="c-room-rating">Quantity: {room.quantity}</div>
               <div className="c-room-price">
-                {currencyFormat(room.price)} VND
+                {currencyFormat(room.price*room.quantity)}đ
+                <button
+                  className="btn btn-primary room_tab-btn"
+                  onClick={() => handleClick(room.id)}
+                >
+                  <i className="fa-solid fa-trash"></i>
+                </button>
               </div>
             </div>
           </div>
         ))}
         <br />
         <div className="c-booking-price">
-          Total price: {currencyFormat(String(totalRoomPrice))} VND
+          Total price: {currencyFormat(String(totalRoomPrice))}đ
         </div>
       </div>
     </div>

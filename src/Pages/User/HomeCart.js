@@ -2,7 +2,7 @@ import React from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import { useCallback, useEffect, useState, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { remove } from "../../redux/actions/cartActions";
+import { remove, resetCartMessage } from "../../redux/actions/cartActions";
 import { Link } from "react-router-dom";
 import RoomCart from "../../Components/User/RoomCart";
 import HeaderBooking from "../../Components/User/header_booking/Headerbooking";
@@ -16,78 +16,61 @@ import { useParams } from "react-router-dom";
 
 function HomeCart() {
   const dispatch = useDispatch()
-  const { idRoom } = useParams();
   const cartState = useSelector((state) => state.cartReducer);
-  const [data, setData] = useState([]);
   const [rooms, setRooms] = useState([]);
   const [cart, setCart] = useState([]);
   const [showNotify, setShowNotify] = useState(false)
   const checkLogin = localStorage.getItem("loggedIn");
 
-   // không login
-   const guestCart = useSelector((state) => state.cartReducer.guestCart);
-   console.log("guestCart", guestCart);
-   const compare = () => {
-    if (guestCart) {
-    let comparedata = guestCart.filter((e) => {
-       return e.idRoom == idRoom;
-     });
-     setData(comparedata);
-    }
-   };
-   useEffect(() => {
-     compare();
-   }, [idRoom]);
- 
-   useEffect(() => {
-     fetch("http://localhost:3001/rooms")
-       .then((response) => response.json())
-       .then((rooms) => {
-         const result = [];
-         guestCart.forEach((item) => {
-           rooms.forEach((room) => {
-             if (room.id === item.idRoom) {
-               let quantity = item.quantity;
-               result.push({ ...room, quantity });
-             }
-           });
-         });
- 
-         setData(result);
-       })
-       .catch((error) => {});
-   }, []);
+  const guestCart = JSON.parse(localStorage.getItem('guestCart'))
 
-  
   useEffect(() => {
-    fetch("http://localhost:3001/userCart")
-      .then((response) => response.json())
-      .then((cart) => {
-        fetch("http://localhost:3001/rooms")
-          .then((response) => response.json())
-          .then((rooms) => {
-            setRooms(rooms);
-            let idUser;
-            if (localStorage.getItem("user")) {
-              idUser = JSON.parse(localStorage.getItem("user")).id;
-            }
-            const filteredRooms = cart.filter(
-              (product) => product.idUser === idUser
-            );
-            const result = []
-            filteredRooms.forEach((item) => {
-              rooms.forEach((room) => {
-                if (room.id === item.idRoom) {
-                  let quantity = item.quantity
-                  result.push({ ...room, quantity })
-                }
-              });
-            })
-            setCart(result);
+    if (!checkLogin) {
+      fetch("http://localhost:3001/rooms")
+        .then((response) => response.json())
+        .then((rooms) => {
+          setRooms(rooms);
+          const result = []
+          guestCart.forEach((item) => {
+            rooms.forEach((room) => {
+              if (room.id === item.idRoom) {
+                let quantity = item.quantity
+                result.push({ ...room, quantity })
+              }
+            });
           })
-      })
-      .catch((err) => { });
-  }, [cartState]);
+          setCart(result);
+        })
+    } else {
+      fetch("http://localhost:3001/userCart")
+        .then((response) => response.json())
+        .then((cart) => {
+          fetch("http://localhost:3001/rooms")
+            .then((response) => response.json())
+            .then((rooms) => {
+              setRooms(rooms);
+              let idUser;
+              if (localStorage.getItem("user")) {
+                idUser = JSON.parse(localStorage.getItem("user")).id;
+              }
+              const filteredRooms = cart.filter(
+                (product) => product.idUser === idUser
+              );
+              const result = []
+              filteredRooms.forEach((item) => {
+                rooms.forEach((room) => {
+                  if (room.id === item.idRoom) {
+                    let quantity = item.quantity
+                    result.push({ ...room, quantity })
+                  }
+                });
+              })
+              setCart(result);
+            })
+        })
+        .catch((err) => { });
+    }
+  }, [checkLogin, guestCart]);
 
   const handleRemove = useCallback((id) => {
     const loggedIn = localStorage.getItem("loggedIn")
@@ -105,7 +88,7 @@ function HomeCart() {
 
   useEffect(() => {
     toast.clearWaitingQueue()
-    if (cartState.type === 'REMOVE' && showNotify == true) {
+    if (cartState.message !== '') {
       toast(cartState.message, {
         position: "top-center",
         autoClose: 1500,
@@ -117,17 +100,13 @@ function HomeCart() {
         theme: "light",
         toastId: "message"
       });
+      dispatch(resetCartMessage())
     }
-  })
+  }, [cart, guestCart])
 
 
   const totalRoomPrice = useMemo(() => {
-    if(checkLogin) {
       return cart.reduce((total, room) => total + room.price * room.quantity, 0);
-
-    } else {
-      return data.reduce((total, room) => total + room.price * room.quantity, 0);
-    }
   }, [cart]);
 
   return (
@@ -144,7 +123,7 @@ function HomeCart() {
           </div>
           <div className="row">
             <div className="col-md-6">
-              <RoomCart removeRoom={handleRemove} cart={cart} handleNotify={handleNotify} totalRoomPrice={totalRoomPrice} guestCart={data}/>
+              <RoomCart removeRoom={handleRemove} cart={cart} handleNotify={handleNotify} totalRoomPrice={totalRoomPrice} guestCart={cart} />
             </div>
             <div className="col-md-6">
               <PaymentForm totalRoomPrice={totalRoomPrice} />
