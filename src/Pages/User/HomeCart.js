@@ -21,8 +21,11 @@ function HomeCart() {
   const [cart, setCart] = useState([]);
   const [showNotify, setShowNotify] = useState(false)
   const checkLogin = localStorage.getItem("loggedIn");
+  var guestCart = []
 
-  const guestCart = JSON.parse(localStorage.getItem('guestCart'))
+  if (localStorage.getItem('guestCart')) {
+    guestCart = JSON.parse(localStorage.getItem('guestCart'))
+  } 
 
   useEffect(() => {
     if (!checkLogin) {
