@@ -13,13 +13,6 @@ function RoomItem({
   img,
   addRoom,
 }) {
-  // const cartState = useSelector(state => state.cartReducer)
-  const dispatch = useDispatch();
-
-  const currencyFormat = useCallback((num) => {
-    return num.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
-  }, []);
-
   const handleClick = () => {
     addRoom(idTab);
   };
@@ -43,7 +36,7 @@ function RoomItem({
             <i className="fa-solid fa-shower"></i>
           </div>
         </div>
-     
+
       </div>
       <div className="room__detail">
         <nav>
@@ -63,7 +56,7 @@ function RoomItem({
               aria-selected="true"
             >
               BEST AVAILABLE RATE
-            </button>         
+            </button>
           </div>
         </nav>
         <div className="tab-content room__tab" id="nav-tabContent">
@@ -82,13 +75,18 @@ function RoomItem({
             <div className="room__tab-booking">
               {priceType === "VND" ? (
                 <span className="room_tab-price">
-                  {currencyFormat(price)}
-                  <span style={{ fontSize: "16px" }}>đ</span>
+                  {new Intl.NumberFormat("vi-VN", {
+                    style: "currency",
+                    currency: "VND",
+                  }).format(price)}
                 </span>
               ) : (
                 <span className="room_tab-price">
-                  {(price / 23805.6).toFixed(2)}
-                  <span style={{ fontSize: "16px" }}>US$</span>
+                  {/* {(price / 23805.6).toFixed(2)} */}
+                  {new Intl.NumberFormat("en-IN", {
+                    style: "currency",
+                    currency: "USD",
+                  }).format((price / 23805.6).toFixed(2))}
                 </span>
               )}
               <button
@@ -99,7 +97,7 @@ function RoomItem({
               </button>
             </div>
           </div>
-         
+
         </div>
       </div>
     </div>

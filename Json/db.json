@@ -550,6 +550,18 @@
       "idRoom": 7,
       "quantity": 1,
       "id": 18
+    },
+    {
+      "idUser": "6",
+      "idRoom": 3,
+      "quantity": 1,
+      "id": 21
+    },
+    {
+      "idUser": "6",
+      "idRoom": 1,
+      "quantity": 1,
+      "id": 22
     }
   ]
 }

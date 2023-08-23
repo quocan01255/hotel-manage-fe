@@ -15,7 +15,7 @@ const BookingSummary = (props) => {
               <span className="c-booking-price">Total price: {new Intl.NumberFormat("vi-VN", {
                 style: "currency",
                 currency: "VND",
-              }).format(totalRoomPrice)}VND</span>
+              }).format(totalRoomPrice)}</span>
             </div>
           </div>
         </div>

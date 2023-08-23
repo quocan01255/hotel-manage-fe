@@ -9,9 +9,6 @@ const RoomCart = ({
   decreaseQuantity
 }) => {
   const checkLogin = localStorage.getItem("loggedIn");
-  const currencyFormat = useCallback((num) => {
-    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
-  }, []);
 
   const handleClick = (id) => {
     removeRoom(id);
@@ -40,19 +37,31 @@ const RoomCart = ({
               <div className="c-form-details">
                 <div className="c-form-title">{room.name}</div>
                 <div className="c-room-subtitle">{room.detail}</div>
-                <div className="c-room-features">{room.description}</div>
+                <div className="c-room-features">
+                  <ul>
+                    {room.description.map((item, index) => (
+                      <li key={index}>
+                        <i className="fa-solid fa-circle"></i>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
                 <div className="c-room-rating">
                   Quantity: {room.quantity}
                   <button className="btn btn-primary room_tab-btn" onClick={() => handleDecrease(room.id)}>
-                    <i class="fa-solid fa-minus"></i>
+                    <i className="fa-solid fa-minus"></i>
                   </button>
-                  <button className="btn btn-primary room_tab-btn" style={{marginLeft: '4px'}} onClick={() => handleIncrease(room.id)}>
-                    <i class="fa-solid fa-plus"></i>
+                  <button className="btn btn-primary room_tab-btn" style={{ marginLeft: '4px' }} onClick={() => handleIncrease(room.id)}>
+                    <i className="fa-solid fa-plus"></i>
                   </button>
-                  
+
                 </div>
                 <div className="c-room-price">
-                  {currencyFormat(String(room.price * room.quantity))}đ
+                  {new Intl.NumberFormat("vi-VN", {
+                    style: "currency",
+                    currency: "VND",
+                  }).format(room.price * room.quantity)}
                   <button
                     className="btn btn-primary room_tab-btn"
                     onClick={() => handleClick(room.id)}
@@ -81,19 +90,31 @@ const RoomCart = ({
             <div className="c-form-details">
               <div className="c-form-title">{room.name}</div>
               <div className="c-room-subtitle">{room.detail}</div>
-              <div className="c-room-features">{room.description}</div>
+              <div className="c-room-features">
+                <ul>
+                  {room.description.map((item, index) => (
+                    <li key={index}>
+                      <i className="fa-solid fa-circle"></i>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
               <div className="c-room-rating">
                 Quantity: {room.quantity}
                 <button className="btn btn-primary room_tab-btn" onClick={() => handleDecrease(room.id)}>
-                  <i class="fa-solid fa-minus"></i>
+                  <i className="fa-solid fa-minus"></i>
                 </button>
-                <button className="btn btn-primary room_tab-btn" style={{marginLeft: '4px'}} onClick={() => handleIncrease(room.id)}>
-                  <i class="fa-solid fa-plus"></i>
+                <button className="btn btn-primary room_tab-btn" style={{ marginLeft: '4px' }} onClick={() => handleIncrease(room.id)}>
+                  <i className="fa-solid fa-plus"></i>
                 </button>
-                
+
               </div>
               <div className="c-room-price">
-                {currencyFormat(room.price * room.quantity)}đ
+                {new Intl.NumberFormat("vi-VN", {
+                  style: "currency",
+                  currency: "VND",
+                }).format(room.price * room.quantity)}
                 <button
                   className="btn btn-primary room_tab-btn"
                   onClick={() => handleClick(room.id)}
