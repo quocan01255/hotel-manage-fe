@@ -1,16 +1,15 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { ToastContainer, toast } from "react-toastify";
 import { add } from "../../../redux/actions/cartActions";
 import RoomItem from "../room_item/RoomItem";
 import "./listrooms.css";
 
-function ListRooms({ rooms, handleNotify }) {
+function ListRooms({ rooms }) {
   const cartState = useSelector((state) => state.cartReducer);
   const authState = useSelector((state) => state.authReducer);
   const dispatch = useDispatch();
   const [priceType, setPriceType] = useState("VND");
-  const [showNotify, setShowNotify] = useState(false);
+
 
   const handleSelect = useCallback((e) => {
     setPriceType(e.target.value);
@@ -21,11 +20,9 @@ function ListRooms({ rooms, handleNotify }) {
       const loggedIn = localStorage.getItem("loggedIn");
       if (!loggedIn) {
         dispatch(add(id, false, null));
-        handleNotify(true);
       } else {
         const user = JSON.parse(localStorage.getItem("user"));
         dispatch(add(id, true, user.id));
-        handleNotify(true);
       }
     },
     [authState, dispatch]

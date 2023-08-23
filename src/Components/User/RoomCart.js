@@ -1,25 +1,89 @@
-import React, { useCallback, useEffect, useState, useMemo } from "react";
-import { useParams } from "react-router-dom";
+import React, { useCallback } from "react";
 
-const RoomCart = ({ removeRoom, cart, handleNotify, totalRoomPrice }) => {
-  const [data, setData] = useState([]);
-
-  const currencyFormat = useCallback((num) => {
-    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
-  }, []);
+const RoomCart = ({
+  removeRoom,
+  cart,
+  totalRoomPrice,
+  guestCart,
+  increaseQuantity,
+  decreaseQuantity
+}) => {
+  const checkLogin = localStorage.getItem("loggedIn");
 
   const handleClick = (id) => {
     removeRoom(id);
-    handleNotify();
   };
 
-  // const totalRoomPrice = useMemo(() => {
-  //   return cart.reduce((total, room) => total + room.price * room.quantity, 0);
-  // }, [cart]);
+  const handleIncrease = (id) => {
+    increaseQuantity(id)
+  }
 
+  const handleDecrease = (id) => {
+    decreaseQuantity(id)
+  }
+
+  // Not logged in
+  if (!checkLogin) {
+    return (
+      <div className="mt-5 mp-5" style={{ marginTop: '0' }}>
+        <div className="c-room-card ">
+          {guestCart.map((room) => (
+            <div key={room.id}>
+              <img
+                className="c-room-image"
+                src={room.img}
+                alt="Hình ảnh phòng"
+              />
+              <div className="c-form-details">
+                <div className="c-form-title">{room.name}</div>
+                <div className="c-room-subtitle">{room.detail}</div>
+                <div className="c-room-features">
+                  <ul>
+                    {room.description.map((item, index) => (
+                      <li key={index}>
+                        <i className="fa-solid fa-circle"></i>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="c-room-rating">
+                  Quantity: {room.quantity}
+                  <button className="btn btn-primary room_tab-btn" onClick={() => handleDecrease(room.id)}>
+                    <i className="fa-solid fa-minus"></i>
+                  </button>
+                  <button className="btn btn-primary room_tab-btn" style={{ marginLeft: '4px' }} onClick={() => handleIncrease(room.id)}>
+                    <i className="fa-solid fa-plus"></i>
+                  </button>
+
+                </div>
+                <div className="c-room-price">
+                  {new Intl.NumberFormat("vi-VN", {
+                    style: "currency",
+                    currency: "VND",
+                  }).format(room.price * room.quantity)}
+                  <button
+                    className="btn btn-primary room_tab-btn"
+                    onClick={() => handleClick(room.id)}
+                  >
+                    <i className="fa-solid fa-trash"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+          <br />
+          {/* <div className="c-booking-price">
+            Total price: {currencyFormat(String(totalRoomPrice))}đ
+          </div> */}
+        </div>
+      </div>
+    );
+  }
   return (
-    <div className="mp-5">
-      <div className="c-room-card mt-5 mb-5 pt-5 pb-5">
+    //Logged in
+    <div className="mt-5 mp-5">
+      <div className="c-room-card ">
         {cart.map((room) => (
           <div key={room.id}>
             <img className="c-room-image" src={room.img} alt="Hình ảnh phòng" />
@@ -36,9 +100,21 @@ const RoomCart = ({ removeRoom, cart, handleNotify, totalRoomPrice }) => {
                   ))}
                 </ul>
               </div>
-              <div className="c-room-rating">Quantity: {room.quantity}</div>
+              <div className="c-room-rating">
+                Quantity: {room.quantity}
+                <button className="btn btn-primary room_tab-btn" onClick={() => handleDecrease(room.id)}>
+                  <i className="fa-solid fa-minus"></i>
+                </button>
+                <button className="btn btn-primary room_tab-btn" style={{ marginLeft: '4px' }} onClick={() => handleIncrease(room.id)}>
+                  <i className="fa-solid fa-plus"></i>
+                </button>
+
+              </div>
               <div className="c-room-price">
-                {currencyFormat(room.price * room.quantity)}đ
+                {new Intl.NumberFormat("vi-VN", {
+                  style: "currency",
+                  currency: "VND",
+                }).format(room.price * room.quantity)}
                 <button
                   className="btn btn-primary room_tab-btn"
                   onClick={() => handleClick(room.id)}
@@ -50,12 +126,9 @@ const RoomCart = ({ removeRoom, cart, handleNotify, totalRoomPrice }) => {
           </div>
         ))}
         <br />
-        <div
-          className="c-booking-price"
-          style={{ fontSize: "19px", color: "red", paddingLeft: "12px" ,textAlign:"center"}}
-        >
+        {/* <div className="c-booking-price">
           Total price: {currencyFormat(String(totalRoomPrice))}đ
-        </div>
+        </div> */}
       </div>
     </div>
   );

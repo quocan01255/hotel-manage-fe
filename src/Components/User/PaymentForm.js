@@ -1,18 +1,11 @@
-// Validate -------------------------------------------
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { payment } from "../../redux/actions/PayAction";
-
-
 const PaymentForm = (props) => {
-  const { totalRoomPrice } = props;
-  // const overallTotalPrice = useSelector((state) => state.priceReducer.overallTotalPrice);
-
+  const { totalRoomPrice,thanhtoan} = props;
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
-
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -23,6 +16,8 @@ const PaymentForm = (props) => {
     city: "",
     country: "",
   });
+  
+ 
 
   const [formErrors, setFormErrors] = useState({
     firstName: "",
@@ -49,7 +44,7 @@ const PaymentForm = (props) => {
     }));
   };
 
-  console.log(formData)
+  
   const validate = () => {
     let isValid = true;
     const newFormErrors = {
@@ -83,8 +78,10 @@ const PaymentForm = (props) => {
     if (validate()) {
       // Dispatch action to set user info in Redux Store
       // dispatch(payment(formData));
-      navigate("/paycard", {
-        state: {
+     
+      thanhtoan(formData);
+      navigate("/paycard", {        
+        state: {          
           total: totalRoomPrice,
           firstName:formData.firstName,
           lastName:formData.lastName,

@@ -2,56 +2,76 @@ import React from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import { useCallback, useEffect, useState, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { remove } from "../../redux/actions/cartActions";
+import { remove, resetCartMessage, increase, decrease } from "../../redux/actions/cartActions";
 import { Link } from "react-router-dom";
-
 import RoomCart from "../../Components/User/RoomCart";
-import HeaderBooking from "../../Components/User/header_booking/Headerbooking";
 import PaymentForm from "../../Components/User/PaymentForm";
-import BookingSummary from "../../Components/User/BookingSummary";
 import Footers from "../../Components/User/Footers";
 import "../../Css/styleroom.css";
 import Headerbooking from "../../Components/User/header_booking/Headerbooking";
-
+import { payment } from "../../redux/actions/PayAction";
+import BookingSummary from "../../Components/User/BookingSummary";
 
 function HomeCart() {
   const dispatch = useDispatch()
   const cartState = useSelector((state) => state.cartReducer);
-
   const [rooms, setRooms] = useState([]);
   const [cart, setCart] = useState([]);
-  const [showNotify, setShowNotify] = useState(false)
+  const checkLogin = localStorage.getItem("loggedIn");
 
+  // Call api and get list rooms
   useEffect(() => {
-    fetch("http://localhost:3001/userCart")
+    fetch("http://localhost:3001/rooms")
       .then((response) => response.json())
-      .then((cart) => {
-        fetch("http://localhost:3001/rooms")
-          .then((response) => response.json())
-          .then((rooms) => {
-            setRooms(rooms);
-            let idUser;
-            if (localStorage.getItem("user")) {
-              idUser = JSON.parse(localStorage.getItem("user")).id;
-            }
-            const filteredRooms = cart.filter(
-              (product) => product.idUser === idUser
-            );
-            const result = []
-            filteredRooms.forEach((item) => {
-              rooms.forEach((room) => {
-                if (room.id === item.idRoom) {
-                  let quantity = item.quantity
-                  result.push({ ...room, quantity })
-                }
-              });
-            })
-            setCart(result);
-          })
+      .then((rooms) => {
+        setRooms(rooms);
       })
-      .catch((err) => { });
-  }, [cartState]);
+  }, [])
 
+  // Call api and get data
+  useEffect(() => {
+    if (!checkLogin) {
+      let guestCart = []
+      if (localStorage.getItem('guestCart')) {
+        guestCart = JSON.parse(localStorage.getItem('guestCart'))
+      }
+      const result = []
+      guestCart.forEach((item) => {
+        rooms.forEach((room) => {
+          if (room.id === item.idRoom) {
+            let quantity = item.quantity
+            result.push({ ...room, quantity })
+          }
+        });
+      })
+      setCart(result);
+    } else {
+      fetch("http://localhost:3001/userCart")
+        .then((response) => response.json())
+        .then((cart) => {
+          let idUser;
+          if (localStorage.getItem("user")) {
+            idUser = JSON.parse(localStorage.getItem("user")).id;
+          }
+          const filteredRooms = cart.filter(
+            (product) => product.idUser === idUser
+          );
+          const result = []
+          filteredRooms.forEach((item) => {
+            rooms.forEach((room) => {
+              if (room.id === item.idRoom) {
+                let quantity = item.quantity
+                result.push({ ...room, quantity })
+              }
+            });
+          })
+          setCart(result);
+        })
+        .catch((err) => { });
+    }
+  }, [cartState, rooms]);
+
+  // Handling event
   const handleRemove = useCallback((id) => {
     const loggedIn = localStorage.getItem("loggedIn")
     if (!loggedIn) {
@@ -60,15 +80,31 @@ function HomeCart() {
       const user = JSON.parse(localStorage.getItem("user"))
       dispatch(remove(id, true, user.id))
     }
+  }, [])
+
+  const handleIncrease = useCallback((id) => {
+    const loggedIn = localStorage.getItem("loggedIn")
+    if (!loggedIn) {
+      dispatch(increase(id, false, null))
+    } else {
+      const user = JSON.parse(localStorage.getItem("user"))
+      dispatch(increase(id, true, user.id))
+    }
   }, [dispatch])
 
-  const handleNotify = () => {
-    setShowNotify(true)
-  }
+  const handleDecrease = useCallback((id) => {
+    const loggedIn = localStorage.getItem("loggedIn")
+    if (!loggedIn) {
+      dispatch(decrease(id, false, null))
+    } else {
+      const user = JSON.parse(localStorage.getItem("user"))
+      dispatch(decrease(id, true, user.id))
+    }
+  }, [])
 
   useEffect(() => {
     toast.clearWaitingQueue()
-    if (cartState.type === 'REMOVE' && showNotify == true) {
+    if (cartState.message) {
       toast(cartState.message, {
         position: "top-center",
         autoClose: 1500,
@@ -80,34 +116,47 @@ function HomeCart() {
         theme: "light",
         toastId: "message"
       });
+      dispatch(resetCartMessage())
     }
-  })
+  }, [cartState])
 
 
   const totalRoomPrice = useMemo(() => {
     return cart.reduce((total, room) => total + room.price * room.quantity, 0);
   }, [cart]);
 
-  
+
+  const thanhtoan = (formData) => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    dispatch(payment(formData, cart, totalRoomPrice, user.id));
+  }
 
   return (
     <>
       <ToastContainer />
-      <Headerbooking />
+      <Headerbooking  />
       <div style={{ backgroundColor: '#f8f8f8', padding: '100px 0' }}>
         <div className="container" >
           <div className="backpage">
             <Link to="/bookingpage" >
-              <i class="fa-solid fa-arrow-left"></i>
+              <i className="fa-solid fa-arrow-left"></i>
               Return
             </Link>
           </div>
           <div className="row">
             <div className="col-md-6">
-              <RoomCart removeRoom={handleRemove} cart={cart} handleNotify={handleNotify} totalRoomPrice={totalRoomPrice}/>
+              <RoomCart
+                removeRoom={handleRemove}
+                cart={cart}
+                totalRoomPrice={totalRoomPrice}
+                guestCart={cart}
+                increaseQuantity={handleIncrease}
+                decreaseQuantity={handleDecrease}
+              />
+              <BookingSummary totalRoomPrice={totalRoomPrice}/>
             </div>
             <div className="col-md-6">
-              <PaymentForm totalRoomPrice={totalRoomPrice} />
+              <PaymentForm totalRoomPrice={totalRoomPrice} thanhtoan={thanhtoan}   />
             </div>
           </div>
         </div>
