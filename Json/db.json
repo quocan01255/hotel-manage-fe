@@ -296,8 +296,26 @@
     {
       "idUser": "6",
       "idRoom": 1,
-      "quantity": 1,
+      "quantity": 5,
       "id": 5
+    },
+    {
+      "idUser": "6",
+      "idRoom": 5,
+      "quantity": 5,
+      "id": 6
+    },
+    {
+      "idUser": "6",
+      "idRoom": 4,
+      "quantity": 1,
+      "id": 7
+    },
+    {
+      "idUser": "6",
+      "idRoom": 6,
+      "quantity": 4,
+      "id": 8
     }
   ]
 }

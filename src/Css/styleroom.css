@@ -71,6 +71,13 @@
   font-size: 1rem;
   color: #0b5ed7;
   margin: 2px 0;
+  display: flex;
+}
+
+.c-room-rating button {
+  padding: 0 8px;
+  font-size: 12px;
+  margin-left: 8px;
 }
 
 .c-room-price {

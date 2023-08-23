@@ -11,13 +11,11 @@ const cartReducer = (state = initialState, action) => {
                 ...state,
                 type: action.type,
                 message: action.payload.message,
-                guestCart: action.payload.guestCart
             };
         case 'UPDATE':
             return {
                 ...state,
                 message: action.payload.message,
-                guestCart: action.payload.guestCart
             };
         case 'RESET':
             return {
@@ -29,7 +27,18 @@ const cartReducer = (state = initialState, action) => {
                 ...state,
                 type: action.type,
                 message: action.payload.message,
-                guestCart: action.payload.guestCart
+            }
+        case 'INCREASE':
+            return {
+                ...state,
+                type: action.type,
+                message: action.payload.message
+            }
+        case 'DECREASE':
+            return {
+                ...state,
+                type: action.type,
+                message: action.payload.message
             }
         case 'RESET':
             return {
