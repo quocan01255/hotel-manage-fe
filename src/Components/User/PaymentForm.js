@@ -241,7 +241,7 @@ const PaymentForm = (props) => {
         {/*button-form-fkl*/}
         <button
           type="button"
-          className="c-form-button"
+          className="btn btn-primary c-form-button"
           onClick={handleBookClick}
         >
           Book

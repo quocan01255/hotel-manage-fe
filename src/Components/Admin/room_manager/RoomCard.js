@@ -1,10 +1,9 @@
 import { Button, Modal } from 'antd';
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState } from 'react';
 import './cssRoomManager.css';
 import FormDetail from './FormEditRoom';
 import { remove } from '../../../redux/actions/roomManagerAction';
-import { useDispatch, useSelector } from 'react-redux';
-import { ToastContainer, toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
 
 function RoomCard({ room }) {
     const { id, name, detail, img, description, price } = room
@@ -20,27 +19,9 @@ function RoomCard({ room }) {
     const handleRemove = () => {
         dispatch(remove(id))
     }
-    const currencyFormat = useCallback((num) => {
-        return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
-    }, []);
-    // const message = useSelector(state => state.roomManagerReducer.message)
-    // useEffect(() => {
-    //     if (message) {
-    //         toast.success(message, {
-    //             position: toast.POSITION.TOP_CENTER,
-    //             autoClose: 3000,
-    //             hideProgressBar: true,
-    //             closeOnClick: true,
-    //             pauseOnHover: true,
-    //             draggable: true,
-    //             progress: undefined,
-    //             theme: "light",
-    //         });
-    //     }
-    // }, []);
+
     return (
         <div className="row g-0 card-main-admin-manager-room">
-            <ToastContainer />
             <div className="col-md-3 img-admin-manager-room">
                 <img src={img} className="img-fluid rounded-start" alt="..." />
             </div>
@@ -51,12 +32,15 @@ function RoomCard({ room }) {
                     <ul style={{ listStyle: "disc" }}>{description.map((item, index) => (
                         <li key={index}>{item}</li>
                     ))}</ul>
-                    <h6>Price: {currencyFormat(String(price))}đ</h6>
+                    <h6>Price: {new Intl.NumberFormat("vi-VN", {
+                        style: "currency",
+                        currency: "VND",
+                    }).format(price)}</h6>
                 </div>
             </div>
             <div className="col-md-2 ">
                 <div className='btn-admin-room-manager'>
-                    <Button className='btn-detail-admin-room-manager' type="primary" onClick={Detail}>Detail</Button>
+                    <Button className='btn-detail-admin-room-manager' type="primary" onClick={Detail}>Edit</Button>
                     <Modal
                         title="Detail"
                         visible={openDetail}
@@ -69,7 +53,7 @@ function RoomCard({ room }) {
                         }}
                         width={800}
                     >
-                        <FormDetail room={room} />
+                        <FormDetail close={handleCancel} room={room} />
                     </Modal>
                     <Button type="primary" danger onClick={handleRemove}>Delete</Button>
                 </div>
