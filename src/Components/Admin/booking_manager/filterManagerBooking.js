@@ -2,20 +2,18 @@ import './formBookingManager.css';
 import React, { useState, useEffect } from 'react';
 import { Space, Table, Button, Modal } from 'antd';
 import FormDetailBooking from './formDetailBooking';
-import { useDispatch } from 'react-redux';
-import { remove } from '../../../redux/actions/bookingManagerAction';
+import { useDispatch, useSelector } from 'react-redux';
+import { remove, rsMessage, rsIsUpdSuccess, rsIsDeleteSuccess } from '../../../redux/actions/bookingManagerAction';
+import { ToastContainer, toast } from 'react-toastify';
 
 function FilterManagerBooking() {
     const [bookings, setBookings] = useState([]);
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [phone, setPhone] = useState('');
-    const [idroom, setIdroom] = useState('');
-    const [checkin, setCheckin] = useState('');
-    const [checkout, setCheckout] = useState('');
     const dispatch = useDispatch();
+    const isUpdSuccess = useSelector(state => state.roomManagerReducer.isUpdSuccess);
+    const isDeleteSuccess = useSelector(state => state.roomManagerReducer.isDeleteSuccess);
+    const message = useSelector(state => state.bookingManagerReducer.message);
 
-    useEffect(() => {
+    const setData = () => {
         fetch('http://localhost:3001/bookings')
             .then((response) => response.json())
             .then((data) => {
@@ -24,12 +22,38 @@ function FilterManagerBooking() {
             })
             .catch((error) => {
             });
+    }
+    useEffect(() => {
+        if (message) {
+            toast.success(message, {
+                position: toast.POSITION.TOP_CENTER,
+                autoClose: 3000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+            dispatch(rsMessage())
+        }
+    }, [message]);
+    useEffect(() => {
+        setData()
     }, [])
 
+    useEffect(() => {
+        if (isUpdSuccess) {
+            setData()
+            dispatch(rsIsUpdSuccess())
+        }
+        else if (isDeleteSuccess) {
+            setData()
+            dispatch(rsIsDeleteSuccess)
+        }
+    }, [isUpdSuccess, isDeleteSuccess])
+
     const [open, setOpen] = useState(false);
-    // const Detail = (e) => {
-    //     setOpen(true);
-    // };
     const handleOk = (e) => {
         setOpen(false);
     };
@@ -41,34 +65,41 @@ function FilterManagerBooking() {
     }
     const columns = [
         {
-            title: 'Name',
-            dataIndex: 'name',
-            key: 'name',
+            title: 'Last Name',
+            dataIndex: 'lastname',
+            key: 'lastname',
+            width: '100px'
         },
         {
             title: 'E-mail',
             dataIndex: 'email',
             key: 'email',
+            width: '200px'
         },
         {
             title: 'Phone',
             dataIndex: 'phone',
             key: 'phone',
+            width: '100px'
         },
         {
-            title: 'ID-Room',
-            dataIndex: 'idroom',
-            key: 'idroom',
+            title: 'Booking information',
+            dataIndex: 'nameroom',
+            key: 'name',
+            width: '500px'
+
         },
         {
-            title: 'Check-In',
-            dataIndex: 'checkin',
-            key: 'checkin',
-        },
-        {
-            title: 'Check-Out',
-            dataIndex: 'checkout',
-            key: 'checkout',
+            title: 'Total price',
+            dataIndex: 'totalRoomPrice',
+            key: 'totalRoomPrice',
+            width: '150px',
+            render: text =>
+                new Intl.NumberFormat("vi-VN", {
+                    style: "currency",
+                    currency: "VND",
+                }).format(text)
+
         },
         {
             title: 'Action',
@@ -80,14 +111,8 @@ function FilterManagerBooking() {
                             <Button type="primary"
                                 onClick={(e) => {
                                     setOpen(true);
-                                    setName(booking.name)
-                                    setEmail(booking.email)
-                                    setPhone(booking.phone)
-                                    setIdroom(booking.idroom)
-                                    setCheckin(booking.checkin)
-                                    setCheckout(booking.checkout)
                                 }}
-                            >Detail</Button>
+                            >Edit</Button>
                             <Modal
                                 destroyOnClose
                                 title="Detail"
@@ -102,7 +127,7 @@ function FilterManagerBooking() {
                                 }}
                                 width={800}
                             >
-                                <FormDetailBooking booking={booking} />
+                                <FormDetailBooking close={handleCancel} booking={booking} />
                             </Modal>
                         </div>
                         <Button type="primary" danger onClick={() => handleRemove(booking.id)}>Cancel</Button>
@@ -111,6 +136,11 @@ function FilterManagerBooking() {
             ),
         },
     ];
-    return (<Table columns={columns} dataSource={bookings} />);
+    return (
+        <>
+            <ToastContainer />
+            <Table columns={columns} dataSource={bookings} />
+        </>
+    );
 }
 export default FilterManagerBooking;

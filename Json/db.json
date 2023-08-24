@@ -711,6 +711,48 @@
       "idRoom": 7,
       "quantity": 1,
       "id": 18
+    },
+    {
+      "idUser": "6",
+      "idRoom": 3,
+      "quantity": 1,
+      "id": 21
+    },
+    {
+      "idUser": "6",
+      "idRoom": 1,
+      "quantity": 1,
+      "id": 22
+    },
+    {
+      "idUser": "1",
+      "idRoom": 3,
+      "quantity": 2,
+      "id": 24
+    },
+    {
+      "idUser": "1",
+      "idRoom": 4,
+      "quantity": 1,
+      "id": 25
+    },
+    {
+      "idUser": "3",
+      "idRoom": 4,
+      "quantity": 1,
+      "id": 26
+    },
+    {
+      "idUser": "3",
+      "idRoom": 3,
+      "quantity": 1,
+      "id": 27
+    },
+    {
+      "idUser": "1",
+      "idRoom": 2,
+      "quantity": 1,
+      "id": 28
     }
   ]
 }

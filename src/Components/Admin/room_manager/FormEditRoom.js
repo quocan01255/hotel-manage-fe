@@ -5,7 +5,7 @@ import { upd } from '../../../redux/actions/roomManagerAction';
 import { useDispatch } from 'react-redux'
 
 const { TextArea } = Input;
-const FormDetail = ({ room }) => {
+const FormDetail = ({ room, close }) => {
     const dispatch = useDispatch()
     const { id, name, img, detail, description, price, type, quantity } = room
     const [data, setData] = useState({
@@ -17,13 +17,6 @@ const FormDetail = ({ room }) => {
         price,
         img
     })
-    const onchangeType = (e) => {
-        var value = e;
-        setData((prevData) => ({
-            ...prevData,
-            type: value,
-        }));
-    };
     const onchangeQuantity = (e) => {
         var value = e;
         setData((prevData) => ({
@@ -37,10 +30,10 @@ const FormDetail = ({ room }) => {
             ...prevData,
             [name]: value,
         }));
-        console.log(data)
     }
     const handleUpdate = () => {
         dispatch(upd(data, id))
+        close()
     }
 
     return (
@@ -51,16 +44,13 @@ const FormDetail = ({ room }) => {
                         <Input name='name' onChange={onChangeValue} defaultValue={name} />
                     </Form.Item>
                     <Form.Item label="Type room" className='input-form-admin-add-room'>
-                        <Select onChange={onchangeType} defaultValue={type}>
-                            <Select.Option value="Deluxe Pool">Deluxe Pool</Select.Option>
-                            <Select.Option value="Deluxe Executive">Deluxe Executive</Select.Option>
-                            <Select.Option value="Deluxe Plus">Deluxe Plus</Select.Option>
-                            <Select.Option value="Deluxe">Deluxe</Select.Option>
+                        <Select defaultValue={type} disabled>
                         </Select>
                     </Form.Item>
                     <Form.Item label="Quantity" className='input-form-admin-add-room'>
                         <Select onChange={onchangeQuantity} defaultValue={quantity}>
-                            <Select.Option value="1-2">1-2</Select.Option>
+                            <Select.Option value="1">1</Select.Option>
+                            <Select.Option value="2">2</Select.Option>
                             <Select.Option value="3">3</Select.Option>
                             <Select.Option value="4">4</Select.Option>
                             <Select.Option value="5">5</Select.Option>
@@ -79,7 +69,7 @@ const FormDetail = ({ room }) => {
                         <Input name='price' onChange={onChangeValue} defaultValue={price} />
                     </Form.Item>
                     <Form.Item className='btn-admin-form-add-room'>
-                        <Button type="primary" className='btn-admin-inform-add-room' onClick={handleUpdate}>Edit</Button>
+                        <Button type="primary" className='btn-admin-inform-add-room' onClick={handleUpdate}>Save</Button>
                     </Form.Item>
                 </Form>
             </div>
