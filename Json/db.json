@@ -320,6 +320,167 @@
       "totalRoomPrice": 8800000,
       "idUser": "5",
       "id": 5
+    },
+    {
+      "fistname": "An",
+      "lastname": "Phạm",
+      "email": "quocan01255@gmail.com",
+      "phone": "0365675583",
+      "address": "Việt Nam",
+      "city": "Quy Nhơn",
+      "country": "Việt Nam",
+      "rooms": [
+        {
+          "id": 3,
+          "type": "Deluxe Executive",
+          "name": "Deluxe Executive Twin",
+          "quantity": 1,
+          "detail": "4 Sleeps - 1 Bathroom",
+          "description": [
+            "City view",
+            "Non-smoking",
+            "Cable/Satellite TV",
+            "Desk",
+            "Tea/Coffee Maker",
+            "Internet Access",
+            "Air conditioned",
+            "Hairdryer"
+          ],
+          "img": "https://www.navadahotel.com/FileStorage/Room/Thumbnail/_DSC5506-HDR-Edit-Edit.png",
+          "price": "2100000",
+          "priceSale": "2299800",
+          "checkin": "19/08/2023",
+          "checkout": "22/08/2023"
+        },
+        {
+          "id": 1,
+          "type": "Deluxe",
+          "name": "Deluxe Twin",
+          "quantity": 1,
+          "detail": "3 Sleeps - 1 Twin - 1 Bathroom",
+          "description": [
+            "City view",
+            "Non-smoking",
+            "Cable/Satellite TV",
+            "Desk",
+            "Tea/Coffee Maker",
+            "Internet Access",
+            "Air conditioned",
+            "Hairdryer"
+          ],
+          "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/780899/780899/SUITE-ROOM-1.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
+          "price": "1780000",
+          "priceSale": "1299800",
+          "checkin": "16/08/2023",
+          "checkout": "19/08/2023"
+        }
+      ],
+      "nameroom": "Deluxe Executive Twin(1), Deluxe Twin(1)",
+      "totalRoomPrice": 3880000,
+      "idUser": "6",
+      "id": 6
+    },
+    {
+      "fistname": "An",
+      "lastname": "Phạm",
+      "email": "quocan01255@gmail.com",
+      "phone": "0365675583",
+      "address": "Việt Nam",
+      "city": "Quy Nhơn",
+      "country": "Việt Nam",
+      "rooms": [
+        {
+          "id": 1,
+          "type": "Deluxe",
+          "name": "Deluxe Twin",
+          "quantity": 5,
+          "detail": "3 Sleeps - 1 Twin - 1 Bathroom",
+          "description": [
+            "City view",
+            "Non-smoking",
+            "Cable/Satellite TV",
+            "Desk",
+            "Tea/Coffee Maker",
+            "Internet Access",
+            "Air conditioned",
+            "Hairdryer"
+          ],
+          "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/780899/780899/SUITE-ROOM-1.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
+          "price": "1780000",
+          "priceSale": "1299800",
+          "checkin": "16/08/2023",
+          "checkout": "19/08/2023"
+        },
+        {
+          "id": 5,
+          "type": "Deluxe Executive",
+          "name": "Executive Suite",
+          "quantity": 3,
+          "detail": "4 Sleeps - 1 KingBed - 1 Bathroom",
+          "description": [
+            "City view",
+            "Non-smoking",
+            "Cable/Satellite TV",
+            "Desk",
+            "Tea/Coffee Maker",
+            "Internet Access",
+            "Air conditioned",
+            "Hairdryer"
+          ],
+          "img": "https://thecaphotel.com/public/uploads/news/20210520/cb02278262605e8f1024954fc3e38221.jpg",
+          "price": "2940000",
+          "priceSale": "2299800",
+          "checkin": "22/08/2023",
+          "checkout": "25/08/2023"
+        },
+        {
+          "id": 2,
+          "type": "Deluxe Plus",
+          "name": "Deluxe Plus Twin",
+          "detail": "4 Sleeps - 1 Bathroom",
+          "description": [
+            "Sea view",
+            "Non-smoking",
+            "Air conditioned",
+            "Tea/Coffee Maker",
+            "Internet Access",
+            "Balcony",
+            "Cable/Satellite TV"
+          ],
+          "quantity": 1,
+          "img": "https://gcs.tripi.vn/hms_prod/photo/img/455407PbPQYh/quaruple-city-view-2.jpg",
+          "price": "1850000",
+          "priceSale": "3001600",
+          "checkin": "17/08/2023",
+          "checkout": "21/08/2023"
+        },
+        {
+          "id": 3,
+          "type": "Deluxe Executive",
+          "name": "Deluxe Executive Twin",
+          "quantity": 2,
+          "detail": "4 Sleeps - 1 Bathroom",
+          "description": [
+            "City view",
+            "Non-smoking",
+            "Cable/Satellite TV",
+            "Desk",
+            "Tea/Coffee Maker",
+            "Internet Access",
+            "Air conditioned",
+            "Hairdryer"
+          ],
+          "img": "https://www.navadahotel.com/FileStorage/Room/Thumbnail/_DSC5506-HDR-Edit-Edit.png",
+          "price": "2100000",
+          "priceSale": "2299800",
+          "checkin": "19/08/2023",
+          "checkout": "22/08/2023"
+        }
+      ],
+      "nameroom": "Deluxe Twin(5), Executive Suite(3), Deluxe Plus Twin(1), Deluxe Executive Twin(2)",
+      "totalRoomPrice": 23770000,
+      "idUser": "6",
+      "id": 7
     }
   ],
   "rooms": [
@@ -550,18 +711,6 @@
       "idRoom": 7,
       "quantity": 1,
       "id": 18
-    },
-    {
-      "idUser": "6",
-      "idRoom": 3,
-      "quantity": 1,
-      "id": 21
-    },
-    {
-      "idUser": "6",
-      "idRoom": 1,
-      "quantity": 1,
-      "id": 22
     }
   ]
 }

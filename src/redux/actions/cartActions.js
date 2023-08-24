@@ -188,6 +188,7 @@ export const increase = (idRoom, loggedIn, idUser) => {
                     type: "INCREASE",
                     payload: {
                       message: "",
+                      quantity: findRoom.quantity + 1
                     },
                   });
                 })
@@ -204,6 +205,7 @@ export const increase = (idRoom, loggedIn, idUser) => {
         type: "INCREASE",
         payload: {
           message: "",
+          quantity: guestCart[findProduct].quantity + 1
         },
       });
     }
@@ -251,6 +253,8 @@ export const decrease = (idRoom, loggedIn, idUser) => {
                 type: "DECREASE",
                 payload: {
                   message: "",
+                  isDecrease: true,
+                  quantity: findRoom.quantity - 1
                 },
               });
             });
@@ -265,6 +269,7 @@ export const decrease = (idRoom, loggedIn, idUser) => {
         type: "DECREASE",
         payload: {
           message: "",
+          quantity: guestCart[findProduct].quantity - 1
         },
       });
     }

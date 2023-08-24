@@ -14,7 +14,9 @@ import BookingSummary from "../../Components/User/BookingSummary";
 
 function HomeCart() {
   const dispatch = useDispatch()
-  const cartState = useSelector((state) => state.cartReducer);
+  const cartMessage = useSelector((state) => state.cartReducer.message);
+  const cartQuantity = useSelector((state) => state.cartReducer.quantity);
+  const doCartAction = useSelector((state) => state.cartReducer.type);
   const [rooms, setRooms] = useState([]);
   const [cart, setCart] = useState([]);
   const checkLogin = localStorage.getItem("loggedIn");
@@ -69,7 +71,7 @@ function HomeCart() {
         })
         .catch((err) => { });
     }
-  }, [cartState, rooms]);
+  }, [cartQuantity, doCartAction, rooms]);
 
   // Handling event
   const handleRemove = useCallback((id) => {
@@ -80,7 +82,7 @@ function HomeCart() {
       const user = JSON.parse(localStorage.getItem("user"))
       dispatch(remove(id, true, user.id))
     }
-  }, [])
+  }, [dispatch])
 
   const handleIncrease = useCallback((id) => {
     const loggedIn = localStorage.getItem("loggedIn")
@@ -100,12 +102,12 @@ function HomeCart() {
       const user = JSON.parse(localStorage.getItem("user"))
       dispatch(decrease(id, true, user.id))
     }
-  }, [])
+  }, [dispatch])
 
   useEffect(() => {
     toast.clearWaitingQueue()
-    if (cartState.message) {
-      toast(cartState.message, {
+    if (cartMessage) {
+      toast(cartMessage, {
         position: "top-center",
         autoClose: 1500,
         hideProgressBar: true,
@@ -118,7 +120,7 @@ function HomeCart() {
       });
       dispatch(resetCartMessage())
     }
-  }, [cartState])
+  }, [cartMessage])
 
 
   const totalRoomPrice = useMemo(() => {
@@ -134,7 +136,7 @@ function HomeCart() {
   return (
     <>
       <ToastContainer />
-      <Headerbooking  />
+      <Headerbooking />
       <div style={{ backgroundColor: '#f8f8f8', padding: '100px 0' }}>
         <div className="container" >
           <div className="backpage">
@@ -153,10 +155,10 @@ function HomeCart() {
                 increaseQuantity={handleIncrease}
                 decreaseQuantity={handleDecrease}
               />
-              <BookingSummary totalRoomPrice={totalRoomPrice}/>
+              <BookingSummary totalRoomPrice={totalRoomPrice} />
             </div>
             <div className="col-md-6">
-              <PaymentForm totalRoomPrice={totalRoomPrice} thanhtoan={thanhtoan}   />
+              <PaymentForm totalRoomPrice={totalRoomPrice} thanhtoan={thanhtoan} />
             </div>
           </div>
         </div>

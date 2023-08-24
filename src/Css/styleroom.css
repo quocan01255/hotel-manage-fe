@@ -278,7 +278,7 @@
 
 /* CSS cho nút Book paycard*/
 .c-form-button {
-  background-color: #007bff;
+  background-color: #666;
   color: white;
   border: none;
   padding: 8px 10px;
@@ -288,7 +288,8 @@
 }
 
 .c-form-button:hover {
-  background-color: #0056b3;
+  background-color: #666;
+  opacity: 0.8;
 }
 
 .c-form-button:disabled {
