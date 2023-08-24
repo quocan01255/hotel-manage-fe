@@ -5,21 +5,36 @@ import './cssRoomManager.css';
 import FormAddRoom from './FormAddRoom';
 import RoomCard from '../room_manager/RoomCard';
 import { ToastContainer, toast } from 'react-toastify';
-import { rsMessage } from '../../../redux/actions/roomManagerAction';
+import { rsMessage, rsIsAddSuccess, rsIsUpdSuccess, rsIsDeleteSuccess } from '../../../redux/actions/roomManagerAction';
 
 function Deluxe() {
   const [openAdd, setOpenAdd] = useState(false);
   const [rooms, setRooms] = useState([]);
-  const roomManagerState = useSelector(state => state.roomManagerReducer);
+  const isAddSuccess = useSelector(state => state.roomManagerReducer.isAddSuccess);
+  const isUpdSuccess = useSelector(state => state.roomManagerReducer.isUpdSuccess);
+  const isDeleteSuccess = useSelector(state => state.roomManagerReducer.isDeleteSuccess);
   const dispatch = useDispatch()
+  const message = useSelector(state => state.roomManagerReducer.message);
+
   const ADD = () => {
     setOpenAdd(true);
   };
 
   const handleCancel = (e) => {
     setOpenAdd(false);
+
   };
-  const message = useSelector(state => state.roomManagerReducer.message);
+
+  const setData = () => {
+    fetch('http://localhost:3001/rooms')
+      .then((response) => response.json())
+      .then((data) => {
+        const newRooms = data.filter(room => room.type === "Deluxe")
+        setRooms(newRooms)
+      })
+      .catch((error) => {
+      });
+  }
 
   useEffect(() => {
     if (message) {
@@ -38,17 +53,24 @@ function Deluxe() {
   }, [message]);
 
   useEffect(() => {
-    fetch('http://localhost:3001/rooms')
-      .then((response) => response.json())
-      .then((data) => {
+    setData()
+  }, [])
 
-        const newRooms = data.filter(room => room.type === "Deluxe")
-        setRooms(newRooms)
-      })
-      .catch((error) => {
+  useEffect(() => {
+    if (isAddSuccess) {
+      setData()
+      dispatch(rsIsAddSuccess())
+    }
+    else if (isUpdSuccess) {
+      setData()
+      dispatch(rsIsUpdSuccess())
+    }
+    else if (isDeleteSuccess) {
+      setData()
+      dispatch(rsIsDeleteSuccess())
+    }
+  }, [isAddSuccess, isUpdSuccess, isDeleteSuccess])
 
-      });
-  }, [roomManagerState])
   return (
     <div>
       <ToastContainer />
@@ -73,7 +95,7 @@ function Deluxe() {
             }}
             width={800}
           >
-            <FormAddRoom close={handleCancel} type="Deluxe"/>
+            <FormAddRoom close={handleCancel} type="Deluxe" />
           </Modal>
         </div>
         {rooms.map(

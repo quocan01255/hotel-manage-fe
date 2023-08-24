@@ -30,22 +30,28 @@ const FormAddRoom = ({ type, close }) => {
             ...prevData,
             [name]: value,
         }));
-        console.log(data)
     }
 
     const handleSubmit = () => {
         dispatch(add(data))
         close()
+        setData({
+            name: '',
+            type,
+            quantity: '',
+            detail: '',
+            description: '',
+            price: '',
+            image: ''
+        })
     }
-
-    console.log(data)
 
     return (
         <div className='add-main-form-admin-room'>
             <div className='add-main-form-child-room'>
                 <Form labelCol={{ span: 4, }} wrapperCol={{ span: 14, }} layout="horizontal" >
                     <Form.Item label="Name room" className='input-form-admin-add-room'>
-                        <Input name='name' onChange={onChangeValue} />
+                        <Input value={data.name} name='name' onChange={onChangeValue} />
                     </Form.Item>
                     <Form.Item label="Type room" className='input-form-admin-add-room'>
                         <Select defaultValue={type} disabled>
@@ -61,16 +67,16 @@ const FormAddRoom = ({ type, close }) => {
                         </Select>
                     </Form.Item>
                     <Form.Item label="Detail" className='input-form-admin-add-room'>
-                        <TextArea name='detail' onChange={onChangeValue} rows={2} />
+                        <TextArea value={data.detail} name='detail' onChange={onChangeValue} rows={2} />
                     </Form.Item>
                     <Form.Item label="Description" className='input-form-admin-add-room'>
-                        <TextArea name='description' onChange={onChangeValue} rows={5} />
+                        <TextArea value={data.description} name='description' onChange={onChangeValue} rows={5} />
                     </Form.Item>
                     <Form.Item label="Image Room" className='input-form-admin-add-room'>
-                        <Input name='img' onChange={onChangeValue} />
+                        <Input value={data.image} name='img' onChange={onChangeValue} />
                     </Form.Item>
                     <Form.Item label="Price" className='input-form-admin-add-room'>
-                        <Input name='price' onChange={onChangeValue} />
+                        <Input value={data.price} name='price' onChange={onChangeValue} />
                     </Form.Item>
                     <Form.Item className='btn-admin-form-add-room'>
                         <Button type="primary" className='btn-admin-inform-add-room' onClick={handleSubmit}>Add</Button>

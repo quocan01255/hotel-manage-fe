@@ -30,7 +30,6 @@ const FormDetail = ({ room, close }) => {
             ...prevData,
             [name]: value,
         }));
-        console.log(data)
     }
     const handleUpdate = () => {
         dispatch(upd(data, id))

@@ -40,7 +40,7 @@ export const remove = (id) => {
                 dispatch({
                     type: 'REMOVE',
                     payload: {
-                        message: "Remove room success!"
+                        message: "Delete room success!"
                     },
                 });
             })
@@ -85,10 +85,35 @@ export const upd = (data, id) => {
             });
     }
 }
+
 export const rsMessage = () => {
     return (dispatch) => {
         dispatch({
             type: 'RESET'
+        });
+    }
+}
+
+export const rsIsAddSuccess = () => {
+    return (dispatch) => {
+        dispatch({
+            type: 'RESET_ADD'
+        });
+    }
+}
+
+export const rsIsUpdSuccess = () => {
+    return (dispatch) => {
+        dispatch({
+            type: 'RESET_UPD'
+        });
+    }
+}
+
+export const rsIsDeleteSuccess = () => {
+    return (dispatch) => {
+        dispatch({
+            type: 'RESET_DELETE'
         });
     }
 }

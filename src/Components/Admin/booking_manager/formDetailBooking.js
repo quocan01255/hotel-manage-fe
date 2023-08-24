@@ -1,38 +1,27 @@
 import './formBookingManager.css';
 import React, { useState } from 'react';
-import dayjs from 'dayjs';
-import { Button, Form, Input, DatePicker } from 'antd';
+import { Button, Form, Input } from 'antd';
 import './formBookingManager.css';
 import { upd } from '../../../redux/actions/bookingManagerAction';
 import { useDispatch } from 'react-redux';
+import TextArea from 'antd/es/input/TextArea';
 
-const { RangePicker } = DatePicker;
 const FormDetailBooking = ({ booking, close }) => {
-    const { id, name, email, phone, idroom, checkin, checkout } = booking
+    const { id, lastname, email, phone, nameroom, totalRoomPrice } = booking
     const dispatch = useDispatch()
     const [data, setData] = useState({
-        name,
+        lastname,
         email,
         phone,
-        idroom,
-        checkin,
-        checkout
+        nameroom,
+        totalRoomPrice,
     })
-    const onChangeRangePicker = (dates, dateStrings) => {
-        console.log('RangePicker value changed:', dateStrings);
-        setData((prevData) => ({
-            ...prevData,
-            checkin: dateStrings[0],
-            checkout: dateStrings[1],
-        }));
-    };
     const onChangeValue = (e) => {
         const { name, value } = e.target
         setData((prevData) => ({
             ...prevData,
             [name]: value,
         }));
-        console.log(data)
     }
     const handleUpdate = () => {
         dispatch(upd(data, id))
@@ -44,7 +33,7 @@ const FormDetailBooking = ({ booking, close }) => {
             <div className='ad-form-detail-booking'>
                 <Form labelCol={{ span: 4, }} wrapperCol={{ span: 14, }} layout="horizontal" >
                     <Form.Item label="Name">
-                        <Input name='name' onChange={onChangeValue} defaultValue={name} />
+                        <Input name='lastname' onChange={onChangeValue} defaultValue={lastname} />
                     </Form.Item>
                     <Form.Item label="E-mail">
                         <Input name='email' onChange={onChangeValue} defaultValue={email} />
@@ -52,15 +41,11 @@ const FormDetailBooking = ({ booking, close }) => {
                     <Form.Item label="Phone">
                         <Input name='phone' onChange={onChangeValue} defaultValue={phone} />
                     </Form.Item>
-                    <Form.Item label="ID-Room">
-                        <Input name='idroom' onChange={onChangeValue} defaultValue={idroom} disabled />
+                    <Form.Item label="Information">
+                        <TextArea name='nameroom' defaultValue={nameroom} disabled />
                     </Form.Item>
-                    <Form.Item label="RangePicker">
-                        <RangePicker
-                            defaultValue={[dayjs(checkin, 'DD/MM/YYYY'), dayjs(checkout, 'DD/MM/YYYY')]}
-                            onChange={onChangeRangePicker}
-                            format={'DD/MM/YYYY'}
-                        />
+                    <Form.Item label="Total">
+                        <Input name='totalRoomPrice' defaultValue={totalRoomPrice} disabled />
                     </Form.Item>
                     <Form.Item className='btn-edit-form-detai-booking'>
                         <Button type="primary" onClick={handleUpdate}>Save</Button>

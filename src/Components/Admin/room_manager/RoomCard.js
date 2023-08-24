@@ -1,5 +1,5 @@
 import { Button, Modal } from 'antd';
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import './cssRoomManager.css';
 import FormDetail from './FormEditRoom';
 import { remove } from '../../../redux/actions/roomManagerAction';
@@ -19,10 +19,6 @@ function RoomCard({ room }) {
     const handleRemove = () => {
         dispatch(remove(id))
     }
-    const currencyFormat = useCallback((num) => {
-        return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
-    }, []);
-
 
     return (
         <div className="row g-0 card-main-admin-manager-room">
@@ -36,7 +32,10 @@ function RoomCard({ room }) {
                     <ul style={{ listStyle: "disc" }}>{description.map((item, index) => (
                         <li key={index}>{item}</li>
                     ))}</ul>
-                    <h6>Price: {currencyFormat(String(price))}đ</h6>
+                    <h6>Price: {new Intl.NumberFormat("vi-VN", {
+                        style: "currency",
+                        currency: "VND",
+                    }).format(price)}</h6>
                 </div>
             </div>
             <div className="col-md-2 ">

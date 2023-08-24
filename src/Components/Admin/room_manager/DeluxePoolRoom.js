@@ -4,13 +4,16 @@ import './cssRoomManager.css';
 import FormAddRoom from './FormAddRoom';
 import RoomCard from '../room_manager/RoomCard';
 import { ToastContainer, toast } from 'react-toastify';
-import { rsMessage } from '../../../redux/actions/roomManagerAction';
+import { rsMessage, rsIsAddSuccess, rsIsUpdSuccess, rsIsDeleteSuccess } from '../../../redux/actions/roomManagerAction';
 import { useSelector, useDispatch } from 'react-redux';
 
 function DeluxePool() {
   const [openAdd, setOpenAdd] = useState(false);
   const [rooms, setRooms] = useState([]);
-  const roomManagerState = useSelector(state => state.roomManagerReducer);
+  const isAddSuccess = useSelector(state => state.roomManagerReducer.isAddSuccess);
+  const isUpdSuccess = useSelector(state => state.roomManagerReducer.isUpdSuccess);
+  const isDeleteSuccess = useSelector(state => state.roomManagerReducer.isDeleteSuccess);
+  const message = useSelector(state => state.roomManagerReducer.message);
   const dispatch = useDispatch()
 
   const ADD = () => {
@@ -20,7 +23,17 @@ function DeluxePool() {
   const handleCancel = (e) => {
     setOpenAdd(false);
   };
-  const message = useSelector(state => state.roomManagerReducer.message);
+
+  const setData = () => {
+    fetch('http://localhost:3001/rooms')
+      .then((response) => response.json())
+      .then((data) => {
+        const newRooms = data.filter(room => room.type === "Deluxe Pool")
+        setRooms(newRooms)
+      })
+      .catch((error) => {
+      });
+  }
 
   useEffect(() => {
     if (message) {
@@ -39,17 +52,23 @@ function DeluxePool() {
   }, [message]);
 
   useEffect(() => {
-    fetch('http://localhost:3001/rooms')
-      .then((response) => response.json())
-      .then((data) => {
+    setData()
+  }, [])
 
-        const newRooms = data.filter(room => room.type === "Deluxe Pool")
-        setRooms(newRooms)
-      })
-      .catch((error) => {
-
-      });
-  },[roomManagerState])
+  useEffect(() => {
+    if (isAddSuccess) {
+      setData()
+      dispatch(rsIsAddSuccess())
+    }
+    else if (isUpdSuccess) {
+      setData()
+      dispatch(rsIsUpdSuccess())
+    }
+    else if (isDeleteSuccess) {
+      setData()
+      dispatch(rsIsDeleteSuccess())
+    }
+  }, [isAddSuccess, isUpdSuccess, isDeleteSuccess])
   return (
     <div>
       <ToastContainer />
@@ -74,7 +93,7 @@ function DeluxePool() {
             }}
             width={800}
           >
-            <FormAddRoom close={handleCancel} type="Deluxe Pool"/>
+            <FormAddRoom close={handleCancel} type="Deluxe Pool" />
           </Modal>
         </div>
         {rooms.map(

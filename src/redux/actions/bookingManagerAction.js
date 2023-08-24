@@ -8,7 +8,7 @@ export const remove = (id) => {
                 dispatch({
                     type: 'REMOVE',
                     payload: {
-                        message: "Remove booking success!"
+                        message: "Delete booking success!"
                     },
                 });
             })
@@ -27,12 +27,11 @@ export const upd = (data, id) => {
                     method: 'PUT',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        "name": data.name,
+                        ...findBooking,
+                        "lastname": data.lastname,
                         "email": data.email,
                         "phone": data.phone,
-                        "idroom": data.idroom,
-                        "checkin": data.checkin,
-                        "checkout": data.checkout,
+                        "nameroom": data.nameroom
                     })
                 })
                     .then(res => res.json())
@@ -55,6 +54,21 @@ export const rsMessage = () => {
     return (dispatch) => {
         dispatch({
             type: 'RESET'
+        });
+    }
+}
+export const rsIsUpdSuccess = () => {
+    return (dispatch) => {
+        dispatch({
+            type: 'RESET_UPD'
+        });
+    }
+}
+
+export const rsIsDeleteSuccess = () => {
+    return (dispatch) => {
+        dispatch({
+            type: 'RESET_DELETE'
         });
     }
 }
