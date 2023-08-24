@@ -1,6 +1,7 @@
 const initialState = {
     message: "",
     type: "",
+    quantity: 0,
     guestCart: [],
 };
 
@@ -15,11 +16,13 @@ const cartReducer = (state = initialState, action) => {
         case 'UPDATE':
             return {
                 ...state,
+                type: action.type,
                 message: action.payload.message,
             };
         case 'RESET':
             return {
                 ...state,
+                type: action.type,
                 message: ""
             }
         case 'REMOVE':
@@ -32,18 +35,17 @@ const cartReducer = (state = initialState, action) => {
             return {
                 ...state,
                 type: action.type,
-                message: action.payload.message
+                // isIncrease: true,
+                // isDecrease: false,
+                message: action.payload.message,
+                quantity: action.payload.quantity
             }
         case 'DECREASE':
             return {
                 ...state,
                 type: action.type,
-                message: action.payload.message
-            }
-        case 'RESET':
-            return {
-                ...state,
-                message: ""
+                message: action.payload.message,
+                quantity: action.payload.quantity
             }
         default:
             return state;
@@ -51,50 +53,3 @@ const cartReducer = (state = initialState, action) => {
 };
 
 export default cartReducer;
-
-// const initialState = {
-//     message: '',
-//     cart: [], // Replace with your actual cart state
-//   };
-
-//   const cartReducer = (state = initialState, action) => {
-//     switch (action.type) {
-//       case 'ADD_TO_GUEST_CART':
-//         const findProductIndex = state.cart.findIndex(item => item.idRoom === action.payload.idRoom);
-//         if (findProductIndex < 0) {
-//           const updatedGuestCart = [...state.cart, { idRoom: action.payload.idRoom, quantity: 1 }];
-//           return {
-//             ...state,
-//             message: 'Add room to guest cart success!',
-//             cart: updatedGuestCart,
-//           };
-//         } else {
-//           const updatedGuestCart = [...state.cart];
-//           updatedGuestCart[findProductIndex].quantity += 1;
-//           return {
-//             ...state,
-//             message: 'Update guest cart success!',
-//             cart: updatedGuestCart,
-//           };
-//         }
-
-//       // Other cases...
-//       case 'ADD':
-//         return {
-//             ...state,
-//             message: action.payload.message,
-//             guestCart: action.payload.guestCart
-//         };
-//     case 'UPDATE':
-//         return {
-//             ...state,
-//             message: action.payload.message,
-//             guestCart: action.payload.guestCart
-//         }
-
-//       default:
-//         return state;
-//     }
-//   };
-
-//   export default cartReducer;

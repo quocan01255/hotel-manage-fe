@@ -79,6 +79,12 @@ h6,
     font-size: 16px;
 }
 
+.btn.btn-primary-gradient:hover,
+.btn.btn-secondary-gradient:hover {
+    color: rgba(0,0,0,.7);
+    border-color: rgba(0,0,0,.7);
+}
+
 .btn.btn-primary-gradient::after,
 .btn.btn-secondary-gradient::after {
     position: absolute;

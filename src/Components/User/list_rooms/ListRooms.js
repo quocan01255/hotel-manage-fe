@@ -5,7 +5,7 @@ import RoomItem from "../room_item/RoomItem";
 import "./listrooms.css";
 
 function ListRooms({ rooms }) {
-  const cartState = useSelector((state) => state.cartReducer);
+  const doCartAction = useSelector((state) => state.cartReducer.type);
   const authState = useSelector((state) => state.authReducer);
   const dispatch = useDispatch();
   const [priceType, setPriceType] = useState("VND");
@@ -25,7 +25,7 @@ function ListRooms({ rooms }) {
         dispatch(add(id, true, user.id));
       }
     },
-    [authState, dispatch]
+    [doCartAction, dispatch]
   );
 
 
