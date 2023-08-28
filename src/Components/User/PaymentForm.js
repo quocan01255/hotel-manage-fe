@@ -1,9 +1,10 @@
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { toast } from 'react-toastify';
+
 const PaymentForm = (props) => {
-  const { totalRoomPrice, thanhtoan, reset } = props;
+  const { totalRoomPrice, thanhtoan, reset, cart } = props;
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -75,22 +76,35 @@ const PaymentForm = (props) => {
 
   const handleBookClick = () => {
     if (validate()) {
-      // Dispatch action to set user info in Redux Store
-      // dispatch(payment(formData));
-      thanhtoan(formData);
-      navigate("/paycard", {
-        state: {
-          total: totalRoomPrice,
-          firstName: formData.firstName,
-          lastName: formData.lastName,
-          email: formData.email,
-          phone: formData.phone,
-          address: formData.address,
-          city: formData.city,
-          country: formData.country,
-        },
-      });
-      reset()
+      if (cart.length > 0) {
+        // Dispatch action to set user info in Redux Store
+        // dispatch(payment(formData));
+        thanhtoan(formData);
+        navigate("/paycard", {
+          state: {
+            total: totalRoomPrice,
+            firstName: formData.firstName,
+            lastName: formData.lastName,
+            email: formData.email,
+            phone: formData.phone,
+            address: formData.address,
+            city: formData.city,
+            country: formData.country,
+          },
+        });
+        reset()
+      } else {
+        toast('Cart is empty', {
+          position: "top-center",
+          autoClose: 1500,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }
     }
   };
 

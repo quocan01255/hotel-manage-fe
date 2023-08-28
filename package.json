@@ -32,6 +32,8 @@
     "redux-thunk": "^2.4.2",
     "reset-css": "^5.0.2",
     "source-map-loader": "^4.0.1",
+    "visitor-info": "^0.5.0",
+    "visitorapi": "^2.0.0",
     "web-vitals": "^2.1.4",
     "wow.js": "^1.2.2"
   },

@@ -11,6 +11,7 @@ import "../../Css/styleroom.css";
 import Headerbooking from "../../Components/User/header_booking/Headerbooking";
 import { payment } from "../../redux/actions/PayAction";
 import BookingSummary from "../../Components/User/BookingSummary";
+import VisitorAPI from "visitorapi";
 
 function HomeCart() {
   const dispatch = useDispatch()
@@ -21,6 +22,17 @@ function HomeCart() {
   const [cart, setCart] = useState([]);
   const [listId, setListId] = useState([])
   const checkLogin = localStorage.getItem("loggedIn");
+  const [visitorInfo, setVisitorInfo] = useState({})
+
+  // Get visitor information
+  useEffect(() => {
+    VisitorAPI("173A9jwVBwOduFX56JAl").then(data => {
+      setVisitorInfo(data)
+    }).catch(error => {
+      console.log(error);
+    });
+  }, [])
+  
 
   // Call api and get list rooms
   useEffect(() => {
@@ -137,18 +149,17 @@ function HomeCart() {
 
 
   const thanhtoan = (formData) => {
-    const user = JSON.parse(localStorage.getItem("user"));
-    dispatch(payment(formData, cart, totalRoomPrice, user.id));
+    const loggedIn = localStorage.getItem("loggedIn");
+    if (!loggedIn) {
+      dispatch(payment(formData, cart, totalRoomPrice, null, visitorInfo));
+    } else {
+      const user = JSON.parse(localStorage.getItem("user"))
+      dispatch(payment(formData, cart, totalRoomPrice, user.id, visitorInfo));
+    }
   }
 
   const reset = () => {
-    const loggedIn = localStorage.getItem("loggedIn")
-    if (!loggedIn) {
-      dispatch(resetCart(listId, false, null))
-    } else {
-      const user = JSON.parse(localStorage.getItem("user"))
-      dispatch(resetCart(listId, true, user.id))
-    }
+    dispatch(resetCart(listId))
   }
 
   return (
@@ -176,7 +187,7 @@ function HomeCart() {
               <BookingSummary totalRoomPrice={totalRoomPrice} />
             </div>
             <div className="col-md-6">
-              <PaymentForm totalRoomPrice={totalRoomPrice} thanhtoan={thanhtoan} reset={reset} />
+              <PaymentForm totalRoomPrice={totalRoomPrice} thanhtoan={thanhtoan} reset={reset} cart={cart}/>
             </div>
           </div>
         </div>

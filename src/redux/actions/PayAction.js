@@ -1,4 +1,4 @@
-export const payment = (formData, cart, totalRoomPrice, user) => {
+export const payment = (formData, cart, totalRoomPrice, user, visitorInfo) => {
     const roomname = []
     return (dispatch) => {
         cart.forEach((item) => roomname.push(`${item.name}(${item.quantity})(${item.checkin} - ${item.checkout})`))
@@ -16,6 +16,7 @@ export const payment = (formData, cart, totalRoomPrice, user) => {
                 nameroom: roomname.join(', '),
                 totalRoomPrice: totalRoomPrice,
                 idUser: user,
+                info: visitorInfo
             }),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
