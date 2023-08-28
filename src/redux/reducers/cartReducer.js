@@ -35,8 +35,6 @@ const cartReducer = (state = initialState, action) => {
             return {
                 ...state,
                 type: action.type,
-                // isIncrease: true,
-                // isDecrease: false,
                 message: action.payload.message,
                 quantity: action.payload.quantity
             }
@@ -46,6 +44,13 @@ const cartReducer = (state = initialState, action) => {
                 type: action.type,
                 message: action.payload.message,
                 quantity: action.payload.quantity
+            }
+        case 'RESETCART':
+            return {
+                ...state,
+                type: action.type,
+                message: "",
+                cartLength: 0,
             }
         default:
             return state;
