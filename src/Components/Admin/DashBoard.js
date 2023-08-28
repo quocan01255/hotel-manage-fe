@@ -47,6 +47,7 @@ function DashBoard() {
               precision={0}
               valueStyle={{
                 color: '#3f8600',
+                fontSize: '22px'
               }}
               prefix={<ArrowUpOutlined />}
               suffix="- Order"
@@ -64,6 +65,7 @@ function DashBoard() {
               precision={0}
               valueStyle={{
                 color: '#3f8600',
+                fontSize: '22px'
               }}
               prefix={<ArrowUpOutlined />}
               suffix="- VND"

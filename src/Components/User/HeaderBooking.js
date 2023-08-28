@@ -1,170 +1,120 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
+import React, { useCallback, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import "./headerbooking.css";
+import { useSelector, useDispatch } from 'react-redux'
+import { logout } from '../../../redux/actions/authActions'
+import Badge from '@mui/material/Badge';
+function Headerbooking() {
+  const checkLogin = localStorage.getItem("loggedIn");
+  const checkUser = JSON.parse(localStorage.getItem("user"));
+  const dispatch = useDispatch()
+  const [rooms, setRooms] = useState([])
+  const [guestCart, setGuestCart] = useState([])
+  const cartState = useSelector(state => state.cartReducer)
 
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
-import { useNavigate } from 'react-router-dom';
-
-
-const settings = ['My Booking', 'Login'];
-
-function HeaderAdmin() {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const navigate =useNavigate();
-
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
+  const handleClick = useCallback(() => {
+    dispatch(logout())
+    localStorage.removeItem("loggedIn")
+  }, [])
+  //startmui
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick1 = (event) => {
+    setAnchorEl(event.currentTarget);
   };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
+  const handleClose = () => {
+    setAnchorEl(null);
   };
+  //endmui
 
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
+  useEffect(() => {
+    if (localStorage.getItem('guestCart')) {
+      setGuestCart(JSON.parse(localStorage.getItem('guestCart')))
+    }
+  }, [cartState])
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-  const handleSetting=(setting)=>{
-    if(setting==="Login") {
-      sessionStorage.removeItem('user');
-      navigate('/login')
-    }else if(setting==="My Booking") navigate('/history')
-  }
+  useEffect(() => {
+    fetch('http://localhost:3001/userCart')
+      .then((response) => response.json())
+      .then((rooms) => {
+        const phong = rooms.filter((item) => item.idUser === checkUser.id)
+        setRooms(phong)
+      })
+      .catch((error) => {
+      });
+  }, [cartState])
 
   return (
-    <AppBar position="static" color='default'>
-      <Container maxWidth="xl">
-        <Toolbar disableGutters >
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            Booking Now
-          </Typography>
+    <div>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light header-booking">
+        <div className="container">
+          <Link to="/" className="brand ">
+            <h1 className="logo" >clément</h1>
+          </Link>
+          <ul className="nav justify-content-end">
+            <li className="item">
+              {
+                !checkLogin &&
+                <Link to="/login" className="brand">
+                  Login
+                </Link>
+              }
+              {
+                checkLogin &&
+                <li className="item">
+                  <Link to="/history" className="brand">
+                    My booking
+                  </Link>
+                </li>
+              }
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-              }}
-            >
-              {/* {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))} */}
-            </Menu>
-          </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            Booking Now
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {/* {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
-            ))} */}
-          </Box>
+              {
+                !checkLogin &&
+                <li className="item">
+                  <Link to="/homecart" className="brand">
+                    <Badge badgeContent={guestCart.length} color="primary"
+                      id="basic-button"
+                      aria-controls={open ? 'basic-menu' : undefined}
+                      aria-haspopup="true"
+                      aria-expanded={open ? 'true' : undefined}
+                      onClick={handleClick1}
+                    >
+                      <i className="fa-solid fa-cart-shopping text-dark" style={{ fontSize: 25, cursor: "pointer" }}></i>
+                    </Badge>
+                  </Link>
+                </li>
+              }
 
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography onClick={()=>{handleSetting(setting)}} textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-        </Toolbar>
-      </Container>
-    </AppBar>
+              {
+                checkLogin &&
+                <li className="item">
+                  <Link to="/homecart" className="brand">
+                    <Badge badgeContent={rooms.length} color="primary"
+                      id="basic-button"
+                      aria-controls={open ? 'basic-menu' : undefined}
+                      aria-haspopup="true"
+                      aria-expanded={open ? 'true' : undefined}
+                      onClick={handleClick1}
+                    >
+                      <i className="fa-solid fa-cart-shopping text-dark" style={{ fontSize: 25, cursor: "pointer" }}></i>
+                    </Badge>
+                  </Link>
+                </li>
+              }
+              {
+                checkLogin &&
+                <li className="item">
+                  <Link to="/login" className="brand" onClick={handleClick}>
+                    Logout
+                  </Link>
+                </li>
+              }
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
   );
 }
-export default HeaderAdmin;
+
+export default Headerbooking;
