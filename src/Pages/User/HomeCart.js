@@ -33,7 +33,6 @@ function HomeCart() {
     });
   }, [])
   
-
   // Call api and get list rooms
   useEffect(() => {
     fetch("http://localhost:3001/rooms")
@@ -95,8 +94,7 @@ function HomeCart() {
 
   // Handling event
   const handleRemove = useCallback((id) => {
-    const loggedIn = localStorage.getItem("loggedIn")
-    if (!loggedIn) {
+    if (!checkLogin) {
       dispatch(remove(id, false, null))
     } else {
       const user = JSON.parse(localStorage.getItem("user"))
@@ -105,8 +103,7 @@ function HomeCart() {
   }, [dispatch])
 
   const handleIncrease = useCallback((id) => {
-    const loggedIn = localStorage.getItem("loggedIn")
-    if (!loggedIn) {
+    if (!checkLogin) {
       dispatch(increase(id, false, null))
     } else {
       const user = JSON.parse(localStorage.getItem("user"))
@@ -115,8 +112,7 @@ function HomeCart() {
   }, [dispatch])
 
   const handleDecrease = useCallback((id) => {
-    const loggedIn = localStorage.getItem("loggedIn")
-    if (!loggedIn) {
+    if (!checkLogin) {
       dispatch(decrease(id, false, null))
     } else {
       const user = JSON.parse(localStorage.getItem("user"))
@@ -149,8 +145,7 @@ function HomeCart() {
 
 
   const thanhtoan = (formData) => {
-    const loggedIn = localStorage.getItem("loggedIn");
-    if (!loggedIn) {
+    if (!checkLogin) {
       dispatch(payment(formData, cart, totalRoomPrice, null, visitorInfo));
     } else {
       const user = JSON.parse(localStorage.getItem("user"))
@@ -159,7 +154,12 @@ function HomeCart() {
   }
 
   const reset = () => {
-    dispatch(resetCart(listId))
+    if (!checkLogin) {
+      dispatch(resetCart(listId, false, null))
+    } else {
+      const user = JSON.parse(localStorage.getItem("user"))
+      dispatch(resetCart(listId, true, user.id))
+    }
   }
 
   return (
