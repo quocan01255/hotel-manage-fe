@@ -1,7 +1,7 @@
-export const payment = (formData, cart, totalRoomPrice, user, visitorInfo) => {
+export const payment = (formData, cart, totalRoomPrice, user) => {
     const roomname = []
     return (dispatch) => {
-        cart.forEach((item) => roomname.push(`${item.name}(${item.quantity})(${item.checkin} - ${item.checkout})`))
+        cart.forEach((item) => roomname.push(`${item.name} - (${item.quantity}) - (${item.checkin} - ${item.checkout})`))
         fetch('http://localhost:3001/bookings', {
             method: 'POST',
             body: JSON.stringify({
@@ -16,7 +16,6 @@ export const payment = (formData, cart, totalRoomPrice, user, visitorInfo) => {
                 nameroom: roomname.join(', '),
                 totalRoomPrice: totalRoomPrice,
                 idUser: user,
-                info: visitorInfo
             }),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',

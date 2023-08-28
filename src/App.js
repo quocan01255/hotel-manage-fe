@@ -1,6 +1,5 @@
 import { Routes, Route, } from "react-router-dom";
 import { Provider } from 'react-redux'
-import { BookingProvider } from "./Components/User/BookingContext";
 import './App.css';
 import 'reset-css/reset.css'
 import 'bootstrap/dist/css/bootstrap.css'
@@ -26,7 +25,12 @@ import DeluxePool from './Components/Admin/room_manager/DeluxePoolRoom';
 import DeluxeExecutive from './Components/Admin/room_manager/DeluxeExecutiveRoom';
 import Deluxe from './Components/Admin/room_manager/DeluxeRoom';
 import DeluxePlus from './Components/Admin/room_manager/DeluxePlusRoom';
-import RoomCard from "./Components/Admin/room_manager/RoomCard";
+import DetailPage from "./Pages/User/DetailPage";
+
+import ManagerUserPage from "./Pages/Admin/ManagerUserPage";
+import DashBoard from "./Components/Admin/DashBoard";
+
+
 
 function App() {
   return (
@@ -41,7 +45,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/homecart" element={<HomeCart />} />
             <Route path="/paycard" element={<PayCard />} />
-            {/* <Route path="/history/:id" element={<RoomCard />} /> */}
+            <Route path="/history/:id" element={<DetailPage/>} />
             {/*home  */}
             <Route path="/" element={<LayoutUser />}>
               <Route index element={<HomePage />} />
@@ -57,6 +61,8 @@ function App() {
               <Route path="ManagerRoomDeluxeExecutive" element={<DeluxeExecutive />} />
               <Route path="ManagerRoomDeluxePlus" element={<DeluxePlus />} />
               <Route path="ManagerRoomDeluxe" element={<Deluxe />} />
+              <Route path="ManagerUser" element={<ManagerUserPage/>} />
+              <Route path="DashBoard" element={<DashBoard/>} />
             </Route>
             <Route path="/bookingpage" element={<BookingPage/>}/>
 

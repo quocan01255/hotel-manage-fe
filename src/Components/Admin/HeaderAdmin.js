@@ -8,14 +8,13 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { useNavigate } from 'react-router-dom';
 
 
-const settings = ['Profile', 'Logout'];
+const settings = [ 'Logout'];
 
 function HeaderAdmin() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -38,9 +37,9 @@ function HeaderAdmin() {
   };
   const handleSetting=(setting)=>{
     if(setting==="Logout") {
-      sessionStorage.removeItem('user');
+      localStorage.clear();
       navigate('/login')
-    }else if(setting==="Profile") navigate('/profile')
+    }
   }
 
   return (
@@ -52,7 +51,7 @@ function HeaderAdmin() {
             variant="h6"
             noWrap
             component="a"
-            href="/admin"
+            href="/adminpage"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },

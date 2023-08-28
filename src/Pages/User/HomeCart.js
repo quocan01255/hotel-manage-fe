@@ -2,7 +2,7 @@ import React from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import { useCallback, useEffect, useState, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { remove, resetCartMessage, increase, decrease, resetCart } from "../../redux/actions/cartActions";
+import { remove, resetCartMessage, increase, decrease } from "../../redux/actions/cartActions";
 import { Link } from "react-router-dom";
 import RoomCart from "../../Components/User/RoomCart";
 import PaymentForm from "../../Components/User/PaymentForm";
@@ -11,7 +11,6 @@ import "../../Css/styleroom.css";
 import Headerbooking from "../../Components/User/header_booking/Headerbooking";
 import { payment } from "../../redux/actions/PayAction";
 import BookingSummary from "../../Components/User/BookingSummary";
-import VisitorAPI from "visitorapi";
 
 function HomeCart() {
   const dispatch = useDispatch()
@@ -20,19 +19,8 @@ function HomeCart() {
   const doCartAction = useSelector((state) => state.cartReducer.type);
   const [rooms, setRooms] = useState([]);
   const [cart, setCart] = useState([]);
-  const [listId, setListId] = useState([])
   const checkLogin = localStorage.getItem("loggedIn");
-  const [visitorInfo, setVisitorInfo] = useState({})
 
-  // Get visitor information
-  useEffect(() => {
-    VisitorAPI("173A9jwVBwOduFX56JAl").then(data => {
-      setVisitorInfo(data)
-    }).catch(error => {
-      console.log(error);
-    });
-  }, [])
-  
   // Call api and get list rooms
   useEffect(() => {
     fetch("http://localhost:3001/rooms")
@@ -85,16 +73,10 @@ function HomeCart() {
     }
   }, [cartQuantity, doCartAction, rooms]);
 
-  // Get list id room
-  useEffect(() => {
-    const list = []
-    cart.forEach((room) => list.push(room.id))
-    setListId(list)
-  }, [cart])
-
   // Handling event
   const handleRemove = useCallback((id) => {
-    if (!checkLogin) {
+    const loggedIn = localStorage.getItem("loggedIn")
+    if (!loggedIn) {
       dispatch(remove(id, false, null))
     } else {
       const user = JSON.parse(localStorage.getItem("user"))
@@ -103,7 +85,8 @@ function HomeCart() {
   }, [dispatch])
 
   const handleIncrease = useCallback((id) => {
-    if (!checkLogin) {
+    const loggedIn = localStorage.getItem("loggedIn")
+    if (!loggedIn) {
       dispatch(increase(id, false, null))
     } else {
       const user = JSON.parse(localStorage.getItem("user"))
@@ -112,7 +95,8 @@ function HomeCart() {
   }, [dispatch])
 
   const handleDecrease = useCallback((id) => {
-    if (!checkLogin) {
+    const loggedIn = localStorage.getItem("loggedIn")
+    if (!loggedIn) {
       dispatch(decrease(id, false, null))
     } else {
       const user = JSON.parse(localStorage.getItem("user"))
@@ -145,21 +129,8 @@ function HomeCart() {
 
 
   const thanhtoan = (formData) => {
-    if (!checkLogin) {
-      dispatch(payment(formData, cart, totalRoomPrice, null, visitorInfo));
-    } else {
-      const user = JSON.parse(localStorage.getItem("user"))
-      dispatch(payment(formData, cart, totalRoomPrice, user.id, visitorInfo));
-    }
-  }
-
-  const reset = () => {
-    if (!checkLogin) {
-      dispatch(resetCart(listId, false, null))
-    } else {
-      const user = JSON.parse(localStorage.getItem("user"))
-      dispatch(resetCart(listId, true, user.id))
-    }
+    const user = JSON.parse(localStorage.getItem("user"));
+    dispatch(payment(formData, cart, totalRoomPrice, user.id));
   }
 
   return (
@@ -187,7 +158,7 @@ function HomeCart() {
               <BookingSummary totalRoomPrice={totalRoomPrice} />
             </div>
             <div className="col-md-6">
-              <PaymentForm totalRoomPrice={totalRoomPrice} thanhtoan={thanhtoan} reset={reset} cart={cart}/>
+              <PaymentForm totalRoomPrice={totalRoomPrice} thanhtoan={thanhtoan} />
             </div>
           </div>
         </div>

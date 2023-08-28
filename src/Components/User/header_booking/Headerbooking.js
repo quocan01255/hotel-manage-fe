@@ -37,6 +37,7 @@ function Headerbooking() {
     fetch('http://localhost:3001/userCart')
       .then((response) => response.json())
       .then((rooms) => {
+
         const phong = rooms.filter((item) => item.idUser === checkUser.id)
         setRooms(phong)
       })

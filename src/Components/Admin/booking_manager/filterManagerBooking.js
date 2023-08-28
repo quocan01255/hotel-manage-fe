@@ -12,19 +12,31 @@ function FilterManagerBooking() {
     const isUpdSuccess = useSelector(state => state.roomManagerReducer.isUpdSuccess);
     const isDeleteSuccess = useSelector(state => state.roomManagerReducer.isDeleteSuccess);
     const message = useSelector(state => state.bookingManagerReducer.message);
+    // const getname = useSelector((state) => state.SearchAdminReducer);
+    const getname =useSelector(state => state.SearchAdminReducer.name);
+    console.log("SearchAdmin",getname);
+    const [lastname, setLastname] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
+    const [nameroom, setNameroom] = useState('');
+    const [totalRoomPrice, setTotalRoomPrice] = useState('');
+   
     const [currentBooking, setCurrentBooking] = useState([])
 
     const setData = () => {
         fetch('http://localhost:3001/bookings')
             .then((response) => response.json())
             .then((data) => {
-                const newBookings = data
-                setBookings(newBookings)
+               
+                setBookings(data)
             })
             .catch((error) => {
             });
     }
 
+    useEffect(() => {
+        setBookings(getname)
+    }, [getname])
     useEffect(() => {
         if (message) {
             toast.success(message, {
@@ -65,12 +77,13 @@ function FilterManagerBooking() {
     const handleRemove = (id) => {
         dispatch(remove(id))
     }
+    
     const columns = [
         {
-            title: 'Last Name',
-            dataIndex: 'lastname',
-            key: 'lastname',
-            width: '50px'
+            title: 'Fist Name',
+            dataIndex: 'fistname',
+            key: 'fistname',
+            width: '100px'
         },
         {
             title: 'E-mail',
@@ -87,8 +100,8 @@ function FilterManagerBooking() {
         {
             title: 'Booking information',
             dataIndex: 'nameroom',
-            key: 'name',
-            width: '350px'
+            key: 'nameroom',
+            width: '500px'
 
         },
         {
@@ -113,6 +126,12 @@ function FilterManagerBooking() {
                             <Button type="primary"
                                 onClick={(e) => {
                                     setOpen(true);
+                                    setLastname(booking.lastname)
+                                    setEmail(booking.email)
+                                    setPhone(booking.phone)
+                                    setNameroom(booking.nameroom)
+                                    
+                                    setTotalRoomPrice(booking.totalRoomPrice)
                                     setCurrentBooking(booking)
                                 }}
                             >Edit</Button>

@@ -9,7 +9,7 @@ import TextArea from 'antd/es/input/TextArea';
 const FormDetailBooking = ({ booking, close }) => {
     const { id, lastname, email, phone, nameroom, totalRoomPrice } = booking
     const dispatch = useDispatch()
-    const [data, setData] = useState({
+    const [data, setData] = useState({   
         lastname,
         email,
         phone,
