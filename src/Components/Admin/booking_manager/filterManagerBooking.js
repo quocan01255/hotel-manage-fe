@@ -63,7 +63,7 @@ function FilterManagerBooking() {
             dispatch(rsIsUpdSuccess())
         } else if (isDeleteSuccess) {
             setData()
-            dispatch(rsIsDeleteSuccess)
+            dispatch(rsIsDeleteSuccess())
         }
     }, [isUpdSuccess, isDeleteSuccess])
 
