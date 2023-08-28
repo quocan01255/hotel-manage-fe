@@ -293,7 +293,6 @@ export const resetCart = (listIdRoom, loggedIn, idUser) => {
 
   return (dispatch) => {
     // Check if logged in
-    
     if (loggedIn) {
       const deleteRoom = (id) => {
         fetch(`http://localhost:3001/userCart/${id}`, {
