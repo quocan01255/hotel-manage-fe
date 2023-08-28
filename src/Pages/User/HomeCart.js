@@ -2,7 +2,7 @@ import React from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import { useCallback, useEffect, useState, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { remove, resetCartMessage, increase, decrease } from "../../redux/actions/cartActions";
+import { remove, resetCartMessage, increase, decrease, resetCart } from "../../redux/actions/cartActions";
 import { Link } from "react-router-dom";
 import RoomCart from "../../Components/User/RoomCart";
 import PaymentForm from "../../Components/User/PaymentForm";
@@ -19,6 +19,7 @@ function HomeCart() {
   const doCartAction = useSelector((state) => state.cartReducer.type);
   const [rooms, setRooms] = useState([]);
   const [cart, setCart] = useState([]);
+  const [listId, setListId] = useState([])
   const checkLogin = localStorage.getItem("loggedIn");
 
   // Call api and get list rooms
@@ -72,6 +73,13 @@ function HomeCart() {
         .catch((err) => { });
     }
   }, [cartQuantity, doCartAction, rooms]);
+
+  // Get list id room
+  useEffect(() => {
+    const list = []
+    cart.forEach((room) => list.push(room.id))
+    setListId(list)
+  }, [cart])
 
   // Handling event
   const handleRemove = useCallback((id) => {
@@ -133,6 +141,16 @@ function HomeCart() {
     dispatch(payment(formData, cart, totalRoomPrice, user.id));
   }
 
+  const reset = () => {
+    const loggedIn = localStorage.getItem("loggedIn")
+    if (!loggedIn) {
+      dispatch(resetCart(listId, false, null))
+    } else {
+      const user = JSON.parse(localStorage.getItem("user"))
+      dispatch(resetCart(listId, true, user.id))
+    }
+  }
+
   return (
     <>
       <ToastContainer />
@@ -158,7 +176,7 @@ function HomeCart() {
               <BookingSummary totalRoomPrice={totalRoomPrice} />
             </div>
             <div className="col-md-6">
-              <PaymentForm totalRoomPrice={totalRoomPrice} thanhtoan={thanhtoan} />
+              <PaymentForm totalRoomPrice={totalRoomPrice} thanhtoan={thanhtoan} reset={reset} />
             </div>
           </div>
         </div>
