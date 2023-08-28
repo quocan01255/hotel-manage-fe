@@ -1,5 +1,5 @@
 import './formBookingManager.css';
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Button, Form, Input } from 'antd';
 import './formBookingManager.css';
 import { upd } from '../../../redux/actions/bookingManagerAction';
@@ -16,6 +16,7 @@ const FormDetailBooking = ({ booking, close }) => {
         nameroom,
         totalRoomPrice,
     })
+    
     const onChangeValue = (e) => {
         const { name, value } = e.target
         setData((prevData) => ({
@@ -23,6 +24,7 @@ const FormDetailBooking = ({ booking, close }) => {
             [name]: value,
         }));
     }
+
     const handleUpdate = () => {
         dispatch(upd(data, id))
         close()

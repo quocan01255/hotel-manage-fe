@@ -21,6 +21,8 @@ function FilterManagerBooking() {
     const [nameroom, setNameroom] = useState('');
     const [totalRoomPrice, setTotalRoomPrice] = useState('');
    
+    const [currentBooking, setCurrentBooking] = useState([])
+
     const setData = () => {
         fetch('http://localhost:3001/bookings')
             .then((response) => response.json())
@@ -50,6 +52,7 @@ function FilterManagerBooking() {
             dispatch(rsMessage())
         }
     }, [message]);
+
     useEffect(() => {
         setData()
     }, [])
@@ -58,8 +61,7 @@ function FilterManagerBooking() {
         if (isUpdSuccess) {
             setData()
             dispatch(rsIsUpdSuccess())
-        }
-        else if (isDeleteSuccess) {
+        } else if (isDeleteSuccess) {
             setData()
             dispatch(rsIsDeleteSuccess)
         }
@@ -130,6 +132,7 @@ function FilterManagerBooking() {
                                     setNameroom(booking.nameroom)
                                     
                                     setTotalRoomPrice(booking.totalRoomPrice)
+                                    setCurrentBooking(booking)
                                 }}
                             >Edit</Button>
                             <Modal
@@ -146,7 +149,7 @@ function FilterManagerBooking() {
                                 }}
                                 width={800}
                             >
-                                <FormDetailBooking close={handleCancel} booking={booking} />
+                                <FormDetailBooking close={handleCancel} booking={currentBooking} />
                             </Modal>
                         </div>
                         <Button type="primary" danger onClick={() => handleRemove(booking.id)}>Cancel</Button>
