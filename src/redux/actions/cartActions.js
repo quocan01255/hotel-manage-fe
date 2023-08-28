@@ -283,3 +283,57 @@ export const resetCartMessage = () => {
     });
   }
 }
+
+export const resetCart = (listIdRoom, loggedIn, idUser) => {
+  if (!localStorage.getItem("guestCart")) {
+    localStorage.setItem('guestCart', JSON.stringify([]))
+  }
+
+  let guestCart = JSON.parse(localStorage.getItem("guestCart"))
+
+  return (dispatch) => {
+    // Check if logged in
+    
+    if (loggedIn) {
+      const deleteRoom = (id) => {
+        fetch(`http://localhost:3001/userCart/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then(() => {
+          });
+      }
+      
+      fetch("http://localhost:3001/userCart")
+        .then((response) => response.json())
+        .then((products) => {
+          // Check if product is existed
+          let userCart = products.filter(product => product.idUser === idUser)
+          listIdRoom.forEach((idRoom) => {
+            const findProduct = userCart.find(
+              (product) => product.idRoom === idRoom
+            );
+            if (findProduct) {
+              deleteRoom(findProduct.id)
+            }
+          })
+          dispatch({
+            type: "RESETCART",
+            payload: {
+              message: "",
+              cartLength: 0,
+            },
+          });
+        });
+    } else {
+      localStorage.setItem('guestCart', JSON.stringify([]))
+      dispatch({
+        type: "RESETCART",
+        payload: {
+          message: "",
+          cartLength: 0,
+        },
+      });
+    }
+  };
+}

@@ -12,8 +12,6 @@ function FilterManagerBooking() {
     const isUpdSuccess = useSelector(state => state.roomManagerReducer.isUpdSuccess);
     const isDeleteSuccess = useSelector(state => state.roomManagerReducer.isDeleteSuccess);
     const message = useSelector(state => state.bookingManagerReducer.message);
-    const [lastname, setLastname] = useState('');
-    const [idBooking, setIdBooking] = useState('')
     const [currentBooking, setCurrentBooking] = useState([])
 
     const setData = () => {
@@ -42,6 +40,7 @@ function FilterManagerBooking() {
             dispatch(rsMessage())
         }
     }, [message]);
+
     useEffect(() => {
         setData()
     }, [])
@@ -50,8 +49,7 @@ function FilterManagerBooking() {
         if (isUpdSuccess) {
             setData()
             dispatch(rsIsUpdSuccess())
-        }
-        else if (isDeleteSuccess) {
+        } else if (isDeleteSuccess) {
             setData()
             dispatch(rsIsDeleteSuccess)
         }

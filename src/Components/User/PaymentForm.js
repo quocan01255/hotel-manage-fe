@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 const PaymentForm = (props) => {
-  const { totalRoomPrice,thanhtoan} = props;
+  const { totalRoomPrice, thanhtoan, reset } = props;
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -16,8 +16,8 @@ const PaymentForm = (props) => {
     city: "",
     country: "",
   });
-  
- 
+
+
 
   const [formErrors, setFormErrors] = useState({
     firstName: "",
@@ -44,7 +44,7 @@ const PaymentForm = (props) => {
     }));
   };
 
-  
+
   const validate = () => {
     let isValid = true;
     const newFormErrors = {
@@ -74,24 +74,23 @@ const PaymentForm = (props) => {
   };
 
   const handleBookClick = () => {
-
     if (validate()) {
       // Dispatch action to set user info in Redux Store
       // dispatch(payment(formData));
-     
       thanhtoan(formData);
-      navigate("/paycard", {        
-        state: {          
+      navigate("/paycard", {
+        state: {
           total: totalRoomPrice,
-          firstName:formData.firstName,
-          lastName:formData.lastName,
-          email:formData.email,
-          phone:formData.phone,
-          address:formData.address,
-          city:formData.city,
-          country:formData.country,
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          phone: formData.phone,
+          address: formData.address,
+          city: formData.city,
+          country: formData.country,
         },
       });
+      reset()
     }
   };
 
@@ -107,9 +106,8 @@ const PaymentForm = (props) => {
           <input
             type="text"
             id="first-name"
-            className={`c-form-input ${
-              formErrors.firstName ? "invalid-input" : ""
-            }`}
+            className={`c-form-input ${formErrors.firstName ? "invalid-input" : ""
+              }`}
             name="firstName"
             value={formData.firstName}
             onChange={handleInputChange}
@@ -127,9 +125,8 @@ const PaymentForm = (props) => {
           <input
             type="text"
             id="last-name"
-            className={`c-form-input ${
-              formErrors.lastName ? "invalid-input" : ""
-            }`}
+            className={`c-form-input ${formErrors.lastName ? "invalid-input" : ""
+              }`}
             name="lastName"
             value={formData.lastName}
             onChange={handleInputChange}
@@ -147,9 +144,8 @@ const PaymentForm = (props) => {
           <input
             type="email"
             id="email"
-            className={`c-form-input ${
-              formErrors.email ? "invalid-input" : ""
-            }`}
+            className={`c-form-input ${formErrors.email ? "invalid-input" : ""
+              }`}
             name="email"
             value={formData.email}
             onChange={handleInputChange}
@@ -167,9 +163,8 @@ const PaymentForm = (props) => {
           <input
             type="tel"
             id="phone"
-            className={`c-form-input ${
-              formErrors.phone ? "invalid-input" : ""
-            }`}
+            className={`c-form-input ${formErrors.phone ? "invalid-input" : ""
+              }`}
             name="phone"
             value={formData.phone}
             onChange={handleInputChange}
@@ -187,9 +182,8 @@ const PaymentForm = (props) => {
           <input
             type="text"
             id="address"
-            className={`c-form-input ${
-              formErrors.address ? "invalid-input" : ""
-            }`}
+            className={`c-form-input ${formErrors.address ? "invalid-input" : ""
+              }`}
             name="address"
             value={formData.address}
             onChange={handleInputChange}
@@ -225,9 +219,8 @@ const PaymentForm = (props) => {
           <input
             type="text"
             id="country"
-            className={`c-form-input ${
-              formErrors.country ? "invalid-input" : ""
-            }`}
+            className={`c-form-input ${formErrors.country ? "invalid-input" : ""
+              }`}
             name="country"
             value={formData.country}
             onChange={handleInputChange}
