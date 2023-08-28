@@ -12,6 +12,9 @@ function FilterManagerBooking() {
     const isUpdSuccess = useSelector(state => state.roomManagerReducer.isUpdSuccess);
     const isDeleteSuccess = useSelector(state => state.roomManagerReducer.isDeleteSuccess);
     const message = useSelector(state => state.bookingManagerReducer.message);
+    const [lastname, setLastname] = useState('');
+    const [idBooking, setIdBooking] = useState('')
+    const [currentBooking, setCurrentBooking] = useState([])
 
     const setData = () => {
         fetch('http://localhost:3001/bookings')
@@ -23,6 +26,7 @@ function FilterManagerBooking() {
             .catch((error) => {
             });
     }
+
     useEffect(() => {
         if (message) {
             toast.success(message, {
@@ -68,7 +72,7 @@ function FilterManagerBooking() {
             title: 'Last Name',
             dataIndex: 'lastname',
             key: 'lastname',
-            width: '100px'
+            width: '50px'
         },
         {
             title: 'E-mail',
@@ -86,7 +90,7 @@ function FilterManagerBooking() {
             title: 'Booking information',
             dataIndex: 'nameroom',
             key: 'name',
-            width: '500px'
+            width: '350px'
 
         },
         {
@@ -111,6 +115,7 @@ function FilterManagerBooking() {
                             <Button type="primary"
                                 onClick={(e) => {
                                     setOpen(true);
+                                    setCurrentBooking(booking)
                                 }}
                             >Edit</Button>
                             <Modal
@@ -127,7 +132,7 @@ function FilterManagerBooking() {
                                 }}
                                 width={800}
                             >
-                                <FormDetailBooking close={handleCancel} booking={booking} />
+                                <FormDetailBooking close={handleCancel} booking={currentBooking} />
                             </Modal>
                         </div>
                         <Button type="primary" danger onClick={() => handleRemove(booking.id)}>Cancel</Button>
