@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 function Detail() {
 
     const [bookings, setBookings] = useState([]);   
@@ -13,12 +13,12 @@ function Detail() {
                 setBookings(phong);
             })
         console.log("guestCart", bookings);
-    }, [])
+    }, [bookings,id])
 
     return (
         <div style={{ display: "flex", justifyContent: "center" }}>          
 
-            <div className=" mb-5 ">
+            <div className=" mb-5 "style={{ width:"850px" }}>
                 <div className="c-room-card " >
                     {bookings.map((room) => (
                         <div key={room.id}>

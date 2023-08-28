@@ -11,7 +11,7 @@ function DetailPage() {
               Return
             </Link>
           </div>  
-          <h3 className='mt-5'>DETAIL BILL</h3>        
+          <h3 className='mt-5 mb-5'>DETAIL BILL</h3>        
           <Detail/>       
        
     </div>

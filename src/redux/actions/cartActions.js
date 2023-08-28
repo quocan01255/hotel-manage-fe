@@ -19,7 +19,8 @@ export const add = (idRoom, loggedIn, idUser) => {
           const isExist = products.findIndex(
             (product) => product.idRoom === idRoom && product.idUser === idUser
           );
-          if (isExist < 0) {
+          console.log("isExist",isExist);
+          if (isExist<0 ) {
             fetch("http://localhost:3001/userCart", {
               method: "POST",
               body: JSON.stringify({
@@ -121,6 +122,7 @@ export const remove = (idRoom, loggedIn, idUser) => {
           const findProduct = products.find(
             (product) => product.idRoom === idRoom && product.idUser === idUser
           );
+         
           if (findProduct) {
             fetch(`http://localhost:3001/userCart/${findProduct.id}`, {
               method: "DELETE",
