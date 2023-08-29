@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from "react-router-dom";
 import './login_style.css'
 import FormGroup from '../../commons/FormGroup';
 import Validator from '../../commons/validator';
 import { ToastContainer, toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
-import { login } from '../../redux/actions/authActions'
+import { login, loginWithEmail } from '../../redux/actions/authActions'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { LoginSocialGoogle } from 'reactjs-social-login'
+import { GoogleLoginButton } from 'react-social-login-buttons'
+const REACT_APP_GG_APP_ID = '932157267245-bjpirg0kfni3domcv0oard0hcbl2f0n0.apps.googleusercontent.com'
 
 function Login() {
     const authState = useSelector(state => state.authReducer)
@@ -15,6 +18,13 @@ function Login() {
     const dispatch = useDispatch()
     const navigate = useNavigate();
     const [showNotify, setShowNotify] = useState(false)
+    const [provider, setProvider] = useState('')
+    const [profile, setProfile] = useState(null)
+    const onLogoutSuccess = useCallback(() => {
+        setProfile(null)
+        setProvider('')
+        alert('logout success')
+    }, [])
 
     useEffect(() => {
         var form = new Validator('#login-form')
@@ -57,6 +67,9 @@ function Login() {
         }
     }, [userInfo])
 
+    // const loginGoogle = () => {
+    //     console.log(process)
+    // }
     return (
         <div className="main login-container">
             <ToastContainer />
@@ -70,6 +83,22 @@ function Login() {
                 <FormGroup id="password" name="password" type="password" placeholder="Password" rules="required|min:8" title="Password" />
 
                 <input type="submit" value="Sign in" className="form-submit" />
+                <hr />
+                <LoginSocialGoogle
+                    scope={'email'}
+                    client_id={REACT_APP_GG_APP_ID || ''}
+                    onResolve={({ provider, data }) => {
+                        // setProvider(provider)
+                        // setProfile(data)
+                        console.log(data)
+                        dispatch(loginWithEmail(data.email))
+                        setShowNotify(true)
+                    }}
+                    onReject={(err) => {
+                    }}
+                >
+                    <GoogleLoginButton style={{ fontSize: '16px', width:'452px', margin: '0' }} />
+                </LoginSocialGoogle>
                 <div className='form-footer'>
                     <Link className='form-link' to={`/register`}>Create account</Link>
                 </div>
