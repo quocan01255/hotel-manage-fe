@@ -18,13 +18,6 @@ function Login() {
     const dispatch = useDispatch()
     const navigate = useNavigate();
     const [showNotify, setShowNotify] = useState(false)
-    const [provider, setProvider] = useState('')
-    const [profile, setProfile] = useState(null)
-    const onLogoutSuccess = useCallback(() => {
-        setProfile(null)
-        setProvider('')
-        alert('logout success')
-    }, [])
 
     useEffect(() => {
         var form = new Validator('#login-form')
@@ -67,9 +60,6 @@ function Login() {
         }
     }, [userInfo])
 
-    // const loginGoogle = () => {
-    //     console.log(process)
-    // }
     return (
         <div className="main login-container">
             <ToastContainer />
@@ -88,8 +78,6 @@ function Login() {
                     scope={'email'}
                     client_id={REACT_APP_GG_APP_ID || ''}
                     onResolve={({ provider, data }) => {
-                        // setProvider(provider)
-                        // setProfile(data)
                         console.log(data)
                         dispatch(loginWithEmail(data.email))
                         setShowNotify(true)
