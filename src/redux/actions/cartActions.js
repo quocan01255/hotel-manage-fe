@@ -302,14 +302,13 @@ export const resetCart = (listIdRoom, loggedIn, idUser) => {
           .then(() => {
           });
       }
-
       fetch("http://localhost:3001/userCart")
         .then((response) => response.json())
         .then((products) => {
           // Check if product is existed
           let userCart = products.filter(product => product.idUser === idUser)
           listIdRoom.forEach((idRoom) => {
-            const findProduct = userCart.find(
+            let findProduct = userCart.find(
               (product) => product.idRoom === idRoom
             );
             if (findProduct) {

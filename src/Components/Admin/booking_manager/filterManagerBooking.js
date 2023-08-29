@@ -13,13 +13,13 @@ function FilterManagerBooking() {
     const isDeleteSuccess = useSelector(state => state.roomManagerReducer.isDeleteSuccess);
     const message = useSelector(state => state.bookingManagerReducer.message);
     const [currentBooking, setCurrentBooking] = useState([])
+    const resultSearch = useSelector(state => state.SearchAdminReducer.name)
 
     const setData = () => {
         fetch('http://localhost:3001/bookings')
             .then((response) => response.json())
             .then((data) => {
-                const newBookings = data
-                setBookings(newBookings)
+                setBookings(data)
             })
             .catch((error) => {
             });
@@ -46,6 +46,10 @@ function FilterManagerBooking() {
     }, [])
 
     useEffect(() => {
+        setBookings(resultSearch)
+    }, [resultSearch])
+
+    useEffect(() => {
         if (isUpdSuccess) {
             setData()
             dispatch(rsIsUpdSuccess())
@@ -67,9 +71,9 @@ function FilterManagerBooking() {
     }
     const columns = [
         {
-            title: 'Last Name',
-            dataIndex: 'lastname',
-            key: 'lastname',
+            title: 'First Name',
+            dataIndex: 'firstname',
+            key: 'firstname',
             width: '50px'
         },
         {

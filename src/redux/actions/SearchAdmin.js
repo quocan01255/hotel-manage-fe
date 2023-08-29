@@ -1,13 +1,14 @@
 export const search = (name) => {
-  
-
     // Trả về một action có type và payload tương ứng
     return (dispatch) => {
         fetch('http://localhost:3001/bookings')
             .then((response) => response.json())
             .then((searchs) => {
-                const data = searchs.filter((item) => item.fistname == name);
-                // console.log(data);
+                const data = searchs.filter((item) => {
+                    let checkFirstname = name.toLowerCase()
+                    let firstname = item.firstname.toLowerCase()
+                    return firstname.includes(checkFirstname)
+                });
                 if (data.length) {
                     dispatch({
                         type: 'SEARCH_ADMIN',

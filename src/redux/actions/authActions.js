@@ -103,8 +103,8 @@ export const logout = () => {
         dispatch({
             type: 'LOGOUT',
             payload: {
-                loggedIn: false
-            }
+                loggedIn: false,
+            } 
         })
     }
 }

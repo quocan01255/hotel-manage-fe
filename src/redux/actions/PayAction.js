@@ -5,7 +5,7 @@ export const payment = (formData, cart, totalRoomPrice, user) => {
         fetch('http://localhost:3001/bookings', {
             method: 'POST',
             body: JSON.stringify({
-                fistname: formData.firstName,
+                firstname: formData.firstName,
                 lastname: formData.lastName,
                 email: formData.email,
                 phone: formData.phone,

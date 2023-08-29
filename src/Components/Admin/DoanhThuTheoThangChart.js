@@ -21,7 +21,11 @@ function DoanhThuTheoThangChart(props) {
 
             const [day, month, year] = room.checkout.split('/')
             if (year == props.year) {
-              priceMonth[month - 1] = room.price * room.quantity
+              if (priceMonth[month - 1]) {
+                priceMonth[month - 1] += room.price * room.quantity
+              } else {
+                priceMonth[month - 1] = room.price * room.quantity
+              }
             }
           })
         })
