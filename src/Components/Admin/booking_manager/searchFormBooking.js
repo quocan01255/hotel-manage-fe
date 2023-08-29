@@ -8,9 +8,7 @@ function SearchFormBooking() {
     const dispatch = useDispatch()
     const onSubmit = (name) => {
         dispatch(search(name))
-        // console.log("name: dis" + name);
     }
-
     return (
         <>
             <Breadcrumb className='breadcrumb'>
@@ -19,7 +17,7 @@ function SearchFormBooking() {
             </Breadcrumb>
             <div className="search-form-booking-main">
                 <div className="search-form-booking-child">
-                    <SearchBar  onSubmit={onSubmit}/>
+                    <SearchBar onSubmit={onSubmit}/>
                     <FilterManagerBooking />
                 </div>
             </div>

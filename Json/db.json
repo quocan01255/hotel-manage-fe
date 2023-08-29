@@ -64,7 +64,7 @@
   ],
   "bookings": [
     {
-      "fistname": "Thắng",
+      "firstname": "Thắng",
       "lastname": "Đình",
       "email": "truongdinhthangxyz@gmail.com",
       "phone": "0865198615",
@@ -122,7 +122,7 @@
       "id": 1
     },
     {
-      "fistname": "Thu",
+      "firstname": "Thu",
       "lastname": "Hoài",
       "email": "thuhoai1@gmail.com",
       "phone": "0975074298",
@@ -181,7 +181,7 @@
       "id": 2
     },
     {
-      "fistname": "Thắng",
+      "firstname": "Thắng",
       "lastname": "Đình",
       "email": "truongdinhthangxyz@gmail.com",
       "phone": "0865198615",
@@ -218,7 +218,7 @@
       "id": 3
     },
     {
-      "fistname": "Thu",
+      "firstname": "Thu",
       "lastname": "Hoài",
       "email": "thuhoai1@gmail.com",
       "phone": "0865198615",
@@ -255,7 +255,7 @@
       "id": 4
     },
     {
-      "fistname": "Thu",
+      "firstname": "Thu",
       "lastname": "Hoài",
       "email": "thuhoai1@gmail.com",
       "phone": "0865198615",
@@ -314,7 +314,7 @@
       "id": 5
     },
     {
-      "fistname": "An",
+      "firstname": "An",
       "lastname": "Phạm",
       "email": "quocan01255@gmail.com",
       "phone": "0365675583",
@@ -373,7 +373,7 @@
       "id": 6
     },
     {
-      "fistname": "An",
+      "firstname": "An",
       "lastname": "Phạm",
       "email": "quocan01255@gmail.com",
       "phone": "0365675583",
@@ -475,80 +475,8 @@
       "id": 7
     },
     {
-      "fistname": "An",
-      "lastname": "Phạm",
-      "email": "quocan01255@gmail.com",
-      "phone": "0365675583",
-      "address": "Việt Nam",
-      "city": "Quy Nhơn",
-      "rooms": [
-        {
-          "id": 2,
-          "type": "Deluxe Plus",
-          "name": "Deluxe Plus Twin",
-          "detail": "4 Sleeps - 1 Bathroom",
-          "description": [
-            "Sea view",
-            "Non-smoking",
-            "Air conditioned",
-            "Tea/Coffee Maker",
-            "Internet Access",
-            "Balcony",
-            "Cable/Satellite TV"
-          ],
-          "quantity": 1,
-          "img": "https://gcs.tripi.vn/hms_prod/photo/img/455407PbPQYh/quaruple-city-view-2.jpg",
-          "price": "1850000",
-          "priceSale": "3001600",
-          "checkin": "17/08/2023",
-          "checkout": "21/08/2023"
-        }
-      ],
-      "country": "Việt Nam",
-      "nameroom": "Deluxe Plus Twin - (1) - (17/08/2023 - 21/08/2023)",
-      "totalRoomPrice": 1850000,
-      "idUser": "6",
-      "id": 9
-    },
-    {
-      "fistname": "An",
-      "lastname": "Phạm",
-      "email": "quocan01255@gmail.com",
-      "phone": "0365675583",
-      "address": "Việt Nam",
-      "city": "Quy Nhơn",
-      "rooms": [
-        {
-          "id": 2,
-          "type": "Deluxe Plus",
-          "name": "Deluxe Plus Twin",
-          "detail": "4 Sleeps - 1 Bathroom",
-          "description": [
-            "Sea view",
-            "Non-smoking",
-            "Air conditioned",
-            "Tea/Coffee Maker",
-            "Internet Access",
-            "Balcony",
-            "Cable/Satellite TV"
-          ],
-          "quantity": 1,
-          "img": "https://gcs.tripi.vn/hms_prod/photo/img/455407PbPQYh/quaruple-city-view-2.jpg",
-          "price": "1850000",
-          "priceSale": "3001600",
-          "checkin": "17/08/2023",
-          "checkout": "21/08/2023"
-        }
-      ],
-      "country": "Việt Nam",
-      "nameroom": "Deluxe Plus Twin - (1) - (17/08/2023 - 21/08/2023)",
-      "totalRoomPrice": 1850000,
-      "idUser": null,
-      "id": 10
-    },
-    {
-      "fistname": "An",
-      "lastname": "Phạm",
+      "firstname": "An",
+      "lastname": "Phạm2",
       "email": "quocan01255@gmail.com",
       "phone": "0365675583",
       "address": "Việt Nam",

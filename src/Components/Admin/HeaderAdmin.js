@@ -11,15 +11,15 @@ import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import { logout } from '../../redux/actions/authActions'
+import { useDispatch } from 'react-redux'
 
-
-const settings = [ 'Logout'];
 
 function HeaderAdmin() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const navigate =useNavigate();
+  const dispatch = useDispatch();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -35,11 +35,9 @@ function HeaderAdmin() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-  const handleSetting=(setting)=>{
-    if(setting==="Logout") {
-      localStorage.clear();
-      navigate('/login')
-    }
+  const handleSetting = () => {
+    dispatch(logout())
+    localStorage.clear();
   }
 
   return (
@@ -154,11 +152,9 @@ function HeaderAdmin() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography onClick={()=>{handleSetting(setting)}} textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
+              <MenuItem key='logout' onClick={handleSetting}>
+                <Link to="/login" onClick={handleSetting} textAlign="center">Logout</Link>
+              </MenuItem>
             </Menu>
           </Box>
         </Toolbar>

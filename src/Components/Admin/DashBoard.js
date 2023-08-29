@@ -24,8 +24,8 @@ function DashBoard() {
       .catch((error) => {
       });
   }, [])
+
   const onChange = (date, dateString) => {
-    console.log(dateString)
     setYear(dateString)
   };
   // const onChangeDate = (date, dateString) => {
@@ -35,6 +35,7 @@ function DashBoard() {
   const totalRoomPrice = useMemo(() => {
     return bookings.reduce((total, room) => total + room.totalRoomPrice, 0);
   }, [bookings]);
+
   return (
     <div>
       <Divider orientation="left">Overview</Divider>
@@ -42,7 +43,7 @@ function DashBoard() {
         <Col span={6} order={1}>
           <Card bordered={false} style={{ backgroundColor: '#D5FFD0' }}>
             <Statistic
-              title="Number of orders"
+              title="Number of bookings"
               value={bookings.length}
               precision={0}
               valueStyle={{
@@ -50,7 +51,7 @@ function DashBoard() {
                 fontSize: '22px'
               }}
               prefix={<ArrowUpOutlined />}
-              suffix="- Order"
+              suffix="- Bookings"
             />
           </Card>
 
@@ -59,7 +60,7 @@ function DashBoard() {
         <Col span={6} order={2}>
           <Card bordered={false} style={{ backgroundColor: '#E6E6FA' }}>
             <Statistic
-              title="Total Price"
+              title="Total Revenue"
               // value={users?users.price:0}
               value={totalRoomPrice}
               precision={0}
@@ -68,7 +69,7 @@ function DashBoard() {
                 fontSize: '22px'
               }}
               prefix={<ArrowUpOutlined />}
-              suffix="- VND"
+              suffix="đ"
             />
           </Card>
         </Col>

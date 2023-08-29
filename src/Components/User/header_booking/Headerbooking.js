@@ -14,7 +14,7 @@ function Headerbooking() {
 
   const handleClick = useCallback(() => {
     dispatch(logout())
-    localStorage.removeItem("loggedIn")
+    localStorage.clear()
   }, [])
   //startmui
   const [anchorEl, setAnchorEl] = useState(null);

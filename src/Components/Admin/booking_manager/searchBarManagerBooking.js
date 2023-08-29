@@ -4,22 +4,19 @@ import './formBookingManager.css'
 
 
 const SearchBar = (props) => {
-    const [name,setName ] = useState();
     const { Search } = Input;
-    const onSearch = (value) =>{                   
-        setName(value);
-        props.onSubmit(name);  
+    const onSearch = (value) =>{   
+        props.onSubmit(value);  
     }
 
     return (
         <Space direction="vertical">
             <Search className='search-bar-form-booking'
-                placeholder="input search text"
+                placeholder="Search text"
                 allowClear
                 enterButton="Search"                
                 size="large"
-                onSearch={onSearch}
-              
+                onSearch={(value) => onSearch(value)}
             />
             
         </Space>
