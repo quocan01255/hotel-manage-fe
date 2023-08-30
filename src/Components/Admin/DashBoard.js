@@ -11,6 +11,7 @@ import { useMemo } from 'react';
 function DashBoard() {
   var today = new Date();
   const [bookings, setBookings] = useState([]);
+  const [accounts, setAccounts] = useState([]);
   const [top,setTop]=useState(5);
   const month = (today.getMonth() + 1) < 10 ? ('0' + (today.getMonth() + 1)) : (today.getMonth() + 1);
   const [year, setYear] = useState("2023");
@@ -24,7 +25,16 @@ function DashBoard() {
       .catch((error) => {
       });
   }, [])
-
+  useEffect(() => {
+    fetch('http://localhost:3001/accounts')
+      .then((response) => response.json())
+      .then((account) => {
+        const user=  account.filter(accounts => accounts.role === 'user')
+        setAccounts(user)
+      })
+      .catch((error) => {
+      });
+  }, [])
   const onChange = (date, dateString) => {
     setYear(dateString)
   };
@@ -70,6 +80,23 @@ function DashBoard() {
               }}
               prefix={<ArrowUpOutlined />}
               suffix="đ"
+            />
+          </Card>
+        </Col>
+
+        <Col span={6} order={2}>
+          <Card bordered={false} style={{ backgroundColor: '#F7E8F0' }}>
+            <Statistic
+              title="Total Accounts"
+              // value={users?users.price:0}
+              value={accounts.length}
+              precision={0}
+              valueStyle={{
+                color: '#3f8600',
+                fontSize: '22px'
+              }}
+              prefix={<ArrowUpOutlined />}
+              suffix="Accounts"
             />
           </Card>
         </Col>
