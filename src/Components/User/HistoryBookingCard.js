@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Space, Table } from 'antd';
+import { Button, Space, Table } from 'antd';
 import { MailOutlined, PhoneOutlined, UserOutlined } from "@ant-design/icons";
 import { Link } from 'react-router-dom';
 const ListBookCard = () => {
@@ -22,7 +22,7 @@ const ListBookCard = () => {
       render: (record) => {
         return (
           <>
-            <UserOutlined style={{ fontSize: 20 }} /> {record.fistname}<br />
+            <UserOutlined style={{ fontSize: 20 }} /> {record.firstname}<br />
             <MailOutlined style={{ fontSize: 20 }} /> {record.email}<br />
             <PhoneOutlined style={{ fontSize: 20 }} /> {record.phone}<br />
           </>
@@ -58,7 +58,8 @@ const ListBookCard = () => {
       render: (record) => (
         <Space size="middle">
           <Space className="site-button-ghost-wrapper" wrap>
-            <Link to={`/history/${record.id}`} className='btn-add-mr' type="primary" >Detail</Link>
+            <Link to={`/history/${record.id}`} className='btn-add-mr' type="primary" >
+              <Button>Detail</Button></Link>
 
           </Space>
         </Space >

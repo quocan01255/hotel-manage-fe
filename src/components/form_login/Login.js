@@ -5,20 +5,22 @@ import FormGroup from '../../commons/FormGroup';
 import Validator from '../../commons/validator';
 import { ToastContainer, toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
-import { login, loginWithEmail } from '../../redux/actions/authActions'
+import { login, loginWithEmail, loginWithFaceBook } from '../../redux/actions/authActions'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { LoginSocialGoogle } from 'reactjs-social-login'
 import { GoogleLoginButton } from 'react-social-login-buttons'
+import { LoginSocialFacebook } from 'reactjs-social-login';
+import { FacebookLoginButton } from 'react-social-login-buttons';
 const REACT_APP_GG_APP_ID = '932157267245-bjpirg0kfni3domcv0oard0hcbl2f0n0.apps.googleusercontent.com'
 
 function Login() {
     const authState = useSelector(state => state.authReducer)
     const userInfo = useSelector(state => state.authReducer.user)
-    const dispatch = useDispatch()
+    const dispatch = useDispatch() 
     const navigate = useNavigate();
     const [showNotify, setShowNotify] = useState(false)
-
+    
     useEffect(() => {
         var form = new Validator('#login-form')
         form.onSubmit = function (data) {
@@ -79,14 +81,29 @@ function Login() {
                     client_id={REACT_APP_GG_APP_ID || ''}
                     onResolve={({ provider, data }) => {
                         console.log(data)
+                        sessionStorage.setItem('email',JSON.stringify(data));
                         dispatch(loginWithEmail(data.email))
                         setShowNotify(true)
                     }}
                     onReject={(err) => {
                     }}
                 >
-                    <GoogleLoginButton style={{ fontSize: '16px', width:'452px', margin: '0' }} />
+                    <GoogleLoginButton style={{ fontSize: '16px', width:'452px', marginTop: '10px' }} />
                 </LoginSocialGoogle>
+
+                <LoginSocialFacebook 
+                //  scope={'email'}
+                appId='1472186183619832' 
+                // fieldsProfile='name,picture'
+                onResolve={(data) => {
+                    console.log(data);
+                    dispatch(loginWithFaceBook(data.data.email))
+                    setShowNotify(true)
+                }} 
+                onReject={(error)=>{alert("Login Facebook thất bại!");}}
+                >
+                    <FacebookLoginButton style={{ fontSize: '16px', width:'452px', marginTop: '10px' }} />               
+                </LoginSocialFacebook >
                 <div className='form-footer'>
                     <Link className='form-link' to={`/register`}>Create account</Link>
                 </div>

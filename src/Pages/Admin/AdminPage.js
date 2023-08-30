@@ -55,7 +55,7 @@ function AdminPage() {
           <HeaderAdmin />
           <Content className='conten-form-main-admin'>
             <Routes>
-              <Route path="/" element={<DashBoard />} />
+              <Route index element={<DashBoard />} />
               <Route path="/ManagerBooking" element={<SearchFormBooking />} />
               <Route path="/ManagerRoomDeluxePool" element={<DeluxePool />} />
               <Route path="/ManagerRoomDeluxeExecutive" element={<DeluxeExecutive />} />
