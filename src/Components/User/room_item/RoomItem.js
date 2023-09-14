@@ -1,6 +1,6 @@
-import { useCallback } from "react";
+
 import "./roomitem.css";
-import { useDispatch, useSelector } from "react-redux";
+
 
 
 function RoomItem({
@@ -12,9 +12,10 @@ function RoomItem({
   price,
   img,
   addRoom,
+  checkout
 }) {
   const handleClick = () => {
-    addRoom(idTab);
+    addRoom(idTab,checkout);
   };
 
   return (

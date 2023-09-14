@@ -4,14 +4,13 @@ import "./headerbooking.css";
 import { useSelector, useDispatch } from 'react-redux'
 import { logout } from '../../../redux/actions/authActions'
 import Badge from '@mui/material/Badge';
-function Headerbooking() {
+function Headerbooking() {  
   const checkLogin = localStorage.getItem("loggedIn");
   const checkUser = JSON.parse(localStorage.getItem("user"));
   const dispatch = useDispatch()
   const [rooms, setRooms] = useState([])
   const [guestCart, setGuestCart] = useState([])
   const cartState = useSelector(state => state.cartReducer)
-
   const handleClick = useCallback(() => {
     dispatch(logout())
     localStorage.removeItem("loggedIn")

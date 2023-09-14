@@ -1,14 +1,9 @@
-export const add = (idRoom, loggedIn, idUser) => {
-  // let userId = "";
-  // if (JSON.parse(localStorage.getItem("user"))) {
-  //   userId = JSON.parse(localStorage.getItem("user")).id;
-  // }
+export const add = (idRoom,checkout, loggedIn, idUser) => {  
+ 
   if (!localStorage.getItem("guestCart")) {
     localStorage.setItem('guestCart', JSON.stringify([]))
   }
-
   let guestCart = JSON.parse(localStorage.getItem("guestCart"))
-
   return (dispatch) => {
     // Check if logged in
     if (loggedIn) {
@@ -24,9 +19,11 @@ export const add = (idRoom, loggedIn, idUser) => {
               method: "POST",
               body: JSON.stringify({
                 idUser: idUser,
-                idRoom: idRoom,
+                idRoom: idRoom, 
+                checkout:checkout,          
                 quantity: 1,
               }),
+              
               headers: {
                 "Content-type": "application/json; charset=UTF-8",
               },
@@ -53,7 +50,8 @@ export const add = (idRoom, loggedIn, idUser) => {
                   headers: { "Content-Type": "application/json" },
                   body: JSON.stringify({
                     idUser: idUser,
-                    idRoom: idRoom,
+                    idRoom: idRoom, 
+                    checkout:checkout,                  
                     quantity: findRoom.quantity + 1,
                   }),
                 })
@@ -77,6 +75,7 @@ export const add = (idRoom, loggedIn, idUser) => {
       if (findProduct < 0) {
         guestCart.push({
           idRoom: idRoom,
+          checkout:checkout, 
           quantity: 1,
         });
         localStorage.setItem('guestCart', JSON.stringify(guestCart))
@@ -100,7 +99,7 @@ export const add = (idRoom, loggedIn, idUser) => {
   };
 };
 
-export const remove = (idRoom, loggedIn, idUser) => {
+export const remove = (idRoom ,loggedIn, idUser) => {
   // let userId = "";
   // if (JSON.parse(localStorage.getItem("user"))) {
   //   userId = JSON.parse(localStorage.getItem("user")).id;
@@ -153,7 +152,7 @@ export const remove = (idRoom, loggedIn, idUser) => {
   };
 };
 
-export const increase = (idRoom, loggedIn, idUser) => {
+export const increase = (idRoom,checkout, loggedIn, idUser) => {
   if (!localStorage.getItem("guestCart")) {
     localStorage.setItem('guestCart', JSON.stringify([]))
   }
@@ -179,6 +178,7 @@ export const increase = (idRoom, loggedIn, idUser) => {
                 body: JSON.stringify({
                   idUser: idUser,
                   idRoom: idRoom,
+                  checkout:checkout,                       
                   quantity: findRoom.quantity + 1,
                 }),
               })
@@ -212,7 +212,7 @@ export const increase = (idRoom, loggedIn, idUser) => {
   };
 }
 
-export const decrease = (idRoom, loggedIn, idUser) => {
+export const decrease = (idRoom,checkout ,loggedIn, idUser) => {
   if (!localStorage.getItem("guestCart")) {
     localStorage.setItem('guestCart', JSON.stringify([]))
   }
@@ -238,7 +238,8 @@ export const decrease = (idRoom, loggedIn, idUser) => {
                   headers: { "Content-Type": "application/json" },
                   body: JSON.stringify({
                     idUser: idUser,
-                    idRoom: idRoom,
+                    idRoom: idRoom, 
+                    checkout:checkout,                                    
                     quantity: findRoom.quantity - 1,
                   }),
                 })

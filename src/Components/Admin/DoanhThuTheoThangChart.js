@@ -35,11 +35,11 @@ function DoanhThuTheoThangChart(props) {
       .catch((error) => {
       });
   }, [props.year])
-
   return (
     <Bar
       data={{
         labels: labels,
+        
         datasets: [
           {
             label: "Revenue by year " + props.year,

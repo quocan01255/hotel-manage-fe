@@ -14,12 +14,12 @@ const RoomCart = ({
     removeRoom(id);
   };
 
-  const handleIncrease = (id) => {
-    increaseQuantity(id)
+  const handleIncrease = (id,checkin) => {
+    increaseQuantity(id,checkin)
   }
 
-  const handleDecrease = (id) => {
-    decreaseQuantity(id)
+  const handleDecrease = (id,checkin) => {
+    decreaseQuantity(id,checkin)
   }
 
   // Not logged in
@@ -49,10 +49,10 @@ const RoomCart = ({
                 </div>
                 <div className="c-room-rating">
                   Quantity: {room.quantity}
-                  <button className="btn btn-primary room_tab-btn" onClick={() => handleDecrease(room.id)}>
+                  <button className="btn btn-primary room_tab-btn" onClick={() => handleDecrease(room.id,room.checkin)}>
                     <i className="fa-solid fa-minus"></i>
                   </button>
-                  <button className="btn btn-primary room_tab-btn" style={{ marginLeft: '4px' }} onClick={() => handleIncrease(room.id)}>
+                  <button className="btn btn-primary room_tab-btn" style={{ marginLeft: '4px' }} onClick={() => handleIncrease(room.id,room.checkin)}>
                     <i className="fa-solid fa-plus"></i>
                   </button>
 
@@ -72,10 +72,7 @@ const RoomCart = ({
               </div>
             </div>
           ))}
-          <br />
-          {/* <div className="c-booking-price">
-            Total price: {currencyFormat(String(totalRoomPrice))}đ
-          </div> */}
+          <br />        
         </div>
       </div>
     );
@@ -102,10 +99,10 @@ const RoomCart = ({
               </div>
               <div className="c-room-rating">
                 Quantity: {room.quantity}
-                <button className="btn btn-primary room_tab-btn" onClick={() => handleDecrease(room.id)}>
+                <button className="btn btn-primary room_tab-btn" onClick={() => handleDecrease(room.id,room.checkin)}>
                   <i className="fa-solid fa-minus"></i>
                 </button>
-                <button className="btn btn-primary room_tab-btn" style={{ marginLeft: '4px' }} onClick={() => handleIncrease(room.id)}>
+                <button className="btn btn-primary room_tab-btn" style={{ marginLeft: '4px' }} onClick={() => handleIncrease(room.id,room.checkin)}>
                   <i className="fa-solid fa-plus"></i>
                 </button>
 
@@ -126,9 +123,7 @@ const RoomCart = ({
           </div>
         ))}
         <br />
-        {/* <div className="c-booking-price">
-          Total price: {currencyFormat(String(totalRoomPrice))}đ
-        </div> */}
+       
       </div>
     </div>
   );

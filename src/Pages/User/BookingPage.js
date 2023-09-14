@@ -8,24 +8,30 @@ import { ToastContainer, toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import { Search, resetmessage } from "../../redux/actions/SearchAction";
 import { resetCartMessage } from "../../redux/actions/cartActions"
-
+import formatDatetime from "../../util/DatetimeUtil";
 function BookingPage() {
     const [rooms, setRooms] = useState([])
+    const [startDate, setStartDates] = useState(new Date());
     const dispatch = useDispatch()
     const getdata = useSelector((state) => state.SearchReducer.rooms);
     const message = useSelector((state) => state.SearchReducer.message);
     const cartState = useSelector(state => state.cartReducer)
-
+    const startDates = formatDatetime(startDate, "DD/MM/YYYY")
+    // console.log(startDates);
     //Call api and get data
     useEffect(() => {
         fetch('http://localhost:3001/rooms')
             .then((response) => response.json())
             .then((rooms) => {
-                setRooms(rooms)
+                const room = rooms.filter((room) => room.checkin >= startDates )
+                setRooms(room)
+                // console.log(room);
             })
+
             .catch((error) => {
             });
     }, [])
+
 
     useEffect(() => {
         setRooms(getdata)
@@ -64,8 +70,8 @@ function BookingPage() {
             <Headerbooking />
             <div style={{ backgroundColor: '#f8f8f8', paddingTop: '100px' }}>
                 <div style={{ backgroundColor: '#f8f8f8', margin: '0 auto' }} className='container'>
-                    <SeachBar onSubmit={onSubmit}/>
-                    <ListRooms rooms={rooms}/>
+                    <SeachBar onSubmit={onSubmit} />
+                    <ListRooms rooms={rooms} />
                 </div>
                 <Footers />
             </div>

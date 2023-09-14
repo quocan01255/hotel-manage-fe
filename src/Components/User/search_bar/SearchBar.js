@@ -15,7 +15,7 @@ function SeachBar(props) {
     var value = e.target.value;
     setQuantity(value);
   };
-
+ 
   useEffect(() => {
     var form = new Validator("#booking-form");
     form.onSubmit = function () {
@@ -43,7 +43,7 @@ function SeachBar(props) {
                  minDate={new Date()}
                  maxDate={endDate}
                 dateFormat="dd/MM/yyyy"
-                selected={startDate}
+                selected={startDate}              
                 onChange={(date) => setStartDate(date)}
               />
              
@@ -80,11 +80,7 @@ function SeachBar(props) {
               </select>
               <i className="fa-solid fa-user input-icon"></i>
             </div>
-          </div>
-          {/* <div className="form-date-to form-icon">
-            <label htmlFor="date_to">PROMOTIONAL CODE</label>
-            <input type="text" className="input-promo"></input>
-          </div> */}
+          </div>         
           <div className="form-submit">
             <input type="submit" className="submit" value="Check" />
           </div>
