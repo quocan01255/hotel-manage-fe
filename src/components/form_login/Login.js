@@ -12,7 +12,8 @@ import { LoginSocialGoogle } from 'reactjs-social-login'
 import { GoogleLoginButton } from 'react-social-login-buttons'
 import { LoginSocialFacebook } from 'reactjs-social-login';
 import { FacebookLoginButton } from 'react-social-login-buttons';
-const REACT_APP_GG_APP_ID = '932157267245-bjpirg0kfni3domcv0oard0hcbl2f0n0.apps.googleusercontent.com'
+// const REACT_APP_GG_APP_ID = '932157267245-bjpirg0kfni3domcv0oard0hcbl2f0n0.apps.googleusercontent.com'
+const REACT_APP_GG_APP_ID = '478372342529-o6v0gv70ui7pqltdd0e3viaipe2hpmi0.apps.googleusercontent.com'
 
 function Login() {
     const authState = useSelector(state => state.authReducer)
@@ -81,7 +82,7 @@ function Login() {
                     client_id={REACT_APP_GG_APP_ID || ''}
                     onResolve={({ provider, data }) => {
                         console.log(data)
-                        sessionStorage.setItem('email',JSON.stringify(data));
+                        // sessionStorage.setItem('email',JSON.stringify(data));
                         dispatch(loginWithEmail(data.email))
                         setShowNotify(true)
                     }}

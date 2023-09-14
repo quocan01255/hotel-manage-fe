@@ -16,15 +16,16 @@ function ListRooms({ rooms }) {
   }, []);
 
   const handleAdd = useCallback(
-    (id) => {
+    (id,checkout) => {
       const loggedIn = localStorage.getItem("loggedIn");
       if (!loggedIn) {
-        dispatch(add(id, false, null));
+        dispatch(add(id,checkout, false, null));
       } else {
         const user = JSON.parse(localStorage.getItem("user"));
-        dispatch(add(id, true, user.id));
+        dispatch(add(id,checkout, true, user.id));
       }
     },
+  
     [doCartAction, dispatch]
   );
 
@@ -46,6 +47,7 @@ function ListRooms({ rooms }) {
         <RoomItem
           key={room.id}
           idTab={room.id}
+          checkout={room.checkout}
           priceType={priceType}
           name={room.name}
           detail={room.detail}

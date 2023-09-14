@@ -15,7 +15,7 @@ const ListBookCard = () => {
       })
   }, []);
 
-  console.log(data)
+  // console.log(data)
   const columns = [
     {
       title: 'Customer information',

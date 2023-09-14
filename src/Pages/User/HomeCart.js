@@ -12,7 +12,7 @@ import Headerbooking from "../../Components/User/header_booking/Headerbooking";
 import { payment } from "../../redux/actions/PayAction";
 import BookingSummary from "../../Components/User/BookingSummary";
 import VisitorAPI from "visitorapi";
-
+import formatDatetime from "../../util/DatetimeUtil";
 function HomeCart() {
   const dispatch = useDispatch()
   const cartMessage = useSelector((state) => state.cartReducer.message);
@@ -23,10 +23,12 @@ function HomeCart() {
   const [listId, setListId] = useState([])
   const checkLogin = localStorage.getItem("loggedIn");
   const [visitorInfo, setVisitorInfo] = useState({})
-
+  const [startDate, setStartDates] = useState(new Date());
+  const startDates = formatDatetime(startDate, "DD/MM/YYYY")
+  // console.log(startDates);
   // Get visitor information
   useEffect(() => {
-    VisitorAPI("173A9jwVBwOduFX56JAl").then(data => {
+    VisitorAPI("W4oc0MZDdFxeH1n1IfX0").then(data => {
       setVisitorInfo(data)
     }).catch(error => {
       console.log(error);
@@ -35,12 +37,17 @@ function HomeCart() {
 
   // Call api and get list rooms
   useEffect(() => {
-    fetch("http://localhost:3001/rooms")
-      .then((response) => response.json())
-      .then((rooms) => {
-        setRooms(rooms);
-      })
-  }, [])
+    fetch('http://localhost:3001/rooms')
+        .then((response) => response.json())
+        .then((rooms) => {
+            // const room = rooms.filter((room) => room.checkin >= startDates )
+            setRooms(rooms)
+            // console.log(room);
+        })
+
+        .catch((error) => {
+        });
+}, [])
 
   // Call api and get data
   useEffect(() => {
@@ -102,21 +109,21 @@ function HomeCart() {
     }
   }, [dispatch])
 
-  const handleIncrease = useCallback((id) => {
+  const handleIncrease = useCallback((id,checkin) => {
     if (!checkLogin) {
-      dispatch(increase(id, false, null))
+      dispatch(increase(id,checkin, false, null))
     } else {
       const user = JSON.parse(localStorage.getItem("user"))
-      dispatch(increase(id, true, user.id))
+      dispatch(increase(id,checkin, true, user.id))
     }
   }, [dispatch])
 
-  const handleDecrease = useCallback((id) => {
+  const handleDecrease = useCallback((id,checkin) => {
     if (!checkLogin) {
-      dispatch(decrease(id, false, null))
+      dispatch(decrease(id,checkin, false, null))
     } else {
       const user = JSON.parse(localStorage.getItem("user"))
-      dispatch(decrease(id, true, user.id))
+      dispatch(decrease(id,checkin, true, user.id))
     }
   }, [dispatch])
 

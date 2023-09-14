@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { toast } from 'react-toastify';
+import {loadStripe} from '@stripe/stripe-js';
 
 const PaymentForm = (props) => {
   const { totalRoomPrice, thanhtoan, reset, cart } = props;
@@ -107,6 +108,38 @@ const PaymentForm = (props) => {
       }
     }
   };
+
+
+  const makePayment = async()=>{ 
+    if (validate()){
+      const stripe = await loadStripe("pk_test_51Nmpx3FFgTolQ67WAOohfHnUim2LIRJ4MxWYYex3qlZEnKsg9U7oIdWbmkby3QD5k0ur8E1cSBIKETMjvF4uEGzy001uUgfWR4");
+
+      const body = {
+          products:cart
+      }
+      const headers = {
+          "Content-Type":"application/json"
+      }
+      const response = await fetch("http://localhost:7000/api/create-checkout-session",{
+          method:"POST",
+          headers:headers,
+          body:JSON.stringify(body)
+      });
+  
+      const session = await response.json();
+  
+      const result = stripe.redirectToCheckout({ sessionId: session.id }); 
+    
+     
+      if(result.error){
+          console.log(result.error);
+      }
+      thanhtoan(formData);
+      reset()
+    }  
+ 
+}
+
 
   return (
     <div className="c-payment-form">
@@ -249,9 +282,17 @@ const PaymentForm = (props) => {
         <button
           type="button"
           className="btn btn-primary c-form-button"
-          onClick={handleBookClick}
+          onClick={handleBookClick}          
         >
-          Book
+          Payment at hotel
+        </button>
+
+        <button
+          type="button"
+          className="btn btn-primary c-form-button"
+          onClick={makePayment}
+        >
+         Bank Transfer
         </button>
       </form>
     </div>

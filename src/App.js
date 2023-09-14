@@ -6,7 +6,6 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.js'
 import 'font-awesome/css/font-awesome.css'
 import store from './redux/store'
-
 import VillaPage from './Pages/User/VillaPage';
 import CulinaryPage from './Pages/User/CulinaryPage';
 import HomePage from './Pages/User/HomePage';
@@ -35,10 +34,8 @@ import DashBoard from "./Components/Admin/DashBoard";
 function App() {
   return (
     <Provider store={store}>
-      <div className="App">
-        {/* <BookingProvider> */}
+      <div className="App">     
           <Routes>
-
             <Route path="/bookingpage" element={<BookingPage />} />
             <Route path="/history" element={<HistoryBookingPage />} />
             <Route path="/login" element={<Login />} />
@@ -65,9 +62,8 @@ function App() {
               <Route path="DashBoard" element={<DashBoard/>} />
             </Route>
             <Route path="/bookingpage" element={<BookingPage/>}/>
-
           </Routes>
-        {/* </BookingProvider> */}
+     
       </div>
     </Provider>
   );
