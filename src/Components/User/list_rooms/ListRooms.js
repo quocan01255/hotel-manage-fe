@@ -32,7 +32,7 @@ function ListRooms({ rooms }) {
 
   return (
     <>
-      <div className="select-container">
+      {/* <div className="select-container">
         <div className="select-content">
           <select className="price-select" onChange={handleSelect}>
             <option value="VND" defaultValue>
@@ -42,7 +42,7 @@ function ListRooms({ rooms }) {
           </select>
           <i className="fa-solid fa-angle-down select-icon"></i>
         </div>
-      </div>
+      </div> */}
       {rooms.map((room) => (
         <RoomItem
           key={room.id}

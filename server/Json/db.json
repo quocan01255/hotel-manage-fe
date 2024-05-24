@@ -10,83 +10,23 @@
       "role": "admin"
     },
     {
-      "firstName": "thang",
-      "lastName": "truong",
-      "email": "truongdinhthangxyz@gmail.com",
-      "password": "Aathang1234",
-      "confirm-password": "Aathang1234",
-      "role": "user",
-      "id": "2"
-    },
-    {
       "firstName": "Trương",
       "lastName": "Thắng",
       "email": "thangtruong18122001@gmail.com",
       "password": "thang123123",
       "role": "admin",
       "id": "-o6ya-K"
+    },
+    {
+      "firstName": "An",
+      "lastName": "Phạm",
+      "email": "quocan01255@gmail.com",
+      "password": "12345678",
+      "role": "user",
+      "id": "uk90SaU"
     }
   ],
   "bookings": [
-    {
-      "firstname": "An",
-      "lastname": "Phạm2",
-      "email": "quocan01255@gmail.com",
-      "phone": "0365675583",
-      "address": "Việt Nam",
-      "city": "Quy Nhơn",
-      "rooms": [
-        {
-          "id": 3,
-          "type": "Deluxe Executive",
-          "name": "Deluxe Executive Twin",
-          "quantity": 1,
-          "detail": "4 Sleeps - 1 Bathroom",
-          "description": [
-            "City view",
-            "Non-smoking",
-            "Cable/Satellite TV",
-            "Desk",
-            "Tea/Coffee Maker",
-            "Internet Access",
-            "Air conditioned",
-            "Hairdryer"
-          ],
-          "img": "https://www.navadahotel.com/FileStorage/Room/Thumbnail/_DSC5506-HDR-Edit-Edit.png",
-          "price": "2100000",
-          "priceSale": "2299800",
-          "checkin": "19/08/2023",
-          "checkout": "22/08/2023"
-        },
-        {
-          "id": 1,
-          "type": "Deluxe",
-          "name": "Deluxe Twin",
-          "quantity": 1,
-          "detail": "3 Sleeps - 1 Twin - 1 Bathroom",
-          "description": [
-            "City view",
-            "Non-smoking",
-            "Cable/Satellite TV",
-            "Desk",
-            "Tea/Coffee Maker",
-            "Internet Access",
-            "Air conditioned",
-            "Hairdryer"
-          ],
-          "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/780899/780899/SUITE-ROOM-1.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
-          "price": "1780000",
-          "priceSale": "1299800",
-          "checkin": "16/08/2023",
-          "checkout": "19/08/2023"
-        }
-      ],
-      "country": "Việt Nam",
-      "nameroom": "Deluxe Executive Twin - (1) - (19/08/2023 - 22/08/2023), Deluxe Twin - (1) - (16/08/2023 - 19/08/2023)",
-      "totalRoomPrice": 3880000,
-      "idUser": "6",
-      "id": 11
-    },
     {
       "firstname": "Thắng",
       "lastname": "Đình",
@@ -148,7 +88,7 @@
             "Air conditioned",
             "Hairdryer"
           ],
-          "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/909797/909797/PREMIER_OCEAN_VIEW_DOUBLE_5.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
+          "img": "https://bookcore.backhotelengine.com/uploads/habitaciones/Semi_Detached_Villa-bedroom-01.jpg.480x360_q85_crop-smart.jpg",
           "price": "3250000",
           "priceSale": "2299800",
           "checkin": "26/08/2023",
@@ -303,7 +243,7 @@
             "Air conditioned",
             "Hairdryer"
           ],
-          "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/909797/909797/PREMIER_OCEAN_VIEW_DOUBLE_5.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
+          "img": "https://bookcore.backhotelengine.com/uploads/habitaciones/Semi_Detached_Villa-bedroom-01.jpg.480x360_q85_crop-smart.jpg",
           "price": "3250000",
           "priceSale": "2299800",
           "checkin": "26/08/2023",
@@ -618,7 +558,7 @@
             "Air conditioned",
             "Hairdryer"
           ],
-          "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/909797/909797/PREMIER_OCEAN_VIEW_DOUBLE_5.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
+          "img": "https://bookcore.backhotelengine.com/uploads/habitaciones/Semi_Detached_Villa-bedroom-01.jpg.480x360_q85_crop-smart.jpg",
           "price": "3250000",
           "priceSale": "2299800",
           "checkin": "26/10/2023",
@@ -1045,7 +985,7 @@
             "Air conditioned",
             "Hairdryer"
           ],
-          "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/909797/909797/PREMIER_OCEAN_VIEW_DOUBLE_5.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
+          "img": "https://bookcore.backhotelengine.com/uploads/habitaciones/Semi_Detached_Villa-bedroom-01.jpg.480x360_q85_crop-smart.jpg",
           "price": "3250000",
           "priceSale": "2299800",
           "checkin": "26/10/2023",
@@ -2453,6 +2393,180 @@
         "osVersion": "10"
       },
       "id": 69
+    },
+    {
+      "firstname": "An",
+      "lastname": "Phạm",
+      "email": "quocan01255@gmail.com",
+      "phone": "0365675583",
+      "address": "Việt Nam",
+      "city": "Quy Nhon",
+      "rooms": [
+        {
+          "id": 8,
+          "type": "Deluxe Pool",
+          "name": "Deluxe Pool Terrace Twin",
+          "quantity": 1,
+          "detail": "4 Sleeps - 1 Twin - 1 Bathroom",
+          "description": [
+            "City view",
+            "Non-smoking",
+            "Cable/Satellite TV",
+            "Desk",
+            "Tea/Coffee Maker",
+            "Internet Access",
+            "Air conditioned",
+            "Hairdryer"
+          ],
+          "img": "https://bookcore.backhotelengine.com/uploads/habitaciones/Semi_Detached_Villa-bedroom-01.jpg.480x360_q85_crop-smart.jpg",
+          "price": "3250000",
+          "priceSale": "2299800",
+          "checkin": "26/10/2023",
+          "checkout": "30/10/2023"
+        }
+      ],
+      "country": "Việt Nam",
+      "nameroom": "Deluxe Pool Terrace Twin - (1) - (26/10/2023 - 30/10/2023)",
+      "totalRoomPrice": 3250000,
+      "idUser": "uk90SaU",
+      "visitorinfo": {
+        "ipAddress": "14.226.140.159",
+        "countryCode": "VN",
+        "countryName": "Viet Nam",
+        "currencies": [
+          "VND"
+        ],
+        "languages": [
+          "vie"
+        ],
+        "region": "31",
+        "city": "an nhon",
+        "cityLatLong": "13.886506,109.113435",
+        "browser": "Edge",
+        "browserVersion": "125",
+        "deviceBrand": "",
+        "deviceModel": "",
+        "deviceFamily": "Other",
+        "os": "Windows",
+        "osVersion": "10"
+      },
+      "id": 70
+    },
+    {
+      "firstname": "An",
+      "lastname": "Pham",
+      "email": "anpham01255@gmail.com",
+      "phone": "0365675583",
+      "address": "123",
+      "city": "Qui Nhon",
+      "rooms": [
+        {
+          "id": 8,
+          "type": "Deluxe Pool",
+          "name": "Deluxe Pool Terrace Twin",
+          "quantity": 1,
+          "detail": "4 Sleeps - 1 Twin - 1 Bathroom",
+          "description": [
+            "City view",
+            "Non-smoking",
+            "Cable/Satellite TV",
+            "Desk",
+            "Tea/Coffee Maker",
+            "Internet Access",
+            "Air conditioned",
+            "Hairdryer"
+          ],
+          "img": "https://bookcore.backhotelengine.com/uploads/habitaciones/Semi_Detached_Villa-bedroom-01.jpg.480x360_q85_crop-smart.jpg",
+          "price": "3250000",
+          "priceSale": "2299800",
+          "checkin": "26/10/2023",
+          "checkout": "30/10/2023"
+        }
+      ],
+      "country": "Việt Nam",
+      "nameroom": "Deluxe Pool Terrace Twin - (1) - (26/10/2023 - 30/10/2023)",
+      "totalRoomPrice": 3250000,
+      "idUser": null,
+      "visitorinfo": {
+        "ipAddress": "14.167.117.10",
+        "countryCode": "VN",
+        "countryName": "Viet Nam",
+        "currencies": [
+          "VND"
+        ],
+        "languages": [
+          "vie"
+        ],
+        "region": "31",
+        "city": "quy nhon",
+        "cityLatLong": "13.782967,109.219663",
+        "browser": "Edge",
+        "browserVersion": "125",
+        "deviceBrand": "",
+        "deviceModel": "",
+        "deviceFamily": "Other",
+        "os": "Windows",
+        "osVersion": "10"
+      },
+      "id": 71
+    },
+    {
+      "firstname": "An11111",
+      "lastname": "Phạm",
+      "email": "quocan01255@gmail.com",
+      "phone": "0365675583",
+      "address": "Việt Nam",
+      "city": "Quy Nhon",
+      "rooms": [
+        {
+          "id": 8,
+          "type": "Deluxe Pool",
+          "name": "Deluxe Pool Terrace Twin",
+          "quantity": 1,
+          "detail": "4 Sleeps - 1 Twin - 1 Bathroom",
+          "description": [
+            "City view",
+            "Non-smoking",
+            "Cable/Satellite TV",
+            "Desk",
+            "Tea/Coffee Maker",
+            "Internet Access",
+            "Air conditioned",
+            "Hairdryer"
+          ],
+          "img": "https://bookcore.backhotelengine.com/uploads/habitaciones/Semi_Detached_Villa-bedroom-01.jpg.480x360_q85_crop-smart.jpg",
+          "price": "3250000",
+          "priceSale": "2299800",
+          "checkin": "26/10/2023",
+          "checkout": "30/10/2023"
+        }
+      ],
+      "country": "Việt Nam",
+      "nameroom": "Deluxe Pool Terrace Twin - (1) - (26/10/2023 - 30/10/2023)",
+      "totalRoomPrice": 3250000,
+      "idUser": null,
+      "visitorinfo": {
+        "ipAddress": "14.167.117.10",
+        "countryCode": "VN",
+        "countryName": "Viet Nam",
+        "currencies": [
+          "VND"
+        ],
+        "languages": [
+          "vie"
+        ],
+        "region": "31",
+        "city": "quy nhon",
+        "cityLatLong": "13.782967,109.219663",
+        "browser": "Edge",
+        "browserVersion": "125",
+        "deviceBrand": "",
+        "deviceModel": "",
+        "deviceFamily": "Other",
+        "os": "Windows",
+        "osVersion": "10"
+      },
+      "id": 72
     }
   ],
   "rooms": [
@@ -2624,7 +2738,7 @@
         "Air conditioned",
         "Hairdryer"
       ],
-      "img": "https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/909797/909797/PREMIER_OCEAN_VIEW_DOUBLE_5.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75",
+      "img": "https://bookcore.backhotelengine.com/uploads/habitaciones/Semi_Detached_Villa-bedroom-01.jpg.480x360_q85_crop-smart.jpg",
       "price": "3250000",
       "priceSale": "2299800",
       "checkin": "26/10/2023",
@@ -2696,6 +2810,13 @@
       "checkout": "22/09/2023",
       "quantity": 1,
       "id": 6
+    },
+    {
+      "idUser": "uk90SaU",
+      "idRoom": 8,
+      "checkout": "30/10/2023",
+      "quantity": 1,
+      "id": 7
     }
   ]
 }

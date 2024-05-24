@@ -92,7 +92,7 @@ function Login() {
                     <GoogleLoginButton style={{ fontSize: '16px', width:'452px', marginTop: '10px' }} />
                 </LoginSocialGoogle>
 
-                <LoginSocialFacebook 
+                {/* <LoginSocialFacebook 
                 //  scope={'email'}
                 appId='1472186183619832' 
                 // fieldsProfile='name,picture'
@@ -104,7 +104,7 @@ function Login() {
                 onReject={(error)=>{alert("Login Facebook thất bại!");}}
                 >
                     <FacebookLoginButton style={{ fontSize: '16px', width:'452px', marginTop: '10px' }} />               
-                </LoginSocialFacebook >
+                </LoginSocialFacebook > */}
                 <div className='form-footer'>
                     <Link className='form-link' to={`/register`}>Create account</Link>
                 </div>
