@@ -9,8 +9,10 @@ import "react-toastify/dist/ReactToastify.css";
 import { Search, resetmessage } from "../../redux/actions/SearchAction";
 import { resetCartMessage } from "../../redux/actions/cartActions"
 import formatDatetime from "../../util/DatetimeUtil";
+import { getRooms } from "../../services/api";
 function BookingPage() {
     const [rooms, setRooms] = useState([])
+    const [test, setTest] = useState([])
     const [startDate, setStartDates] = useState(new Date());
     const dispatch = useDispatch()
     const getdata = useSelector((state) => state.SearchReducer.rooms);
@@ -19,19 +21,30 @@ function BookingPage() {
     const startDates = formatDatetime(startDate, "DD/MM/YYYY")
     // console.log(startDates);
     //Call api and get data
+    const fetchRooms = async () => {
+        try {
+            const roomsData = await getRooms();
+            // console.log(roomsData)
+            setRooms(roomsData)
+        } catch (err) {
+            console.log(err)
+        }
+    };
     useEffect(() => {
-        fetch('http://localhost:3001/rooms')
-            .then((response) => response.json())
-            .then((rooms) => {
-                const room = rooms.filter((room) => room.checkin >= startDates )
-                setRooms(room)
-                // console.log(room);
-            })
+        
+        // fetch('http://localhost:3001/rooms')
+        //     .then((response) => response.json())
+        //     .then((rooms) => {
+        //         const room = rooms.filter((room) => room.checkin >= startDates)
+        //         setRooms(room)
+        //         // console.log(room);
+        //     })
 
-            .catch((error) => {
-            });
+        //     .catch((error) => {
+        //     });
+
+        fetchRooms();
     }, [])
-
 
     useEffect(() => {
         setRooms(getdata)

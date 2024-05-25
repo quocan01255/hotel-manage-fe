@@ -5,16 +5,16 @@ import { useSelector, useDispatch } from 'react-redux'
 import { logout } from '../../../redux/actions/authActions'
 import Badge from '@mui/material/Badge';
 function Headerbooking() {
-  const checkLogin = localStorage.getItem("loggedIn");
+  const checkLogin = localStorage.getItem("token");
   const checkUser = JSON.parse(localStorage.getItem("user"));
   const dispatch = useDispatch()
   const [rooms, setRooms] = useState([])
   const [guestCart, setGuestCart] = useState([])
   const cartState = useSelector(state => state.cartReducer)
 
-  const handleClick = useCallback(() => {
-    dispatch(logout())
-    localStorage.clear()
+  const handleLogout = useCallback(() => {
+    // dispatch(logout())
+    localStorage.removeItem("token")
   }, [])
   //startmui
   const [anchorEl, setAnchorEl] = useState(null);
@@ -105,7 +105,7 @@ function Headerbooking() {
               {
                 checkLogin &&
                 <li className="item">
-                  <Link to="/login" className="brand" onClick={handleClick}>
+                  <Link to="/login" className="brand" onClick={handleLogout}>
                     Logout
                   </Link>
                 </li>

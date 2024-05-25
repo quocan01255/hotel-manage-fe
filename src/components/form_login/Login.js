@@ -5,7 +5,8 @@ import FormGroup from '../../commons/FormGroup';
 import Validator from '../../commons/validator';
 import { ToastContainer, toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
-import { login, loginWithEmail, loginWithFaceBook } from '../../redux/actions/authActions'
+import { loginWithEmail, loginWithFaceBook } from '../../redux/actions/authActions'
+import { login } from '../../services/api';
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { LoginSocialGoogle } from 'reactjs-social-login'
@@ -18,50 +19,41 @@ const REACT_APP_GG_APP_ID = '478372342529-o6v0gv70ui7pqltdd0e3viaipe2hpmi0.apps.
 function Login() {
     const authState = useSelector(state => state.authReducer)
     const userInfo = useSelector(state => state.authReducer.user)
-    const dispatch = useDispatch() 
+    const dispatch = useDispatch()
     const navigate = useNavigate();
     const [showNotify, setShowNotify] = useState(false)
-    
+    const [token, setToken] = useState()
+
     useEffect(() => {
         var form = new Validator('#login-form')
-        form.onSubmit = function (data) {
-            dispatch(login(data.email, data.password))
-            setShowNotify(true)
+        form.onSubmit = async (data) => {
+            const response = await login(data.email, data.password)
+            localStorage.setItem("token", JSON.stringify(response.token))
+            setToken(response.token)
+            showMsgBox(response.message)
         }
     }, [])
 
-    useEffect(() => {
-        if (authState.loggedIn) {
-            localStorage.setItem("loggedIn", true);
-            localStorage.setItem("user", JSON.stringify(userInfo))
-            if (userInfo.role === 'admin') {
-                setTimeout(() => {
-                    navigate('/AdminPage')
-                }, 2000)
-            } else {
-                setTimeout(() => {
-                    navigate('/bookingpage')
-                }, 2000)
-            }
-        }
-    })
+    const showMsgBox = useCallback((msg) => {
+        toast(msg, {
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
+    }, [])
 
     useEffect(() => {
-        if (showNotify) {
-            if (userInfo !== null) {
-                toast(userInfo.message, {
-                    position: "top-center",
-                    autoClose: 3000,
-                    hideProgressBar: true,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "light",
-                });
-            }
+        if (localStorage.getItem("token")) {
+            setTimeout(() => {
+                navigate('/bookingpage')
+            }, 2000)
         }
-    }, [userInfo])
+    }, [token])
 
     return (
         <div className="main login-container">
@@ -89,7 +81,7 @@ function Login() {
                     onReject={(err) => {
                     }}
                 >
-                    <GoogleLoginButton style={{ fontSize: '16px', width:'452px', marginTop: '10px' }} />
+                    <GoogleLoginButton style={{ fontSize: '16px', width: '452px', marginTop: '10px' }} />
                 </LoginSocialGoogle>
 
                 {/* <LoginSocialFacebook 

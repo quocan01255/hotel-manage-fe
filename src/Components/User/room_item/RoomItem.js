@@ -67,12 +67,12 @@ function RoomItem({
             role="tabpanel"
             aria-labelledby="nav-home-tab"
           >
-            Room with available rate and includes:
+            {/* Room with available rate and includes:
             <ul className="room__tab-list">
               {description.map((item, index) => (
                 <li key={index}>{item}</li>
               ))}
-            </ul>
+            </ul> */}
             <div className="room__tab-booking">
               {priceType === "VND" ? (
                 <span className="room_tab-price">
