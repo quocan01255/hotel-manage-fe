@@ -3,29 +3,45 @@ import { useSelector, useDispatch } from "react-redux";
 import { add } from "../../../redux/actions/cartActions";
 import RoomItem from "../room_item/RoomItem";
 import "./listrooms.css";
+import { addCartItem } from "../../../services/api";
+import { ToastContainer, toast } from 'react-toastify';
 
 function ListRooms({ rooms }) {
   const doCartAction = useSelector((state) => state.cartReducer.type);
-  const authState = useSelector((state) => state.authReducer);
   const dispatch = useDispatch();
-  const [priceType, setPriceType] = useState("VND");
+  const userId = localStorage.getItem("id");
+  // const [priceType, setPriceType] = useState("VND");
 
+  const showMsgBox = useCallback((msg) => {
+    toast(msg, {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  }, [])
 
-  const handleSelect = useCallback((e) => {
-    setPriceType(e.target.value);
-  }, []);
+  // const handleSelect = useCallback((e) => {
+  //   setPriceType(e.target.value);
+  // }, []);
 
   const handleAdd = useCallback(
-    (id,checkout) => {
-      const loggedIn = localStorage.getItem("loggedIn");
-      if (!loggedIn) {
-        dispatch(add(id,checkout, false, null));
-      } else {
-        const user = JSON.parse(localStorage.getItem("user"));
-        dispatch(add(id,checkout, true, user.id));
-      }
+    async (id, checkout) => {
+      // const loggedIn = localStorage.getItem("loggedIn");
+      // if (!loggedIn) {
+      //   dispatch(add(id,checkout, false, null));
+      // } else {
+      //   const user = JSON.parse(localStorage.getItem("user"));
+      //   dispatch(add(id,checkout, true, user.id));
+      // }
+      const response = await addCartItem(userId, id);
+      showMsgBox(response.message);
     },
-  
+
     [doCartAction, dispatch]
   );
 
@@ -48,7 +64,7 @@ function ListRooms({ rooms }) {
           key={room.id}
           idTab={room.id}
           checkout={room.checkout}
-          priceType={priceType}
+          // priceType={priceType}
           name={room.name}
           detail={room.detail}
           description={room.description}

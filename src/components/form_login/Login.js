@@ -17,11 +17,8 @@ import { FacebookLoginButton } from 'react-social-login-buttons';
 const REACT_APP_GG_APP_ID = '478372342529-o6v0gv70ui7pqltdd0e3viaipe2hpmi0.apps.googleusercontent.com'
 
 function Login() {
-    const authState = useSelector(state => state.authReducer)
-    const userInfo = useSelector(state => state.authReducer.user)
     const dispatch = useDispatch()
     const navigate = useNavigate();
-    const [showNotify, setShowNotify] = useState(false)
     const [token, setToken] = useState()
 
     useEffect(() => {
@@ -29,6 +26,7 @@ function Login() {
         form.onSubmit = async (data) => {
             const response = await login(data.email, data.password)
             localStorage.setItem("token", JSON.stringify(response.token))
+            localStorage.setItem("id", JSON.stringify(response.user.userId))
             setToken(response.token)
             showMsgBox(response.message)
         }
@@ -76,7 +74,6 @@ function Login() {
                         console.log(data)
                         // sessionStorage.setItem('email',JSON.stringify(data));
                         dispatch(loginWithEmail(data.email))
-                        setShowNotify(true)
                     }}
                     onReject={(err) => {
                     }}

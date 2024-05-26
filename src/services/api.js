@@ -41,3 +41,47 @@ export const getRooms = async () => {
         throw error;
     }
 };
+
+export const getRoomById = async (id) => {
+    try {
+        const response = await axios.get(`${API_BASE_URL}/getroom?id=${id}`);
+        return response.data.data;
+    } catch (error) {
+        console.error('Error fetching get room:', error);
+        throw error;
+    }
+};
+
+export const getCart = async (userId) => {
+    try {
+        const response = await axios.get(`${API_BASE_URL}/getcart?id=${userId}`);
+        return response.data.data;
+    } catch (error) {
+        console.error('Error fetching add item:', error);
+        throw error;
+    }
+}
+
+export const addCartItem = async (userId, roomId) => {
+    try {
+        const reqBody = {
+            "id_room": roomId
+        }
+        const response = await axios.post(`${API_BASE_URL}/additem?id=${userId}`, reqBody);
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching add item:', error);
+        throw error;
+    }
+}
+
+export const removeCartItem = async (id) => {
+    try {
+        const response = await axios.delete(`${API_BASE_URL}/removeitem?id=${id}`);
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching remove item:', error);
+        throw error;
+    }
+}
+
