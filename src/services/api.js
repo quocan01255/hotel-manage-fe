@@ -67,7 +67,7 @@ export const addCartItem = async (userId, roomId) => {
         const reqBody = {
             "id_room": roomId
         }
-        const response = await axios.post(`${API_BASE_URL}/additem?id=${userId}`, reqBody);
+        const response = await axios.post(`${API_BASE_URL}/add-cart-item?id=${userId}`, reqBody);
         return response.data;
     } catch (error) {
         console.error('Error fetching add item:', error);
@@ -77,10 +77,59 @@ export const addCartItem = async (userId, roomId) => {
 
 export const removeCartItem = async (id) => {
     try {
-        const response = await axios.delete(`${API_BASE_URL}/removeitem?id=${id}`);
+        const response = await axios.delete(`${API_BASE_URL}/remove-cart-item?id=${id}`);
         return response.data;
     } catch (error) {
         console.error('Error fetching remove item:', error);
+        throw error;
+    }
+}
+
+export const getBookings = async (userId) => {
+    try {
+        const response = await axios.get(`${API_BASE_URL}/bookings?id=${userId}`);
+        return response.data.data;
+    } catch (error) {
+        console.error('Error fetching get bookings:', error);
+        throw error;
+    }
+}
+
+export const getBookingById = async (id) => {
+    try {
+        const response = await axios.get(`${API_BASE_URL}/getbooking?id=${id}`);
+        return response.data.data;
+    } catch (error) {
+        console.error('Error fetching get booking by id:', error);
+        throw error;
+    }
+}
+
+export const getBookingItem = async (id) => {
+    try {
+        const response = await axios.get(`${API_BASE_URL}/get-booking-item?id=${id}`);
+        return response.data.data;
+    } catch (error) {
+        console.error('Error fetching get booking item:', error);
+        throw error;
+    }
+}
+
+export const createBooking = async (name, email, total_price, id_user, address, phone, cart) => {
+    try {
+        const reqBody = {
+            name, 
+            email, 
+            total_price, 
+            id_user, 
+            address, 
+            phone,
+            cart
+        }
+        const response = await axios.post(`${API_BASE_URL}/create-booking`, reqBody);
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching create booking:', error);
         throw error;
     }
 }

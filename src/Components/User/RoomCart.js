@@ -8,7 +8,9 @@ const RoomCart = ({
   totalRoomPrice,
   guestCart,
   increaseQuantity,
-  decreaseQuantity
+  decreaseQuantity,
+  increaseTotal,
+  decreaseTotal
 }) => {
   // const handleRemove = async (id) => {
   //   const response = await removeCartItem(id);
@@ -134,7 +136,7 @@ const RoomCart = ({
     <div className="mt-5 mp-5">
       <div className="c-room-card ">
         {cart ? cart.map((item) => (
-          <CartItem key={item.id} roomId={item.id_room} handleRemove={() => removeRoom(item.id)}/>
+          <CartItem key={item.id} roomId={item.id_room} handleRemove={() => removeRoom(item.id)} increaseTotal={increaseTotal} decreaseTotal={decreaseTotal}/>
         )) : <h1>Cart is empty</h1>}
         <br />
       </div>

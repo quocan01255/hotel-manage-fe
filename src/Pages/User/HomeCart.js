@@ -10,7 +10,6 @@ import Footers from "../../Components/User/Footers";
 import "../../Css/styleroom.css";
 import Headerbooking from "../../Components/User/header_booking/Headerbooking";
 import { payment } from "../../redux/actions/PayAction";
-import BookingSummary from "../../Components/User/BookingSummary";
 import VisitorAPI from "visitorapi";
 import formatDatetime from "../../util/DatetimeUtil";
 import { getCart, removeCartItem } from "../../services/api";
@@ -27,6 +26,8 @@ function HomeCart() {
   const [startDate, setStartDates] = useState(new Date());
   const startDates = formatDatetime(startDate, "DD/MM/YYYY")
   const userId = localStorage.getItem("id")
+  const [total, setTotal] = useState(0)
+
   // console.log(startDates);
   // Get visitor information
   useEffect(() => {
@@ -38,18 +39,18 @@ function HomeCart() {
   }, [])
 
   // Call api and get list rooms
-  useEffect(() => {
-    fetch('http://localhost:3001/rooms')
-      .then((response) => response.json())
-      .then((rooms) => {
-        // const room = rooms.filter((room) => room.checkin >= startDates )
-        setRooms(rooms)
-        // console.log(room);
-      })
+  // useEffect(() => {
+  //   fetch('http://localhost:3001/rooms')
+  //     .then((response) => response.json())
+  //     .then((rooms) => {
+  //       // const room = rooms.filter((room) => room.checkin >= startDates )
+  //       setRooms(rooms)
+  //       // console.log(room);
+  //     })
 
-      .catch((error) => {
-      });
-  }, [])
+  //     .catch((error) => {
+  //     });
+  // }, [])
 
   // Call api and get data
   // useEffect(() => {
@@ -97,7 +98,7 @@ function HomeCart() {
   const getCartData = async () => {
     try {
       const cartData = await getCart(userId);
-      console.log(cartData)
+      // console.log(cartData)
       setCart(cartData);
     } catch (err) {
       console.log(err)
@@ -108,56 +109,56 @@ function HomeCart() {
     getCartData();
   }, [])
 
+  const increaseTotal = (value) => {
+    setTotal(prevTotal => prevTotal + value)
+  }
+
+  const decreaseTotal = (value) => {
+    setTotal(prevTotal => prevTotal - value)
+  }
+
   // Handling event
   const handleRemove = async (id) => {
     const response = await removeCartItem(id);
-    console.log(response.message);
     const cartData = await getCart(userId);
-    console.log(cartData)
     setCart(cartData);
   };
 
-  const handleIncrease = useCallback((id, checkin) => {
-    if (!checkLogin) {
-      dispatch(increase(id, checkin, false, null))
-    } else {
-      const user = JSON.parse(localStorage.getItem("user"))
-      dispatch(increase(id, checkin, true, user.id))
-    }
-  }, [dispatch])
+  // const handleIncrease = useCallback((id, checkin) => {
+  //   if (!checkLogin) {
+  //     dispatch(increase(id, checkin, false, null))
+  //   } else {
+  //     const user = JSON.parse(localStorage.getItem("user"))
+  //     dispatch(increase(id, checkin, true, user.id))
+  //   }
+  // }, [dispatch])
 
-  const handleDecrease = useCallback((id, checkin) => {
-    if (!checkLogin) {
-      dispatch(decrease(id, checkin, false, null))
-    } else {
-      const user = JSON.parse(localStorage.getItem("user"))
-      dispatch(decrease(id, checkin, true, user.id))
-    }
-  }, [dispatch])
+  // const handleDecrease = useCallback((id, checkin) => {
+  //   if (!checkLogin) {
+  //     dispatch(decrease(id, checkin, false, null))
+  //   } else {
+  //     const user = JSON.parse(localStorage.getItem("user"))
+  //     dispatch(decrease(id, checkin, true, user.id))
+  //   }
+  // }, [dispatch])
 
-  useEffect(() => {
-    toast.clearWaitingQueue()
-    if (cartMessage) {
-      toast(cartMessage, {
-        position: "top-center",
-        autoClose: 1500,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        toastId: "message"
-      });
-      dispatch(resetCartMessage())
-    }
-  }, [cartMessage])
-
-
-  // const totalRoomPrice = useMemo(() => {
-  //   return cart.reduce((total, room) => total + room.price * room.quantity, 0);
-  // }, [cart]);
-
+  // useEffect(() => {
+  //   toast.clearWaitingQueue()
+  //   if (cartMessage) {
+  //     toast(cartMessage, {
+  //       position: "top-center",
+  //       autoClose: 1500,
+  //       hideProgressBar: true,
+  //       closeOnClick: true,
+  //       pauseOnHover: true,
+  //       draggable: true,
+  //       progress: undefined,
+  //       theme: "light",
+  //       toastId: "message"
+  //     });
+  //     dispatch(resetCartMessage())
+  //   }
+  // }, [cartMessage])
 
   // const thanhtoan = (formData) => {
   //   if (!checkLogin) {
@@ -167,15 +168,6 @@ function HomeCart() {
   //     dispatch(payment(formData, cart, totalRoomPrice, user.id, visitorInfo));
   //   }
   // }
-
-  const reset = useCallback(() => {
-    if (!checkLogin) {
-      dispatch(resetCart(listId, false, null))
-    } else {
-      const user = JSON.parse(localStorage.getItem("user"))
-      dispatch(resetCart(listId, true, user.id))
-    }
-  }, [listId])
 
   return (
     <>
@@ -194,15 +186,27 @@ function HomeCart() {
               <RoomCart
                 removeRoom={handleRemove}
                 cart={cart}
-                // totalRoomPrice={totalRoomPrice}
-                guestCart={cart}
-                increaseQuantity={handleIncrease}
-                decreaseQuantity={handleDecrease}
+                increaseTotal={increaseTotal}
+                decreaseTotal={decreaseTotal}
+              // totalRoomPrice={totalRoomPrice}
+              // guestCart={cart}
+              // increaseQuantity={handleIncrease}
+              // decreaseQuantity={handleDecrease}
               />
-              {/* <BookingSummary totalRoomPrice={totalRoomPrice} /> */}
+              <div className="c-booking-summary">
+                <div className="c-booking-title">Booking Summary</div>
+                <div className="c-booking-item">
+                  <div className="c-booking-info">
+                    <span className="c-booking-price">Total price: {new Intl.NumberFormat("vi-VN", {
+                      style: "currency",
+                      currency: "VND",
+                    }).format(total)}</span>
+                  </div>
+                </div>
+              </div>
             </div>
             <div className="col-md-6">
-              {/* <PaymentForm totalRoomPrice={totalRoomPrice} thanhtoan={thanhtoan} reset={reset} cart={cart} /> */}
+              <PaymentForm totalRoomPrice={total} cart={cart} />
             </div>
           </div>
         </div>

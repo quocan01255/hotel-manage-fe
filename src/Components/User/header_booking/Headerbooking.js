@@ -70,7 +70,7 @@ function Headerbooking() {
                 </li>
               }
 
-              {
+              {/* {
                 !checkLogin &&
                 <li className="item">
                   <Link to="/homecart" className="brand">
@@ -85,7 +85,7 @@ function Headerbooking() {
                     </Badge>
                   </Link>
                 </li>
-              }
+              } */}
 
               {
                 checkLogin &&

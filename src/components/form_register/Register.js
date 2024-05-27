@@ -30,7 +30,7 @@ function Register() {
         toast(msg, {
             position: "top-center",
             autoClose: 3000,
-            hideProgressBar: true,
+            hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
             draggable: true,

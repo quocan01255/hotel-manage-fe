@@ -3,15 +3,16 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { toast } from 'react-toastify';
 import {loadStripe} from '@stripe/stripe-js';
+import { createBooking } from "../../services/api";
 
 const PaymentForm = (props) => {
   const { totalRoomPrice, thanhtoan, reset, cart } = props;
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const userId = localStorage.getItem("id");
 
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
+    name: "",
     email: "",
     phone: "",
     address: "",
@@ -22,8 +23,7 @@ const PaymentForm = (props) => {
 
 
   const [formErrors, setFormErrors] = useState({
-    firstName: "",
-    lastName: "",
+    name: "",
     email: "",
     phone: "",
     address: "",
@@ -50,8 +50,7 @@ const PaymentForm = (props) => {
   const validate = () => {
     let isValid = true;
     const newFormErrors = {
-      firstName: formData.firstName ? "" : "Please enter your first name.",
-      lastName: formData.lastName ? "" : "Please enter your last name.",
+      name: formData.name ? "" : "Please enter your name.",
       email: formData.email ? "" : "Please enter your email.",
       phone: formData.phone ? "" : "Please enter your phone number.",
       address: formData.address.trim() ? "" : "Please enter your address.",
@@ -75,25 +74,23 @@ const PaymentForm = (props) => {
     return isValid;
   };
 
-  const handleBookClick = () => {
+  const handleBookClick = async () => {
     if (validate()) {
       if (cart.length > 0) {
         // Dispatch action to set user info in Redux Store
         // dispatch(payment(formData));
-        thanhtoan(formData);
+        // thanhtoan(formData);
+        const reponse = await createBooking(formData.name, formData.email, totalRoomPrice, userId, formData.address, formData.phone, cart);
         navigate("/paycard", {
           state: {
             total: totalRoomPrice,
-            firstName: formData.firstName,
-            lastName: formData.lastName,
+            name: formData.name,
             email: formData.email,
             phone: formData.phone,
             address: formData.address,
-            city: formData.city,
-            country: formData.country,
           },
         });
-        reset()
+        // reset()
       } else {
         toast('Cart is empty', {
           position: "top-center",
@@ -143,44 +140,26 @@ const PaymentForm = (props) => {
 
   return (
     <div className="c-payment-form">
-      <div style={{ fontWeight: "600", fontSize: "20px" }}>Your Details</div>
+      <div style={{ fontWeight: "600", fontSize: "20px" }}>Enter your information</div>
       <form>
         {/* ----------- */}
-        <div className="c-form-group">
-          <label htmlFor="first-name" className="c-form-label">
-            First name
-          </label>
-          <input
-            type="text"
-            id="first-name"
-            className={`c-form-input ${formErrors.firstName ? "invalid-input" : ""
-              }`}
-            name="firstName"
-            value={formData.firstName}
-            onChange={handleInputChange}
-            required
-          />
-          {formErrors.firstName && (
-            <div className="error-message">{formErrors.firstName}</div>
-          )}
-        </div>
         {/* --------- */}
         <div className="c-form-group">
-          <label htmlFor="last-name" className="c-form-label">
-            Last name
+          <label htmlFor="name" className="c-form-label">
+            Name
           </label>
           <input
             type="text"
-            id="last-name"
-            className={`c-form-input ${formErrors.lastName ? "invalid-input" : ""
+            id="name"
+            className={`c-form-input ${formErrors.name ? "invalid-input" : ""
               }`}
-            name="lastName"
-            value={formData.lastName}
+            name="name"
+            value={formData.name}
             onChange={handleInputChange}
             required
           />
-          {formErrors.lastName && (
-            <div className="error-message">{formErrors.lastName}</div>
+          {formErrors.name && (
+            <div className="error-message">{formErrors.name}</div>
           )}
         </div>
         {/* --------- */}
@@ -287,13 +266,13 @@ const PaymentForm = (props) => {
           Payment at hotel
         </button>
 
-        <button
+        {/* <button
           type="button"
           className="btn btn-primary c-form-button"
           onClick={makePayment}
         >
          Bank Transfer
-        </button>
+        </button> */}
       </form>
     </div>
   );

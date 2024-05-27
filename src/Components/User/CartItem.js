@@ -3,19 +3,42 @@ import { getRoomById } from "../../services/api";
 
 const CartItem = ({
     roomId,
-    handleRemove
+    handleRemove,
+    increaseTotal,
+    decreaseTotal
 }) => {
     const [info, setInfo] = useState({})
 
     const getInfo = async () => {
         const response = await getRoomById(roomId);
-        console.log(response)
+        // console.log(response)
         setInfo(response[0])
     }
 
     useEffect(() => {
         getInfo();
     }, [roomId])
+
+    useEffect(() => {
+        if (info.price && !isNaN(parseFloat(info.price))) {
+            const price = parseFloat(info.price);
+            // console.log(parseFloat(info.price))
+            increaseTotal(price);
+        } else {
+            console.error("Invalid price value");
+        }
+    }, [info.price])
+
+    const handleDecreaseAndRemove = () => {
+        handleRemove();
+        if (info.price && !isNaN(parseFloat(info.price))) {
+            const price = parseFloat(info.price);
+            decreaseTotal(price);
+        } else {
+            console.error("Invalid price value");
+        }
+    };
+
 
     return (
         // Logged in
@@ -51,10 +74,10 @@ const CartItem = ({
                     {new Intl.NumberFormat("vi-VN", {
                         style: "currency",
                         currency: "VND",
-                    }).format(info.price * info.quantity)}
+                    }).format(info.price)}
                     <button
                         className="btn btn-primary room_tab-btn"
-                        onClick={handleRemove}
+                        onClick={handleDecreaseAndRemove}
                     >
                         <i className="fa-solid fa-trash"></i>
                     </button>

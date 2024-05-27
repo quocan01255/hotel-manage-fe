@@ -16,7 +16,7 @@ function ListRooms({ rooms }) {
     toast(msg, {
       position: "top-center",
       autoClose: 3000,
-      hideProgressBar: true,
+      hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -38,8 +38,12 @@ function ListRooms({ rooms }) {
       //   const user = JSON.parse(localStorage.getItem("user"));
       //   dispatch(add(id,checkout, true, user.id));
       // }
-      const response = await addCartItem(userId, id);
-      showMsgBox(response.message);
+      if (userId) {
+        const response = await addCartItem(userId, id);
+        showMsgBox(response.message);
+      } else {
+        showMsgBox("Please login to add room!")
+      }
     },
 
     [doCartAction, dispatch]
