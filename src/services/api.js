@@ -85,6 +85,16 @@ export const removeCartItem = async (id) => {
     }
 }
 
+export const getAllBookings = async () => {
+    try {
+        const response = await axios.get(`${API_BASE_URL}/allbookings`);
+        return response.data.data;
+    } catch (error) {
+        console.error('Error fetching get bookings:', error);
+        throw error;
+    }
+}
+
 export const getBookings = async (userId) => {
     try {
         const response = await axios.get(`${API_BASE_URL}/bookings?id=${userId}`);
@@ -130,6 +140,26 @@ export const createBooking = async (name, email, total_price, id_user, address, 
         return response.data;
     } catch (error) {
         console.error('Error fetching create booking:', error);
+        throw error;
+    }
+}
+
+export const getTotalUsers = async () => {
+    try {
+        const response = await axios.get(`${API_BASE_URL}/get-total-users`);
+        return response.data.data;
+    } catch (error) {
+        console.error('Error fetching get total users:', error);
+        throw error;
+    }
+}
+
+export const getBookingInfo = async (id) => {
+    try {
+        const response = await axios.get(`${API_BASE_URL}/bookinginfo?id=${id}`);
+        return response.data.data;
+    } catch (error) {
+        console.error('Error fetching get booking info:', error);
         throw error;
     }
 }

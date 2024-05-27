@@ -4,63 +4,89 @@ import DoanhThuTheoThangChart from './DoanhThuTheoThangChart'
 import { Card, Col, DatePicker, Divider, Row, Statistic, Select } from 'antd';
 import { ArrowUpOutlined } from '@ant-design/icons';
 import { useMemo } from 'react';
+import { getAllBookings, getTotalUsers } from '../../services/api';
 
 
 function DashBoard() {
   var today = new Date();
   const [bookings, setBookings] = useState([]);
-  const [accounts, setAccounts] = useState([]);
+  const [totalUsers, setTotalUsers] = useState(0);
 
-  const [year, setYear] = useState("2023");
+  const currentYear = new Date().getFullYear()
+
+  const [year, setYear] = useState(currentYear);
   const [total, setTotal] = useState(0);
   const [counts, setCounts] = useState(0);
 
+  // useEffect(() => {
+  //   fetch('http://localhost:3001/bookings')
+  //     .then((response) => response.json())
+  //     .then((bookings) => {
+  //       let yearRevenue = 0
+  //       let count = 0
+  //       bookings.forEach((booking) => {
+  //         booking.rooms.forEach((room) => {
+
+  //           const [day, month, years] = room.checkout.split('/')
+  //           if (years == year) {
+  //             yearRevenue += room.price * room.quantity
+  //             count = count + 1
+
+  //           }
+  //         })
+  //       })
+  //       setTotal(yearRevenue);
+  //       setBookings(bookings)
+  //       setCounts(count)
+
+  //     })
+  //     .catch((error) => {
+  //     });
+  // }, [year])
+
+  const fetchData = async () => {
+    const bookings = await getAllBookings();
+    let yearRevenue = 0
+    let count = 0
+
+    bookings.forEach((booking) => {
+      const [years, month, day] = booking.booking_date.split('-')
+      if (years == year) {
+        yearRevenue += parseFloat(booking.total_price)
+        count = count + 1
+      }
+    })
+    setTotal(yearRevenue);
+    setBookings(bookings)
+    setCounts(count)
+  }
+
+  const fetchUsers = async () => {
+    const response = await getTotalUsers();
+    setTotalUsers(parseInt(response[0].count))
+  }
+
   useEffect(() => {
-    fetch('http://localhost:3001/bookings')
-      .then((response) => response.json())
-      .then((bookings) => {
-        let yearRevenue = 0
-        let count =0
-        bookings.forEach((booking) => {
-          booking.rooms.forEach((room) => {
-
-            const [day, month, years] = room.checkout.split('/')
-            if (years == year) {
-              yearRevenue += room.price * room.quantity
-              count= count+1
-
-            }
-          })
-        })
-        setTotal(yearRevenue);
-        setBookings(bookings)
-        setCounts(count)
-
-      })
-      .catch((error) => {
-      });
+    fetchData();
+    fetchUsers();
   }, [year])
 
 
 
-  useEffect(() => {
-    fetch('http://localhost:3001/accounts')
-      .then((response) => response.json())
-      .then((account) => {
-        const user = account.filter(accounts => accounts.role === 'user')
-        setAccounts(user)
-      })
-      .catch((error) => {
-      });
-  }, [])
+  // useEffect(() => {
+  //   fetch('http://localhost:3001/accounts')
+  //     .then((response) => response.json())
+  //     .then((account) => {
+  //       const user = account.filter(accounts => accounts.role === 'user')
+  //       setAccounts(user)
+  //     })
+  //     .catch((error) => {
+  //     });
+  // }, [])
 
   const onChange = (date, dateString) => {
     setYear(dateString)
   };
- 
-  const totalRoomPrice = useMemo(() => {
-    return bookings.reduce((total, room) => total + room.totalRoomPrice, 0);
-  }, [bookings]);
 
   return (
     <div>
@@ -86,7 +112,7 @@ function DashBoard() {
         <Col span={6} order={2}>
           <Card bordered={false} style={{ backgroundColor: '#E6E6FA' }}>
             <Statistic
-              title={`Revenue by year ${year} `}            
+              title={`Revenue by year ${year} `}
               value={total}
               precision={0}
               valueStyle={{
@@ -104,7 +130,7 @@ function DashBoard() {
             <Statistic
               title="Total Accounts"
               // value={users?users.price:0}
-              value={accounts.length}
+              value={totalUsers}
               precision={0}
               valueStyle={{
                 color: '#3f8600',
@@ -122,7 +148,7 @@ function DashBoard() {
           <DatePicker onChange={onChange} picker="year" />
         </Col>
         <Col flex={8} span={20}>
-          <DoanhThuTheoThangChart year={year} />
+          <DoanhThuTheoThangChart year={year} bookings={bookings}/>
         </Col>
       </Row>
     </div>

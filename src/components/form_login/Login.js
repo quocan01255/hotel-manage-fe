@@ -71,7 +71,7 @@ function Login() {
                     scope={'email'}
                     client_id={REACT_APP_GG_APP_ID || ''}
                     onResolve={({ provider, data }) => {
-                        console.log(data)
+                        // console.log(data)
                         // sessionStorage.setItem('email',JSON.stringify(data));
                         dispatch(loginWithEmail(data.email))
                     }}

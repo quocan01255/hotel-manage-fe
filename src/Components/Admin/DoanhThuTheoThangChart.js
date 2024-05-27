@@ -10,36 +10,27 @@ function DoanhThuTheoThangChart(props) {
   const [price, setPrice] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3001/bookings')
-      .then((response) => response.json())
-      .then((bookings) => {
-        setData(bookings)
+    setData(props.bookings)
 
-        let priceMonth = []
-        bookings.forEach((booking) => {
-          booking.rooms.forEach((room) => {
+    let priceMonth = []
+    props.bookings.forEach((booking) => {
+      const [year, month, day] = booking.booking_date.split('-')
+      if (year == props.year) {
+        if (priceMonth[month - 1]) {
+          priceMonth[month - 1] += parseFloat(booking.total_price)
+        } else {
+          priceMonth[month - 1] = parseFloat(booking.total_price)
+        }
+      }
+    })
+    setPrice(priceMonth)
+  }, [props.year, props.bookings])
 
-            const [day, month, year] = room.checkout.split('/')
-            if (year == props.year) {
-              if (priceMonth[month - 1]) {
-                priceMonth[month - 1] += room.price * room.quantity
-              } else {
-                priceMonth[month - 1] = room.price * room.quantity
-              }
-            }
-          })
-        })
-        setPrice(priceMonth)
-      })
-
-      .catch((error) => {
-      });
-  }, [props.year])
   return (
     <Bar
       data={{
         labels: labels,
-        
+
         datasets: [
           {
             label: "Revenue by year " + props.year,

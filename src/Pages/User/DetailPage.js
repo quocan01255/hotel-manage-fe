@@ -20,7 +20,7 @@ function DetailPage() {
 
   const fetchDataBooking = async () => {
     const response = await getBookingById(id)
-    console.log(response)
+    // console.log(response)
     setData(response);
   }
 

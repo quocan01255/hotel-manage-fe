@@ -5,9 +5,11 @@ import FormDetailBooking from './formDetailBooking';
 import { useDispatch, useSelector } from 'react-redux';
 import { remove, rsMessage, rsIsUpdSuccess, rsIsDeleteSuccess } from '../../../redux/actions/bookingManagerAction';
 import { ToastContainer, toast } from 'react-toastify';
+import { getAllBookings, getBookingInfo } from '../../../services/api';
 
 function FilterManagerBooking() {
     const [bookings, setBookings] = useState([]);
+    const [infoBookings, setInfoBookings] = useState([]);
     const dispatch = useDispatch();
     const isUpdSuccess = useSelector(state => state.roomManagerReducer.isUpdSuccess);
     const isDeleteSuccess = useSelector(state => state.roomManagerReducer.isDeleteSuccess);
@@ -15,14 +17,9 @@ function FilterManagerBooking() {
     const [currentBooking, setCurrentBooking] = useState([])
     const resultSearch = useSelector(state => state.SearchAdminReducer.name)
 
-    const setData = () => {
-        fetch('http://localhost:3001/bookings')
-            .then((response) => response.json())
-            .then((data) => {
-                setBookings(data)
-            })
-            .catch((error) => {
-            });
+    const setData = async () => {
+        const response = await getAllBookings();
+        setBookings(response)
     }
 
     useEffect(() => {
@@ -41,9 +38,22 @@ function FilterManagerBooking() {
         }
     }, [message]);
 
+    const getInfo = async() => {
+        let data = bookings;
+        for (const item of data) {
+            const response = await getBookingInfo(item.id);
+            item.info = response.join(', ');
+        }
+        setInfoBookings(data);
+    }
+
     useEffect(() => {
-        setData()
+        setData();
     }, [])
+
+    useEffect(() => {
+        getInfo();
+    },  [bookings])
 
     useEffect(() => {
         setBookings(resultSearch)
@@ -71,9 +81,9 @@ function FilterManagerBooking() {
     }
     const columns = [
         {
-            title: 'First Name',
-            dataIndex: 'firstname',
-            key: 'firstname',
+            title: 'Name',
+            dataIndex: 'name',
+            key: 'name',
             width: '50px'
         },
         {
@@ -90,15 +100,15 @@ function FilterManagerBooking() {
         },
         {
             title: 'Booking information',
-            dataIndex: 'nameroom',
-            key: 'name',
+            dataIndex: 'info',
+            key: 'info',
             width: '350px'
 
         },
         {
-            title: 'Total price',
-            dataIndex: 'totalRoomPrice',
-            key: 'totalRoomPrice',
+            title: 'Total cost',
+            dataIndex: 'total_price',
+            key: 'total_price',
             width: '150px',
             render: text =>
                 new Intl.NumberFormat("vi-VN", {

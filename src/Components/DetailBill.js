@@ -4,8 +4,8 @@ import Detail from './Detail'
 
 export default function DetailBill(props) {
     const { bookings, data } = props
-    console.log(bookings)
-    console.log(data)
+    // console.log(bookings)
+    // console.log(data)
     return (
         <div className='width:100%;height:100%;'>
             <div className="es-wrapper-color" style={{ backgroundColor: '#F6F6F6' }}>

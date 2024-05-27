@@ -7,14 +7,14 @@ import { useDispatch } from 'react-redux';
 import TextArea from 'antd/es/input/TextArea';
 
 const FormDetailBooking = ({ booking, close }) => {
-    const { id, lastname, email, phone, nameroom, totalRoomPrice } = booking
+    const { id, name, email, phone, info, total_price } = booking
     const dispatch = useDispatch()
     const [data, setData] = useState({   
-        lastname,
+        name,
         email,
         phone,
-        nameroom,
-        totalRoomPrice,
+        info,
+        total_price,
     })
     
     const onChangeValue = (e) => {
@@ -35,7 +35,7 @@ const FormDetailBooking = ({ booking, close }) => {
             <div className='ad-form-detail-booking'>
                 <Form labelCol={{ span: 4, }} wrapperCol={{ span: 14, }} layout="horizontal" >
                     <Form.Item label="Name">
-                        <Input name='lastname' onChange={onChangeValue} defaultValue={lastname} />
+                        <Input name='name' onChange={onChangeValue} defaultValue={name} />
                     </Form.Item>
                     <Form.Item label="E-mail">
                         <Input name='email' onChange={onChangeValue} defaultValue={email} />
@@ -44,10 +44,10 @@ const FormDetailBooking = ({ booking, close }) => {
                         <Input name='phone' onChange={onChangeValue} defaultValue={phone} />
                     </Form.Item>
                     <Form.Item label="Information">
-                        <TextArea name='nameroom' defaultValue={nameroom} disabled />
+                        <TextArea name='info' defaultValue={info} disabled />
                     </Form.Item>
                     <Form.Item label="Total">
-                        <Input name='totalRoomPrice' defaultValue={totalRoomPrice} disabled />
+                        <Input name='total_price' defaultValue={total_price} disabled />
                     </Form.Item>
                     <Form.Item className='btn-edit-form-detai-booking'>
                         <Button type="primary" onClick={handleUpdate}>Save</Button>

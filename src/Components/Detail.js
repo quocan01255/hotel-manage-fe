@@ -6,7 +6,7 @@ function Detail({idRoom, quantity, total}) {
 
     const getInfo = async () => {
         const response = await getRoomById(idRoom);
-        console.log(response)
+        // console.log(response)
         setInfo(response[0])
     }
 
