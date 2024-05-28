@@ -3,7 +3,7 @@ import DeluxePool from '../../Components/Admin/room_manager/DeluxePoolRoom';
 import DeluxeExecutive from '../../Components/Admin/room_manager/DeluxeExecutiveRoom';
 import DeluxePlus from '../../Components/Admin/room_manager/DeluxePlusRoom';
 import Deluxe from '../../Components/Admin/room_manager/DeluxeRoom';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Routes, Route } from "react-router-dom";
 import SearchFormBooking from '../../Components/Admin/booking_manager/searchFormBooking';
 import { BarsOutlined, SolutionOutlined, HomeOutlined } from '@ant-design/icons';
@@ -14,23 +14,45 @@ import './cssAdmin.css'
 import HeaderAdmin from '../../Components/Admin/HeaderAdmin'
 import ManagerUserPage from './ManagerUserPage'
 import DashBoard from '../../Components/Admin/DashBoard';
+import { getTypeRooms } from '../../services/api';
+import RoomType from '../../Components/Admin/room_manager/RoomType';
 const { Content, Sider } = Layout;
 function getItem(label, key, icon, children) {
-  return { key, icon, children, label, };
+  return { key, icon, children, label};
 }
-const items = [
-  getItem(<Link to={"DashBoard"}>DashBoard</Link>, '1', <HomeOutlined />),
-  getItem(<Link to={"ManagerBooking"}>Manager Booking</Link>, '2', <SolutionOutlined />),
-  getItem('Manager room', '3', <BarsOutlined />, [
-    getItem(<Link to={"ManagerRoomDeluxePool"} className='menu-admin-room'>Deluxe Pool</Link>, '4',),
-    getItem(<Link to={"ManagerRoomDeluxeExecutive"} className='menu-admin-room'>Deluxe Executive</Link>, '5'),
-    getItem(<Link to={"ManagerRoomDeluxePlus"} className='menu-admin-room'>Deluxe Plus</Link>, '6'),
-    getItem(<Link to={"ManagerRoomDeluxe"} className='menu-admin-room'>Deluxe</Link>, '7')]),
-  getItem(<Link to={"ManagerUser"}>Manager User</Link>, '8', <SolutionOutlined />),
 
-];
 function AdminPage() {
   const [collapsed, setCollapsed] = useState(false);
+  const [types, setTypes] = useState([]);
+  const [items, setItems] = useState([
+    getItem(<Link to={"DashBoard"}>DashBoard</Link>, '1', <HomeOutlined />),
+    getItem(<Link to={"ManagerBooking"}>Manager Booking</Link>, '2', <SolutionOutlined />),
+    getItem('Manager room', '3', <BarsOutlined />, []),
+    getItem(<Link to={"ManagerUser"}>Manager User</Link>, '8', <SolutionOutlined />),
+  ]);
+
+  const getTypeRoomItems = (types) => {
+    return types.map((type) => getItem(
+      <Link to={`ManagerRoom/${type.id}`} className='menu-admin-room'>{type.name}</Link>,
+    ));
+  }
+
+  const fetchTypeRooms = async () => {
+    const response = await getTypeRooms();
+    setTypes(response)
+
+    const typeRoomItems = getTypeRoomItems(response);
+    setItems(prevItems => prevItems.map(item => {
+      if (item.key === '3') {
+        return { ...item, children: typeRoomItems };
+      }
+      return item;
+    }));
+  }
+
+  useEffect(() => {
+    fetchTypeRooms();
+  }, [])
 
   return (
     <div className='App'>
@@ -57,10 +79,7 @@ function AdminPage() {
             <Routes>
               <Route index element={<DashBoard />} />
               <Route path="/ManagerBooking" element={<SearchFormBooking />} />
-              <Route path="/ManagerRoomDeluxePool" element={<DeluxePool />} />
-              <Route path="/ManagerRoomDeluxeExecutive" element={<DeluxeExecutive />} />
-              <Route path="/ManagerRoomDeluxePlus" element={<DeluxePlus />} />
-              <Route path="/ManagerRoomDeluxe" element={<Deluxe />} />
+              <Route path="/ManagerRoom/:typeId" element={<RoomType />} />
               <Route path="/ManagerUser" element={<ManagerUserPage />} />
               <Route path="/DashBoard" element={<DashBoard />} />
 

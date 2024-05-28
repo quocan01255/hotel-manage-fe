@@ -5,8 +5,8 @@ import FormDetail from './FormEditRoom';
 import { remove } from '../../../redux/actions/roomManagerAction';
 import { useDispatch } from 'react-redux';
 
-function RoomCard({ room }) {
-    const { id, name, detail, img, description, price } = room
+function RoomCard({ room, handleRemove, type, handleUpdateRoom }) {
+    const { id, name, details, img, description, price } = room
     const [openDetail, setOpenDetail] = useState(false);
     const dispatch = useDispatch()
     const Detail = () => {
@@ -16,9 +16,9 @@ function RoomCard({ room }) {
     const handleCancel = () => {
         setOpenDetail(false);
     };
-    const handleRemove = () => {
-        dispatch(remove(id))
-    }
+    // const handleRemove = () => {
+    //     dispatch(remove(id))
+    // }
 
     return (
         <div className="row g-0 card-main-admin-manager-room">
@@ -28,10 +28,7 @@ function RoomCard({ room }) {
             <div className="col-md-6 ">
                 <div className="card-body">
                     <h5>{name}</h5>
-                    <p>{detail}</p>
-                    <ul style={{ listStyle: "disc" }}>{description.map((item, index) => (
-                        <li key={index}>{item}</li>
-                    ))}</ul>
+                    <p>{details}</p>
                     <h6>Price: {new Intl.NumberFormat("vi-VN", {
                         style: "currency",
                         currency: "VND",
@@ -53,9 +50,9 @@ function RoomCard({ room }) {
                         }}
                         width={800}
                     >
-                        <FormDetail close={handleCancel} room={room} />
+                        <FormDetail type={type} close={handleCancel} handleUpdateRoom={handleUpdateRoom} room={room} />
                     </Modal>
-                    <Button type="primary" danger onClick={handleRemove}>Delete</Button>
+                    <Button type="primary" danger onClick={() => handleRemove(room.id)}>Delete</Button>
                 </div>
             </div>
         </div>

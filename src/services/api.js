@@ -52,6 +52,88 @@ export const getRoomById = async (id) => {
     }
 };
 
+export const getRoomByType = async (id) => {
+    try {
+        const response = await axios.get(`${API_BASE_URL}/rooms/type?id=${id}`);
+        return response.data.data;
+    } catch (error) {
+        console.error('Error fetching get room by type:', error);
+        throw error;
+    }
+};
+
+export const addRoom = async (name, quantity, details, img, price, check_in, check_out, description, type_id) => {
+    try {
+        const reqBody = {
+            name,
+            quantity,
+            details,
+            img,
+            price,
+            check_in,
+            check_out,
+            description,
+            type_id
+        }
+        const response = await axios.post(`${API_BASE_URL}/add-room`, reqBody);
+
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching add room:', error);
+        throw error;
+    }
+}
+
+export const removeRoom = async (id) => {
+    try {
+        const response = await axios.delete(`${API_BASE_URL}/delete-room?id=${id}`);
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching remove room:', error);
+        throw error;
+    }
+}
+
+export const updateRoom = async (id, name, quantity, details, img, price, check_in, check_out, description) => {
+    try {
+        const reqBody = {
+            name,
+            quantity,
+            details,
+            img,
+            price,
+            check_in,
+            check_out,
+            description,
+        }
+        const response = await axios.patch(`${API_BASE_URL}/update-room?id=${id}`, reqBody);
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching update room:', error);
+        throw error;
+    }
+}
+
+export const getTypeRooms = async () => {
+    try {
+        const response = await axios.get(`${API_BASE_URL}/rooms/types`);
+        return response.data.data;
+    } catch (error) {
+        console.error('Error fetching type rooms:', error);
+        throw error;
+    }
+};
+
+export const getTypeById = async (id) => {
+    try {
+        const response = await axios.get(`${API_BASE_URL}/rooms/type-by?id=${id}`);
+        return response.data.data;
+    } catch (error) {
+        console.error('Error fetching get type by id:', error);
+        throw error;
+    }
+};
+
 export const getCart = async (userId) => {
     try {
         const response = await axios.get(`${API_BASE_URL}/getcart?id=${userId}`);
@@ -163,4 +245,33 @@ export const getBookingInfo = async (id) => {
         throw error;
     }
 }
+
+export const updateBooking = async (id, name, email, phone) => {
+    try {
+        const reqBody = {
+            name, 
+            email,
+            phone
+        }
+        const response = await axios.patch(`${API_BASE_URL}/updatebooking?id=${id}`, reqBody);
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching update booking:', error);
+        throw error;
+    }
+}
+
+export const removeBooking = async (id) => {
+    try {
+        const response = await axios.delete(`${API_BASE_URL}/delete-booking?id=${id}`);
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching delete booking:', error);
+        throw error;
+    }
+}
+
+
+
+
 

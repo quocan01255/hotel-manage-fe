@@ -28,6 +28,7 @@ import DetailPage from "./Pages/User/DetailPage";
 
 import ManagerUserPage from "./Pages/Admin/ManagerUserPage";
 import DashBoard from "./Components/Admin/DashBoard";
+import RoomType from "./Components/Admin/room_manager/RoomType";
 
 
 
@@ -54,10 +55,7 @@ function App() {
             {/* admin */}
             <Route path="/adminpage" element={<AdminPage />} >
               <Route path="ManagerBooking" element={<SearchFormBooking />} />
-              <Route path="ManagerRoomDeluxePool" element={<DeluxePool />} />
-              <Route path="ManagerRoomDeluxeExecutive" element={<DeluxeExecutive />} />
-              <Route path="ManagerRoomDeluxePlus" element={<DeluxePlus />} />
-              <Route path="ManagerRoomDeluxe" element={<Deluxe />} />
+              <Route path="ManagerRoom/:typeId" element={<RoomType />} />
               <Route path="ManagerUser" element={<ManagerUserPage/>} />
               <Route path="DashBoard" element={<DashBoard/>} />
             </Route>

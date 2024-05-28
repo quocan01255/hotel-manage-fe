@@ -5,7 +5,7 @@ import FormDetailBooking from './formDetailBooking';
 import { useDispatch, useSelector } from 'react-redux';
 import { remove, rsMessage, rsIsUpdSuccess, rsIsDeleteSuccess } from '../../../redux/actions/bookingManagerAction';
 import { ToastContainer, toast } from 'react-toastify';
-import { getAllBookings, getBookingInfo } from '../../../services/api';
+import { getAllBookings, getBookingInfo, removeBooking, updateBooking } from '../../../services/api';
 
 function FilterManagerBooking() {
     const [bookings, setBookings] = useState([]);
@@ -76,9 +76,19 @@ function FilterManagerBooking() {
     const handleCancel = (e) => {
         setOpen(false);
     };
-    const handleRemove = (id) => {
-        dispatch(remove(id))
+    const handleRemove = async (id) => {
+        // dispatch(remove(id))
+        await removeBooking(id);
+        setData();
     }
+    
+    const handleUpdate = async (id, name, email, phone) => {
+        // dispatch(upd(data, id))
+        await updateBooking(id, name, email, phone);
+        handleCancel();
+        setData();
+    }
+
     const columns = [
         {
             title: 'Name',
@@ -144,7 +154,7 @@ function FilterManagerBooking() {
                                 }}
                                 width={800}
                             >
-                                <FormDetailBooking close={handleCancel} booking={currentBooking} />
+                                <FormDetailBooking booking={currentBooking} handleUpdate={handleUpdate}/>
                             </Modal>
                         </div>
                         <Button type="primary" danger onClick={() => handleRemove(booking.id)}>Cancel</Button>

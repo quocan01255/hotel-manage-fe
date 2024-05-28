@@ -6,7 +6,7 @@ import { upd } from '../../../redux/actions/bookingManagerAction';
 import { useDispatch } from 'react-redux';
 import TextArea from 'antd/es/input/TextArea';
 
-const FormDetailBooking = ({ booking, close }) => {
+const FormDetailBooking = ({ booking, handleUpdate }) => {
     const { id, name, email, phone, info, total_price } = booking
     const dispatch = useDispatch()
     const [data, setData] = useState({   
@@ -23,11 +23,6 @@ const FormDetailBooking = ({ booking, close }) => {
             ...prevData,
             [name]: value,
         }));
-    }
-
-    const handleUpdate = () => {
-        dispatch(upd(data, id))
-        close()
     }
 
     return (
@@ -50,7 +45,7 @@ const FormDetailBooking = ({ booking, close }) => {
                         <Input name='total_price' defaultValue={total_price} disabled />
                     </Form.Item>
                     <Form.Item className='btn-edit-form-detai-booking'>
-                        <Button type="primary" onClick={handleUpdate}>Save</Button>
+                        <Button type="primary" onClick={() => handleUpdate(id, data.name, data.email, data.phone)}>Save</Button>
                     </Form.Item>
                 </Form>
             </div>

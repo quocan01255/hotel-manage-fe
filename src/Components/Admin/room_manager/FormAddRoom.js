@@ -1,21 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, Form, Input, Select } from 'antd';
 import { useDispatch } from 'react-redux'
 import './cssFormAddEditRoom.css';
 import { add } from '../../../redux/actions/roomManagerAction';
+import { addRoom } from '../../../services/api';
+import { useParams } from 'react-router-dom';
+import { DatePicker } from "antd";
 
 const { TextArea } = Input;
-const FormAddRoom = ({ type, close }) => {
+const { RangePicker } = DatePicker;
+const FormAddRoom = ({ type, close, handleAdd }) => {
     const dispatch = useDispatch()
+    const { typeId } = useParams();
+    const [currentDate, setCurrentDate] = useState(new Date);
+    // console.log(type)
     const [data, setData] = useState({
         name: '',
+        quantity: 0,
+        check_in: '',
+        check_out: '',
         type,
         quantity: '',
-        detail: '',
+        details: '',
         description: '',
         price: '',
         image: ''
     })
+
     const onchangeQuantity = (e) => {
         var value = e;
         setData((prevData) => ({
@@ -32,19 +43,40 @@ const FormAddRoom = ({ type, close }) => {
         }));
     }
 
-    const handleSubmit = () => {
-        dispatch(add(data))
+    const onChangeDate = (value) => {
+        let checkInDate = new Date(value[0])
+        let checkOutDate = new Date(value[1])
+        setData(prevData => ({
+            ...prevData,
+            check_in: checkInDate,
+            check_out: checkOutDate,
+        }));
+    }
+
+    // console.log(data)
+
+    const handleSubmit = async () => {
+        // dispatch(add(data))
+        handleAdd(data)
         close()
         setData({
             name: '',
+            quantity: 0,
+            check_in: '',
+            check_out: '',
             type,
             quantity: '',
-            detail: '',
+            details: '',
             description: '',
             price: '',
             image: ''
         })
     }
+
+    const disabledDate = (current) => {
+        // Can not select days before today and today
+        return current && current.valueOf() < Date.now();
+    };
 
     return (
         <div className='add-main-form-admin-room'>
@@ -54,10 +86,13 @@ const FormAddRoom = ({ type, close }) => {
                         <Input value={data.name} name='name' onChange={onChangeValue} />
                     </Form.Item>
                     <Form.Item label="Type room" className='input-form-admin-add-room'>
-                        <Select defaultValue={type} disabled>
+                        <Select value={type} disabled>
                         </Select>
                     </Form.Item>
                     <Form.Item label="Quantity" className='input-form-admin-add-room'>
+                        <Input value={data.quantity} name='quantity' type='number' onChange={onChangeValue} />
+                    </Form.Item>
+                    {/* <Form.Item label="Quantity" className='input-form-admin-add-room'>
                         <Select onChange={onchangeQuantity}>
                             <Select.Option value="1">1</Select.Option>
                             <Select.Option value="2">2</Select.Option>
@@ -65,15 +100,18 @@ const FormAddRoom = ({ type, close }) => {
                             <Select.Option value="4">4</Select.Option>
                             <Select.Option value="5">5</Select.Option>
                         </Select>
-                    </Form.Item>
-                    <Form.Item label="Detail" className='input-form-admin-add-room'>
-                        <TextArea value={data.detail} name='detail' onChange={onChangeValue} rows={2} />
+                    </Form.Item> */}
+                    <Form.Item label="Details" className='input-form-admin-add-room'>
+                        <TextArea value={data.details} name='details' onChange={onChangeValue} rows={2} />
                     </Form.Item>
                     <Form.Item label="Description" className='input-form-admin-add-room'>
                         <TextArea value={data.description} name='description' onChange={onChangeValue} rows={5} />
                     </Form.Item>
                     <Form.Item label="Image Room" className='input-form-admin-add-room'>
-                        <Input value={data.image} name='img' onChange={onChangeValue} />
+                        <Input value={data.image} type='text' name='image' onChange={onChangeValue} />
+                    </Form.Item>
+                    <Form.Item label="Check in" className='input-form-admin-add-room'>
+                        <RangePicker disabledDate={disabledDate} name='check_in' onChange={(date, dateString) => onChangeDate(dateString)} />
                     </Form.Item>
                     <Form.Item label="Price" className='input-form-admin-add-room'>
                         <Input value={data.price} name='price' onChange={onChangeValue} />
