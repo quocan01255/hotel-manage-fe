@@ -1,4 +1,4 @@
-import SeachBar from "../../Components/User/search_bar/SearchBar"
+import SearchBar from "../../Components/User/search_bar/SearchBar"
 import ListRooms from "../../Components/User/list_rooms/ListRooms"
 import Footers from "../../Components/User/Footers"
 import Headerbooking from '../../Components/User/header_booking/Headerbooking'
@@ -9,17 +9,17 @@ import "react-toastify/dist/ReactToastify.css";
 import { Search, resetmessage } from "../../redux/actions/SearchAction";
 import { resetCartMessage } from "../../redux/actions/cartActions"
 import formatDatetime from "../../util/DatetimeUtil";
-import { getRooms } from "../../services/api";
+import { getRooms, searchRoom } from "../../services/api";
+import dayjs from 'dayjs';
+
 function BookingPage() {
     const [rooms, setRooms] = useState([])
-    const [test, setTest] = useState([])
-    const [startDate, setStartDates] = useState(new Date());
     const dispatch = useDispatch()
     const getdata = useSelector((state) => state.SearchReducer.rooms);
     const message = useSelector((state) => state.SearchReducer.message);
-    const cartState = useSelector(state => state.cartReducer)
-    const startDates = formatDatetime(startDate, "DD/MM/YYYY")
-    // console.log(startDates);
+    const cartState = useSelector(state => state.cartReducer);
+    const [checkIn, setCheckIn] = useState(new Date());
+    const [checkOut, setCheckOut] = useState(dayjs().add(1, 'day').toDate());
     //Call api and get data
     const fetchRooms = async () => {
         try {
@@ -31,20 +31,12 @@ function BookingPage() {
         }
     };
     useEffect(() => {
-        
-        // fetch('http://localhost:3001/rooms')
-        //     .then((response) => response.json())
-        //     .then((rooms) => {
-        //         const room = rooms.filter((room) => room.checkin >= startDates)
-        //         setRooms(room)
-        //         // console.log(room);
-        //     })
-
-        //     .catch((error) => {
-        //     });
-
         fetchRooms();
-    }, [])
+
+        console.log(checkIn)
+        console.log(checkOut)
+    }, [checkIn, checkOut])
+
 
     useEffect(() => {
         setRooms(getdata)
@@ -73,9 +65,13 @@ function BookingPage() {
         }
     }, [cartState])
 
-    const onSubmit = (data) => {
-        dispatch(Search(data))
+    const onSubmit = async (check_in, check_out) => {
+        setCheckIn(check_in);
+        setCheckOut(check_out)
+
+        // dispatch(Search(data))
     }
+
 
     return (
         <>
@@ -83,8 +79,8 @@ function BookingPage() {
             <Headerbooking />
             <div style={{ backgroundColor: '#f8f8f8', paddingTop: '100px' }}>
                 <div style={{ backgroundColor: '#f8f8f8', margin: '0 auto' }} className='container'>
-                    <SeachBar onSubmit={onSubmit} />
-                    <ListRooms rooms={rooms} />
+                    <SearchBar onSubmit={onSubmit} />
+                    <ListRooms rooms={rooms} checkIn={checkIn} checkOut={checkOut} />
                 </div>
                 <Footers />
             </div>

@@ -137,7 +137,7 @@ const RoomCart = ({
       <div className="c-room-card ">
         {cart ? cart.map((item) => (
           <CartItem key={item.id} roomId={item.id_room} handleRemove={() => removeRoom(item.id)} increaseTotal={increaseTotal} decreaseTotal={decreaseTotal}/>
-        )) : <h1>Cart is empty</h1>}
+        )) : <div className="d-flex justify-content-center align-items-center" style={{height: '100%'}}>Cart is empty</div>}
         <br />
       </div>
     </div>

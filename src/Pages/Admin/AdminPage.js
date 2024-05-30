@@ -28,7 +28,7 @@ function AdminPage() {
     getItem(<Link to={"DashBoard"}>DashBoard</Link>, '1', <HomeOutlined />),
     getItem(<Link to={"ManagerBooking"}>Manager Booking</Link>, '2', <SolutionOutlined />),
     getItem('Manager room', '3', <BarsOutlined />, []),
-    getItem(<Link to={"ManagerUser"}>Manager User</Link>, '8', <SolutionOutlined />),
+    // getItem(<Link to={"ManagerUser"}>Manager User</Link>, '8', <SolutionOutlined />),
   ]);
 
   const getTypeRoomItems = (types) => {
@@ -80,7 +80,7 @@ function AdminPage() {
               <Route index element={<DashBoard />} />
               <Route path="/ManagerBooking" element={<SearchFormBooking />} />
               <Route path="/ManagerRoom/:typeId" element={<RoomType />} />
-              <Route path="/ManagerUser" element={<ManagerUserPage />} />
+              {/* <Route path="/ManagerUser" element={<ManagerUserPage />} /> */}
               <Route path="/DashBoard" element={<DashBoard />} />
 
             </Routes>

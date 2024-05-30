@@ -56,7 +56,7 @@ function App() {
             <Route path="/adminpage" element={<AdminPage />} >
               <Route path="ManagerBooking" element={<SearchFormBooking />} />
               <Route path="ManagerRoom/:typeId" element={<RoomType />} />
-              <Route path="ManagerUser" element={<ManagerUserPage/>} />
+              {/* <Route path="ManagerUser" element={<ManagerUserPage/>} /> */}
               <Route path="DashBoard" element={<DashBoard/>} />
             </Route>
             <Route path="/bookingpage" element={<BookingPage/>}/>

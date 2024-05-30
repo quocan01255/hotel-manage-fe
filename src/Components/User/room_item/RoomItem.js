@@ -12,10 +12,11 @@ function RoomItem({
   price,
   img,
   addRoom,
-  checkout
+  checkIn,
+  checkOut
 }) {
   const handleClick = () => {
-    addRoom(idTab,checkout);
+    addRoom(idTab);
   };
 
   return (

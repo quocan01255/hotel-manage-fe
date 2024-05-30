@@ -4,10 +4,11 @@ import "react-datepicker/dist/react-datepicker.css";
 import "./searchbar.css";
 import formatDatetime from "../../../util/DatetimeUtil";
 import Validator from "../../../commons/validator";
+import dayjs from 'dayjs';
 
-function SeachBar(props) {
+function SearchBar(props) {
   const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(dayjs().add(1, 'day').toDate());
   const [quantity, setQuantity] = useState(0);
 
 
@@ -15,17 +16,17 @@ function SeachBar(props) {
     var value = e.target.value;
     setQuantity(value);
   };
- 
+
   useEffect(() => {
     var form = new Validator("#booking-form");
     form.onSubmit = function () {
       // dispatch(Search(startDate,endDate,quantity))
-      const data = {
-        startDate: formatDatetime(startDate, "DD/MM/YYYY"),
-        endDate: formatDatetime(endDate, "DD/MM/YYYY"),
-        quantity: quantity,
-      };
-      props.onSubmit(data);
+      // const data = {
+      //   startDate, 
+      //   endDate,
+      //   // quantity: quantity,
+      // };
+      props.onSubmit(startDate, endDate);
     };
   });
 
@@ -40,13 +41,13 @@ function SeachBar(props) {
             <label htmlFor="date_from">CHECK-IN</label>
             <div className="input-container">
               <DatePicker
-                 minDate={new Date()}
-                 maxDate={endDate}
+                minDate={new Date()}
+                maxDate={endDate}
                 dateFormat="dd/MM/yyyy"
-                selected={startDate}              
+                selected={startDate}
                 onChange={(date) => setStartDate(date)}
               />
-             
+
               <i className="fa-solid fa-arrow-right-to-bracket input-icon"></i>
             </div>
           </div>
@@ -62,7 +63,7 @@ function SeachBar(props) {
               <i className="fa-solid fa-arrow-right-from-bracket input-icon"></i>
             </div>
           </div>
-          <div className="form-quantity form-icon">
+          {/* <div className="form-quantity form-icon">
             <label htmlFor="quantity">QUANTITY</label>
             <div className="input-container">
               <select className="" onChange={onchangeQuantily}>
@@ -80,15 +81,15 @@ function SeachBar(props) {
               </select>
               <i className="fa-solid fa-user input-icon"></i>
             </div>
-          </div>         
+          </div>          */}
           <div className="form-submit">
             <input type="submit" className="submit" value="Check" />
           </div>
         </div>
-        </form>
+      </form>
     </div>
   );
-    
+
 }
 
-export default SeachBar;
+export default SearchBar;

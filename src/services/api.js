@@ -62,16 +62,13 @@ export const getRoomByType = async (id) => {
     }
 };
 
-export const addRoom = async (name, quantity, details, img, price, check_in, check_out, description, type_id) => {
+export const addRoom = async (name, details, img, price, description, type_id) => {
     try {
         const reqBody = {
             name,
-            quantity,
             details,
             img,
             price,
-            check_in,
-            check_out,
             description,
             type_id
         }
@@ -94,17 +91,15 @@ export const removeRoom = async (id) => {
     }
 }
 
-export const updateRoom = async (id, name, quantity, details, img, price, check_in, check_out, description) => {
+export const updateRoom = async (id, name, details, img, price, description, type_id) => {
     try {
         const reqBody = {
             name,
-            quantity,
             details,
             img,
             price,
-            check_in,
-            check_out,
             description,
+            type_id
         }
         const response = await axios.patch(`${API_BASE_URL}/update-room?id=${id}`, reqBody);
         return response.data;
@@ -123,6 +118,20 @@ export const getTypeRooms = async () => {
         throw error;
     }
 };
+
+export const searchRoom = async(check_in, check_out) => {
+    try {
+        const reqBody = {
+            check_in,
+            check_out
+        }
+        const response = await axios.post(`${API_BASE_URL}/rooms/search`, reqBody);
+        return response.data.data;
+    } catch (error) {
+        console.error('Error fetching search room:', error);
+        throw error;
+    }
+}
 
 export const getTypeById = async (id) => {
     try {
@@ -144,10 +153,12 @@ export const getCart = async (userId) => {
     }
 }
 
-export const addCartItem = async (userId, roomId) => {
+export const addCartItem = async (userId, roomId, checkIn, checkOut) => {
     try {
         const reqBody = {
-            "id_room": roomId
+            "id_room": roomId,
+            "check_in": checkIn,
+            "check_out": checkOut
         }
         const response = await axios.post(`${API_BASE_URL}/add-cart-item?id=${userId}`, reqBody);
         return response.data;

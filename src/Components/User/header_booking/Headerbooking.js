@@ -28,23 +28,23 @@ function Headerbooking() {
   };
   //endmui
 
-  useEffect(() => {
-    if (localStorage.getItem('guestCart')) {
-      setGuestCart(JSON.parse(localStorage.getItem('guestCart')))
-    }
-  }, [cartState])
+  // useEffect(() => {
+  //   if (localStorage.getItem('guestCart')) {
+  //     setGuestCart(JSON.parse(localStorage.getItem('guestCart')))
+  //   }
+  // }, [cartState])
 
-  useEffect(() => {
-    fetch('http://localhost:3001/userCart')
-      .then((response) => response.json())
-      .then((rooms) => {
+  // useEffect(() => {
+  //   fetch('http://localhost:3001/userCart')
+  //     .then((response) => response.json())
+  //     .then((rooms) => {
 
-        const phong = rooms.filter((item) => item.idUser === checkUser.id)
-        setRooms(phong)
-      })
-      .catch((error) => {
-      });
-  }, [cartState])
+  //       const phong = rooms.filter((item) => item.idUser === checkUser.id)
+  //       setRooms(phong)
+  //     })
+  //     .catch((error) => {
+  //     });
+  // }, [cartState])
 
   return (
     <div>

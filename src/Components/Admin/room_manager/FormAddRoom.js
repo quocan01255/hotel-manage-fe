@@ -20,7 +20,7 @@ const FormAddRoom = ({ type, close, handleAdd }) => {
         check_in: '',
         check_out: '',
         type,
-        quantity: '',
+        // quantity: '',
         details: '',
         description: '',
         price: '',
@@ -62,10 +62,10 @@ const FormAddRoom = ({ type, close, handleAdd }) => {
         setData({
             name: '',
             quantity: 0,
-            check_in: '',
-            check_out: '',
+            // check_in: '',
+            // check_out: '',
             type,
-            quantity: '',
+            // quantity: '',
             details: '',
             description: '',
             price: '',
@@ -89,9 +89,9 @@ const FormAddRoom = ({ type, close, handleAdd }) => {
                         <Select value={type} disabled>
                         </Select>
                     </Form.Item>
-                    <Form.Item label="Quantity" className='input-form-admin-add-room'>
+                    {/* <Form.Item label="Quantity" className='input-form-admin-add-room'>
                         <Input value={data.quantity} name='quantity' type='number' onChange={onChangeValue} />
-                    </Form.Item>
+                    </Form.Item> */}
                     {/* <Form.Item label="Quantity" className='input-form-admin-add-room'>
                         <Select onChange={onchangeQuantity}>
                             <Select.Option value="1">1</Select.Option>
@@ -110,11 +110,11 @@ const FormAddRoom = ({ type, close, handleAdd }) => {
                     <Form.Item label="Image Room" className='input-form-admin-add-room'>
                         <Input value={data.image} type='text' name='image' onChange={onChangeValue} />
                     </Form.Item>
-                    <Form.Item label="Check in" className='input-form-admin-add-room'>
+                    {/* <Form.Item label="Check in" className='input-form-admin-add-room'>
                         <RangePicker disabledDate={disabledDate} name='check_in' onChange={(date, dateString) => onChangeDate(dateString)} />
-                    </Form.Item>
+                    </Form.Item> */}
                     <Form.Item label="Price" className='input-form-admin-add-room'>
-                        <Input value={data.price} name='price' onChange={onChangeValue} />
+                        <Input value={data.price} type='number' name='price' onChange={onChangeValue} />
                     </Form.Item>
                     <Form.Item className='btn-admin-form-add-room'>
                         <Button type="primary" className='btn-admin-inform-add-room' onClick={handleSubmit}>Add</Button>

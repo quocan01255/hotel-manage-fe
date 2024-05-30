@@ -13,6 +13,7 @@ import { payment } from "../../redux/actions/PayAction";
 import VisitorAPI from "visitorapi";
 import formatDatetime from "../../util/DatetimeUtil";
 import { getCart, removeCartItem } from "../../services/api";
+import svgCart from "../../assets/empty-cart-svgrepo-com.svg"
 function HomeCart() {
   const dispatch = useDispatch()
   const cartMessage = useSelector((state) => state.cartReducer.message);
@@ -173,44 +174,63 @@ function HomeCart() {
     <>
       <ToastContainer />
       <Headerbooking />
-      <div style={{ backgroundColor: '#f8f8f8', padding: '100px 0' }}>
-        <div className="container" >
-          <div className="backpage">
-            <Link to="/bookingpage" >
-              <i className="fa-solid fa-arrow-left"></i>
-              Return
-            </Link>
-          </div>
-          <div className="row">
-            <div className="col-md-6">
-              <RoomCart
-                removeRoom={handleRemove}
-                cart={cart}
-                increaseTotal={increaseTotal}
-                decreaseTotal={decreaseTotal}
-              // totalRoomPrice={totalRoomPrice}
-              // guestCart={cart}
-              // increaseQuantity={handleIncrease}
-              // decreaseQuantity={handleDecrease}
-              />
-              <div className="c-booking-summary">
-                <div className="c-booking-title">Booking Summary</div>
-                <div className="c-booking-item">
-                  <div className="c-booking-info">
-                    <span className="c-booking-price">Total price: {new Intl.NumberFormat("vi-VN", {
-                      style: "currency",
-                      currency: "VND",
-                    }).format(total)}</span>
+      {cart ? (
+        <div style={{ backgroundColor: '#f8f8f8', padding: '100px 0' }}>
+          <div className="container" >
+            <div className="backpage">
+              <Link to="/bookingpage" >
+                <i className="fa-solid fa-arrow-left"></i>
+                Return
+              </Link>
+            </div>
+            <div className="row">
+              <div className="col-md-6">
+                <RoomCart
+                  removeRoom={handleRemove}
+                  cart={cart}
+                  increaseTotal={increaseTotal}
+                  decreaseTotal={decreaseTotal}
+                // totalRoomPrice={totalRoomPrice}
+                // guestCart={cart}
+                // increaseQuantity={handleIncrease}
+                // decreaseQuantity={handleDecrease}
+                />
+                <div className="c-booking-summary">
+                  <div className="c-booking-title">Booking Summary</div>
+                  <div className="c-booking-item">
+                    <div className="c-booking-info">
+                      <span className="c-booking-price">Total price: {new Intl.NumberFormat("vi-VN", {
+                        style: "currency",
+                        currency: "VND",
+                      }).format(total)}</span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="col-md-6">
-              <PaymentForm totalRoomPrice={total} cart={cart} />
+              <div className="col-md-6">
+                <PaymentForm totalRoomPrice={total} cart={cart} />
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      ) : (
+        <div style={{ backgroundColor: '#f8f8f8', padding: '100px 0' }}>
+          <div className="container" >
+            <div className="backpage">
+              <Link to="/bookingpage" >
+                <i className="fa-solid fa-arrow-left"></i>
+                Return
+              </Link>
+            </div>
+            <div className="row">
+              <div className="pt-5">
+                <h4>Your cart is empty</h4>
+                <img src={svgCart} />
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
       <Footers />
     </>
   );
