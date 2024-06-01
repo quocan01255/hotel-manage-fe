@@ -143,6 +143,16 @@ export const searchRoom = async(check_in, check_out) => {
     }
 }
 
+export const checkOut = async (id) => {
+    try {
+        const response = await axios.patch(`${API_BASE_URL}/check-out?id=${id}`);
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching check out room:', error);
+        throw error;
+    }
+}
+
 export const getTypeById = async (id) => {
     try {
         const response = await axios.get(`${API_BASE_URL}/rooms/type-by?id=${id}`);

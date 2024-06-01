@@ -7,7 +7,7 @@ import FormAddRoom from './FormAddRoom';
 import RoomCard from '../room_manager/RoomCard';
 import { ToastContainer, toast } from 'react-toastify';
 import { rsMessage, rsIsAddSuccess, rsIsUpdSuccess, rsIsDeleteSuccess } from '../../../redux/actions/roomManagerAction';
-import { getRoomByType, getTypeById, getTypeRooms, addRoom, removeRoom, updateRoom } from '../../../services/api';
+import { getRoomByType, getTypeById, getTypeRooms, addRoom, removeRoom, updateRoom, checkOut } from '../../../services/api';
 
 function RoomType() {
   const [openAdd, setOpenAdd] = useState(false);
@@ -35,17 +35,6 @@ function RoomType() {
     setTypeName(typeName[0].name)
     setRooms(data)
   }
-
-//   const setData = () => {
-//     fetch('http://localhost:3001/rooms')
-//       .then((response) => response.json())
-//       .then((data) => {
-//         const newRooms = data.filter(room => room.type === "Deluxe")
-//         setRooms(newRooms)
-//       })
-//       .catch((error) => {
-//       });
-//   }
 
   useEffect(() => {
     if (message) {
@@ -79,6 +68,11 @@ function RoomType() {
 
   const handleUpdateRoom = async(id, data) => {
     await updateRoom(id, data.name, data.details, data.img, data.price, data.description, typeId);
+    setData();
+  }
+
+  const handleCheckOut = async(id) => {
+    await checkOut(id);
     setData();
   }
 
@@ -125,7 +119,7 @@ function RoomType() {
           </Modal>
         </div>
         {rooms.map(
-          (room) => <RoomCard key={room.id} type={typeName} room={room} handleRemove={handleRemove} handleUpdateRoom={handleUpdateRoom}/>)}
+          (room) => <RoomCard key={room.id} type={typeName} room={room} handleRemove={handleRemove} handleUpdateRoom={handleUpdateRoom} handleCheckOut={handleCheckOut}/>)}
       </div>
     </div>
   );
