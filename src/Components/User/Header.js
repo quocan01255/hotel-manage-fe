@@ -4,12 +4,13 @@ import '../../Css/animate.min.css'
 import '../../Css/headerstyle.css'
 import '../../commons/header-action'
 import { Link } from 'react-router-dom'
-// import logo from "../../assets/img/logo3.png";
+import logo from '../../assets/LogoHotel.svg'
 function Header() {
     return (
         <nav className="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
             <a href="" className="navbar-brand p-0" >
-                <h1 className="m-0">clément</h1>
+                {/* <h1 className="m-0">clément</h1> */}
+                <img src={logo} alt="Hotel Logo" />
             </a>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span className="fa fa-bars"></span>

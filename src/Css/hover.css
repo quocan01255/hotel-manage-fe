@@ -3,6 +3,9 @@
   /* border: 1px solid red; */
   /* zoom len nam trong khung hinh */
   overflow: hidden;
+  padding: 0;
+  margin: 0 6px;
+  width: 368px;
 }
 .motsp .hinh img{
 	-webkit-transform: scale(1);

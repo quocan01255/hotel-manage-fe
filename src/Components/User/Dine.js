@@ -1,4 +1,7 @@
 import React from "react";
+import restaurant1 from '../../assets/img/restaurant/restaurant1.webp'
+import restaurant2 from '../../assets/img/restaurant/restaurant2.webp'
+import restaurant3 from '../../assets/img/restaurant/restaurant3.webp'
 
 function Dine() {
   return (
@@ -6,7 +9,7 @@ function Dine() {
       <div className="row mt-5 mb-5  bg-muted motsp  ">
         <div className="col-sm-4 hinh">
           <img
-            src="https://quynhon.maiaresorts.com/wp-content/uploads/2021/04/MAQ0472.jpg"
+            src={restaurant1}
             alt=""
             width="416px"
             height="226px"
@@ -14,7 +17,7 @@ function Dine() {
         </div>
         <div className="col-sm-4 hinh">
           <img
-            src="https://quynhon.maiaresorts.com/wp-content/uploads/2020/06/Maia-Resort-Quy-Nhon-VI_RESTAUTANT-2.jpg"
+            src={restaurant2}
             alt=""
             width="416px"
             height="226px"
@@ -22,7 +25,7 @@ function Dine() {
         </div>
         <div className="col-sm-4 hinh">
           <img
-            src="https://quynhon.maiaresorts.com/wp-content/uploads/2020/06/food-exploration-scaled.jpg"
+            src={restaurant3}
             alt=""
             width="416px"
             height="226px"

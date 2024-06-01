@@ -1,4 +1,8 @@
 import React from "react";
+import iconDine from '../../assets/icon/Dine.svg';
+import imgVi from '../../assets/img/restaurant/restaurant2.webp';
+import imgAdHoc from '../../assets/img/restaurant/restaurant1.webp';
+import imgPoolBar from '../../assets/img/restaurant/restaurant4.webp';
 
 function IteamCulinary() {
   return (
@@ -9,7 +13,7 @@ function IteamCulinary() {
       >
         <div className="col-sm-6 ">
           <img
-            src="https://quynhon.maiaresorts.com/wp-content/uploads/2020/05/Dine.svg"
+            src={iconDine}
             alt=""
             width="20%"
           />
@@ -47,7 +51,7 @@ function IteamCulinary() {
         </div>
         <div className="col-sm-7">
           <img
-            src="https://quynhon.maiaresorts.com/wp-content/uploads/2020/06/Maia-Resort-Quy-Nhon-VI_RESTAUTANT-2.jpg"
+            src={imgVi}
             alt=""
             width="100%"
           />
@@ -68,7 +72,7 @@ function IteamCulinary() {
         </div>
         <div className="col-sm-7">
           <img
-            src="https://quynhon.maiaresorts.com/wp-content/uploads/2021/04/MAQ0472.jpg"
+            src={imgAdHoc}
             alt=""
             width="100%"
           />
@@ -89,29 +93,7 @@ function IteamCulinary() {
         </div>
         <div className="col-sm-7">
           <img
-            src="https://quynhon.maiaresorts.com/wp-content/uploads/2021/04/MAQ0491.jpg"
-            alt=""
-            width="100%"
-          />
-        </div>
-      </div>
-
-      <div className="row mt-5 mb-5 pt-5 pb-5">
-        {/* order-lg-2  */}
-        <div className="col-sm-5 order-lg-2">
-          <h1 className="display-6  mb-5 pt-5 pb-5">
-            First featurette heading. It'll blow your mind
-          </h1>
-          <p>
-            Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id
-            ligula porta felis euismod semper. Praesent commodo cursus magna,
-            vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus
-            commodo.
-          </p>
-        </div>
-        <div className="col-sm-7">
-          <img
-            src="https://quynhon.maiaresorts.com/wp-content/uploads/2020/06/Maia-Resort-Quy-Nhon-_Sunrise-1.jpg"
+            src={imgPoolBar}
             alt=""
             width="100%"
           />

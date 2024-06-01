@@ -1,12 +1,18 @@
 import React from 'react'
+import room1 from '../../assets/img/room/room1.jpg'
+import room2 from '../../assets/img/room/room2.jpg'
+import room3 from '../../assets/img/room/room3.jpg'
+import room4 from '../../assets/img/room/room4.jpg'
+import room5 from '../../assets/img/room/room9.jpg'
+import room6 from '../../assets/img/room/room10.jpg'
 
 function Villa() {
   return (
     <div className="container">
-    <div className="row mt-5 mb-5  bg-muted motsp  ">
+      <div className="row mt-5 mb-5  bg-muted motsp  ">
         <div className="col-sm-4 hinh">
           <img
-            src="https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/780899/780899/SUITE-ROOM-1.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75"
+            src={room1}
             alt=""
             width="416px"
             height="226px"
@@ -14,7 +20,7 @@ function Villa() {
         </div>
         <div className="col-sm-4 hinh">
           <img
-            src="https://gcs.tripi.vn/hms_prod/photo/img/455407PbPQYh/quaruple-city-view-2.jpg"
+            src={room2}
             alt=""
             width="416px"
             height="226px"
@@ -22,7 +28,7 @@ function Villa() {
         </div>
         <div className="col-sm-4 hinh">
           <img
-            src="https://www.navadahotel.com/FileStorage/Room/Thumbnail/_DSC5506-HDR-Edit-Edit.png"
+            src={room3}
             alt=""
             width="416px"
             height="226px"
@@ -33,7 +39,7 @@ function Villa() {
       <div className="row mt-5 mb-5  bg-muted motsp  ">
         <div className="col-sm-4 hinh">
           <img
-            src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/415423881.jpg?k=76d019dc7cf43dbe28157bd60d339b0c8843dd4f9fd21b4c6fa9484d67ab0cdf&o=&hp=1"
+            src={room4}
             alt=""
             width="416px"
             height="226px"
@@ -41,7 +47,7 @@ function Villa() {
         </div>
         <div className="col-sm-4 hinh">
           <img
-            src="https://thecaphotel.com/public/uploads/news/20210520/cb02278262605e8f1024954fc3e38221.jpg"
+            src={room5}
             alt=""
             width="416px"
             height="226px"
@@ -49,14 +55,14 @@ function Villa() {
         </div>
         <div className="col-sm-4 hinh">
           <img
-            src="https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/782198/782198/PREMIER_DELUXE_OCEAN_VIEW_TWIN_6.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75"
+            src={room6}
             alt=""
             width="416px"
             height="226px"
           />
         </div>
       </div>
-</div>
+    </div>
   )
 }
 

@@ -1,4 +1,13 @@
 import React from "react";
+import iconStay from '../../assets/icon/Stay.svg'
+import iconUnit from '../../assets/icon/unit.svg'
+import iconSize from '../../assets/icon/size.svg'
+import iconView from '../../assets/icon/view.svg'
+import room1 from '../../assets/img/room/room1.jpg'
+import room2 from '../../assets/img/room/room2.jpg'
+import room3 from '../../assets/img/room/room3.jpg'
+import room4 from '../../assets/img/room/room4.jpg'
+import room5 from '../../assets/img/room/room5.jpg'
 
 function IteamVilla() {
   return (
@@ -9,7 +18,7 @@ function IteamVilla() {
       >
         <div className="col-sm-6 ">
           <img
-            src="https://quynhon.maiaresorts.com/wp-content/uploads/2020/06/Stay.svg"
+            src={iconStay}
             alt=""
             width="20%"
           />
@@ -30,34 +39,34 @@ function IteamVilla() {
 
       <div className="row">
         <div className="col-sm-7 ">
-          <h1 className="display-4 mt-5 pt-5">DELUXE TWIN</h1>
+          <h1 className="display-4 mt-5 pt-5">SUPERIOR DOUB</h1>
           <ul className="list-group list-group-flush ">
             <li className="list-group-item">
               <img
-                src="https://quynhon.maiaresorts.com/wp-content/themes/maiaresort/images/unit.svg"
+                src={iconUnit}
                 width="25px"
               />{" "}
-              4 Sleeps
+              1 Queen Bed
             </li>
             <li className="list-group-item">
               <img
-                src="https://quynhon.maiaresorts.com/wp-content/themes/maiaresort/images/size.svg"
-                width="25px"
-              />{" "}
-              1 KingBed
-            </li>
-            <li className="list-group-item">
-              <img
-                src="https://quynhon.maiaresorts.com/wp-content/themes/maiaresort/images/view.svg"
+                src={iconSize}
                 width="25px"
               />{" "}
               1 Bathroom
+            </li>
+            <li className="list-group-item">
+              <img
+                src={iconView}
+                width="25px"
+              />{" "}
+              City View
             </li>
           </ul>
         </div>
         <div className="col-sm-5">
           <img
-            src="https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/780899/780899/SUITE-ROOM-1.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75"
+            src={room1}
             alt=""
             width="100%"
           />
@@ -67,34 +76,34 @@ function IteamVilla() {
       <div className="row mt-5 mb-5 pt-5 pb-5">
         {/* order-lg-2  */}
         <div className="col-sm-7 order-lg-2">
-          <h1 className="display-4 mt-5 pt-5">DELUXE KING</h1>
+          <h1 className="display-4 mt-5 pt-5">SUPERIOR TWIN</h1>
           <ul className="list-group list-group-flush ">
             <li className="list-group-item">
               <img
-                src="https://quynhon.maiaresorts.com/wp-content/themes/maiaresort/images/unit.svg"
+                src={iconUnit}
                 width="25px"
               />{" "}
-              3 Sleeps
+              2 Single Beds
             </li>
             <li className="list-group-item">
               <img
-                src="https://quynhon.maiaresorts.com/wp-content/themes/maiaresort/images/size.svg"
-                width="25px"
-              />{" "}
-              1 KingBed
-            </li>
-            <li className="list-group-item">
-              <img
-                src="https://quynhon.maiaresorts.com/wp-content/themes/maiaresort/images/view.svg"
+                src={iconSize}
                 width="25px"
               />{" "}
               1 Bathroom
+            </li>
+            <li className="list-group-item">
+              <img
+                src={iconView}
+                width="25px"
+              />{" "}
+              City View
             </li>
           </ul>
         </div>
         <div className="col-sm-5">
           <img
-            src="https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/782198/782198/PREMIER_DELUXE_OCEAN_VIEW_TWIN_6.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75"
+            src={room2}
             alt=""
             width="100%"
           />
@@ -103,34 +112,34 @@ function IteamVilla() {
 
       <div className="row mt-5 mb-5 pt-5 pb-5">
         <div className="col-sm-7 ">
-          <h1 className="display-4 mt-5 pt-5">DELUXE POOL TERRACE TWIN</h1>
+          <h1 className="display-4 mt-5 pt-5">DELUXE DOUBLE - CITY VIEW</h1>
           <ul className="list-group list-group-flush ">
             <li className="list-group-item">
               <img
-                src="https://quynhon.maiaresorts.com/wp-content/themes/maiaresort/images/unit.svg"
+                src={iconUnit}
                 width="25px"
               />{" "}
-              4 Sleeps
+              1 Queen Bed
             </li>
             <li className="list-group-item">
               <img
-                src="https://quynhon.maiaresorts.com/wp-content/themes/maiaresort/images/size.svg"
-                width="25px"
-              />{" "}
-              1 Twin
-            </li>
-            <li className="list-group-item">
-              <img
-                src="https://quynhon.maiaresorts.com/wp-content/themes/maiaresort/images/view.svg"
+                src={iconSize}
                 width="25px"
               />{" "}
               1 Bathroom
+            </li>
+            <li className="list-group-item">
+              <img
+                src={iconView}
+                width="25px"
+              />{" "}
+              City View
             </li>
           </ul>
         </div>
         <div className="col-sm-5">
           <img
-            src="https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/909797/909797/PREMIER_OCEAN_VIEW_DOUBLE_5.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75"
+            src={room3}
             alt=""
             width="100%"
           />
@@ -140,177 +149,70 @@ function IteamVilla() {
       <div className="row mt-5 mb-5 pt-5 pb-5">
         {/* order-lg-2  */}
         <div className="col-sm-7 order-lg-2">
-          <h1 className="display-4 mt-5 pt-5">DELUXE POOL TERRACE KING</h1>
+          <h1 className="display-4 mt-5 pt-5">DELUXE TWIN - CITY VIEW</h1>
           <ul className="list-group list-group-flush ">
             <li className="list-group-item">
               <img
-                src="https://quynhon.maiaresorts.com/wp-content/themes/maiaresort/images/unit.svg"
+                src={iconUnit}
                 width="25px"
               />{" "}
-              4 Sleeps
+              2 Single Beds
             </li>
             <li className="list-group-item">
               <img
-                src="https://quynhon.maiaresorts.com/wp-content/themes/maiaresort/images/size.svg"
-                width="25px"
-              />{" "}
-              1 KingBed
-            </li>
-            <li className="list-group-item">
-              <img
-                src="https://quynhon.maiaresorts.com/wp-content/themes/maiaresort/images/view.svg"
+                src={iconSize}
                 width="25px"
               />{" "}
               1 Bathroom
+            </li>
+            <li className="list-group-item">
+              <img
+                src={iconView}
+                width="25px"
+              />{" "}
+              City View
             </li>
           </ul>
         </div>
         <div className="col-sm-5">
           <img
-            src="https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/909805/909805/PREMIER_OCEAN_TWIN_1.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75"
+            src={room4}
             alt=""
             width="100%"
           />
         </div>
       </div>
+
       <div className="row mt-5 mb-5 pt-5 pb-5">
         <div className="col-sm-7 ">
-          <h1 className="display-4 mt-5 pt-5">DELUXE PLUS KING</h1>
+          <h1 className="display-4 mt-5 pt-5">DELUXE DOUBLE - SEA VIEW</h1>
           <ul className="list-group list-group-flush ">
             <li className="list-group-item">
               <img
-                src="https://quynhon.maiaresorts.com/wp-content/themes/maiaresort/images/unit.svg"
+                src={iconUnit}
                 width="25px"
               />{" "}
-              3 Sleeps
+              1 Queen Bed
             </li>
             <li className="list-group-item">
               <img
-                src="https://quynhon.maiaresorts.com/wp-content/themes/maiaresort/images/size.svg"
+                src={iconSize}
                 width="25px"
               />{" "}
               1 Bathroom
             </li>
             <li className="list-group-item">
               <img
-                src="https://quynhon.maiaresorts.com/wp-content/themes/maiaresort/images/view.svg"
+                src={iconView}
                 width="25px"
               />{" "}
-              1 win
+              Sea View
             </li>
           </ul>
         </div>
         <div className="col-sm-5">
           <img
-            src="https://tbb-prod-apac.imgix.net/attachments/room_type_photos/images/782193/782193/PREMIER_DELUXE_OCEAN_VIEW_DOUBLE.jpg?auto=format,compress&fit=crop&crop=entropy&w=1366&q=75"
-            alt=""
-            width="100%"
-          />
-        </div>
-      </div>
-
-      <div className="row mt-5 mb-5 pt-5 pb-5">
-        {/* order-lg-2  */}
-        <div className="col-sm-7 order-lg-2">
-          <h1 className="display-4 mt-5 pt-5">DELUXE EXECUTIVE KING</h1>
-          <ul className="list-group list-group-flush ">
-            <li className="list-group-item">
-              <img
-                src="https://quynhon.maiaresorts.com/wp-content/themes/maiaresort/images/unit.svg"
-                width="25px"
-              />{" "}
-              4 Sleeps
-            </li>
-            <li className="list-group-item">
-              <img
-                src="https://quynhon.maiaresorts.com/wp-content/themes/maiaresort/images/size.svg"
-                width="25px"
-              />{" "}
-              1 Bathroom
-            </li>
-            <li className="list-group-item">
-              <img
-                src="https://quynhon.maiaresorts.com/wp-content/themes/maiaresort/images/view.svg"
-                width="25px"
-              />{" "}
-              Sea view
-            </li>
-          </ul>
-        </div>
-        <div className="col-sm-5">
-          <img
-            src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/415423881.jpg?k=76d019dc7cf43dbe28157bd60d339b0c8843dd4f9fd21b4c6fa9484d67ab0cdf&o=&hp=1"
-            alt=""
-            width="100%"
-          />
-        </div>
-      </div>
-      <div className="row mt-5 mb-5 pt-5 pb-5">
-        <div className="col-sm-7 ">
-          <h1 className="display-4 mt-5 pt-5">DELUXE EXECUTIVE TWIN</h1>
-          <ul className="list-group list-group-flush ">
-            <li className="list-group-item">
-              <img
-                src="https://quynhon.maiaresorts.com/wp-content/themes/maiaresort/images/unit.svg"
-                width="25px"
-              />{" "}
-              4 Sleeps
-            </li>
-            <li className="list-group-item">
-              <img
-                src="https://quynhon.maiaresorts.com/wp-content/themes/maiaresort/images/size.svg"
-                width="25px"
-              />{" "}
-              1 Bathroom
-            </li>
-            <li className="list-group-item">
-              <img
-                src="https://quynhon.maiaresorts.com/wp-content/themes/maiaresort/images/view.svg"
-                width="25px"
-              />{" "}
-              Sea view
-            </li>
-          </ul>
-        </div>
-        <div className="col-sm-5">
-          <img
-            src="https://www.navadahotel.com/FileStorage/Room/Thumbnail/_DSC5506-HDR-Edit-Edit.png"
-            width="100%"
-          />
-        </div>
-      </div>
-
-      <div className="row mt-5 mb-5 pt-5 pb-5">
-        {/* order-lg-2  */}
-        <div className="col-sm-7 order-lg-2">
-          <h1 className="display-4 mt-5 pt-5">EXECUTIVE SUITE</h1>
-          <ul className="list-group list-group-flush ">
-            <li className="list-group-item">
-              <img
-                src="https://quynhon.maiaresorts.com/wp-content/themes/maiaresort/images/unit.svg"
-                width="25px"
-              />{" "}
-              4 Sleeps
-            </li>
-            <li className="list-group-item">
-              <img
-                src="https://quynhon.maiaresorts.com/wp-content/themes/maiaresort/images/size.svg"
-                width="25px"
-              />{" "}
-              1 KingBed
-            </li>
-            <li className="list-group-item">
-              <img
-                src="https://quynhon.maiaresorts.com/wp-content/themes/maiaresort/images/view.svg"
-                width="25px"
-              />{" "}
-              1 Bathroom
-            </li>
-          </ul>
-        </div>
-        <div className="col-sm-5">
-          <img
-            src="https://thecaphotel.com/public/uploads/news/20210520/cb02278262605e8f1024954fc3e38221.jpg"
+            src={room5}
             alt=""
             width="100%"
           />
