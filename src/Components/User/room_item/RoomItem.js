@@ -12,8 +12,6 @@ function RoomItem({
   price,
   img,
   addRoom,
-  checkIn,
-  checkOut
 }) {
   const handleClick = () => {
     addRoom(idTab);
@@ -75,22 +73,12 @@ function RoomItem({
               ))}
             </ul> */}
             <div className="room__tab-booking">
-              {priceType === "VND" ? (
-                <span className="room_tab-price">
-                  {new Intl.NumberFormat("vi-VN", {
-                    style: "currency",
-                    currency: "VND",
-                  }).format(price)}
-                </span>
-              ) : (
-                <span className="room_tab-price">
-                  {/* {(price / 23805.6).toFixed(2)} */}
-                  {new Intl.NumberFormat("en-IN", {
-                    style: "currency",
-                    currency: "USD",
-                  }).format((price / 23805.6).toFixed(2))}
-                </span>
-              )}
+              <span className="room_tab-price">
+                {new Intl.NumberFormat("vi-VN", {
+                  style: "currency",
+                  currency: "VND",
+                }).format(price)}
+              </span>
               <button
                 className="btn btn-primary room_tab-btn"
                 onClick={handleClick}

@@ -42,6 +42,16 @@ export const getRooms = async () => {
     }
 };
 
+export const getAvailableRooms = async () => {
+    try {
+        const response = await axios.get(`${API_BASE_URL}/rooms-available`);
+        return response.data.data;
+    } catch (error) {
+        console.error('Error fetching available rooms:', error);
+        throw error;
+    }
+};
+
 export const getRoomById = async (id) => {
     try {
         const response = await axios.get(`${API_BASE_URL}/getroom?id=${id}`);

@@ -6,7 +6,7 @@ import "./listrooms.css";
 import { addCartItem } from "../../../services/api";
 import { ToastContainer, toast } from 'react-toastify';
 
-function ListRooms({ rooms, checkIn, checkOut }) {
+function ListRooms({ rooms, handleAdd }) {
   const doCartAction = useSelector((state) => state.cartReducer.type);
   const dispatch = useDispatch();
   const userId = localStorage.getItem("id");
@@ -29,19 +29,19 @@ function ListRooms({ rooms, checkIn, checkOut }) {
   //   setPriceType(e.target.value);
   // }, []);
 
-  const handleAdd = useCallback(
-    async (id) => {
-      if (userId) {
-        console.log(checkIn, checkOut)
-        const response = await addCartItem(userId, id, checkIn, checkOut);
-        showMsgBox(response.message);
-      } else {
-        showMsgBox("Please login to add room!")
-      }
-    },
+  // const handleAdd = useCallback(
+  //   async (id) => {
+  //     if (userId) {
+  //       console.log(checkIn, checkOut)
+  //       const response = await addCartItem(userId, id, checkIn, checkOut);
+  //       showMsgBox(response.message);
+  //     } else {
+  //       showMsgBox("Please login to add room!")
+  //     }
+  //   },
 
-    [doCartAction, dispatch]
-  );
+  //   []
+  // );
 
 
   return (
