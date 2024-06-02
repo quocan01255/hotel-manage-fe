@@ -72,17 +72,9 @@ export const getRoomByType = async (id) => {
     }
 };
 
-export const addRoom = async (name, details, img, price, description, type_id) => {
+export const addRoom = async (data) => {
     try {
-        const reqBody = {
-            name,
-            details,
-            img,
-            price,
-            description,
-            type_id
-        }
-        const response = await axios.post(`${API_BASE_URL}/add-room`, reqBody);
+        const response = await axios.post(`${API_BASE_URL}/add-room`, data);
 
         return response.data;
     } catch (error) {
@@ -101,17 +93,9 @@ export const removeRoom = async (id) => {
     }
 }
 
-export const updateRoom = async (id, name, details, img, price, description, type_id) => {
+export const updateRoom = async (id, data) => {
     try {
-        const reqBody = {
-            name,
-            details,
-            img,
-            price,
-            description,
-            type_id
-        }
-        const response = await axios.patch(`${API_BASE_URL}/update-room?id=${id}`, reqBody);
+        const response = await axios.patch(`${API_BASE_URL}/update-room?id=${id}`, data);
         return response.data;
     } catch (error) {
         console.error('Error fetching update room:', error);

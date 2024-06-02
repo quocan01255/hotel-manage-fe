@@ -28,7 +28,7 @@ function IteamCulinary() {
             designing the dining experience for our guests. Our menus are
             crafted to recall local flavors and far flung tastes, using fresh
             produce from the region. We invite you to experience the touches
-            that make Clément Hotel a singular culinary experience.
+            that make Clement Hotel a singular culinary experience.
           </p>
         </div>
       </div>

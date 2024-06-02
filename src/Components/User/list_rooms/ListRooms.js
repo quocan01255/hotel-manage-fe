@@ -63,7 +63,7 @@ function ListRooms({ rooms, handleAdd }) {
           idTab={room.id}
           // priceType={priceType}
           name={room.name}
-          detail={room.detail}
+          details={room.details}
           description={room.description}
           price={room.price}
           priceSale={room.priceSale}

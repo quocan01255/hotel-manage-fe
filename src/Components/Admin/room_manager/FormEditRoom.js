@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
-import { Button, Form, Input, Select, DatePicker } from 'antd';
+import { Button, Form, Input, Select, DatePicker, Upload } from 'antd';
 import './cssFormAddEditRoom.css';
 import { upd } from '../../../redux/actions/roomManagerAction';
 import { useDispatch } from 'react-redux'
 import dayjs from 'dayjs';
+import { UploadOutlined } from '@ant-design/icons';
 
 const { TextArea } = Input;
 const { RangePicker } = DatePicker;
 
 const FormDetail = ({ room, close, type, handleUpdateRoom }) => {
     const dispatch = useDispatch()
-    const { id, name, img, details, description, price } = room
+    const { id, name, img, details, description, price } = room;
     const [data, setData] = useState({
         name,
         type,
@@ -18,7 +19,9 @@ const FormDetail = ({ room, close, type, handleUpdateRoom }) => {
         description,
         price,
         img,
-    })
+    });
+    const [fileList, setFileList] = useState([]);
+
 
     const disabledDate = (current) => {
         // Can not select days before today and today
@@ -50,9 +53,22 @@ const FormDetail = ({ room, close, type, handleUpdateRoom }) => {
         }));
     }
 
+    const handleUpload = ({ fileList }) => {
+        setFileList(fileList);
+    };
+
     const handleUpdate = () => {
         // dispatch(upd(data, id))
-        handleUpdateRoom(id, data)
+        const formData = new FormData();
+        formData.append('name', data.name);
+        formData.append('type', data.type);
+        formData.append('details', data.details);
+        formData.append('description', data.description);
+        formData.append('price', data.price);
+        if (fileList.length > 0) {
+            formData.append('image', fileList[0].originFileObj);
+        }
+        handleUpdateRoom(id, formData)
         close()
     }
 
@@ -86,7 +102,13 @@ const FormDetail = ({ room, close, type, handleUpdateRoom }) => {
                         <TextArea name='description' onChange={onChangeValue} defaultValue={description} rows={5} />
                     </Form.Item>
                     <Form.Item label="Image Room" className='input-form-admin-add-room'>
-                        <Input name='img' onChange={onChangeValue} defaultValue={img} />
+                        <Upload
+                            fileList={fileList}
+                            onChange={handleUpload}
+                            beforeUpload={() => false}
+                        >
+                            <Button icon={<UploadOutlined />}>Upload</Button>
+                        </Upload>
                     </Form.Item>
                     {/* <Form.Item label="Check in" className='input-form-admin-add-room'>
                         <RangePicker defaultValue={[dayjs(check_in, 'YYYY-MM-DD'), dayjs(check_out, 'YYYY-MM-DD')]} disabledDate={disabledDate} name='check_in' onChange={(date, dateString) => onChangeDate(dateString)} />

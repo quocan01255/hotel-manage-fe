@@ -57,7 +57,8 @@ function RoomType() {
   }, [typeId])
 
   const fetchAddRoom = async (data) => {
-    await addRoom(data.name, data.details, data.image, data.price, data.description, typeId);
+    data.append('type_id', typeId)
+    await addRoom(data);
     setData();
   }
 
@@ -67,7 +68,8 @@ function RoomType() {
   }
 
   const handleUpdateRoom = async(id, data) => {
-    await updateRoom(id, data.name, data.details, data.img, data.price, data.description, typeId);
+    data.append('type_id', typeId)
+    await updateRoom(id, data);
     setData();
   }
 

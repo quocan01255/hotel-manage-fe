@@ -1,8 +1,10 @@
-import {React , useState, useEffect} from 'react'
+import { React, useState, useEffect } from 'react'
 import { getRoomById } from '../services/api';
 
-function Detail({idRoom, quantity, total}) {
+function Detail({ idRoom, checkIn, checkOut, total }) {
     const [info, setInfo] = useState({})
+    const [formatCheckIn, setFormatCheckIn] = useState(new Date(checkIn));
+    const [formatCheckOut, setFormatCheckOut] = useState(new Date(checkOut));
 
     const getInfo = async () => {
         const response = await getRoomById(idRoom);
@@ -46,19 +48,51 @@ function Detail({idRoom, quantity, total}) {
                                                         <table cellPadding={0} cellSpacing={0} width="100%" role="presentation" style={{ msoTableLspace: '0pt', msoTableRspace: '0pt', borderCollapse: 'collapse', borderSpacing: '0px' }}>
                                                             <tbody>
                                                                 <tr>
-                                                                    <td align="left" className="es-m-txt-l" style={{ padding: 0, margin: 0, paddingTop: '10px' }}><h3 style={{ margin: 0, fontFamily: 'arial, "helvetica neue", helvetica, sans-serif', msoLineHeightRule: 'exactly', letterSpacing: 0, fontSize: '19px', fontStyle: 'normal', fontWeight: 'normal', lineHeight: '23px', color: '#259b97' }}><strong>{info.name}</strong></h3></td>
+                                                                    <td align="left" className="es-m-txt-l" style={{ padding: 0, margin: 0 }}>
+                                                                        <h3 style={{ margin: 0, fontSize: '1.2rem', color: '#259b97' }}>
+                                                                            <strong>{info.name}</strong>
+                                                                        </h3>
+                                                                    </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td align="left" style={{ padding: 0, margin: 0, paddingTop: '5px' }}><p style={{ margin: 0, msoLineHeightRule: 'exactly', fontFamily: 'arial, "helvetica neue", helvetica, sans-serif', lineHeight: '21px', letterSpacing: 0, fontSize: '14px', color: '#333333' }}>{info.detail}</p></td>
+                                                                    <td align="left" style={{ padding: 0, margin: 0 }}>
+                                                                        <p style={{ margin: 0, fontSize: '1.6rem' }}>{info.detail}</p>
+                                                                    </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td align="left" className="es-m-txt-l" style={{ padding: 0, margin: 0, paddingTop: '10px' }}><h3 style={{ margin: 0, fontFamily: 'arial, "helvetica neue", helvetica, sans-serif', msoLineHeightRule: 'exactly', letterSpacing: 0, fontSize: '16px', lineHeight: '23px', color: '#259b97' }}><strong><span style={{ color: '#000000' }}>Qty:</span>&nbsp;{quantity}</strong></h3></td>
+                                                                    <td align="left" className="es-m-txt-l" style={{ padding: 0, margin: 0, paddingTop: "5px" }}>
+                                                                        <p style={{ margin: 0 }}>
+                                                                            <strong>
+                                                                                <span>Check in: </span>
+                                                                                {formatCheckIn.toLocaleDateString()}
+                                                                            </strong>
+                                                                        </p>
+                                                                    </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td align="left" className="es-m-txt-l" style={{ padding: 0, margin: 0, paddingTop: '10px' }}><h3 style={{ margin: 0, fontFamily: 'arial, "helvetica neue", helvetica, sans-serif', msoLineHeightRule: 'exactly', letterSpacing: 0, fontSize: '16px', lineHeight: '23px', color: '#259b97' }}><strong><span style={{ color: '#000000' }}>Price:</span>&nbsp; {new Intl.NumberFormat("vi-VN", {
-                                                                        style: "currency",
-                                                                        currency: "VND",
-                                                                    }).format(total)}</strong></h3>
+                                                                    <td align="left" className="es-m-txt-l" style={{ padding: 0, margin: 0, paddingTop: '5px' }}>
+                                                                        <p style={{ margin: 0 }}>
+                                                                            <strong>
+                                                                                <span>Check out: </span>
+                                                                                {formatCheckOut.toLocaleDateString()}
+                                                                            </strong>
+                                                                        </p>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td align="left" className="es-m-txt-l" style={{ padding: 0, margin: 0, paddingTop: '5px' }}>
+                                                                        <p style={{ margin: 0 }}>
+                                                                            <strong>
+                                                                                <span>
+                                                                                    Price:
+                                                                                </span>
+                                                                                &nbsp;
+                                                                                {new Intl.NumberFormat("vi-VN", {
+                                                                                    style: "currency",
+                                                                                    currency: "VND",
+                                                                                }).format(total)}
+                                                                            </strong>
+                                                                        </p>
                                                                     </td>
                                                                 </tr>
                                                             </tbody>

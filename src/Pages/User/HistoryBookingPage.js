@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom'
 function HistoryBookingPage() {
   return (
     <>
-      <div className='container'>
+      <div className='container' style={{padding: '50px 0'}}>
         <div className="backpage">
           <Link to="/bookingpage" >
-            <i class="fa-solid fa-arrow-left"></i>
+            <i className="fa-solid fa-arrow-left"></i>
             Return
           </Link>
         </div>

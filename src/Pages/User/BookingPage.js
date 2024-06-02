@@ -8,13 +8,14 @@ import { ToastContainer, toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import { Search, resetmessage } from "../../redux/actions/SearchAction";
 import { resetCartMessage } from "../../redux/actions/cartActions"
-import formatDatetime from "../../util/DatetimeUtil";
 import { getAvailableRooms, searchRoom, addCartItem } from "../../services/api";
 import dayjs from 'dayjs';
+import { Bars } from 'react-loader-spinner'
 
 function BookingPage() {
-    const [rooms, setRooms] = useState([])
-    const dispatch = useDispatch()
+    const [rooms, setRooms] = useState([]);
+    const dispatch = useDispatch();
+    const [loading, setLoading] = useState(true);
     const getdata = useSelector((state) => state.SearchReducer.rooms);
     const message = useSelector((state) => state.SearchReducer.message);
     const cartState = useSelector(state => state.cartReducer);
@@ -22,27 +23,27 @@ function BookingPage() {
     const [checkOut, setCheckOut] = useState(dayjs().add(1, 'day').toDate());
     const [cart, setCart] = useState([]);
     const userId = localStorage.getItem("id");
-  
+
     const showMsgBox = useCallback((msg) => {
-      toast(msg, {
-        position: "top-center",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
+        toast(msg, {
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
     }, [])
-    //Call api and get data
+
     const fetchRooms = async () => {
         try {
             const roomsData = await getAvailableRooms();
-            // console.log(roomsData)
-            setRooms(roomsData)
+            setRooms(roomsData);
+            setLoading(false);
         } catch (err) {
-            console.log(err)
+            console.log(err);
         }
     };
 
@@ -81,13 +82,13 @@ function BookingPage() {
         setCheckIn(check_in);
         setCheckOut(check_out);
         fetchRooms();
-        alert("hello")
+        showMsgBox("Select date success!")
     }
 
     const handleAdd = useCallback(
         async (id) => {
             if (userId) {
-                console.log(checkIn, checkOut)
+                // console.log(checkIn, checkOut)
                 const response = await addCartItem(userId, id, checkIn, checkOut);
                 showMsgBox(response.message);
             } else {
@@ -105,7 +106,24 @@ function BookingPage() {
             <div style={{ backgroundColor: '#f8f8f8', paddingTop: '100px' }}>
                 <div style={{ backgroundColor: '#f8f8f8', margin: '0 auto' }} className='container'>
                     <SearchBar onSubmit={onSubmit} />
-                    <ListRooms rooms={rooms} handleAdd={handleAdd} />
+                    {
+                        loading
+                            ?
+                            <div className="d-flex justify-content-center p-5">
+                                <Bars
+                                    height="80"
+                                    width="80"
+                                    color="#259b97"
+                                    ariaLabel="bars-loading"
+                                    wrapperStyle={{}}
+                                    wrapperClass=""
+                                    visible={true}
+                                />
+                            </div>
+                            :
+                            <ListRooms rooms={rooms} handleAdd={handleAdd} />
+                    }
+
                 </div>
                 <Footers />
             </div>

@@ -35,7 +35,7 @@ function SearchBar(props) {
       <form id="booking-form" className="search-form">
         <div className="form-group ">
           <div className="form-destination">
-            <h4>Search for room:</h4>
+            <h4>Select date:</h4>
           </div>
           <div className="form-date-from form-icon">
             <label htmlFor="date_from">CHECK-IN</label>
@@ -63,25 +63,6 @@ function SearchBar(props) {
               <i className="fa-solid fa-arrow-right-from-bracket input-icon"></i>
             </div>
           </div>
-          {/* <div className="form-quantity form-icon">
-            <label htmlFor="quantity">QUANTITY</label>
-            <div className="input-container">
-              <select className="" onChange={onchangeQuantily}>
-                <option value="1" defaultValue>
-                  1
-                </option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-              </select>
-              <i className="fa-solid fa-user input-icon"></i>
-            </div>
-          </div>          */}
           <div className="form-submit">
             <input type="submit" className="submit" value="Check" />
           </div>

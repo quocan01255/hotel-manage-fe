@@ -7,7 +7,7 @@ function RoomItem({
   idTab,
   priceType,
   name,
-  detail,
+  details,
   description,
   price,
   img,
@@ -25,15 +25,15 @@ function RoomItem({
         </div>
         <div className="col-8 room__container">
           <div className="room__title">{name}</div>
-          <div className="room__description">
-            <p>{detail}</p>
-          </div>
           <div className="room__icon">
             <i className="fa-solid fa-wifi"></i>
             <i className="fa-solid fa-phone"></i>
             <i className="fa-regular fa-snowflake"></i>
             <i className="fa-solid fa-tv"></i>
             <i className="fa-solid fa-shower"></i>
+          </div>
+          <div className="room__description mt-4">
+            <p>{details}</p>
           </div>
         </div>
 
@@ -55,7 +55,7 @@ function RoomItem({
               aria-controls="nav-home"
               aria-selected="true"
             >
-              BEST AVAILABLE RATE
+              DESCRIPTION
             </button>
           </div>
         </nav>
@@ -66,12 +66,7 @@ function RoomItem({
             role="tabpanel"
             aria-labelledby="nav-home-tab"
           >
-            {/* Room with available rate and includes:
-            <ul className="room__tab-list">
-              {description.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ul> */}
+            {description}
             <div className="room__tab-booking">
               <span className="room_tab-price">
                 {new Intl.NumberFormat("vi-VN", {

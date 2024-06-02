@@ -7,15 +7,6 @@ const ListBookCard = () => {
   const userId = localStorage.getItem("id");
   const [data, setData] = useState([]);
 
-  // useEffect(() => {
-  //   fetch('http://localhost:3001/bookings')
-  //     .then(res => res.json())
-  //     .then((booking) => {
-  //       const phong = booking.filter((item) => item.idUser === checkUser.id)
-  //       setData(phong)
-  //     })
-  // }, []);
-
   const fetchData = async () => {
     const response = await getBookings(userId)
     setData(response);
@@ -25,7 +16,6 @@ const ListBookCard = () => {
     fetchData();
   }, [])
 
-  // console.log(data)
   const columns = [
     {
       title: 'Customer information',
@@ -52,9 +42,10 @@ const ListBookCard = () => {
     {
       title: 'Booking date',
       render: (record) => {
+        const date = new Date(record.booking_date);
         return (
           <>
-            {record.booking_date}
+            {date.toLocaleDateString()}
           </>
         );
       }

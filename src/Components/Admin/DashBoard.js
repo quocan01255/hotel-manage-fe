@@ -128,7 +128,7 @@ function DashBoard() {
         <Col span={6} order={2}>
           <Card bordered={false} style={{ backgroundColor: '#F7E8F0' }}>
             <Statistic
-              title="Total Accounts"
+              title="Total Customers"
               // value={users?users.price:0}
               value={totalUsers}
               precision={0}
@@ -137,7 +137,7 @@ function DashBoard() {
                 fontSize: '22px'
               }}
               prefix={<ArrowUpOutlined />}
-              suffix="Accounts"
+              suffix="Customers"
             />
           </Card>
         </Col>

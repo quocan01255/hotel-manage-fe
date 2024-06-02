@@ -4,6 +4,8 @@ import "./headerbooking.css";
 import { useSelector, useDispatch } from 'react-redux'
 import { logout } from '../../../redux/actions/authActions'
 import Badge from '@mui/material/Badge';
+import LogoHotel2 from '../../../assets/LogoHotel2.svg'
+
 function Headerbooking() {
   const checkLogin = localStorage.getItem("token");
   const checkUser = JSON.parse(localStorage.getItem("user"));
@@ -50,8 +52,9 @@ function Headerbooking() {
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light header-booking">
         <div className="container">
-          <Link to="/" className="brand ">
-            <h1 className="logo" >clément</h1>
+          <Link to="/" className="brand">
+            {/* <h1 className="logo" >clément</h1> */}
+            <img src={LogoHotel2} alt='Logo' style={{maxWidth: "65px"}}/>
           </Link>
           <ul className="nav justify-content-end">
             <li className="item">
