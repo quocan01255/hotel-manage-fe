@@ -17,6 +17,7 @@ import DashBoard from '../../Components/Admin/DashBoard';
 import { getTypeRooms } from '../../services/api';
 import RoomType from '../../Components/Admin/room_manager/RoomType';
 const { Content, Sider } = Layout;
+
 function getItem(label, key, icon, children) {
   return { key, icon, children, label};
 }
@@ -68,7 +69,7 @@ function AdminPage() {
             }}
 
           >
-            CLÉMENT
+            CLEMENT
           </div>
           <div className="demo-logo-vertical" />
           <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} />

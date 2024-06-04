@@ -17,7 +17,7 @@ function SearchFormBooking() {
             </Breadcrumb>
             <div className="search-form-booking-main">
                 <div className="search-form-booking-child">
-                    <SearchBar onSubmit={onSubmit}/>
+                    {/* <SearchBar onSubmit={onSubmit}/> */}
                     <FilterManagerBooking />
                 </div>
             </div>

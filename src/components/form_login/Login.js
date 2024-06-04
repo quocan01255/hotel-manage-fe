@@ -67,7 +67,7 @@ function Login() {
 
                 <input type="submit" value="Sign in" className="form-submit" />
                 <hr />
-                <LoginSocialGoogle
+                {/* <LoginSocialGoogle
                     scope={'email'}
                     client_id={REACT_APP_GG_APP_ID || ''}
                     onResolve={({ provider, data }) => {
@@ -79,7 +79,7 @@ function Login() {
                     }}
                 >
                     <GoogleLoginButton style={{ fontSize: '16px', width: '452px', marginTop: '10px' }} />
-                </LoginSocialGoogle>
+                </LoginSocialGoogle> */}
 
                 {/* <LoginSocialFacebook 
                 //  scope={'email'}

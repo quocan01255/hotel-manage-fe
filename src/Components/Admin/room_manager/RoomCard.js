@@ -25,7 +25,7 @@ function RoomCard({ room, handleRemove, type, handleUpdateRoom, handleCheckOut }
             <div className="col-md-3 img-admin-manager-room">
                 <img src={img} className="img-fluid rounded-start" alt="..." />
             </div>
-            <div className="col-md-6 ">
+            <div className="col-md-5 ">
                 <div className="card-body">
                     <h5>{name}</h5>
                     <p>{details}</p>
@@ -36,7 +36,7 @@ function RoomCard({ room, handleRemove, type, handleUpdateRoom, handleCheckOut }
                     }).format(price)}</h6>
                 </div>
             </div>
-            <div className="col-md-2 ">
+            <div className="col-md-3 ">
                 <div className='btn-admin-room-manager'>
                     {status === 'occupied' && (
                         <Button className='btn-detail-admin-room-manager' type="primary" onClick={() => {handleCheckOut(room.id)}}>Check out</Button>
