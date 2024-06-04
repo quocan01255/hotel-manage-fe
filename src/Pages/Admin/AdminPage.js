@@ -1,8 +1,4 @@
 import 'bootstrap/dist/css/bootstrap.css'
-import DeluxePool from '../../Components/Admin/room_manager/DeluxePoolRoom';
-import DeluxeExecutive from '../../Components/Admin/room_manager/DeluxeExecutiveRoom';
-import DeluxePlus from '../../Components/Admin/room_manager/DeluxePlusRoom';
-import Deluxe from '../../Components/Admin/room_manager/DeluxeRoom';
 import React, { useEffect, useState } from 'react';
 import { Routes, Route } from "react-router-dom";
 import SearchFormBooking from '../../Components/Admin/booking_manager/searchFormBooking';

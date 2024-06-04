@@ -9,7 +9,7 @@ import room3 from '../../assets/img/room/room3.jpg'
 import room4 from '../../assets/img/room/room4.jpg'
 import room5 from '../../assets/img/room/room5.jpg'
 
-function IteamVilla() {
+function ItemVilla() {
   return (
     <div className="container">
       <div
@@ -222,4 +222,4 @@ function IteamVilla() {
   );
 }
 
-export default IteamVilla;
+export default ItemVilla;

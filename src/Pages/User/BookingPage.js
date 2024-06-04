@@ -3,25 +3,17 @@ import ListRooms from "../../Components/User/list_rooms/ListRooms"
 import Footers from "../../Components/User/Footers"
 import Headerbooking from '../../Components/User/header_booking/Headerbooking'
 import { useEffect, useState, useCallback } from "react";
-import { useDispatch, useSelector } from "react-redux"
 import { ToastContainer, toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
-import { Search, resetmessage } from "../../redux/actions/SearchAction";
-import { resetCartMessage } from "../../redux/actions/cartActions"
 import { getAvailableRooms, searchRoom, addCartItem } from "../../services/api";
 import dayjs from 'dayjs';
 import { Bars } from 'react-loader-spinner'
 
 function BookingPage() {
     const [rooms, setRooms] = useState([]);
-    const dispatch = useDispatch();
     const [loading, setLoading] = useState(true);
-    const getdata = useSelector((state) => state.SearchReducer.rooms);
-    const message = useSelector((state) => state.SearchReducer.message);
-    const cartState = useSelector(state => state.cartReducer);
     const [checkIn, setCheckIn] = useState(new Date());
     const [checkOut, setCheckOut] = useState(dayjs().add(1, 'day').toDate());
-    const [cart, setCart] = useState([]);
     const userId = localStorage.getItem("id");
 
     const showMsgBox = useCallback((msg) => {
@@ -49,34 +41,7 @@ function BookingPage() {
 
     useEffect(() => {
         fetchRooms();
-    }, [])
-
-    useEffect(() => {
-        setRooms(getdata)
-    }, [getdata])
-
-    useEffect(() => {
-        if (message) {
-            toast.success(message);
-            dispatch(resetmessage())
-        }
-    }, [message])
-
-    useEffect(() => {
-        if (cartState.message) {
-            toast(cartState.message, {
-                position: "top-center",
-                autoClose: 1500,
-                hideProgressBar: true,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-            });
-            dispatch(resetCartMessage())
-        }
-    }, [cartState])
+    }, []);
 
     const onSubmit = async (check_in, check_out) => {
         setCheckIn(check_in);

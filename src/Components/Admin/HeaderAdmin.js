@@ -12,14 +12,10 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { useNavigate, Link } from 'react-router-dom';
-import { logout } from '../../redux/actions/authActions'
-import { useDispatch } from 'react-redux'
-
 
 function HeaderAdmin() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const dispatch = useDispatch();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -36,7 +32,6 @@ function HeaderAdmin() {
     setAnchorElUser(null);
   };
   const handleSetting = () => {
-    dispatch(logout())
     localStorage.clear();
   }
   

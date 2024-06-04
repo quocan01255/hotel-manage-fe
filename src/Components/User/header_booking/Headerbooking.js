@@ -1,52 +1,24 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./headerbooking.css";
-import { useSelector, useDispatch } from 'react-redux'
-import { logout } from '../../../redux/actions/authActions'
 import Badge from '@mui/material/Badge';
 import LogoHotel2 from '../../../assets/LogoHotel2.svg'
 
 function Headerbooking() {
   const checkLogin = localStorage.getItem("token");
   const checkUser = JSON.parse(localStorage.getItem("user"));
-  const dispatch = useDispatch()
   const [rooms, setRooms] = useState([])
-  const [guestCart, setGuestCart] = useState([])
-  const cartState = useSelector(state => state.cartReducer)
 
   const handleLogout = useCallback(() => {
-    // dispatch(logout())
     localStorage.removeItem("token")
     localStorage.removeItem("id")
   }, [])
-  //startmui
+
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick1 = (event) => {
     setAnchorEl(event.currentTarget);
   };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-  //endmui
-
-  // useEffect(() => {
-  //   if (localStorage.getItem('guestCart')) {
-  //     setGuestCart(JSON.parse(localStorage.getItem('guestCart')))
-  //   }
-  // }, [cartState])
-
-  // useEffect(() => {
-  //   fetch('http://localhost:3001/userCart')
-  //     .then((response) => response.json())
-  //     .then((rooms) => {
-
-  //       const phong = rooms.filter((item) => item.idUser === checkUser.id)
-  //       setRooms(phong)
-  //     })
-  //     .catch((error) => {
-  //     });
-  // }, [cartState])
 
   return (
     <div>
@@ -72,24 +44,6 @@ function Headerbooking() {
                   </Link>
                 </li>
               }
-
-              {/* {
-                !checkLogin &&
-                <li className="item">
-                  <Link to="/homecart" className="brand">
-                    <Badge badgeContent={guestCart.length} color="primary"
-                      id="basic-button"
-                      aria-controls={open ? 'basic-menu' : undefined}
-                      aria-haspopup="true"
-                      aria-expanded={open ? 'true' : undefined}
-                      onClick={handleClick1}
-                    >
-                      <i className="fa-solid fa-cart-shopping text-dark" style={{ fontSize: 25, cursor: "pointer" }}></i>
-                    </Badge>
-                  </Link>
-                </li>
-              } */}
-
               {
                 checkLogin &&
                 <li className="item">

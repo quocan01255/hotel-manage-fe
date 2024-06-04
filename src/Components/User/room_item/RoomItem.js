@@ -1,11 +1,8 @@
 
 import "./roomitem.css";
 
-
-
 function RoomItem({
   idTab,
-  priceType,
   name,
   details,
   description,

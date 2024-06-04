@@ -4,7 +4,7 @@ import imgVi from '../../assets/img/restaurant/restaurant2.webp';
 import imgAdHoc from '../../assets/img/restaurant/restaurant1.webp';
 import imgPoolBar from '../../assets/img/restaurant/restaurant4.webp';
 
-function IteamCulinary() {
+function ItemCulinary() {
   return (
     <div className="container">
       <div
@@ -103,4 +103,4 @@ function IteamCulinary() {
   );
 }
 
-export default IteamCulinary;
+export default ItemCulinary;

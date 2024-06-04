@@ -5,9 +5,7 @@ import FormGroup from '../../commons/FormGroup';
 import Validator from '../../commons/validator';
 import { ToastContainer, toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
-import { loginWithEmail, loginWithFaceBook } from '../../redux/actions/authActions'
 import { login } from '../../services/api';
-import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { LoginSocialGoogle } from 'reactjs-social-login'
 import { GoogleLoginButton } from 'react-social-login-buttons'
@@ -17,7 +15,6 @@ import { FacebookLoginButton } from 'react-social-login-buttons';
 const REACT_APP_GG_APP_ID = '478372342529-o6v0gv70ui7pqltdd0e3viaipe2hpmi0.apps.googleusercontent.com'
 
 function Login() {
-    const dispatch = useDispatch()
     const navigate = useNavigate();
     const [token, setToken] = useState()
 
@@ -67,33 +64,6 @@ function Login() {
 
                 <input type="submit" value="Sign in" className="form-submit" />
                 <hr />
-                {/* <LoginSocialGoogle
-                    scope={'email'}
-                    client_id={REACT_APP_GG_APP_ID || ''}
-                    onResolve={({ provider, data }) => {
-                        // console.log(data)
-                        // sessionStorage.setItem('email',JSON.stringify(data));
-                        dispatch(loginWithEmail(data.email))
-                    }}
-                    onReject={(err) => {
-                    }}
-                >
-                    <GoogleLoginButton style={{ fontSize: '16px', width: '452px', marginTop: '10px' }} />
-                </LoginSocialGoogle> */}
-
-                {/* <LoginSocialFacebook 
-                //  scope={'email'}
-                appId='1472186183619832' 
-                // fieldsProfile='name,picture'
-                onResolve={(data) => {
-                    console.log(data);
-                    dispatch(loginWithFaceBook(data.data.email))
-                    setShowNotify(true)
-                }} 
-                onReject={(error)=>{alert("Login Facebook thất bại!");}}
-                >
-                    <FacebookLoginButton style={{ fontSize: '16px', width:'452px', marginTop: '10px' }} />               
-                </LoginSocialFacebook > */}
                 <div className='form-footer'>
                     <Link className='form-link' to={`/register`}>Create account</Link>
                 </div>

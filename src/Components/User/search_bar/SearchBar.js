@@ -2,30 +2,16 @@ import React, { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./searchbar.css";
-import formatDatetime from "../../../util/DatetimeUtil";
 import Validator from "../../../commons/validator";
 import dayjs from 'dayjs';
 
 function SearchBar(props) {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(dayjs().add(1, 'day').toDate());
-  const [quantity, setQuantity] = useState(0);
-
-
-  const onchangeQuantily = (e) => {
-    var value = e.target.value;
-    setQuantity(value);
-  };
 
   useEffect(() => {
     var form = new Validator("#booking-form");
     form.onSubmit = function () {
-      // dispatch(Search(startDate,endDate,quantity))
-      // const data = {
-      //   startDate, 
-      //   endDate,
-      //   // quantity: quantity,
-      // };
       props.onSubmit(startDate, endDate);
     };
   });

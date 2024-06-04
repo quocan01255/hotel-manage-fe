@@ -1,23 +1,17 @@
 import React from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import { useCallback, useEffect, useState, useMemo } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { remove, resetCartMessage, increase, decrease, resetCart } from "../../redux/actions/cartActions";
 import { Link } from "react-router-dom";
 import RoomCart from "../../Components/User/RoomCart";
 import PaymentForm from "../../Components/User/PaymentForm";
 import Footers from "../../Components/User/Footers";
 import "../../Css/styleroom.css";
 import Headerbooking from "../../Components/User/header_booking/Headerbooking";
-import { payment } from "../../redux/actions/PayAction";
-import VisitorAPI from "visitorapi";
-import formatDatetime from "../../util/DatetimeUtil";
 import { getCart, removeCartItem } from "../../services/api";
 import svgCart from "../../assets/empty-cart-svgrepo-com.svg"
 import { Bars } from "react-loader-spinner";
 
 function HomeCart() {
-  const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
   const [cart, setCart] = useState([]);
   const [startDate, setStartDates] = useState(new Date());

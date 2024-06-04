@@ -1,14 +1,10 @@
-import { useDispatch } from 'react-redux';
 import FilterManagerBooking from './filterManagerBooking';
 import SearchBar from './searchBarManagerBooking';
 import { Breadcrumb } from 'antd';
-import { search } from '../../../redux/actions/SearchAdmin';
 
 function SearchFormBooking() {
-    const dispatch = useDispatch()
-    const onSubmit = (name) => {
-        dispatch(search(name))
-    }
+    // const onSubmit = (name) => {
+    // }
     return (
         <>
             <Breadcrumb className='breadcrumb'>

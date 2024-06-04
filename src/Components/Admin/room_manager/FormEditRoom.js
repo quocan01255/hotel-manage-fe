@@ -1,16 +1,11 @@
 import React, { useState } from 'react';
 import { Button, Form, Input, Select, DatePicker, Upload } from 'antd';
 import './cssFormAddEditRoom.css';
-import { upd } from '../../../redux/actions/roomManagerAction';
-import { useDispatch } from 'react-redux'
-import dayjs from 'dayjs';
 import { UploadOutlined } from '@ant-design/icons';
 
 const { TextArea } = Input;
-const { RangePicker } = DatePicker;
 
 const FormDetail = ({ room, close, type, handleUpdateRoom }) => {
-    const dispatch = useDispatch()
     const { id, name, img, details, description, price } = room;
     const [data, setData] = useState({
         name,
@@ -22,19 +17,6 @@ const FormDetail = ({ room, close, type, handleUpdateRoom }) => {
     });
     const [fileList, setFileList] = useState([]);
 
-
-    const disabledDate = (current) => {
-        // Can not select days before today and today
-        return current && current.valueOf() < Date.now();
-    };
-
-    const onchangeQuantity = (e) => {
-        var value = e;
-        setData((prevData) => ({
-            ...prevData,
-            quantity: value,
-        }));
-    };
     const onChangeValue = (e) => {
         const { name, value } = e.target
         setData((prevData) => ({
@@ -58,7 +40,6 @@ const FormDetail = ({ room, close, type, handleUpdateRoom }) => {
     };
 
     const handleUpdate = () => {
-        // dispatch(upd(data, id))
         const formData = new FormData();
         formData.append('name', data.name);
         formData.append('type', data.type);
@@ -83,18 +64,6 @@ const FormDetail = ({ room, close, type, handleUpdateRoom }) => {
                         <Select value={type} disabled>
                         </Select>
                     </Form.Item>
-                    {/* <Form.Item label="Quantity" className='input-form-admin-add-room'>
-                        <Select onChange={onchangeQuantity} defaultValue={quantity}>
-                            <Select.Option value="1">1</Select.Option>
-                            <Select.Option value="2">2</Select.Option>
-                            <Select.Option value="3">3</Select.Option>
-                            <Select.Option value="4">4</Select.Option>
-                            <Select.Option value="5">5</Select.Option>
-                        </Select>
-                    </Form.Item> */}
-                    {/* <Form.Item label="Quantity" className='input-form-admin-add-room'>
-                        <Input defaultValue={quantity} name='quantity' type='number' onChange={onChangeValue} required/>
-                    </Form.Item> */}
                     <Form.Item label="Details" className='input-form-admin-add-room'>
                         <TextArea name='details' onChange={onChangeValue} defaultValue={details} rows={2} />
                     </Form.Item>

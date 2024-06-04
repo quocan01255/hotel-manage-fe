@@ -3,7 +3,7 @@ import img_1 from "../../assets/img/img_1.jpg"
 import icon1 from '../../assets/icon/icon-01.svg'
 import home1 from '../../assets/home1.webp'
 import home2 from '../../assets/home2.jpg'
-function IteamHome() {
+function ItemHome() {
     return (
         <>
             <div className="container">
@@ -44,4 +44,4 @@ function IteamHome() {
     )
 }
 
-export default IteamHome
+export default ItemHome

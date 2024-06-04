@@ -1,22 +1,38 @@
 import './formBookingManager.css';
-import React, { useCallback, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Form, Input } from 'antd';
 import './formBookingManager.css';
-import { upd } from '../../../redux/actions/bookingManagerAction';
-import { useDispatch } from 'react-redux';
 import TextArea from 'antd/es/input/TextArea';
+import { getBookingItem, getRoomById } from '../../../services/api';
 
 const FormDetailBooking = ({ booking, handleUpdate }) => {
     const { id, name, email, phone, info, total_price } = booking
-    const dispatch = useDispatch()
-    const [data, setData] = useState({   
+    const [data, setData] = useState({
         name,
         email,
         phone,
         info,
         total_price,
     })
-    
+    const [bookingItem, setBookingItem] = useState([]);
+
+    const fetchBookingItem = async () => {
+        const response = await getBookingItem(id);
+        for (const item of response) {
+            item.check_in = new Date(item.check_in).toLocaleDateString();
+            item.check_out = new Date(item.check_out).toLocaleDateString();
+            const room = await getRoomById(item.id_room);
+            item.name = room[0].name;
+        }
+        setBookingItem(response);
+    }
+
+    useEffect(() => {
+        fetchBookingItem();
+    }, [])
+
+    console.log(bookingItem)
+
     const onChangeValue = (e) => {
         const { name, value } = e.target
         setData((prevData) => ({
@@ -38,9 +54,13 @@ const FormDetailBooking = ({ booking, handleUpdate }) => {
                     <Form.Item label="Phone">
                         <Input name='phone' onChange={onChangeValue} defaultValue={phone} />
                     </Form.Item>
-                    <Form.Item label="Information">
-                        <TextArea name='info' defaultValue={info} disabled />
-                    </Form.Item>
+                    {
+                        bookingItem.map((item, index) => (
+                            <Form.Item key={index} label={`Room ${index + 1}`}>
+                                <TextArea name='info' defaultValue={`${item.name} (${item.check_in} - ${item.check_out})`} disabled />
+                            </Form.Item>
+                        ))
+                    }
                     <Form.Item label="Total">
                         <Input name='total_price' defaultValue={total_price} disabled />
                     </Form.Item>

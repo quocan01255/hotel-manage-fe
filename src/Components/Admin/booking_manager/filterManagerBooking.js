@@ -2,41 +2,18 @@ import './formBookingManager.css';
 import React, { useState, useEffect } from 'react';
 import { Space, Table, Button, Modal } from 'antd';
 import FormDetailBooking from './formDetailBooking';
-import { useDispatch, useSelector } from 'react-redux';
-import { remove, rsMessage, rsIsUpdSuccess, rsIsDeleteSuccess } from '../../../redux/actions/bookingManagerAction';
 import { ToastContainer, toast } from 'react-toastify';
-import { getAllBookings, getBookingInfo, removeBooking, updateBooking } from '../../../services/api';
+import { getAllBookings, getBookingInfo, getBookingItem, removeBooking, updateBooking } from '../../../services/api';
 
 function FilterManagerBooking() {
     const [bookings, setBookings] = useState([]);
     const [infoBookings, setInfoBookings] = useState([]);
-    const dispatch = useDispatch();
-    const isUpdSuccess = useSelector(state => state.roomManagerReducer.isUpdSuccess);
-    const isDeleteSuccess = useSelector(state => state.roomManagerReducer.isDeleteSuccess);
-    const message = useSelector(state => state.bookingManagerReducer.message);
-    const [currentBooking, setCurrentBooking] = useState([])
-    const resultSearch = useSelector(state => state.SearchAdminReducer.name)
+    const [currentBooking, setCurrentBooking] = useState([]);
 
     const setData = async () => {
         const response = await getAllBookings();
-        setBookings(response)
+        setBookings(response);
     }
-
-    useEffect(() => {
-        if (message) {
-            toast.success(message, {
-                position: toast.POSITION.TOP_CENTER,
-                autoClose: 3000,
-                hideProgressBar: true,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-            });
-            dispatch(rsMessage())
-        }
-    }, [message]);
 
     const getInfo = async() => {
         let data = bookings;
@@ -55,27 +32,11 @@ function FilterManagerBooking() {
         getInfo();
     },  [bookings])
 
-    useEffect(() => {
-        setBookings(resultSearch)
-    }, [resultSearch])
-
-    useEffect(() => {
-        if (isUpdSuccess) {
-            setData()
-            dispatch(rsIsUpdSuccess())
-        } else if (isDeleteSuccess) {
-            setData()
-            dispatch(rsIsDeleteSuccess())
-        }
-    }, [isUpdSuccess, isDeleteSuccess])
+    // useEffect(() => {
+    //     setBookings(resultSearch)
+    // }, [resultSearch])
 
     const [open, setOpen] = useState(false);
-    const handleOk = (e) => {
-        setOpen(false);
-    };
-    const handleCancel = (e) => {
-        setOpen(false);
-    };
     const handleRemove = async (id) => {
         // dispatch(remove(id))
         await removeBooking(id);
@@ -85,7 +46,7 @@ function FilterManagerBooking() {
     const handleUpdate = async (id, name, email, phone) => {
         // dispatch(upd(data, id))
         await updateBooking(id, name, email, phone);
-        handleCancel();
+        setOpen(false);
         setData();
     }
 
@@ -135,7 +96,7 @@ function FilterManagerBooking() {
                     <Space wrap>
                         <div>
                             <Button type="primary"
-                                onClick={(e) => {
+                                onClick={() => {
                                     setOpen(true);
                                     setCurrentBooking(booking)
                                 }}
@@ -144,8 +105,8 @@ function FilterManagerBooking() {
                                 destroyOnClose
                                 title="Detail"
                                 open={open}
-                                onOk={handleOk}
-                                onCancel={handleCancel}
+                                onOk={() => setOpen(false)}
+                                onCancel={() => setOpen(false)}
                                 okButtonProps={{
                                     hidden: true
                                 }}

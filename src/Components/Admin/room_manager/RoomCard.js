@@ -2,13 +2,10 @@ import { Button, Modal } from 'antd';
 import React, { useState } from 'react';
 import './cssRoomManager.css';
 import FormDetail from './FormEditRoom';
-import { remove } from '../../../redux/actions/roomManagerAction';
-import { useDispatch } from 'react-redux';
 
 function RoomCard({ room, handleRemove, type, handleUpdateRoom, handleCheckOut }) {
     const { id, name, details, img, description, price, status } = room
     const [openDetail, setOpenDetail] = useState(false);
-    const dispatch = useDispatch()
     const Detail = () => {
         setOpenDetail(true);
     };
@@ -16,10 +13,7 @@ function RoomCard({ room, handleRemove, type, handleUpdateRoom, handleCheckOut }
     const handleCancel = () => {
         setOpenDetail(false);
     };
-    // const handleRemove = () => {
-    //     dispatch(remove(id))
-    // }
-
+   
     return (
         <div className="row g-0 card-main-admin-manager-room">
             <div className="col-md-3 img-admin-manager-room">

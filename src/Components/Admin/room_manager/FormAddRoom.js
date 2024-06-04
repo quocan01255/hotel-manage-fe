@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Form, Input, Select, Upload } from 'antd';
-import { useDispatch } from 'react-redux'
 import './cssFormAddEditRoom.css';
-import { add } from '../../../redux/actions/roomManagerAction';
 import { addRoom } from '../../../services/api';
 import { useParams } from 'react-router-dom';
 import { DatePicker } from "antd";
@@ -12,18 +10,15 @@ const { TextArea } = Input;
 const { RangePicker } = DatePicker;
 
 const FormAddRoom = ({ type, close, handleAdd }) => {
-    const dispatch = useDispatch()
     const { typeId } = useParams();
     const [currentDate, setCurrentDate] = useState(new Date);
     const [fileList, setFileList] = useState([]);
-    // console.log(type)
     const [data, setData] = useState({
         name: '',
         quantity: 0,
         check_in: '',
         check_out: '',
         type,
-        // quantity: '',
         details: '',
         description: '',
         price: '',
@@ -56,14 +51,12 @@ const FormAddRoom = ({ type, close, handleAdd }) => {
         }));
     }
 
-    // console.log(data)
 
     const handleUpload = ({ fileList }) => {
         setFileList(fileList);
     };
 
     const handleSubmit = async () => {
-        // dispatch(add(data))
         const formData = new FormData();
         formData.append('name', data.name);
         formData.append('type', data.type);
@@ -77,11 +70,7 @@ const FormAddRoom = ({ type, close, handleAdd }) => {
         close()
         setData({
             name: '',
-            // quantity: 0,
-            // check_in: '',
-            // check_out: '',
             type,
-            // quantity: '',
             details: '',
             description: '',
             price: '',
@@ -90,7 +79,6 @@ const FormAddRoom = ({ type, close, handleAdd }) => {
     }
 
     const disabledDate = (current) => {
-        // Can not select days before today and today
         return current && current.valueOf() < Date.now();
     };
 
@@ -105,18 +93,6 @@ const FormAddRoom = ({ type, close, handleAdd }) => {
                         <Select value={type} disabled>
                         </Select>
                     </Form.Item>
-                    {/* <Form.Item label="Quantity" className='input-form-admin-add-room'>
-                        <Input value={data.quantity} name='quantity' type='number' onChange={onChangeValue} />
-                    </Form.Item> */}
-                    {/* <Form.Item label="Quantity" className='input-form-admin-add-room'>
-                        <Select onChange={onchangeQuantity}>
-                            <Select.Option value="1">1</Select.Option>
-                            <Select.Option value="2">2</Select.Option>
-                            <Select.Option value="3">3</Select.Option>
-                            <Select.Option value="4">4</Select.Option>
-                            <Select.Option value="5">5</Select.Option>
-                        </Select>
-                    </Form.Item> */}
                     <Form.Item label="Details" className='input-form-admin-add-room'>
                         <TextArea value={data.details} name='details' onChange={onChangeValue} rows={2} />
                     </Form.Item>
@@ -132,9 +108,6 @@ const FormAddRoom = ({ type, close, handleAdd }) => {
                             <Button icon={<UploadOutlined />}>Upload</Button>
                         </Upload>
                     </Form.Item>
-                    {/* <Form.Item label="Check in" className='input-form-admin-add-room'>
-                        <RangePicker disabledDate={disabledDate} name='check_in' onChange={(date, dateString) => onChangeDate(dateString)} />
-                    </Form.Item> */}
                     <Form.Item label="Price" className='input-form-admin-add-room'>
                         <Input value={data.price} type='number' name='price' onChange={onChangeValue} />
                     </Form.Item>

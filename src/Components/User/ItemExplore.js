@@ -5,7 +5,7 @@ import img2 from '../../assets/DJI_0789_resize.webp'
 import img3 from '../../assets/Hon-Kho-island_resize.webp'
 import img4 from '../../assets/food-exploration-scaled.webp'
 
-function IteamExplore() {
+function ItemExplore() {
     return (
         <div className="container">
 
@@ -69,4 +69,4 @@ function IteamExplore() {
     )
 }
 
-export default IteamExplore
+export default ItemExplore

@@ -5,7 +5,7 @@ import Nav from './Nav'
 
 
 
-function IteamGallery() {
+function ItemGallery() {
   return (
     <div>
       <Slide />
@@ -15,4 +15,4 @@ function IteamGallery() {
   )
 }
 
-export default IteamGallery
+export default ItemGallery
