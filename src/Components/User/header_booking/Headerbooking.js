@@ -1,17 +1,22 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./headerbooking.css";
 import Badge from '@mui/material/Badge';
 import LogoHotel2 from '../../../assets/LogoHotel2.svg'
+import { removeCartByUser } from "../../../services/api";
 
 function Headerbooking() {
   const checkLogin = localStorage.getItem("token");
   const checkUser = JSON.parse(localStorage.getItem("user"));
+  const userId = JSON.parse(localStorage.getItem("id"));
   const [rooms, setRooms] = useState([])
+  const navigate = useNavigate();
 
-  const handleLogout = useCallback(() => {
-    localStorage.removeItem("token")
-    localStorage.removeItem("id")
+  const handleLogout = useCallback(async () => {
+    await removeCartByUser(userId);
+    localStorage.removeItem("token");
+    localStorage.removeItem("id");
+    navigate("/login");
   }, [])
 
   const [anchorEl, setAnchorEl] = useState(null);
@@ -26,7 +31,7 @@ function Headerbooking() {
         <div className="container">
           <Link to="/" className="brand">
             {/* <h1 className="logo" >clément</h1> */}
-            <img src={LogoHotel2} alt='Logo' style={{maxWidth: "65px"}}/>
+            <img src={LogoHotel2} alt='Logo' style={{ maxWidth: "65px" }} />
           </Link>
           <ul className="nav justify-content-end">
             <li className="item">
@@ -63,11 +68,11 @@ function Headerbooking() {
               {
                 checkLogin &&
                 <li className="item">
-                  <Link to="/login" className="brand" onClick={handleLogout}>
+                  <a href="#" className="brand" onClick={handleLogout}>
                     Logout
-                  </Link>
+                  </a>
                 </li>
-                
+
               }
             </li>
           </ul>

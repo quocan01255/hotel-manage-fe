@@ -182,6 +182,16 @@ export const removeCartItem = async (id) => {
     }
 }
 
+export const removeCartByUser = async (id) => {
+    try {
+        const response = await axios.delete(`${API_BASE_URL}/remove-cart-by-user?id=${id}`);
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching clear cart:', error);
+        throw error;
+    }
+}
+
 export const getAllBookings = async () => {
     try {
         const response = await axios.get(`${API_BASE_URL}/allbookings`);
