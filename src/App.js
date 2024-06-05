@@ -21,7 +21,7 @@ import AdminPage from './Pages/Admin/AdminPage';
 import SearchFormBooking from './Components/Admin/booking_manager/searchFormBooking';
 import DetailPage from "./Pages/User/DetailPage";
 
-// import ManagerUserPage from "./Pages/Admin/ManagerUserPage";
+import ManagerTypePage from "./Pages/Admin/ManagerTypePage";
 import DashBoard from "./Components/Admin/DashBoard";
 import RoomType from "./Components/Admin/room_manager/RoomType";
 
@@ -50,7 +50,7 @@ function App() {
         <Route path="/adminpage" element={<AdminPage />} >
           <Route path="ManagerBooking" element={<SearchFormBooking />} />
           <Route path="ManagerRoom/:typeId" element={<RoomType />} />
-          {/* <Route path="ManagerUser" element={<ManagerUserPage/>} /> */}
+          <Route path="ManagerTypePage" element={<ManagerTypePage />} />
           <Route path="DashBoard" element={<DashBoard />} />
         </Route>
         <Route path="/bookingpage" element={<BookingPage />} />

@@ -113,6 +113,40 @@ export const getTypeRooms = async () => {
     }
 };
 
+export const addType = async (name) => {
+    try {
+        const reqBody = { name };
+        const response = await axios.post(`${API_BASE_URL}/add-type`, reqBody);
+
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching add type:', error);
+        throw error;
+    }
+}
+
+export const updateType = async (id, name) => {
+    try {
+        const reqBody = { name };
+        const response = await axios.patch(`${API_BASE_URL}/update-type?id=${id}`, reqBody);
+
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching update type:', error);
+        throw error;
+    }
+}
+
+export const deleteType = async (id) => {
+    try {
+        const response = await axios.delete(`${API_BASE_URL}/delete-type?id=${id}`);
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching remove type:', error);
+        throw error;
+    }
+}
+
 export const searchRoom = async(check_in, check_out) => {
     try {
         const reqBody = {

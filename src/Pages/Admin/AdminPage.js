@@ -2,13 +2,13 @@ import 'bootstrap/dist/css/bootstrap.css'
 import React, { useEffect, useState } from 'react';
 import { Routes, Route } from "react-router-dom";
 import SearchFormBooking from '../../Components/Admin/booking_manager/searchFormBooking';
-import { BarsOutlined, SolutionOutlined, HomeOutlined } from '@ant-design/icons';
+import { BarsOutlined, SolutionOutlined, HomeOutlined, OrderedListOutlined } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
 import { Link } from "react-router-dom";
 import '../../Components/Admin/booking_manager/formMainBookingManager.css';
 import './cssAdmin.css'
 import HeaderAdmin from '../../Components/Admin/HeaderAdmin'
-import ManagerUserPage from './ManagerUserPage'
+import ManagerTypePage from './ManagerTypePage'
 import DashBoard from '../../Components/Admin/DashBoard';
 import { getTypeRooms } from '../../services/api';
 import RoomType from '../../Components/Admin/room_manager/RoomType';
@@ -25,7 +25,7 @@ function AdminPage() {
     getItem(<Link to={"DashBoard"}>DashBoard</Link>, '1', <HomeOutlined />),
     getItem(<Link to={"ManagerBooking"}>Manager Booking</Link>, '2', <SolutionOutlined />),
     getItem('Manager room', '3', <BarsOutlined />, []),
-    // getItem(<Link to={"ManagerUser"}>Manager User</Link>, '8', <SolutionOutlined />),
+    getItem(<Link to={"ManagerTypePage"}>Manager Types</Link>, '8', <OrderedListOutlined />),
   ]);
 
   const getTypeRoomItems = (types) => {
@@ -77,9 +77,8 @@ function AdminPage() {
               <Route index element={<DashBoard />} />
               <Route path="/ManagerBooking" element={<SearchFormBooking />} />
               <Route path="/ManagerRoom/:typeId" element={<RoomType />} />
-              {/* <Route path="/ManagerUser" element={<ManagerUserPage />} /> */}
+              <Route path="/ManagerTypePage" element={<ManagerTypePage fetchTypeRooms={fetchTypeRooms} />} />
               <Route path="/DashBoard" element={<DashBoard />} />
-
             </Routes>
           </Content>
         </Layout>

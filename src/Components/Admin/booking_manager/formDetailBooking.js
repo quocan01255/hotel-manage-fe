@@ -31,7 +31,7 @@ const FormDetailBooking = ({ booking, handleUpdate }) => {
         fetchBookingItem();
     }, [])
 
-    console.log(bookingItem)
+    // console.log(bookingItem)
 
     const onChangeValue = (e) => {
         const { name, value } = e.target
