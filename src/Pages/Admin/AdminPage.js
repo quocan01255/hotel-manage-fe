@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import React, { useEffect, useState } from 'react';
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import SearchFormBooking from '../../Components/Admin/booking_manager/searchFormBooking';
 import { BarsOutlined, SolutionOutlined, HomeOutlined, OrderedListOutlined } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
@@ -27,6 +27,14 @@ function AdminPage() {
     getItem('Manager room', '3', <BarsOutlined />, []),
     getItem(<Link to={"ManagerTypePage"}>Manager Types</Link>, '8', <OrderedListOutlined />),
   ]);
+  const userRole = JSON.parse(localStorage.getItem("role"));
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (userRole !== "admin") {
+      navigate("/");
+    }
+  }, [])
 
   const getTypeRoomItems = (types) => {
     return types.map((type) => getItem(

@@ -24,6 +24,7 @@ function Login() {
             const response = await login(data.email, data.password)
             localStorage.setItem("token", JSON.stringify(response.token))
             localStorage.setItem("id", JSON.stringify(response.user.userId))
+            localStorage.setItem("role", JSON.stringify(response.user.userRole))
             setToken(response.token)
             showMsgBox(response.message)
         }
